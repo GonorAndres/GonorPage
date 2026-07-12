@@ -12,7 +12,8 @@ const key = import.meta.env.PUBLIC_POSTHOG_KEY as string | undefined;
 
 if (key && typeof window !== 'undefined' && !/localhost|127\.0\.0\.1/.test(window.location.hostname)) {
   posthog.init(key, {
-    api_host: 'https://us.i.posthog.com',
+    api_host: 'https://gonor.me/ingest',
+    ui_host: 'https://us.posthog.com',
     autocapture: false,
     capture_pageview: true,
   });
