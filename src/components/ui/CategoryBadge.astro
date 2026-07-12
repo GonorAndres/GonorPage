@@ -4,8 +4,55 @@ interface Props {
 }
 
 const { label } = Astro.props;
+
+// Map a category key or display label to the site palette. Mirrors the
+// per-category colors used in BlogSearch (CATEGORY_COLOR) and NotesSearch,
+// plus the localized display labels emitted by categoryLabels /
+// noteCategoryLabels. Unknown values fall back to sage.
+const SAGE = '#7A8B6F';
+const TERRACOTTA = '#C17654';
+const STEEL = '#5B7B9A';
+const AMBER = '#D4A574';
+const NAVY = '#1B2A4A';
+
+const CATEGORY_COLOR: Record<string, string> = {
+  // Blog category keys
+  'actuaria-para-todos': SAGE,
+  'fundamentos-actuariales': TERRACOTTA,
+  'proyectos-y-analisis': STEEL,
+  'herramientas': AMBER,
+  'mercado-mexicano': NAVY,
+  // Blog display labels (ES)
+  'Actuaria para todos': SAGE,
+  'Fundamentos actuariales': TERRACOTTA,
+  'Proyectos y analisis': STEEL,
+  'Herramientas': AMBER,
+  'Mercado mexicano': NAVY,
+  // Blog display labels (EN)
+  'Actuarial for everyone': SAGE,
+  'Actuarial Fundamentals': TERRACOTTA,
+  'Projects & analysis': STEEL,
+  'Tools': AMBER,
+  'Mexican market': NAVY,
+  // Note category keys
+  'actuarial': TERRACOTTA,
+  'quant': AMBER,
+  'stats': STEEL,
+  // Note display labels (ES)
+  'Ciencia Actuarial y Seguros': TERRACOTTA,
+  'Finanzas Cuantitativas': AMBER,
+  'Estadística y Probabilidad': STEEL,
+  // Note display labels (EN)
+  'Actuarial Science & Insurance': TERRACOTTA,
+  'Quantitative Finance': AMBER,
+  'Statistics & Probability': STEEL,
+};
+
+const color = CATEGORY_COLOR[label] ?? SAGE;
+// 15% tinted background via 8-digit hex alpha (0x26 ~= 0.15).
+const badgeStyle = `background-color: ${color}26; color: ${color};`;
 ---
 
-<span class="text-xs px-2 py-0.5 rounded-full bg-sage/15 text-sage font-medium">
+<span class="text-xs px-2 py-0.5 rounded font-medium" style={badgeStyle}>
   {label}
 </span>

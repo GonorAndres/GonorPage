@@ -24,7 +24,7 @@ const formattedDate = new Date(note.createdDate + 'T12:00:00').toLocaleDateStrin
   lang === 'es' ? 'es-MX' : 'en-US',
   { year: 'numeric', month: 'long', day: 'numeric' }
 );
-const siteUrl = 'https://GonorAndres.github.io';
+const siteUrl = 'https://gonor.me';
 const pageUrl = lang === 'es' ? `${siteUrl}/artifacts/${slug}/` : `${siteUrl}/en/artifacts/${slug}/`;
 
 const jsonLd = {
@@ -36,7 +36,7 @@ const jsonLd = {
   url: pageUrl,
   author: {
     '@type': 'Person',
-    name: 'Andres Gonzalez Ortega',
+    name: 'Andrés González Ortega',
     url: siteUrl,
   },
   educationalLevel: 'University',
@@ -63,7 +63,7 @@ const relatedNotes = note.relatedNotes
   <article class="py-16 px-6">
     <div class="max-w-2xl mx-auto">
       <div class="mb-8">
-        <a href={tp('/artifacts/')} class="text-sm text-terracotta hover:underline mb-4 block">
+        <a href={tp('/artifacts/')} class="inline-flex items-center py-2 min-h-[40px] text-sm text-terracotta hover:underline mb-4">
           &larr; {t(lang, 'notes.backToNotes')}
         </a>
         <div class="flex flex-wrap items-center gap-3 mb-4">
@@ -71,7 +71,7 @@ const relatedNotes = note.relatedNotes
           <span class="text-xs text-navy/40">
             {t(lang, 'notes.created')}: {formattedDate}
           </span>
-          <span class="text-xs px-2 py-0.5 rounded-full bg-amber/15 text-amber font-medium">
+          <span class="text-xs px-2 py-0.5 rounded bg-amber/15 text-amber font-medium">
             v{note.version}
           </span>
         </div>
@@ -86,12 +86,12 @@ const relatedNotes = note.relatedNotes
       {/* Tags */}
       <div class="flex flex-wrap gap-2 mb-8">
         {note.tags.map((tag) => (
-          <span class="text-xs px-3 py-1 rounded-full bg-sage/15 text-sage font-medium">{tag}</span>
+          <span class="text-xs px-3 py-1 rounded bg-sage/15 text-sage font-medium">{tag}</span>
         ))}
       </div>
 
       {/* Resource links — PDF download or artifact launch */}
-      <div class="p-6 rounded-2xl border border-amber/30 bg-amber/5 mb-8">
+      <div class="p-6 rounded-xl border border-amber/30 bg-amber/5 mb-8">
         <h2 class="font-serif text-lg font-bold text-navy mb-4">
           {note.type === 'artifact'
             ? (lang === 'es' ? 'Artefacto interactivo' : 'Interactive artifact')
@@ -138,7 +138,7 @@ const relatedNotes = note.relatedNotes
                 class="block p-4 rounded-xl border border-amber/20 hover:border-amber/40 hover:shadow-sm transition-all group"
               >
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs px-2 py-0.5 rounded-full bg-sage/15 text-sage font-medium">
+                  <span class="text-xs px-2 py-0.5 rounded bg-sage/15 text-sage font-medium">
                     {noteCategoryLabels[lang][rel.category]}
                   </span>
                 </div>
@@ -153,7 +153,7 @@ const relatedNotes = note.relatedNotes
       )}
 
       <div class="mt-12 pt-8 border-t border-amber/20">
-        <a href={tp('/artifacts/')} class="text-terracotta hover:underline text-sm">
+        <a href={tp('/artifacts/')} class="inline-flex items-center py-2 min-h-[40px] text-terracotta hover:underline text-sm">
           &larr; {t(lang, 'notes.backToNotes')}
         </a>
       </div>

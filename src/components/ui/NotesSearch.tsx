@@ -132,7 +132,7 @@ function NoteRow({ note, labels }: { note: NoteData; labels: Labels }) {
                 key={link.url}
                 href={linkHref}
                 {...(!isInternal && { target: '_blank', rel: 'noopener noreferrer' })}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
+                className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
               >
                 {isInternal ? <LaunchIcon /> : <DownloadIcon />}
                 {link.label}

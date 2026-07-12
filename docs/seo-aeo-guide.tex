@@ -1,0 +1,355 @@
+\documentclass[11pt]{article}
+
+% ---------- packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- palette (gonor.me) ----------
+\definecolor{navy}{HTML}{1B2A4A}
+\definecolor{terracotta}{HTML}{C17654}
+\definecolor{amber}{HTML}{D4A574}
+\definecolor{sage}{HTML}{7A8B6F}
+\definecolor{cream}{HTML}{EDE6DD}
+\definecolor{codebg}{HTML}{F5F0EA}
+\definecolor{rule}{HTML}{D8CFC2}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=navy,
+  urlcolor=terracotta,
+  citecolor=terracotta
+}
+
+% ---------- headings ----------
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\color{terracotta}}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.5em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\color{navy}SEO / AEO --- gonor.me}
+\rhead{\small\color{navy}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rule}\leaders\hrule height \headrulewidth\hfill}}
+
+% ---------- code listings ----------
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  frame=leftline,
+  framerule=2pt,
+  rulecolor=\color{amber},
+  xleftmargin=1.2em,
+  framexleftmargin=1.2em,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  aboveskip=1em,
+  belowskip=1em
+}
+
+% ---------- helper ----------
+\newcommand{\term}[1]{\textcolor{navy}{\textbf{#1}}}
+
+\begin{document}
+
+% ================= TITLE =================
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\color{navy}\Huge\bfseries SEO and AEO Optimization}\\[0.4cm]
+{\color{terracotta}\Large A working guide from the \texttt{gonor.me} session}\\[1.2cm]
+{\color{sage}\rule{0.5\textwidth}{1.5pt}}\\[1.2cm]
+{\large What we changed, why it matters, and how to keep learning}\\[3cm]
+{\large\textbf{Andr\'es Gonz\'alez Ortega}}\\[0.2cm]
+{\normalsize Portfolio: \url{https://gonor.me}}\\[0.2cm]
+{\normalsize July 2026}
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ================= 1. CONTEXT =================
+\section{Context}
+
+This document explains the search-visibility work done on the portfolio site
+\texttt{gonor.me} (an Astro static site) during one working session, and it
+doubles as a self-study guide so the ideas stick.
+
+The site was technically healthy (fast, no console errors, clean semantic
+structure, mobile-safe). The problem was \emph{discoverability}: the entire
+indexing layer pointed at the wrong domain, and the basic discovery files
+(sitemap, robots, social image) were missing. In plain terms, the site worked
+but search engines and answer engines were receiving contradictory signals
+about what and where it was.
+
+\subsection{Two goals, two audiences}
+
+\begin{itemize}[leftmargin=1.4em]
+  \item \term{SEO} (Search Engine Optimization): help \emph{search engines}
+  (Google, Bing) crawl, understand, and rank your pages so a human clicks a
+  blue link.
+  \item \term{AEO} (Answer Engine Optimization): help \emph{answer engines}
+  (ChatGPT, Perplexity, Claude, Google AI Overviews) find, trust, and
+  \emph{cite} your content directly inside a generated answer.
+\end{itemize}
+
+They overlap heavily. Both need crawlable pages, a clear ``entity'' (who you
+are), and machine-readable structure. AEO adds one demand: the text must be
+\emph{extractable} --- a paragraph that answers a question and stands on its
+own when quoted without the rest of the page.
+
+% ================= 2. WHAT WE CHANGED =================
+\section{What we changed this session}
+
+The work split into four buckets: technical SEO, metadata and structured data,
+AEO, and engagement. Each item below states \emph{the fix} and \emph{why it
+matters}.
+
+\subsection{Technical SEO (the plumbing)}
+
+\begin{description}[leftmargin=0em, style=nextline]
+  \item[Canonical domain unified to \texttt{gonor.me}.]
+  Every page's \texttt{canonical}, \texttt{og:url}, JSON-LD \texttt{url}, and
+  the sitemap host previously pointed at \texttt{gonorandres.github.io}, which
+  in turn 301-redirects to \texttt{gonor.me}. That circular signal dilutes
+  authority across two hosts and delays indexing. One config change fixed all
+  of them at once.
+  \item[Sitemap generated.] Added an i18n-aware \texttt{sitemap-index.xml}. A
+  sitemap is the map you hand the crawler; without it, deep pages (28 projects,
+  a blog, and artifacts in two languages) can take months to be discovered.
+  \item[\texttt{robots.txt} created.] Tells crawlers what they may read and
+  where the sitemap lives. It deliberately does \emph{not} block AI crawlers
+  (GPTBot, ClaudeBot, PerplexityBot) --- being citable depends on them reading
+  the site.
+  \item[\texttt{hreflang} added.] The site has Spanish (\texttt{/}) and English
+  (\texttt{/en/}) versions. \texttt{hreflang} tells Google they are
+  translations of each other, not duplicate content, so the right language is
+  shown to the right searcher.
+  \item[404 marked \texttt{noindex}.] The error page should never appear in
+  results; we told crawlers to skip it and dropped its canonical tag.
+\end{description}
+
+\begin{lstlisting}[caption={robots.txt --- allow everything, point at the sitemap}]
+User-agent: *
+Allow: /
+
+Sitemap: https://gonor.me/sitemap-index.xml
+\end{lstlisting}
+
+\begin{lstlisting}[caption={hreflang pair emitted on every page}]
+<link rel="alternate" hreflang="es" href="https://gonor.me/..." />
+<link rel="alternate" hreflang="en" href="https://gonor.me/en/..." />
+<link rel="alternate" hreflang="x-default" href="https://gonor.me/..." />
+\end{lstlisting}
+
+\subsection{Metadata and structured data}
+
+\begin{description}[leftmargin=0em, style=nextline]
+  \item[Titles and descriptions rewritten.] The \texttt{<title>} and meta
+  description are the only text competing on the results page. We replaced a
+  33-character name-only title with one that includes the terms people actually
+  search (``Actuario y Cient\'ifico de Datos'', ``UNAM'') and wrote a full
+  155-character description instead of a recycled 67-character one.
+  \item[Person entity enriched.] The JSON-LD \texttt{Person} gained
+  \texttt{sameAs} (GitHub + LinkedIn), \texttt{alumniOf} (UNAM),
+  \texttt{knowsAbout}, \texttt{knowsLanguage}, and \texttt{email}. This is the
+  backbone of AEO: it lets an engine merge the site, the GitHub, and the
+  LinkedIn into one trusted entity.
+  \item[Article schema completed.] Blog posts now emit \texttt{datePublished} /
+  \texttt{dateModified} / \texttt{author} in both JSON-LD and Open Graph. Dates
+  let Google show ``21 Mar 2026'' in the snippet and let answer engines judge
+  whether the content is current.
+  \item[Open Graph image created.] A \texttt{1200$\times$630} social card
+  (\texttt{og-default.png}) was generated so links shared on LinkedIn,
+  WhatsApp, or Slack render with an image instead of bare text.
+\end{description}
+
+\begin{lstlisting}[caption={The Person entity --- sameAs is the load-bearing field}]
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andres Gonzalez Ortega",
+  "url": "https://gonor.me",
+  "jobTitle": "Actuario y Cientifico de Datos",
+  "alumniOf": { "@type": "CollegeOrUniversity",
+                "name": "Universidad Nacional Autonoma de Mexico" },
+  "knowsAbout": ["Ciencia actuarial", "LISF / CUSF", "Machine Learning"],
+  "sameAs": [ "https://github.com/GonorAndres",
+              "https://www.linkedin.com/in/..." ]
+}
+\end{lstlisting}
+
+\subsection{AEO --- being citable by answer engines}
+
+\begin{description}[leftmargin=0em, style=nextline]
+  \item[An ``About'' page with direct answers.] A new \texttt{/about/} page
+  (both languages) is built from question headings (``Who is\dots?'', ``What
+  does he do?'') where each answer's \emph{first sentence} is a complete,
+  quotable statement. Answer engines lift self-contained sentences; scattered
+  hero fragments are hard to cite.
+  \item[\texttt{FAQPage} schema on flagship projects.] The two flagship posts
+  got 3--4 real Q\&A pairs with \texttt{FAQPage} structured data --- exactly the
+  questions a person asks a chatbot (``Where does the data come from?'').
+  \item[\texttt{llms.txt} at the root.] An emerging convention: a short Markdown
+  file summarizing who you are, what the site contains, and links to the key
+  pages, written for language models.
+\end{description}
+
+\subsection{Engagement and trust}
+
+\begin{itemize}[leftmargin=1.4em]
+  \item Added \term{LinkedIn} to contact, footer, and the \texttt{sameAs} entity.
+  \item \term{Self-hosted the CV} (\texttt{/docs/cv-\dots.pdf}) instead of a
+  Google Drive link, so it never breaks and downloads can be measured as a GA4
+  event.
+  \item Wired \term{GA4 events} for the clicks that matter: \texttt{download\_cv},
+  \texttt{click\_email}, \texttt{click\_repo}, \texttt{click\_demo}.
+\end{itemize}
+
+% ================= 3. GLOSSARY =================
+\section{Key concepts, in one line each}
+
+\begin{description}[leftmargin=0em, style=nextline]
+  \item[Canonical URL] The one true address for a page. Prevents duplicate
+  versions from splitting ranking signal.
+  \item[\texttt{hreflang}] Declares language/region variants so the right
+  translation is served and they are not treated as duplicates.
+  \item[Sitemap] A machine list of every URL worth indexing; speeds discovery.
+  \item[\texttt{robots.txt}] Crawl rules and the sitemap pointer. Allowing a bot
+  is not the same as inviting it --- but blocking one guarantees invisibility.
+  \item[Structured data / JSON-LD] A small script describing the page as data
+  (\texttt{Person}, \texttt{Article}, \texttt{FAQPage}) using the
+  \texttt{schema.org} vocabulary. This is how machines ``read'' meaning.
+  \item[Entity \& \texttt{sameAs}] Your identity as a single node linked to all
+  your profiles. The strongest AEO signal.
+  \item[Open Graph (OG)] Tags that control the preview card when a link is
+  shared on social platforms.
+  \item[\texttt{FAQPage}] Structured Q\&A; eligible for rich results and easy
+  for answer engines to quote.
+  \item[\texttt{llms.txt}] A root Markdown file aimed at language models,
+  summarizing the site.
+  \item[Extractability] The property that a paragraph answers a question and
+  survives being quoted alone. The core AEO writing habit.
+\end{description}
+
+% ================= 4. VERIFY =================
+\section{How to verify the work}
+
+Optimization you cannot measure is a guess. The tools:
+
+\begin{itemize}[leftmargin=1.4em]
+  \item \term{Google Search Console} --- register the domain, submit the
+  sitemap, then watch what is indexed and which queries arrive. Without it you
+  are blind. (\url{https://search.google.com/search-console})
+  \item \term{Rich Results Test} --- validates your JSON-LD and shows which rich
+  results a page is eligible for.
+  (\url{https://search.google.com/test/rich-results})
+  \item \term{Schema Markup Validator} --- \url{https://validator.schema.org}
+  \item \term{Sharing debuggers} --- LinkedIn Post Inspector and Facebook
+  Sharing Debugger re-scrape a URL to preview the OG card.
+  \item \term{Local checks} --- \texttt{curl} for the raw HTML, or a headless
+  browser to confirm \texttt{canonical}, \texttt{hreflang}, and JSON-LD render
+  correctly. During this session every change was verified in the built HTML
+  before shipping.
+\end{itemize}
+
+% ================= 5. LEARN MORE =================
+\section{How to learn this properly}
+
+A path from fundamentals to the frontier.
+
+\subsection{Start with the primary sources}
+\begin{itemize}[leftmargin=1.4em]
+  \item \term{Google Search Central} --- the official documentation and SEO
+  Starter Guide. The single best free resource.
+  \url{https://developers.google.com/search/docs}
+  \item \term{schema.org} --- the vocabulary reference for every structured-data
+  type. Read the \texttt{Person}, \texttt{Article}, and \texttt{FAQPage} pages.
+  \url{https://schema.org}
+  \item \term{web.dev} (by Google) --- performance, Core Web Vitals, and
+  accessibility, which feed ranking. \url{https://web.dev}
+\end{itemize}
+
+\subsection{Build the mental model}
+\begin{itemize}[leftmargin=1.4em]
+  \item Learn the crawl $\rightarrow$ index $\rightarrow$ rank pipeline. Most
+  SEO problems are really \emph{crawl} or \emph{index} problems, not ranking
+  ones.
+  \item Learn the difference between \emph{on-page} (titles, headings, content,
+  schema), \emph{technical} (speed, canonical, sitemap, rendering), and
+  \emph{off-page} (links, mentions, entity reputation).
+  \item Follow reputable, non-spammy sources: Google Search Central Blog,
+  Ahrefs and Moz beginner guides, and Aleyda Solis's newsletter.
+\end{itemize}
+
+\subsection{Understand AEO, the new layer}
+\begin{itemize}[leftmargin=1.4em]
+  \item Read about \emph{entities} and the knowledge graph: search moved from
+  matching keywords to understanding things. Your job is to be an
+  unambiguous entity.
+  \item Watch the \texttt{llms.txt} proposal and how AI crawlers
+  (GPTBot, ClaudeBot, PerplexityBot) are documented; policy here changes fast.
+  \item Practice the one writing habit that matters: open every page, section,
+  and post with a self-contained answer. If a model quotes only your first two
+  sentences, they should still make sense and be correct.
+\end{itemize}
+
+\subsection{Practice loop}
+\begin{enumerate}[leftmargin=1.6em]
+  \item Ship a change (a title, a schema block, a new answer paragraph).
+  \item Validate it (Rich Results Test, Search Console URL inspection).
+  \item Wait for data (impressions, clicks, indexed status).
+  \item Read the query report; write the content those real queries want.
+  \item Repeat. SEO/AEO is a compounding habit, not a one-time task.
+\end{enumerate}
+
+% ================= 6. CHECKLIST =================
+\section{Quick reference checklist}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}p{0.62\textwidth} l@{}}
+\toprule
+\textbf{Item} & \textbf{Status this session} \\
+\midrule
+Canonical / og:url / JSON-LD on real domain & Done \\
+\texttt{sitemap-index.xml} generated & Done \\
+\texttt{robots.txt} (AI crawlers allowed) & Done \\
+\texttt{hreflang} es / en / x-default & Done \\
+Titles \& descriptions optimized per page & Done \\
+\texttt{Person} entity with \texttt{sameAs} & Done \\
+\texttt{Article} dates (published / modified) & Done \\
+Open Graph image \texttt{1200$\times$630} & Done \\
+\texttt{/about/} answer page (ES + EN) & Done \\
+\texttt{FAQPage} on flagship projects & Done \\
+\texttt{llms.txt} at root & Done \\
+Self-hosted CV + GA4 click events & Done \\
+\midrule
+Register domain in Google Search Console & \emph{Your turn} \\
+Submit the sitemap in Search Console & \emph{Your turn} \\
+\texttt{www} subdomain DNS / redirect & \emph{Your turn} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vfill
+\begin{center}
+\small\color{sage}
+Written as a companion to the \texttt{gonor.me} optimization session.\\
+Verify claims against the primary sources above; search policy evolves.
+\end{center}
+
+\end{document}

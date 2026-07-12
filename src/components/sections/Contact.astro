@@ -14,18 +14,19 @@ const { lang } = Astro.props;
   <OrganicBlob variant={2} color="#D4A574" class="w-[400px] h-[400px] -top-20 -right-20 opacity-20" />
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="md:ml-12">
+    <div class="md:mr-12 md:ml-auto md:max-w-3xl md:text-right">
       <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6 fade-up">
         {t(lang, 'section.contact')}
       </h2>
       <p class="text-navy/70 mb-8 fade-up">
         {t(lang, 'contact.message')}
       </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-up">
         <a
           href="mailto:gonorandres@ciencias.unam.mx"
-          class="flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
+          class="md:col-span-2 flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
         >
           <span class="w-10 h-10 flex items-center justify-center rounded-full bg-navy/5">
             <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
@@ -52,7 +53,22 @@ const { lang } = Astro.props;
         </a>
 
         <a
-          href="https://drive.google.com/file/d/16cdRmnzf0drNv9c5848N6ZedgYX9WhwV/view"
+          href="https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
+        >
+          <span class="w-10 h-10 flex items-center justify-center rounded-full bg-navy/5">
+            <svg class="w-5 h-5 text-navy" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </span>
+          <div>
+            <span class="font-medium text-navy">LinkedIn</span>
+            <span class="block text-sm text-navy/50">{lang === 'es' ? 'Perfil profesional' : 'Professional profile'}</span>
+          </div>
+        </a>
+
+        <a
+          href="/docs/cv-andres-gonzalez.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
@@ -81,17 +97,27 @@ const { lang } = Astro.props;
           </div>
         </a>
       </div>
-    </div>
   </div>
 </section>
 
 <script>
-  import { track } from '../../lib/analytics';
+  import { track, gaEvent } from '../../lib/analytics';
+
+  const GA_EVENT: Record<string, string> = {
+    cv: 'download_cv',
+    correo: 'click_email',
+    email: 'click_email',
+    github: 'click_github',
+    linkedin: 'click_linkedin',
+  };
 
   document.querySelectorAll('#contacto a').forEach((link) => {
     link.addEventListener('click', () => {
       const label = link.querySelector('.font-medium')?.textContent?.trim() ?? 'unknown';
-      track('contact_clicked', { method: label.toLowerCase() });
+      const method = label.toLowerCase();
+      track('contact_clicked', { method });
+      const gaName = GA_EVENT[method];
+      if (gaName) gaEvent(gaName, { source: 'contact' });
     });
   });
 </script>

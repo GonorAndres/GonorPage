@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OrganicBlob from '../components/decorations/OrganicBlob.astro';
+import Squiggle from '../components/decorations/Squiggle.astro';
+
+const lang = 'es';
+const title = 'Sobre mí · Andrés González Ortega';
+const description = 'Andrés González Ortega es un actuario formado en la Facultad de Ciencias de la UNAM que construye herramientas actuariales y de ciencia de datos en producción: tarificación GMM con datos CNSF, valuación de reservas bajo LISF y CUSF, agentes de IA sobre regulación mexicana y plataformas de datos en GCP.';
+
+const email = 'gonorandres@ciencias.unam.mx';
+const github = 'https://github.com/GonorAndres';
+const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
+
+// Single source of truth: the visible Q&A and the FAQPage JSON-LD are built
+// from this array, so they always match.
+const faqs = [
+  {
+    q: '¿Quién es Andrés González Ortega?',
+    a: 'Andrés González Ortega es un actuario formado en la Facultad de Ciencias de la UNAM que construye herramientas actuariales y de ciencia de datos en producción. Su trabajo combina la teoría del riesgo con software real: modelos de seguros, valuación de reservas, agentes de inteligencia artificial y plataformas de datos que resuelven problemas concretos del sector asegurador mexicano.',
+  },
+  {
+    q: '¿Qué hace?',
+    a: 'Andrés González Ortega desarrolla software actuarial y analítico que llega a producción, no solo a un cuaderno de notas. Ha construido motores de tarificación de gastos médicos mayores con datos de la CNSF, sistemas de valuación de reservas bajo el marco de la LISF y la CUSF, agentes de IA que razonan sobre la regulación mexicana con recuperación aumentada (RAG) y plataformas de datos que procesan información en la nube. Cada proyecto parte de una pregunta que aún no sabe responder y termina en algo que funciona.',
+  },
+  {
+    q: '¿En qué tecnologías y áreas trabaja?',
+    a: 'Andrés González Ortega trabaja en la intersección de la ciencia actuarial, el aprendizaje automático y la ingeniería de datos. En lo actuarial aplica modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. En lo técnico usa Python, plataformas de datos en Google Cloud como BigQuery, modelos de lenguaje con recuperación aumentada (RAG) y, por curiosidad, entrenó un transformer sobre la obra de Proust para entender por dentro los mecanismos de atención.',
+  },
+  {
+    q: '¿Dónde estudió?',
+    a: 'Andrés González Ortega estudió la carrera de Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y se encuentra en proceso de titulación. Esa formación le dio las bases de probabilidad, estadística, finanzas y teoría del riesgo sobre las que apoya cada proyecto del portafolio.',
+  },
+  {
+    q: '¿Cómo contactarlo?',
+    a: `Puedes contactar a Andrés González Ortega por correo en ${email}. También está disponible en GitHub (${github}) y en LinkedIn (${linkedin}), donde publica su trabajo y proyectos.`,
+    contact: true,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'es',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="relative overflow-hidden py-16 md:py-20 px-6">
+    <OrganicBlob variant={1} color="#D4A574" class="w-[480px] h-[480px] -top-24 -right-32 opacity-40" />
+    <OrganicBlob variant={3} color="#7A8B6F" class="w-[340px] h-[340px] bottom-10 -left-24 opacity-30" />
+
+    <div class="max-w-3xl mx-auto relative z-10">
+      <header class="mb-12">
+        <p class="text-sage font-medium text-lg mb-2">Sobre mí</p>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-navy leading-tight mb-4">
+          Andrés González Ortega
+        </h1>
+        <p class="text-xl text-terracotta font-serif">
+          Actuario y científico de datos · UNAM
+        </p>
+      </header>
+
+      <Squiggle color="#C17654" class="w-full h-6 mb-12" />
+
+      <div class="space-y-12">
+        {faqs.map((f, i) => (
+          <article class:list={['fade-up', i > 0 && 'pt-12 border-t border-navy/10']}>
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
+              {f.q}
+            </h2>
+            <p class="text-navy/80 text-lg leading-relaxed">
+              {f.a}
+            </p>
+            {f.contact && (
+              <div class="flex flex-wrap gap-3 mt-6">
+                <a
+                  href={`mailto:${email}`}
+                  class="inline-block px-5 py-2.5 bg-terracotta text-cream font-medium rounded-xl hover:bg-terracotta/90 transition-colors"
+                >
+                  Correo
+                </a>
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

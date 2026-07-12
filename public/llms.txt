@@ -1,0 +1,26 @@
+# Andrés González Ortega
+
+> Actuario por la UNAM (Facultad de Ciencias) y científico de datos. Construye herramientas actuariales en producción: tarificación de seguros con datos de la CNSF, valuación de reservas bajo la LISF/CUSF, agentes de IA sobre regulación mexicana y plataformas de datos en GCP. Sitio bilingüe (español / inglés).
+
+Andrés González Ortega is a UNAM-trained actuary and data scientist based in Mexico. He builds production actuarial tools: insurance pricing on CNSF data, reserve valuation under Mexican regulation (LISF/CUSF), AI agents over regulatory text, and data platforms on GCP. This site (gonor.me) is his portfolio, blog, and interactive artifacts, in Spanish and English.
+
+## Key pages
+
+- [Inicio / Home](https://gonor.me/): projects, skills, education, contact.
+- [Blog (ES)](https://gonor.me/blog/): technical posts on actuarial science, data engineering, quant finance, and applied math.
+- [Blog (EN)](https://gonor.me/en/blog/): English versions of the posts.
+- [Artefactos / Artifacts](https://gonor.me/artifacts/): interactive HTML tools and technical notes (PDFs).
+
+## Flagship projects
+
+- SIMA: actuarial engine implementing Lee-Carter mortality projection and commutation tables.
+- GMM Explorer: major-medical (Gastos Médicos Mayores) insurance pricing on CNSF data.
+- Asistente de Regulación (LISF/CUSF): RAG agent that reasons over Mexican insurance law with a cross-reference graph.
+- Cartera de Autos: auto-insurance loss analysis (GLM, IBNR, Monte Carlo, fraud detection).
+- Plataformas de datos: BigQuery / GCP pipelines and dashboards.
+
+## Contact
+
+- Email: gonorandres@ciencias.unam.mx
+- GitHub: https://github.com/GonorAndres
+- LinkedIn: https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/

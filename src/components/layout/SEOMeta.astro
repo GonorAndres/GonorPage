@@ -9,9 +9,11 @@ interface Props {
   type?: 'website' | 'article';
   lang?: Lang;
   datePublished?: string;
+  dateModified?: string;
+  noindex?: boolean;
 }
 
-const siteUrl = 'https://GonorAndres.github.io';
+const siteUrl = 'https://gonor.me';
 const {
   title,
   description,
@@ -20,10 +22,38 @@ const {
   type = 'website',
   lang = 'es',
   datePublished,
+  dateModified,
+  noindex = false,
 } = Astro.props;
 
 const canonicalUrl = new URL(url, siteUrl).href;
 const imageUrl = image.startsWith('http') ? image : new URL(image, siteUrl).href;
+
+const AUTHOR_NAME = 'Andrés González Ortega';
+const SAME_AS = [
+  'https://github.com/GonorAndres',
+  'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/',
+];
+
+// hreflang: derive the paired-language URL from the current path.
+const path = new URL(canonicalUrl).pathname;
+let esPath: string;
+let enPath: string;
+if (lang === 'en') {
+  enPath = path;
+  esPath = path.replace(/^\/en/, '') || '/';
+} else {
+  esPath = path;
+  enPath = path === '/' ? '/en/' : `/en${path}`;
+}
+const esHref = new URL(esPath, siteUrl).href;
+const enHref = new URL(enPath, siteUrl).href;
+
+const person = {
+  '@type': 'Person',
+  name: AUTHOR_NAME,
+  url: siteUrl,
+};
 
 const jsonLd = type === 'article'
   ? {
@@ -33,26 +63,51 @@ const jsonLd = type === 'article'
       description,
       image: imageUrl,
       url: canonicalUrl,
+      mainEntityOfPage: canonicalUrl,
       inLanguage: lang,
       ...(datePublished ? { datePublished } : {}),
-      author: {
-        '@type': 'Person',
-        name: 'Andres Gonzalez Ortega',
-        url: siteUrl,
-      },
+      ...(dateModified ? { dateModified } : datePublished ? { dateModified: datePublished } : {}),
+      author: person,
+      publisher: person,
     }
   : {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Andres Gonzalez Ortega',
+      name: AUTHOR_NAME,
       url: siteUrl,
-      jobTitle: lang === 'es' ? 'Actuario y Analista de Datos' : 'Actuary & Data Analyst',
+      jobTitle: lang === 'es' ? 'Actuario y Científico de Datos' : 'Actuary & Data Scientist',
       description,
+      email: 'mailto:gonorandres@ciencias.unam.mx',
+      knowsLanguage: ['es', 'en'],
+      knowsAbout: [
+        'Ciencia actuarial',
+        'Solvencia II / LISF / CUSF',
+        'Modelo Lee-Carter',
+        'Machine Learning',
+        'BigQuery',
+        'Finanzas cuantitativas',
+      ],
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Universidad Nacional Autónoma de México',
+        department: 'Facultad de Ciencias',
+      },
+      sameAs: SAME_AS,
     };
 ---
 
 <meta name="description" content={description} />
-<link rel="canonical" href={canonicalUrl} />
+{!noindex && <link rel="canonical" href={canonicalUrl} />}
+{noindex && <meta name="robots" content="noindex, follow" />}
+
+<!-- hreflang alternates -->
+{!noindex && (
+  <>
+    <link rel="alternate" hreflang="es" href={esHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={esHref} />
+  </>
+)}
 
 <!-- Open Graph -->
 <meta property="og:title" content={title} />
@@ -61,7 +116,14 @@ const jsonLd = type === 'article'
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content={type} />
 <meta property="og:locale" content={lang === 'es' ? 'es_MX' : 'en_US'} />
-<meta property="og:site_name" content="Andres Gonzalez Ortega" />
+<meta property="og:site_name" content="Andrés González Ortega" />
+{type === 'article' && datePublished && (
+  <meta property="article:published_time" content={datePublished} />
+)}
+{type === 'article' && (dateModified || datePublished) && (
+  <meta property="article:modified_time" content={dateModified ?? datePublished} />
+)}
+{type === 'article' && <meta property="article:author" content={AUTHOR_NAME} />}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />

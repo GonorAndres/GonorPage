@@ -192,6 +192,8 @@ Two sibling directories contain implementation plans for upcoming portfolio addi
 - **`/home/andtega349/microsoft-suite-data/plan.md`** -- Excel consolidation card + Power BI insurance claims dashboard. Covers project card metadata, DAX measures, star schema, cross-linking to existing projects. Both cards use `data-science` category and share insurance domain data.
 - **`/home/andtega349/risk-analyst/plan.md`** -- 4 theory PDFs (VaR/CVaR foundations, EVT tail risk, copula dependency, stress testing) to add as notes under the `quant` category. Includes note slugs, descriptions (ES+EN), tags, keywords, relatedNotes, and back-linking instructions for existing notes.
 
+Neither plan has been executed yet as of 2026-07-12 (no Excel-consolidation/Power-BI project cards in `src/data/projects.ts`, no VaR/CVaR/EVT/copula/stress-testing notes in `src/data/notes.ts`), so both entries stay. Note: as of this session's environment, `/home/andtega349` does not exist -- if it's still missing next session too, confirm with the user whether those sibling repos moved before assuming the plans are stale.
+
 ## HTML Artifacts Section (`/artifacts/`)
 
 The `/artifacts/` route (formerly `/notes/` — renamed 2026-04-19) houses both PDF entries and interactive HTML artifacts. All entries live in `src/data/notes.ts`; HTML artifacts also have `type: 'artifact'` and a folder under `public/artifacts/<folder>/index.html`.
@@ -272,7 +274,7 @@ gallery: [
 ```
 Place images in `public/screenshots/`. Captions are optional but recommended. The `screenshot` field stays as the card thumbnail; `gallery` adds the step-by-step view.
 
-**Status:** field added to all projects, images pending. Priority order: SIMA, GMM Explorer, regulation-agent, life-insurance, then the rest.
+**Status (2026-07-12):** 11 of 24 screenshot-bearing projects have a `gallery`: `sima`, `gmm-explorer`, `data-analyst-portfolio`, `credit-graph`, `data-engineering-platform`, `pension-simulator`, `lisf-agent`, `actuarial-suite`, `cartera-autos`, `flight-analytics-pg-bq`, `teaching-apis`. Next priority: `life-insurance` (still pending), then the remaining screenshot-only projects (`property-insurance`, `derivatives`, `markowitz`, `michoacan`, `data-cleaning`, `monte-carlo-poker`, `amortization`, `proust-attention`, `ab-testing`, `euler-method`, `risk-analyst`, `credit-risk`) by tier.
 
 ## Technical Preferences
 
@@ -302,60 +304,53 @@ Two systems run in production, disabled on localhost:
 - Subagent outputs go to repositorio/subagents_outputs/
 - Planning and reference docs go in docs/
 
-## Live App Polish Backlog (audited 2026-04-20)
+## Live App Polish Backlog (re-audited 2026-07-12)
 
-Full report with screenshots: `subagents_outputs/project_state_audit_2026-04-20.md`
-
-The items below were discovered via Playwright audit of every live link. Address them when working on the affected project. Do NOT silently skip them.
+Originally audited via Playwright on 2026-04-20; re-checked via curl/WebFetch on 2026-07-12 (no Playwright MCP available in that session, so purely visual questions — theme colors, sidebar label styling — could not be re-verified and are marked below). Address these when working on the affected project. Do NOT silently skip them.
 
 ### CRITICAL — broken, must fix before showing to anyone
 
 **`data-engineering-platform`** (`claims-dashboard-451451662791.us-central1.run.app`):
-- Every page shows a BigQuery 404: tables `dev_claims_analytics.fct_claims`, `dev_claims_reports.rpt_loss_triangle`, and related tables do not exist in the GCP project (`project-ad7a5be2-a1c7-4510-82d`).
+- Still broken as of 2026-07-12: same BigQuery 404, error text unchanged — `Could not load KPI summary. 404 Not found: Table project-ad7a5be2-a1c7-4510-82d:dev_claims_analytics.fct_claims was not found in location us-central1`.
 - Fix path A: re-run the Dagster pipeline locally to recreate the BigQuery tables, then redeploy.
 - Fix path B: replace BigQuery queries with a DuckDB + Parquet static file so the dashboard has no cloud dependency.
-- After the data is fixed: apply a custom Streamlit theme (navy `#1B2A4A` primary, amber `#D4A574` accent, cream `#EDE6DD` background) via `.streamlit/config.toml`.
-- Also rename the sidebar pages from raw Python filenames ("loss triangle", "portfolio health") to proper title case.
+- After the data is fixed: apply a custom Streamlit theme (navy `#1B2A4A` primary, amber `#D4A574` accent, cream `#EDE6DD` background) via `.streamlit/config.toml`, and rename sidebar pages from raw Python filenames to proper title case.
 
-### NEEDS POLISH — functional but visually plain or dated
+**`actuarial-suite`** (`suite-actuarial-d3qj5vwxtq-uc.a.run.app`) — escalated from NEEDS POLISH:
+- As of 2026-07-12 the root URL no longer serves the Streamlit dashboard at all — it returns raw FastAPI JSON (`{"name":"Mexican Insurance Analytics Suite API",...}`). Checked `/app`, `/ui`, `/dashboard`, `/streamlit`: all 404. Only `/docs` (Swagger) responds.
+- This is worse than the previously-reported "default Streamlit chrome" issue: the demo is currently inaccessible to a visitor, not just unpolished.
+- Fix: find where the Streamlit frontend service actually lives (may be a separate Cloud Run service that needs redeploying, or the routing/proxy in front of the API changed) and confirm the portfolio card's `url` in `src/data/projects.ts` still points at a live dashboard, not the bare API.
 
-**`actuarial-suite`** (`suite-actuarial-d3qj5vwxtq-uc.a.run.app`):
-- Loads correctly, content is strong (8 sections, bilingual, shows API results with code snippets).
-- Uses default Streamlit chrome (gray/white sidebar, default favicon). The gap between content quality and UI quality is visible.
-- Fix: add `.streamlit/config.toml` with custom theme matching portfolio palette (navy/amber/cream). Change the browser tab title and favicon.
+### NEEDS POLISH — functional but visually plain, dated, or unverifiable without a browser
 
-**`lisf-agent`** (`actuarial-regulation-agent-d3qj5vwxtq-uc.a.run.app`):
-- Functional and gated with access code `actuaria-claude`.
-- The login screen is a tiny centered box on a flat gray page — looks dated and gives no context to a visitor who arrives without the code.
-- Fix: redesign the landing/login page with a full-width layout, brief explanation of what the tool does, and the access code hint that is already in the portfolio card description.
+**`lisf-agent`** (`actuarial-regulation-agent-451451662791.us-central1.run.app`, access code `actuaria-claude`):
+- Partially improved since 2026-04-20: no longer a tiny centered box — now a full-width layout with sidebar nav (LISF/CUSF structure index, browsing modes, CNSF links). Still doesn't explain what the tool does or hint the access code to a cold visitor.
+- Note: the portfolio's `src/data/projects.ts` URL changed since the last audit (was `-d3qj5vwxtq-uc.a.run.app`, now `-451451662791.us-central1.run.app`) but **the old domain is still live and serves byte-identical content** — an orphaned duplicate Cloud Run deployment. Worth decommissioning to avoid confusion/cost, or confirm intentional.
+- Fix: add a brief explainer + access-code hint to the login screen.
 
 **`data-analyst-portfolio` — Olist Streamlit** (`da-cohort-streamlit-451451662791.us-central1.run.app`):
-- Functional (was loading at audit time).
-- Sidebar page names are raw Python slugs: "resumen ejecutivo", "retencion cohortes", "segmentos clientes", "analisis geografico", "metodologia", "proceso tecnico" — all lowercase, no accents.
-- Fix: rename page files or add `st.set_page_config(page_title=...)` with proper capitalization and accents. Apply a custom Streamlit theme consistent with `demo-aesthetics.vercel.app` (cream/off-white, serif type).
+- Still up and functional; confirmed genuine Streamlit app via HTML source. Sidebar page names are client-rendered via JS, so whether they've been fixed (previously raw lowercase Python slugs without accents) **could not be confirmed from curl/WebFetch** — needs an actual Playwright/browser check.
 
 ### MINOR — low priority but noted
 
 **`proust-attention`** (`huggingface.co/spaces/GonorAndres/proust-attention`):
-- Space is sleeping due to inactivity (free HuggingFace tier). Visitor sees "Restart this Space" and waits ~30s.
-- This is expected behavior for free tier, not a bug.
-- Optional fix: add a note to the portfolio card description mentioning the Space wakes on demand. Or upgrade to a paid tier if the project gets heavy traffic.
+- Unchanged: Space sleeps due to inactivity (free HuggingFace tier), shows "Restart this Space", ~30s wake. Expected, not a bug.
+
+**Five Vercel apps under `data-analyst-portfolio`'s `urls` dropdown** — new finding, 2026-07-12: `insurance-claims-dashboard-pi.vercel.app`, `ab-test-analysis.vercel.app`, `executive-kpi-report.vercel.app`, `financial-portfolio-tracker-iota.vercel.app`, `operational-efficiency.vercel.app` all return HTTP 307 with **no `Location` header** instead of 200 (confirmed with raw headers, cache-busted, `x-vercel-cache: HIT`). A real browser still renders the page fine since there's nowhere to redirect to, but it's spec-non-compliant and could make a bot/crawler/strict fetcher treat these as failed loads. Worth checking each app's Next.js middleware/redirect config.
 
 **`eruption-forecasting` and `micro-insurance`** (both have `url: '#'`):
 - Both have `status: 'in-development'` badge, so the placeholder is intentional.
 - The "ver en vivo" button currently does nothing (clicks `#`). Consider hiding the live button entirely when `url === '#'` in `ProjectsGrid.tsx` to avoid confusion.
 
-### GOOD — no action needed (logged for reference)
-
-These were audited and are in good shape:
+### GOOD — no action needed (reconfirmed 2026-07-12)
 
 | Project | Live URL | Notes |
 |---------|----------|-------|
-| `sima` | sima-d3qj5vwxtq-uc.a.run.app | Custom React app, live KPIs, bilingual nav. Best live app in portfolio. |
-| `gmm-explorer` | gmm-explorer.vercel.app | Dark sidebar, clean module nav, polished. |
-| `credit-graph` | graph-relation-db.vercel.app | Dark hero, bold typography, amber accent, bilingual. Excellent. |
-| `cartera-autos` | cartera-autos-451451662791.us-central1.run.app | Custom bslib theme, icon KPI cards, full nav. Looks like a real dashboard. |
-| `pension-simulator` | simulador-pension-d3qj5vwxtq-uc.a.run.app | Consumer-grade landing page with teal/pink gradient. Strong. |
-| `flight-analytics-pg-bq` | project-ad7a5be2-a1c7-4510-82d.firebaseapp.com | WebGL route map, terminal dark aesthetic. Impressive. |
-| `data-analyst-portfolio` (main) | demo-aesthetics.vercel.app | Editorial aesthetic, clean typography. |
-| `data-analyst-portfolio` (P&C) | insurance-claims-dashboard-pi.vercel.app | Same editorial style, data loading correctly. |
+| `sima` | sima-d3qj5vwxtq-uc.a.run.app | Custom React app, title confirmed live. Best live app in portfolio. |
+| `gmm-explorer` | gmm-explorer.vercel.app | Up, full nav + docs content confirmed. |
+| `credit-graph` | graph-relation-db.vercel.app | Up, full narrative + visualization content confirmed. |
+| `cartera-autos` | cartera-autos-451451662791.us-central1.run.app | Up, custom-themed "Siniestralidad Auto Mexico" dashboard with KPI cards and model tabs (GLM, IBNR, Monte Carlo, fraud) confirmed. |
+| `pension-simulator` | simulador-pension-d3qj5vwxtq-uc.a.run.app | Up, landing page content confirmed. |
+| `flight-analytics-pg-bq` | project-ad7a5be2-a1c7-4510-82d.firebaseapp.com | Up, dashboard loads with data (104 airports, 100 routes) confirmed. |
+| `data-analyst-portfolio` (main) | demo-aesthetics.vercel.app | Up, HTTP 200, full content confirmed. |
+| `teaching-apis` | learning-apis-451451662791.us-central1.run.app | New since last audit — up, ES/EN educational site (Concept/Playground/Analysis/Build) confirmed working. |

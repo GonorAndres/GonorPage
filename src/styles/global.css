@@ -53,10 +53,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overscroll-behavior: none;
   }
 
   body {
     @apply bg-cream text-navy font-sans;
+    overscroll-behavior: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -75,6 +77,16 @@
   html.js-ready .fade-up:not(.visible) {
     opacity: 0;
     transform: translateY(24px);
+  }
+
+  /* Reduced motion: never hide content, never animate */
+  @media (prefers-reduced-motion: reduce) {
+    html.js-ready .fade-up:not(.visible),
+    .fade-up {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
 
   /* Blog editorial typography */

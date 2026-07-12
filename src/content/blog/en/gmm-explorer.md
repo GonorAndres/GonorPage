@@ -2,6 +2,7 @@
 title: "GMM Explorer: Three Hospitalization Levels to Price What the Industry Treats as a Single Risk"
 description: "How classifying 5.1M Major Medical Expenses claims into three hospitalization levels changes the way you price a risk the industry treats as one. A UNAM team project that became a complete pricing system."
 date: "2026-03-21"
+lastModified: "2026-07-12"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -115,6 +116,66 @@ Credibility was applied as a binary threshold (30 or more claims, full credit). 
 The most important limitation for the next step is distributional. The current pipeline uses average severity per cell, but the average hides what really matters in insurance: the tail. Level 3 almost certainly has heavier tails than Level 1; a single oncology or transplant case can cost orders of magnitude more than its cell mean. Level 2 is open territory: we don't know the kurtosis or the shape of its severity distribution. Studying those tails would change the pricing system (the risk premium should incorporate a tail loading, not just the mean) and reserve decisions (IBNR reserves depend on the distributional shape, not the average).
 
 What I would do differently with more time: use ICD-10 codes directly for classification, eliminating the ambiguity of free text; model frequency and severity as continuous functions of age, sex, and level using GLM or GBM instead of cell averages; and fit severity distributions by level (Pareto, lognormal, or mixture) to capture the tail, which is where the real risk lives.
+
+## Frequently asked questions
+
+### Where does the data come from?
+
+The data comes from CNSF open records: 5.1 million Major Medical Expenses claims and 95.9 million insured-years registered between 2020 and 2024. The universe is large enough that all 276 cells of the pricing matrix exceed the full-credibility threshold, something a single insurer's internal exposure rarely achieves.
+
+### What methodology sets the premium?
+
+The risk premium is the product of frequency and severity, segmented by individual age (25 to 70), hospitalization level, and sex, across a 276-cell matrix. A 40% expense load (administration, acquisition, and profit) is applied on top of the risk premium, and the annual amount converts to a monthly figure using a 10% technical rate; all amounts are first adjusted to 2024 pesos to correct for medical inflation.
+
+### How are diagnoses classified into three levels?
+
+The 9,409 diagnoses in the CNSF catalog were classified into three hospitalization levels by combining a manual reference standard of 1,500 causes with Claude AI classification for the remaining 7,909, reaching 82.5% average confidence and 100% coverage. This approach outperformed the original Random Forest model, which reached only 59% accuracy on free text.
+
+### Is it production-ready as it stands?
+
+No; the calculator returns a reference price, not a commercially usable tariff. It does not yet model product structure (sum insured, deductible, coinsurance, network type), it uses average severity per cell rather than the full distribution, and the AI classification has not been validated against an external standard such as certified medical coders or ICD-10.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where does the data come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The data comes from CNSF open records: 5.1 million Major Medical Expenses claims and 95.9 million insured-years registered between 2020 and 2024. The universe is large enough that all 276 cells of the pricing matrix exceed the full-credibility threshold, something a single insurer's internal exposure rarely achieves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What methodology sets the premium?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The risk premium is the product of frequency and severity, segmented by individual age (25 to 70), hospitalization level, and sex, across a 276-cell matrix. A 40% expense load (administration, acquisition, and profit) is applied on top of the risk premium, and the annual amount converts to a monthly figure using a 10% technical rate; all amounts are first adjusted to 2024 pesos to correct for medical inflation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are diagnoses classified into three levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 9,409 diagnoses in the CNSF catalog were classified into three hospitalization levels by combining a manual reference standard of 1,500 causes with Claude AI classification for the remaining 7,909, reaching 82.5% average confidence and 100% coverage. This approach outperformed the original Random Forest model, which reached only 59% accuracy on free text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it production-ready as it stands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No; the calculator returns a reference price, not a commercially usable tariff. It does not yet model product structure (sum insured, deductible, coinsurance, network type), it uses average severity per cell rather than the full distribution, and the AI classification has not been validated against an external standard such as certified medical coders or ICD-10."
+      }
+    }
+  ]
+}
+</script>
 
 ## Closing
 

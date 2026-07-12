@@ -132,6 +132,7 @@ const prose = shape;
   lang={lang}
   ogType="article"
   datePublished={date}
+  dateModified={lastModified}
 >
   <article class="py-12 md:py-16 px-6">
     <div class="max-w-[1020px] mx-auto">
@@ -209,26 +210,26 @@ const prose = shape;
           <slot />
         </div>
 
-        <aside class="pd-side md:sticky md:top-8 self-start">
+        <aside class="pd-side self-start md:self-stretch">
           <div
             class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
           >
             {L.ficha}
           </div>
 
-          <div class="row flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
+          <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
             <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">{L.date}</span>
             <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">{formattedDate}</span>
           </div>
           {formattedUpdated && (
-            <div class="row flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
+            <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
               <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">
                 {L.lastMod}
               </span>
               <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">{formattedUpdated}</span>
             </div>
           )}
-          <div class="row flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
+          <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
             <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">
               {L.readTime}
             </span>
@@ -244,7 +245,7 @@ const prose = shape;
                     href={r.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="no-underline border-b border-dotted border-[#39c] text-[#39c] hover:text-[#A35E3E] hover:border-[#A35E3E]"
+                    class="inline-block py-1 no-underline border-b border-dotted border-[#39c] text-[#39c] hover:text-[#A35E3E] hover:border-[#A35E3E]"
                   >
                     {r.value}
                   </a>
@@ -273,7 +274,7 @@ const prose = shape;
           )}
 
           {relatedPosts.length > 0 && (
-            <div class="block mt-6">
+            <div class="block mt-6 md:sticky md:top-8 md:max-h-[calc(100vh-4rem)] md:overflow-y-auto">
               <div
                 class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
               >
@@ -284,7 +285,7 @@ const prose = shape;
                   <li class="m-0">
                     <a
                       href={lang === 'es' ? `/blog/${r.slug}/` : `/en/blog/${r.slug}/`}
-                      class="group/rel block no-underline"
+                      class="group/rel block py-1 no-underline"
                     >
                       <span class="flex items-baseline gap-1.5">
                         <span class="font-serif text-[13.5px] leading-snug text-[#1B2A4A] group-hover/rel:text-[#A35E3E] border-b border-dotted border-[#C17654]/60 group-hover/rel:border-[#A35E3E] pb-0.5 transition-colors">
@@ -465,6 +466,15 @@ const prose = shape;
     margin-bottom: 0.35rem;
     font-style: normal;
   }
+
+  /* Responsive overflow guards for markdown-authored content ----------- */
+  .prose :where(table) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .prose code { overflow-wrap: anywhere; }
 
   /* KaTeX readability (keep display math tidy) ------------------------- */
   .prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }

@@ -25,7 +25,7 @@ const teaserNotes = groups.map((g) => ({
   <OrganicBlob variant={3} color="#D4A574" class="w-[250px] h-[250px] -top-10 -right-10 opacity-20" />
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="mb-8 md:ml-8">
+    <div class="mb-8">
       <h2 class="text-3xl md:text-4xl font-bold text-navy fade-up">
         {t(lang, 'hero.featuredNotes')}
       </h2>
@@ -37,9 +37,9 @@ const teaserNotes = groups.map((g) => ({
       {teaserNotes.map((note) => (
         <a
           href={lang === 'es' ? `/artifacts/${note.slug}/` : `/en/artifacts/${note.slug}/`}
-          class="group p-5 rounded-lg border border-amber/20 hover:border-amber/50 hover:shadow-sm transition-all duration-300"
+          class="group p-5 rounded-xl border border-amber/20 hover:border-amber/50 hover:shadow-sm transition-all duration-300"
         >
-          <span class="text-xs px-2 py-0.5 rounded-full bg-sage/15 text-sage font-medium">
+          <span class="text-xs px-2 py-0.5 rounded bg-sage/15 text-sage font-medium">
             {note.categoryLabel}
           </span>
           <h3 class="font-serif text-base font-bold text-navy group-hover:text-terracotta transition-colors mt-3 mb-2 line-clamp-2">
@@ -48,7 +48,7 @@ const teaserNotes = groups.map((g) => ({
           <p class="text-sm text-navy/60 leading-relaxed line-clamp-3 mb-3">{note.description}</p>
           <div class="flex flex-wrap gap-1.5">
             {note.tags.slice(0, 3).map((tag) => (
-              <span class="text-xs px-2 py-0.5 rounded-full bg-sage/20 text-sage">{tag}</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-sage/20 text-sage">{tag}</span>
             ))}
           </div>
         </a>

@@ -42,3 +42,14 @@ temp/
 .claude/stats-cache.json
 .claude/.credentials.json
 .claude/*.backup.*
+
+# Local screenshots / scratch
+ss/
+.claude/worktrees/
+
+# LaTeX build artifacts (keep .tex, ignore compiled output)
+docs/*.pdf
+docs/*.aux
+docs/*.toc
+docs/*.out
+docs/*.log

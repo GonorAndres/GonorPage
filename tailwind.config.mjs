@@ -16,6 +16,17 @@ export default {
         serif: ['Lora', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      // Sharper, more editorial corners (away from the soft "AI" look).
+      // rounded-full stays 9999px so circles/icons are unaffected.
+      borderRadius: {
+        DEFAULT: '3px',
+        sm: '2px',
+        md: '4px',
+        lg: '5px',
+        xl: '6px',
+        '2xl': '8px',
+        '3xl': '10px',
+      },
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
