@@ -30,7 +30,7 @@ const fallback = allEn
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
   .slice(0, 3);
 
-const picked = explicit.length > 0 ? explicit.slice(0, 4) : fallback;
+const picked = explicit.length > 0 ? explicit.slice(0, 3) : fallback;
 
 const relatedPosts: RelatedPost[] = picked.map((p) => ({
   slug: p.id.replace(/^en\//, ''),

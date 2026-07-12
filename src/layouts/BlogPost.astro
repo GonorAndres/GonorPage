@@ -210,7 +210,7 @@ const prose = shape;
           <slot />
         </div>
 
-        <aside class="pd-side md:sticky md:top-8 md:max-h-[calc(100vh-4rem)] md:overflow-y-auto self-start">
+        <aside class="pd-side self-start md:self-stretch">
           <div
             class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
           >
@@ -274,7 +274,7 @@ const prose = shape;
           )}
 
           {relatedPosts.length > 0 && (
-            <div class="block mt-6">
+            <div class="block mt-6 md:sticky md:top-8 md:max-h-[calc(100vh-4rem)] md:overflow-y-auto">
               <div
                 class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
               >
