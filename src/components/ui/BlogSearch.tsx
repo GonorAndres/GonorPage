@@ -54,7 +54,7 @@ function PostRow({ post, labels }: { post: PostData; labels: Labels }) {
   const catColor = CATEGORY_COLOR[post.categoryKey] ?? '#1B2A4A';
 
   return (
-    <article className="grid grid-cols-[64px_1fr] md:grid-cols-[92px_1fr_140px] gap-x-4 md:gap-x-6 gap-y-2 py-6 border-t border-[#1B2A4A]/10 items-baseline">
+    <article className="grid grid-cols-[72px_1fr] md:grid-cols-[92px_1fr_140px] gap-x-4 md:gap-x-6 gap-y-2 py-6 border-t border-[#1B2A4A]/10 items-baseline">
       <time className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#1B2A4A]/45">
         {formatDotDate(post.date)}
       </time>
@@ -106,7 +106,7 @@ function PostRow({ post, labels }: { post: PostData; labels: Labels }) {
         <div className="flex flex-wrap gap-2">
           <a
             href={href}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
           >
             <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -173,7 +173,7 @@ export default function BlogSearch({ posts, labels }: Props) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={labels.searchPlaceholder}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-white/70 text-sm text-[#1B2A4A] placeholder:text-[#1B2A4A]/40 focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] placeholder:text-[#1B2A4A]/40 focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors"
           />
         </div>
 
@@ -181,7 +181,7 @@ export default function BlogSearch({ posts, labels }: Props) {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
-            className="w-full appearance-none pl-4 pr-9 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-white/70 text-sm text-[#1B2A4A] focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors cursor-pointer"
+            className="w-full appearance-none pl-4 pr-9 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors cursor-pointer"
           >
             <option value="recent">{labels.sortRecent}</option>
             <option value="oldest">{labels.sortOldest}</option>

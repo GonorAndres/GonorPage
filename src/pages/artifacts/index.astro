@@ -64,14 +64,14 @@ const labels = {
         <nav class="flex flex-col font-mono text-[10px] uppercase tracking-[0.12em]">
           <a
             href="/artifacts/"
-            class="flex justify-between py-1.5 border-b border-[#1B2A4A] text-[#1B2A4A] no-underline"
+            class="flex justify-between py-2.5 border-b border-[#1B2A4A] text-[#1B2A4A] no-underline"
           >
             <span>{t('es', 'notes.allNotes')}</span><span>{allNotes.length}</span>
           </a>
           {categoryCounts.map((cc) => (
             <a
               href={`/artifacts/categoria/${cc.key}/`}
-              class="flex justify-between py-1.5 border-b border-[#1B2A4A]/15 text-[#1B2A4A]/55 hover:text-[#1B2A4A] no-underline transition-colors"
+              class="flex justify-between py-2.5 border-b border-[#1B2A4A]/15 text-[#1B2A4A]/55 hover:text-[#1B2A4A] no-underline transition-colors"
             >
               <span>{cc.label}</span><span>{cc.count}</span>
             </a>

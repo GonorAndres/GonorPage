@@ -11,8 +11,8 @@ const content = {
   es: {
     badge: 'Interactivo',
     categoryBadge: 'herramientas',
-    title: 'Visualizaciones Matematicas Interactivas',
-    description: 'Demostraciones interactivas de conceptos fundamentales del analisis: limite sin(x)/x, derivada del seno y la formula de Euler. Con visualizaciones SVG manipulables.',
+    title: 'Visualizaciones Matemáticas Interactivas',
+    description: 'Demostraciones interactivas de conceptos fundamentales del análisis: límite sin(x)/x, derivada del seno y la fórmula de Euler. Con visualizaciones SVG manipulables.',
     cta: 'Explorar demostraciones',
   },
   en: {
@@ -28,10 +28,10 @@ const t = content[lang];
 const href = lang === 'es' ? '/blog/visualizaciones-matematicas/' : '/en/blog/visualizaciones-matematicas/';
 ---
 
-<article class="group p-6 rounded-2xl border border-terracotta/30 bg-terracotta/5 hover:shadow-md hover:-translate-y-0.5 transition-all fade-up">
+<article class="group p-6 rounded-xl border border-terracotta/30 bg-terracotta/5 hover:shadow-md hover:-translate-y-0.5 transition-all fade-up">
   <div class="flex items-center gap-3 mb-3">
-    <span class="text-xs px-2 py-0.5 rounded-full bg-terracotta/20 text-terracotta font-medium">{t.badge}</span>
-    <span class="text-xs px-2 py-0.5 rounded-full bg-sage/15 text-sage font-medium">{t.categoryBadge}</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-terracotta/20 text-terracotta font-medium">{t.badge}</span>
+    <span class="text-xs px-2 py-0.5 rounded bg-sage/15 text-sage font-medium">{t.categoryBadge}</span>
   </div>
   <h3 class="font-serif text-lg font-bold text-navy mb-2 group-hover:text-terracotta transition-colors">
     <a href={href}>

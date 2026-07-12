@@ -1,16 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OrganicBlob from '../components/decorations/OrganicBlob.astro';
+import Squiggle from '../components/decorations/Squiggle.astro';
 ---
 
 <BaseLayout title="404 - Página no encontrada" lang="es" noindex={true}>
-  <section class="py-32 px-6 text-center">
-    <div class="max-w-md mx-auto">
+  <section class="relative overflow-hidden py-32 px-6 text-center">
+    <OrganicBlob variant={2} color="#D4A574" class="w-[400px] h-[400px] -top-24 -right-24 opacity-20" />
+
+    <div class="max-w-md mx-auto relative z-10">
       <h1 class="text-6xl font-bold text-navy mb-4">404</h1>
+      <Squiggle color="#C17654" class="w-40 h-4 mx-auto mb-6" />
       <p class="text-xl text-navy/70 mb-2">Página no encontrada</p>
       <p class="text-lg text-navy/50 mb-8">Page not found</p>
       <a
         href="/"
-        class="inline-block px-6 py-3 bg-terracotta text-cream font-medium rounded-lg hover:bg-terracotta/90 transition-colors"
+        class="inline-block px-6 py-3 bg-terracotta text-cream font-medium rounded-xl hover:bg-terracotta/90 transition-colors"
       >
         Volver al inicio / Back home
       </a>

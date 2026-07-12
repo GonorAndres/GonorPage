@@ -3,9 +3,10 @@ interface Props {
   class?: string;
   color?: string;
   variant?: 1 | 2 | 3 | 4;
+  opacity?: number;
 }
 
-const { class: className = '', color = '#D4A574', variant = 1 } = Astro.props;
+const { class: className = '', color = '#D4A574', variant = 1, opacity = 0.15 } = Astro.props;
 
 const paths: Record<number, string> = {
   1: 'M44.5,-76.3C56.1,-69.4,63.2,-54.5,70.8,-40.1C78.3,-25.7,86.3,-11.8,85.6,1.6C84.9,15,75.5,27.9,65.7,39.5C55.9,51.1,45.7,61.3,33.5,68.8C21.2,76.3,6.9,81,-8.1,80.3C-23.2,79.5,-39,73.3,-51.1,63.1C-63.2,52.9,-71.6,38.7,-76.5,23.2C-81.4,7.7,-82.8,-9.1,-78.2,-24.1C-73.5,-39.1,-62.8,-52.3,-49.5,-58.4C-36.2,-64.5,-20.3,-63.5,-3.7,-67.5C12.9,-71.6,32.9,-83.3,44.5,-76.3Z',
@@ -25,6 +26,6 @@ const paths: Record<number, string> = {
     d={paths[variant]}
     transform="translate(100 100)"
     fill={color}
-    opacity="0.15"
+    fill-opacity={opacity}
   />
 </svg>

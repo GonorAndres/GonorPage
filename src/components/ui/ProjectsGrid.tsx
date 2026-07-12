@@ -164,7 +164,7 @@ function GalleryModal({ images, title, onClose, startIndex = 0 }: {
         {/* Close */}
         <button
           onClick={() => onClose(idx)}
-          className="absolute -top-10 right-0 text-white/60 hover:text-white transition-colors"
+          className="absolute -top-10 right-0 p-2 -m-2 text-white/60 hover:text-white transition-colors"
           aria-label="Cerrar"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -187,7 +187,7 @@ function GalleryModal({ images, title, onClose, startIndex = 0 }: {
           {total > 1 ? (
             <button
               onClick={() => setIdx(i => (i - 1 + total) % total)}
-              className="shrink-0 text-white/60 hover:text-white transition-colors"
+              className="shrink-0 p-2 -m-2 text-white/60 hover:text-white transition-colors"
               aria-label="Anterior"
             >
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@ function GalleryModal({ images, title, onClose, startIndex = 0 }: {
           {total > 1 ? (
             <button
               onClick={() => setIdx(i => (i + 1) % total)}
-              className="shrink-0 text-white/60 hover:text-white transition-colors"
+              className="shrink-0 p-2 -m-2 text-white/60 hover:text-white transition-colors"
               aria-label="Siguiente"
             >
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,9 +225,11 @@ function GalleryModal({ images, title, onClose, startIndex = 0 }: {
               <button
                 key={i}
                 onClick={() => setIdx(i)}
-                className={`w-2 h-2 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/30 hover:bg-white/50'}`}
+                className="p-2 -m-1 flex items-center justify-center"
                 aria-label={`Imagen ${i + 1}`}
-              />
+              >
+                <span className={`w-2 h-2 rounded-full block transition-colors ${i === idx ? 'bg-white' : 'bg-white/30 hover:bg-white/50'}`} />
+              </button>
             ))}
           </div>
         )}
@@ -353,14 +355,14 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
 
   const badges = (
     <div className="absolute top-3 left-3 flex items-center gap-2">
-      <span className={`text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm ${thumbnailSrc ? 'bg-white/85 text-[#1B2A4A]/75' : categoryBadge[project.category]}`}>
+      <span className={`text-xs font-medium px-2.5 py-1 rounded backdrop-blur-sm ${thumbnailSrc ? 'bg-white/85 text-[#1B2A4A]/75' : categoryBadge[project.category]}`}>
         {labels.categories[project.category]}
       </span>
-      <span className="text-xs px-2 py-1 rounded-full bg-white/70 text-[#1B2A4A]/55 backdrop-blur-sm">
+      <span className="text-xs px-2 py-1 rounded bg-white/70 text-[#1B2A4A]/55 backdrop-blur-sm">
         {project.platform}
       </span>
       {project.status === 'in-development' && (
-        <span className="text-xs px-2 py-1 rounded-full border border-dashed border-[#1B2A4A]/30 text-[#1B2A4A]/50 backdrop-blur-sm bg-white/50">
+        <span className="text-xs px-2 py-1 rounded border border-dashed border-[#1B2A4A]/30 text-[#1B2A4A]/50 backdrop-blur-sm bg-white/50">
           {labels.inDevelopment}
         </span>
       )}
@@ -368,10 +370,9 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
   );
 
   return (
-    <article className="group flex flex-col h-full bg-[#F5F0EA] rounded-xl border border-[#1B2A4A]/10 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-      {/* Category accent bar */}
-      <div className="h-1 w-full shrink-0" style={{ backgroundColor: accent }} />
-
+    <article
+      className="group flex flex-col h-full bg-[#F5F0EA] rounded-md border-2 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      style={{ borderColor: accent }}>
       {/* Visual area */}
       {galleryImages ? (
         <div
@@ -379,19 +380,17 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
           tabIndex={0}
           onClick={() => { track('tool_used', { tool: project.title }); setGalleryOpen(true); }}
           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); track('tool_used', { tool: project.title }); setGalleryOpen(true); } }}
-          className="relative overflow-hidden h-44 w-full cursor-zoom-in"
+          className="relative overflow-hidden aspect-[16/9] w-full cursor-zoom-in"
           aria-label={`Ver galería: ${project.title}`}
         >
-          <div className="w-full h-full flex items-center justify-center bg-gray-200 p-3">
-            <picture>
-              {webpThumbFor(thumbnailSrc) && (
-                <source srcSet={webpThumbFor(thumbnailSrc)!} type="image/webp" />
-              )}
-              <img src={thumbnailSrc!} alt={project.title}
-                suppressHydrationWarning
-                className="max-w-full max-h-full object-contain transition-opacity duration-300 group-hover:opacity-85 rounded-sm" loading="lazy" />
-            </picture>
-          </div>
+          <picture className="w-full h-full flex items-center justify-center bg-[#EDE6DD]">
+            {webpThumbFor(thumbnailSrc) && (
+              <source srcSet={webpThumbFor(thumbnailSrc)!} type="image/webp" />
+            )}
+            <img src={thumbnailSrc!} alt={project.title}
+              suppressHydrationWarning
+              className="max-w-full max-h-full object-contain transition-opacity duration-300 group-hover:opacity-85" loading="lazy" />
+          </picture>
           {badges}
           {/* Dot strip: vertical right side, always visible, click to jump thumbnail */}
           {project.gallery && project.gallery.length > 1 && (
@@ -401,7 +400,7 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
                   key={i}
                   type="button"
                   onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }}
-                  className="p-2 sm:p-0 flex items-center justify-center"
+                  className="p-2.5 sm:p-0 flex items-center justify-center"
                   aria-label={`Ver imagen ${i + 1}`}
                 >
                   <span className={`rounded-full block transition-all duration-200 ${
@@ -418,8 +417,9 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
         <a href={project.url}
           {...(!project.url.startsWith('/') && { target: '_blank', rel: 'noopener noreferrer' })}
           onClick={() => track('tool_used', { tool: project.title })}
-          className="block relative overflow-hidden h-44">
-          <div className={`w-full h-full bg-gradient-to-br flex items-center justify-center relative ${placeholderGradients[project.category]}`}>
+          className="block relative overflow-hidden aspect-[16/9]">
+          <div className="w-full h-full flex items-center justify-center relative"
+            style={{ backgroundImage: `radial-gradient(circle at center, ${accent}22, transparent 72%)` }}>
             <div className="absolute inset-0 opacity-[0.06]"
               style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
             <svg className="w-12 h-12 text-[#1B2A4A]/15 transition-opacity duration-300 group-hover:opacity-50"
@@ -451,7 +451,7 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
         {project.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
             {project.tags.slice(0, 4).map((tag) => (
-              <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-[#EDE6DD] text-[#1B2A4A]/60 font-medium">{tag}</span>
+              <span key={tag} className="text-xs px-2 py-0.5 rounded bg-[#EDE6DD] text-[#1B2A4A]/60 font-medium">{tag}</span>
             ))}
             {project.tags.length > 4 && (
               <span className="text-xs text-[#1B2A4A]/30 self-center">+{project.tags.length - 4}</span>
@@ -540,8 +540,8 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
 
   return (
     <article
-      className="group relative flex items-center gap-4 md:gap-6 bg-[#F5F0EA] rounded-xl border border-[#1B2A4A]/10 p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
-      style={{ borderLeftColor: accent, borderLeftWidth: '3px' }}>
+      className="group relative flex items-center gap-4 md:gap-6 bg-[#F5F0EA] rounded-md border-2 p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+      style={{ borderColor: accent }}>
 
       {/* Stretched primary link covers the whole card */}
       <a
@@ -575,11 +575,11 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
           <h3 className="font-serif text-base font-bold text-[#1B2A4A] group-hover:text-[#C17654] transition-colors truncate">
             {project.title}
           </h3>
-          <span className={`hidden md:inline-block text-[10px] font-medium px-2 py-0.5 rounded-full shrink-0 ${categoryBadge[project.category]}`}>
+          <span className={`hidden md:inline-block text-[10px] font-medium px-2 py-0.5 rounded shrink-0 ${categoryBadge[project.category]}`}>
             {labels.categories[project.category]}
           </span>
           {project.status === 'in-development' && (
-            <span className="hidden md:inline-block text-[10px] px-2 py-0.5 rounded-full shrink-0 border border-dashed border-[#1B2A4A]/25 text-[#1B2A4A]/45">
+            <span className="hidden md:inline-block text-[10px] px-2 py-0.5 rounded shrink-0 border border-dashed border-[#1B2A4A]/25 text-[#1B2A4A]/45">
               {labels.inDevelopment}
             </span>
           )}
@@ -590,7 +590,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
       {/* Tags */}
       <div className="hidden lg:flex items-center gap-1.5 shrink-0">
         {project.tags.slice(0, 3).map((tag) => (
-          <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-[#EDE6DD] text-[#1B2A4A]/55 font-medium">{tag}</span>
+          <span key={tag} className="text-[10px] px-2 py-0.5 rounded bg-[#EDE6DD] text-[#1B2A4A]/55 font-medium">{tag}</span>
         ))}
       </div>
 
@@ -601,7 +601,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
           <a
             href={project.repo ?? project.url}
             target="_blank" rel="noopener noreferrer"
-            className="relative z-10 text-[#1B2A4A]/30 hover:text-[#1B2A4A]/65 transition-colors"
+            className="relative z-10 p-2 -m-2 text-[#1B2A4A]/30 hover:text-[#1B2A4A]/65 transition-colors"
             aria-label={project.platform === 'Drive' ? labels.viewDrive : labels.viewRepo}
           >
             {project.platform === 'Drive' ? (
@@ -619,7 +619,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
         {project.blogUrl ? (
           <a
             href={project.blogUrl}
-            className="relative z-10 text-[#1B2A4A]/30 hover:text-[#1B2A4A]/65 transition-colors"
+            className="relative z-10 p-2 -m-2 text-[#1B2A4A]/30 hover:text-[#1B2A4A]/65 transition-colors"
             aria-label={labels.viewDetails}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -698,7 +698,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
       <div className="flex flex-wrap gap-2 mb-5">
         <button
           onClick={() => handleCategoryChange('all')}
-          className={`px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
+          className={`px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border ${
             activeCategory === 'all'
               ? 'bg-[#1B2A4A] text-white border-[#1B2A4A]'
               : 'bg-transparent text-[#1B2A4A]/60 border-[#1B2A4A]/20 hover:border-[#1B2A4A]/40 hover:text-[#1B2A4A]/80'
@@ -711,7 +711,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
             <button
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className="px-3.5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border"
+              className="px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border"
               style={isActive
                 ? { backgroundColor: accent, color: 'white', borderColor: accent }
                 : { color: accent, borderColor: `${accent}40`, backgroundColor: 'transparent' }
@@ -756,7 +756,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
             <select
               value={sortMode}
               onChange={(e) => handleSortChange(e.target.value as SortMode)}
-              className="text-xs text-[#1B2A4A]/70 bg-transparent border border-[#1B2A4A]/15 rounded-md px-2 py-1 focus:outline-none focus:border-[#1B2A4A]/30 cursor-pointer"
+              className="text-sm text-[#1B2A4A]/70 bg-transparent border border-[#1B2A4A]/15 rounded-md px-2 py-1.5 focus:outline-none focus:border-[#1B2A4A]/30 cursor-pointer"
             >
               <option value="tier">{labels.sortTier}</option>
               <option value="newest">{labels.sortNewest}</option>
@@ -772,7 +772,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
 
       {/* Grid view — 3-col */}
       {viewMode === 'grid' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {visible.map((project) => (
             <GridCard key={project.slug} project={project} labels={labels} />
           ))}
@@ -797,7 +797,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
               setShowAll(next);
               writeExpanded(next);
             }}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#1B2A4A]/15 text-sm font-medium text-[#1B2A4A]/70 hover:text-[#1B2A4A] hover:border-[#1B2A4A]/30 hover:shadow-sm transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded border border-[#1B2A4A]/15 text-sm font-medium text-[#1B2A4A]/70 hover:text-[#1B2A4A] hover:border-[#1B2A4A]/30 hover:shadow-sm transition-all duration-200"
           >
             {showAll ? labels.showLess : labels.showAll}
             <svg

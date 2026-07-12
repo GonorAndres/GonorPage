@@ -42,3 +42,7 @@ temp/
 .claude/stats-cache.json
 .claude/.credentials.json
 .claude/*.backup.*
+
+# Local screenshots / scratch
+ss/
+.claude/worktrees/

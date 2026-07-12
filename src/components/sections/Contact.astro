@@ -14,18 +14,19 @@ const { lang } = Astro.props;
   <OrganicBlob variant={2} color="#D4A574" class="w-[400px] h-[400px] -top-20 -right-20 opacity-20" />
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="md:ml-12">
+    <div class="md:mr-12 md:ml-auto md:max-w-3xl md:text-right">
       <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6 fade-up">
         {t(lang, 'section.contact')}
       </h2>
       <p class="text-navy/70 mb-8 fade-up">
         {t(lang, 'contact.message')}
       </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-up">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-up">
         <a
           href="mailto:gonorandres@ciencias.unam.mx"
-          class="flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
+          class="md:col-span-2 flex items-center gap-3 p-4 rounded-xl border border-amber/20 hover:border-terracotta/40 hover:shadow-sm transition-all"
         >
           <span class="w-10 h-10 flex items-center justify-center rounded-full bg-navy/5">
             <svg class="w-5 h-5 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
@@ -96,7 +97,6 @@ const { lang } = Astro.props;
           </div>
         </a>
       </div>
-    </div>
   </div>
 </section>
 

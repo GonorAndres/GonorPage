@@ -31,12 +31,11 @@ function formatDate(date: string) {
     <a
       href={item.href}
       class:list={[
-        'flex flex-col gap-0.5 rounded-lg border-l-2 border border-navy/8 bg-white shadow-sm px-3 py-2 hover:shadow-md transition-all group flex-1 min-w-0',
-        a.border,
+        'flex flex-col gap-0.5 rounded-md border border-navy/8 bg-white shadow-sm px-3 py-2 hover:shadow-md transition-all group flex-1 min-w-0',
       ]}
     >
       <div class="flex items-center gap-2">
-        <span class:list={['text-[10px] px-1.5 py-0.5 rounded-full font-medium whitespace-nowrap uppercase tracking-wider', a.chipBg, a.chipText]}>
+        <span class:list={['text-[10px] px-1.5 py-0.5 rounded font-medium whitespace-nowrap uppercase tracking-wider', a.chipBg, a.chipText]}>
           {kindLabel(lang, item.kind)}
         </span>
         <time class="text-xs text-navy/50 ml-auto whitespace-nowrap">{formatDate(item.date)}</time>

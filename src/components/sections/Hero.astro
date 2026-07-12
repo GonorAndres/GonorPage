@@ -53,10 +53,12 @@ const { lang } = Astro.props;
         </div>
       </div>
 
-      <!-- Decorative circles (middle) -->
+      <!-- Decorative monogram (middle) -->
       <div class="hidden md:flex md:items-center md:justify-center md:col-span-2 md:col-start-8">
         <div class="relative">
-          <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-amber/30 to-terracotta/20 mx-auto"></div>
+          <div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-amber/10 border border-amber/30 mx-auto flex items-center justify-center">
+            <span class="font-serif text-4xl lg:text-5xl text-navy/60 select-none">AG</span>
+          </div>
           <div class="absolute top-4 left-4 w-24 h-24 lg:w-32 lg:h-32 rounded-full border-2 border-sage/30"></div>
         </div>
       </div>
@@ -68,14 +70,14 @@ const { lang } = Astro.props;
             <button
               type="button"
               id="tab-latest"
-              class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full transition-colors bg-terracotta text-cream"
+              class="text-[11px] font-bold uppercase tracking-widest px-2.5 py-2 min-h-[40px] inline-flex items-center rounded transition-colors bg-terracotta text-cream"
             >
               {t(lang, 'hero.latestPost')}
             </button>
             <button
               type="button"
               id="tab-discover"
-              class="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full transition-colors bg-transparent text-navy/50 hover:text-navy/70"
+              class="text-[11px] font-bold uppercase tracking-widest px-2.5 py-2 min-h-[40px] inline-flex items-center rounded transition-colors bg-transparent text-navy/50 hover:text-navy/70"
             >
               {t(lang, 'hero.discoverPosts')}
             </button>
