@@ -2,6 +2,7 @@
 title: "GMM Explorer: Tres Niveles de Hospitalización para Tarificar lo que la Industria Trata como un Solo Riesgo"
 description: "Cómo clasificar 5.1M de siniestros de Gastos Médicos Mayores en tres niveles de hospitalización cambia la forma de tarificar un riesgo que la industria trata como uno solo. Un proyecto de equipo en la UNAM que se convirtió en un sistema de tarificación completo."
 date: "2026-03-21"
+lastModified: "2026-07-12"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -115,6 +116,66 @@ La credibilidad se aplicó como umbral binario (30 siniestros o más, crédito p
 La limitación más relevante para el siguiente paso es distribucional. El pipeline actual usa la severidad promedio por celda, pero el promedio esconde lo que realmente importa en seguros: la cola. El Nivel 3 casi seguro tiene colas más pesadas que el Nivel 1; un solo caso oncológico o de trasplante puede costar órdenes de magnitud más que la media de su celda. El Nivel 2 es territorio abierto: no sabemos cuál es la curtosis ni la forma de su distribución de severidad. Estudiar esas colas cambiaría el sistema de tarificación (la prima de riesgo debería incorporar un recargo por cola, no solo la media) y las decisiones de reserva (las reservas IBNR dependen de la forma distribucional, no del promedio).
 
 Lo que haría diferente con más tiempo: usar directamente los códigos CIE-10 para la clasificación, eliminando la ambigüedad del texto libre; modelar frecuencia y severidad como funciones continuas de edad, sexo y nivel con un GLM o GBM en lugar de promedios por celda; y ajustar distribuciones de severidad por nivel (Pareto, lognormal o mixtura) para capturar la cola, que es donde vive el riesgo real.
+
+## Preguntas frecuentes
+
+### ¿De dónde salen los datos?
+
+Los datos provienen de la información abierta de la CNSF: 5.1 millones de siniestros de Gastos Médicos Mayores y 95.9 millones de asegurados-año registrados entre 2020 y 2024. Es un universo lo suficientemente grande para que las 276 celdas de la matriz de tarificación superen el umbral de credibilidad plena, algo que la exposición interna de una sola aseguradora rara vez alcanza.
+
+### ¿Qué metodología usa para calcular la prima?
+
+La prima de riesgo se calcula como el producto de frecuencia por severidad, segmentado por edad individual (25 a 70), nivel de hospitalización y sexo, en una matriz de 276 celdas. Sobre esa prima de riesgo se aplica una carga de gastos del 40% (administración, adquisición y utilidad) y se convierte a mensualidad con una tasa técnica del 10% anual; todos los montos se ajustan previamente a pesos de 2024 para corregir la inflación médica.
+
+### ¿Cómo se clasifican los diagnósticos en tres niveles?
+
+Los 9,409 diagnósticos del catálogo de la CNSF se clasificaron en tres niveles de hospitalización combinando un estándar de referencia manual de 1,500 causas con clasificación asistida por Claude AI para las 7,909 restantes, alcanzando 82.5% de confianza promedio y 100% de cobertura. Este enfoque superó al modelo original de Random Forest, que solo lograba 59% de exactitud sobre texto libre.
+
+### ¿Se puede usar en producción tal como está?
+
+No; el tarificador entrega un precio de referencia, no una tarifa comercialmente usable. Todavía no modela la estructura del producto (suma asegurada, deducible, coaseguro, tipo de red), usa la severidad promedio por celda en lugar de la distribución completa, y la clasificación con IA no ha sido validada contra un estándar externo como codificadores médicos certificados o la CIE-10.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿De dónde salen los datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los datos provienen de la información abierta de la CNSF: 5.1 millones de siniestros de Gastos Médicos Mayores y 95.9 millones de asegurados-año registrados entre 2020 y 2024. Es un universo lo suficientemente grande para que las 276 celdas de la matriz de tarificación superen el umbral de credibilidad plena, algo que la exposición interna de una sola aseguradora rara vez alcanza."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué metodología usa para calcular la prima?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La prima de riesgo se calcula como el producto de frecuencia por severidad, segmentado por edad individual (25 a 70), nivel de hospitalización y sexo, en una matriz de 276 celdas. Sobre esa prima de riesgo se aplica una carga de gastos del 40% (administración, adquisición y utilidad) y se convierte a mensualidad con una tasa técnica del 10% anual; todos los montos se ajustan previamente a pesos de 2024 para corregir la inflación médica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se clasifican los diagnósticos en tres niveles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los 9,409 diagnósticos del catálogo de la CNSF se clasificaron en tres niveles de hospitalización combinando un estándar de referencia manual de 1,500 causas con clasificación asistida por Claude AI para las 7,909 restantes, alcanzando 82.5% de confianza promedio y 100% de cobertura. Este enfoque superó al modelo original de Random Forest, que solo lograba 59% de exactitud sobre texto libre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede usar en producción tal como está?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No; el tarificador entrega un precio de referencia, no una tarifa comercialmente usable. Todavía no modela la estructura del producto (suma asegurada, deducible, coaseguro, tipo de red), usa la severidad promedio por celda en lugar de la distribución completa, y la clasificación con IA no ha sido validada contra un estándar externo como codificadores médicos certificados o la CIE-10."
+      }
+    }
+  ]
+}
+</script>
 
 ## Cierre
 

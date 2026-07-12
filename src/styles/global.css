@@ -77,6 +77,16 @@
     transform: translateY(24px);
   }
 
+  /* Reduced motion: never hide content, never animate */
+  @media (prefers-reduced-motion: reduce) {
+    html.js-ready .fade-up:not(.visible),
+    .fade-up {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
   /* Blog editorial typography */
   .blog-content {
     font-family: 'Lora', Georgia, serif;

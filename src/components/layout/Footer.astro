@@ -15,14 +15,20 @@ const { lang } = Astro.props;
   <div class="max-w-6xl mx-auto px-6 py-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <span class="font-serif text-xl font-bold text-cream">{lang === 'es' ? 'Licenciado en Actuaría' : 'Actuarial Sciences'}</span>
+        <span class="font-serif text-xl font-bold text-cream">{lang === 'es' ? 'Actuaría, UNAM' : 'Actuarial Science, UNAM'}</span>
+        <p class="mt-1 text-sm text-cream/60">{lang === 'es' ? 'En proceso de titulación' : 'Degree in progress'}</p>
         <p class="mt-2 text-sm text-cream/60">Andrés González Ortega</p>
       </div>
       <div class="space-y-2">
+        <a href="https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/" target="_blank" rel="noopener noreferrer" class="block text-sm hover:text-amber transition-colors">
+          LinkedIn
+        </a>
+        <a href="https://github.com/GonorAndres" target="_blank" rel="noopener noreferrer" class="block text-sm hover:text-amber transition-colors">
+          GitHub
+        </a>
         <a href="https://drive.google.com/drive/folders/1M7KZaFbTw19vDoA-AeusJDkL--nnAwEN?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block text-sm hover:text-amber transition-colors">
           {lang === 'es' ? 'Carpeta académica' : 'Academic folder'}
         </a>
-        <!-- TODO: "Apuntes sueltos" link removed -- it pointed to the same Drive folder as "Carpeta academica". Re-add when the correct separate folder URL is available. -->
       </div>
       <div class="text-sm text-cream/50">
         <p>&copy; {new Date().getFullYear()} Andrés González Ortega.</p>

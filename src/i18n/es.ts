@@ -1,5 +1,6 @@
 export default {
   'nav.home': 'Inicio',
+  'nav.about': 'Sobre mí',
   'nav.projects': 'Proyectos',
   'nav.blog': 'Blog',
   'nav.contact': 'Contacto',

@@ -12,15 +12,24 @@ interface Props {
   lang?: Lang;
   ogType?: 'website' | 'article';
   datePublished?: string;
+  dateModified?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = 'Portafolio de Andrés González Ortega - Actuario & Analista de Datos',
   lang = 'es',
   ogType = 'website',
   datePublished,
+  dateModified,
+  noindex = false,
 } = Astro.props;
+
+const description = Astro.props.description ?? (lang === 'en'
+  ? 'UNAM actuary building production actuarial tools: GMM pricing with CNSF data, reserve valuation under LISF, AI agents over Mexican regulation, and data platforms on GCP.'
+  : 'Actuario UNAM. Construyo herramientas actuariales en producción: tarificación GMM con datos CNSF, valuación de reservas bajo LISF, agentes de IA sobre regulación mexicana y plataformas de datos en GCP.');
+
+const skipLabel = lang === 'en' ? 'Skip to content' : 'Saltar al contenido';
 ---
 
 <!doctype html>
@@ -28,6 +37,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#E8E0D7" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin />
@@ -38,6 +48,8 @@ const {
       type={ogType}
       lang={lang}
       datePublished={datePublished}
+      dateModified={dateModified}
+      noindex={noindex}
     />
     <ClientRouter />
     <slot name="head" />
@@ -48,27 +60,58 @@ const {
     <script is:inline>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-098V02NCB0');</script>
   </head>
   <body class="min-h-screen flex flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-navy focus:text-cream focus:font-medium"
+    >
+      {skipLabel}
+    </a>
     <Header lang={lang} />
-    <main class="flex-1">
+    <main id="main" class="flex-1">
       <slot />
     </main>
     <Footer lang={lang} />
 
     <script>
+      function revealAll() {
+        document.querySelectorAll('.fade-up:not(.visible)').forEach((el) =>
+          el.classList.add('visible')
+        );
+      }
+
+      function initFadeUp() {
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Reduced motion or no IntersectionObserver support: show everything now.
+        if (reduced || !('IntersectionObserver' in window)) {
+          revealAll();
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document
+          .querySelectorAll('.fade-up:not(.visible)')
+          .forEach((el) => observer.observe(el));
+
+        // Safety net: anything still hidden after 2s (offscreen, print, headless
+        // renderers, some crawlers) gets revealed so no content stays invisible.
+        setTimeout(revealAll, 2000);
+      }
+
       document.documentElement.classList.add('js-ready');
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+      initFadeUp();
+      document.addEventListener('astro:page-load', initFadeUp);
     </script>
   </body>
 </html>

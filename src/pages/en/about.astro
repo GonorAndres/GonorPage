@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OrganicBlob from '../../components/decorations/OrganicBlob.astro';
+import Squiggle from '../../components/decorations/Squiggle.astro';
+
+const lang = 'en';
+const title = 'About · Andrés González Ortega';
+const description = 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias who builds production actuarial and data-science tools: GMM pricing on CNSF data, reserve valuation under LISF and CUSF, AI agents over Mexican regulation, and data platforms on GCP.';
+
+const email = 'gonorandres@ciencias.unam.mx';
+const github = 'https://github.com/GonorAndres';
+const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
+
+// Single source of truth: the visible Q&A and the FAQPage JSON-LD are built
+// from this array, so they always match.
+const faqs = [
+  {
+    q: 'Who is Andrés González Ortega?',
+    a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias who builds production actuarial and data-science tools. His work joins risk theory with real software: insurance models, reserve valuation, artificial-intelligence agents, and data platforms that solve concrete problems in the Mexican insurance sector.',
+  },
+  {
+    q: 'What does he do?',
+    a: 'Andrés González Ortega builds actuarial and analytical software that reaches production, not just a notebook. He has built pricing engines for major medical expense insurance on CNSF data, reserve-valuation systems under the LISF and CUSF regulatory framework, AI agents that reason over Mexican regulation with retrieval-augmented generation (RAG), and data platforms that process information in the cloud. Every project starts from a question he cannot yet answer and ends in something that works.',
+  },
+  {
+    q: 'What technologies and domains does he work in?',
+    a: 'Andrés González Ortega works at the intersection of actuarial science, machine learning, and data engineering. On the actuarial side he applies risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side he uses Python, data platforms on Google Cloud such as BigQuery, language models with retrieval-augmented generation (RAG), and, out of curiosity, he trained a transformer on the work of Proust to understand attention mechanisms from the inside.',
+  },
+  {
+    q: 'Where did he study?',
+    a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree. That training gave him the foundations of probability, statistics, finance, and risk theory that every project in the portfolio rests on.',
+  },
+  {
+    q: 'How to reach him?',
+    a: `You can reach Andrés González Ortega by email at ${email}. He is also on GitHub (${github}) and LinkedIn (${linkedin}), where he shares his work and projects.`,
+    contact: true,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'en',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="relative overflow-hidden py-16 md:py-20 px-6">
+    <OrganicBlob variant={1} color="#D4A574" class="w-[480px] h-[480px] -top-24 -right-32 opacity-40" />
+    <OrganicBlob variant={3} color="#7A8B6F" class="w-[340px] h-[340px] bottom-10 -left-24 opacity-30" />
+
+    <div class="max-w-3xl mx-auto relative z-10">
+      <header class="mb-12">
+        <p class="text-sage font-medium text-lg mb-2">About</p>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-navy leading-tight mb-4">
+          Andrés González Ortega
+        </h1>
+        <p class="text-xl text-terracotta font-serif">
+          Actuary &amp; data scientist · UNAM
+        </p>
+      </header>
+
+      <Squiggle color="#C17654" class="w-full h-6 mb-12" />
+
+      <div class="space-y-12">
+        {faqs.map((f) => (
+          <article class="fade-up">
+            <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
+              {f.q}
+            </h2>
+            <p class="text-navy/80 text-lg leading-relaxed">
+              {f.a}
+            </p>
+            {f.contact && (
+              <div class="flex flex-wrap gap-3 mt-6">
+                <a
+                  href={`mailto:${email}`}
+                  class="inline-block px-5 py-2.5 bg-terracotta text-cream font-medium rounded-xl hover:bg-terracotta/90 transition-colors"
+                >
+                  Email
+                </a>
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

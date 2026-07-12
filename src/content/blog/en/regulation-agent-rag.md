@@ -2,7 +2,7 @@
 title: "Actuarial Regulation Assistant: Why RAG Is the Right Approach for LISF and CUSF"
 description: "Interpreting LISF and CUSF means navigating articles that cross-reference each other across laws, and a Ctrl+F can't tell the article defining technical reserves from one that mentions them in passing. AI makes it possible to absorb that entire volume without losing a single detail. This agent uses RAG to index every article individually with a cross-reference graph, eliminating citation hallucinations and ensuring the model only reasons over real legal text. The result is an assistant that amplifies the actuary's memory without replacing their judgment."
 date: "2026-03-22"
-lastModified: "2026-05-03"
+lastModified: "2026-07-12"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -114,3 +114,63 @@ The code is on <a href="https://github.com/GonorAndres/regulation-actuarial-agen
 The main version of the assistant uses Claude through Anthropic's API, which offers the best response quality but has a per-query cost. For those who want to explore the tool without access restrictions, there is a <a href="https://huggingface.co/spaces/GonorAndres/lisf-agent" target="_blank" rel="noopener" style="color: #C17654; text-decoration: underline;">version deployed on HuggingFace Spaces</a> running Qwen2.5-72B, an open-source model.
 
 The quality difference is real: Qwen handles straightforward queries about specific articles well, but for questions that require reasoning across multiple interrelated provisions, Claude is noticeably more precise. For serious regulatory work, the Claude version remains the recommendation. But for getting familiar with the LISF and CUSF structure, or for quick lookups when budget is tight, the open-source version is a functional alternative with no access code and no usage limits.
+
+## Frequently asked questions
+
+### Which laws does the assistant cover?
+
+The assistant covers the LISF (510 articles across 13 Titles) and the CUSF (1,833 provisions across 35 Titles), the complete regulatory framework for the insurance and surety sector in Mexico. In total it indexes 2,354 individual articles and 2,882 cross-references between the two laws.
+
+### How does it avoid citation hallucinations?
+
+The system uses RAG (Retrieval-Augmented Generation): a search engine first finds the relevant articles, and then the model reasons only over that real legal text. The model cites article 121 because it is reading it, not because it is inventing it, unlike the first version that fabricated article numbers with total confidence.
+
+### Does it replace the actuary's judgment?
+
+No; the system searches, organizes, and presents, but regulatory interpretation and the decision of how to apply an article to a specific case remain the professional's responsibility. It is designed to amplify the memory of an actuary who already knows the framework, not to substitute their judgment or replace studying the LISF and CUSF.
+
+### Do I need prior knowledge to use it?
+
+Yes; it is a tool for actuaries and industry professionals who already understand the regulatory structure. If you don't know what RCS is, what role technical reserves play, or how CUSF Titles are organized, the system's answers won't make sense to you.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which laws does the assistant cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The assistant covers the LISF (510 articles across 13 Titles) and the CUSF (1,833 provisions across 35 Titles), the complete regulatory framework for the insurance and surety sector in Mexico. In total it indexes 2,354 individual articles and 2,882 cross-references between the two laws."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does it avoid citation hallucinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The system uses RAG (Retrieval-Augmented Generation): a search engine first finds the relevant articles, and then the model reasons only over that real legal text. The model cites article 121 because it is reading it, not because it is inventing it, unlike the first version that fabricated article numbers with total confidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it replace the actuary's judgment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No; the system searches, organizes, and presents, but regulatory interpretation and the decision of how to apply an article to a specific case remain the professional's responsibility. It is designed to amplify the memory of an actuary who already knows the framework, not to substitute their judgment or replace studying the LISF and CUSF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need prior knowledge to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes; it is a tool for actuaries and industry professionals who already understand the regulatory structure. If you don't know what RCS is, what role technical reserves play, or how CUSF Titles are organized, the system's answers won't make sense to you."
+      }
+    }
+  ]
+}
+</script>

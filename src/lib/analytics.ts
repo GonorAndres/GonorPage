@@ -35,3 +35,12 @@ export function track(event: string, props?: Record<string, unknown>) {
   if (!initialized) return;
   posthog.capture(event, { site: window.location.hostname, ...props });
 }
+
+// GA4 custom event via gtag (defined inline in BaseLayout). Skipped on localhost
+// where GA is not loaded, mirroring the PostHog guard above.
+export function gaEvent(name: string, params?: Record<string, unknown>) {
+  if (typeof window === 'undefined') return;
+  if (/localhost|127\.0\.0\.1/.test(window.location.hostname)) return;
+  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+  if (typeof gtag === 'function') gtag('event', name, params ?? {});
+}

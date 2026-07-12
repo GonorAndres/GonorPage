@@ -2,7 +2,7 @@
 title: "Asistente de Regulación Actuarial: por qué RAG es el enfoque correcto para LISF y CUSF"
 description: "Interpretar la LISF y la CUSF exige navegar entre artículos que se referencian mutuamente entre leyes, y un Ctrl+F no distingue el artículo que define reservas técnicas del que las menciona de paso. La IA permite absorber todo ese volumen sin perder un solo detalle. Este agente usa RAG para indexar cada artículo de forma individual con un grafo de referencias cruzadas, eliminando las alucinaciones de citas y permitiendo que el modelo razone solo sobre texto real de la ley. El resultado es un asistente que amplifica la memoria del actuario sin sustituir su criterio."
 date: "2026-03-22"
-lastModified: "2026-05-03"
+lastModified: "2026-07-12"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -114,3 +114,63 @@ El código está en <a href="https://github.com/GonorAndres/regulation-actuarial
 La versión principal del asistente usa Claude a través de la API de Anthropic, lo que ofrece la mejor calidad de respuesta pero tiene un costo por consulta. Para quienes quieran explorar la herramienta sin restricciones de acceso, existe una <a href="https://huggingface.co/spaces/GonorAndres/lisf-agent" target="_blank" rel="noopener" style="color: #C17654; text-decoration: underline;">versión desplegada en HuggingFace Spaces</a> que usa Qwen2.5-72B, un modelo open-source.
 
 La diferencia en calidad es real: Qwen interpreta bien consultas directas sobre artículos específicos, pero en preguntas que requieren razonar sobre múltiples disposiciones interrelacionadas, Claude es notablemente más preciso. Para trabajo regulatorio serio, la versión con Claude sigue siendo la recomendación. Pero para familiarizarte con la estructura de la LISF y la CUSF, o para consultas rápidas cuando el presupuesto es limitado, la versión open-source es una alternativa funcional, sin código de acceso y sin límite de uso.
+
+## Preguntas frecuentes
+
+### ¿Qué leyes cubre el asistente?
+
+El asistente cubre la LISF (510 artículos en 13 Títulos) y la CUSF (1,833 disposiciones en 35 Títulos), el marco regulatorio completo del sector asegurador y afianzador en México. En total indexa 2,354 artículos individuales y 2,882 referencias cruzadas entre ambas leyes.
+
+### ¿Cómo evita las alucinaciones de citas?
+
+El sistema usa RAG (Retrieval-Augmented Generation): primero un motor de búsqueda encuentra los artículos relevantes y luego el modelo razona únicamente sobre ese texto real de la ley. Así el modelo cita el artículo 121 porque lo está leyendo, no porque lo esté inventando, a diferencia de la primera versión que fabricaba números de artículo con confianza total.
+
+### ¿Reemplaza el criterio del actuario?
+
+No; el sistema busca, organiza y presenta, pero la interpretación regulatoria y la decisión sobre cómo aplicar un artículo a un caso concreto siguen siendo responsabilidad del profesional. Está pensado para amplificar la memoria de un actuario que ya conoce el marco, no para sustituir su juicio ni para reemplazar el estudio de la LISF y la CUSF.
+
+### ¿Necesito conocimientos previos para usarlo?
+
+Sí; es una herramienta para actuarios y profesionales del sector que ya entienden la estructura regulatoria. Si no sabes qué es el RCS, qué papel juegan las reservas técnicas o cómo se organizan los Títulos de la CUSF, las respuestas del sistema no van a tener sentido.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué leyes cubre el asistente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El asistente cubre la LISF (510 artículos en 13 Títulos) y la CUSF (1,833 disposiciones en 35 Títulos), el marco regulatorio completo del sector asegurador y afianzador en México. En total indexa 2,354 artículos individuales y 2,882 referencias cruzadas entre ambas leyes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo evita las alucinaciones de citas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El sistema usa RAG (Retrieval-Augmented Generation): primero un motor de búsqueda encuentra los artículos relevantes y luego el modelo razona únicamente sobre ese texto real de la ley. Así el modelo cita el artículo 121 porque lo está leyendo, no porque lo esté inventando, a diferencia de la primera versión que fabricaba números de artículo con confianza total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Reemplaza el criterio del actuario?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No; el sistema busca, organiza y presenta, pero la interpretación regulatoria y la decisión sobre cómo aplicar un artículo a un caso concreto siguen siendo responsabilidad del profesional. Está pensado para amplificar la memoria de un actuario que ya conoce el marco, no para sustituir su juicio ni para reemplazar el estudio de la LISF y la CUSF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito conocimientos previos para usarlo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí; es una herramienta para actuarios y profesionales del sector que ya entienden la estructura regulatoria. Si no sabes qué es el RCS, qué papel juegan las reservas técnicas o cómo se organizan los Títulos de la CUSF, las respuestas del sistema no van a tener sentido."
+      }
+    }
+  ]
+}
+</script>
