@@ -11,28 +11,44 @@ const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';
 const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
 
-// Single source of truth: the visible Q&A and the FAQPage JSON-LD are built
-// from this array, so they always match.
+// Single source of truth per question: `a` is the third-person answer used in
+// the FAQPage JSON-LD (search engines prefer full-name, self-contained
+// answers); `visible` is the first-person text shown on the page. If
+// `visible` is missing, `a` is shown.
 const faqs = [
   {
     q: '¿Quién es Andrés González Ortega?',
+    qVisible: '¿Quién soy?',
     a: 'Andrés González Ortega es un actuario formado en la Facultad de Ciencias de la UNAM que construye herramientas actuariales y de ciencia de datos en producción. Su trabajo combina la teoría del riesgo con software real: modelos de seguros, valuación de reservas, agentes de inteligencia artificial y plataformas de datos que resuelven problemas concretos del sector asegurador mexicano.',
+    visible:
+      'Soy actuario, formado en la Facultad de Ciencias de la UNAM. Me interesa el punto donde la teoría del riesgo se encuentra con el software: tomar un modelo que normalmente vive en un examen o en un paper y convertirlo en algo que alguien puede abrir en el navegador y usar. Casi todo lo que hay en este portafolio nació así, de querer ver funcionar algo que hasta entonces solo entendía en papel.',
   },
   {
     q: '¿Qué hace?',
-    a: 'Andrés González Ortega desarrolla software actuarial y analítico que llega a producción, no solo a un cuaderno de notas. Ha construido motores de tarificación de gastos médicos mayores con datos de la CNSF, sistemas de valuación de reservas bajo el marco de la LISF y la CUSF, agentes de IA que razonan sobre la regulación mexicana con recuperación aumentada (RAG) y plataformas de datos que procesan información en la nube. Cada proyecto parte de una pregunta que aún no sabe responder y termina en algo que funciona.',
+    qVisible: '¿Qué hago?',
+    a: 'Andrés González Ortega desarrolla software actuarial y analítico que llega a producción. Ha construido motores de tarificación de gastos médicos mayores con datos de la CNSF, sistemas de valuación de reservas bajo el marco de la LISF y la CUSF, agentes de IA que razonan sobre la regulación mexicana con recuperación aumentada (RAG) y plataformas de datos en la nube.',
+    visible:
+      'Construyo software actuarial y analítico, y lo llevo hasta producción. He armado un motor de tarificación de gastos médicos mayores con datos públicos de la CNSF, un sistema de valuación de reservas bajo la LISF y la CUSF, un agente de IA que responde preguntas sobre la regulación mexicana citando solo texto real de la ley, y plataformas de datos en la nube. No todos salieron a la primera; buena parte de lo que escribo en el blog es justamente qué falló y qué cambié.',
   },
   {
     q: '¿En qué tecnologías y áreas trabaja?',
-    a: 'Andrés González Ortega trabaja en la intersección de la ciencia actuarial, el aprendizaje automático y la ingeniería de datos. En lo actuarial aplica modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. En lo técnico usa Python, plataformas de datos en Google Cloud como BigQuery, modelos de lenguaje con recuperación aumentada (RAG) y, por curiosidad, entrenó un transformer sobre la obra de Proust para entender por dentro los mecanismos de atención.',
+    qVisible: '¿En qué tecnologías y áreas trabajo?',
+    a: 'Andrés González Ortega trabaja entre la ciencia actuarial, el aprendizaje automático y la ingeniería de datos. En lo actuarial aplica modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. En lo técnico usa Python, plataformas de datos en Google Cloud como BigQuery y modelos de lenguaje con recuperación aumentada (RAG).',
+    visible:
+      'Me muevo entre lo actuarial y lo técnico. Del lado actuarial: modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. Del lado técnico: Python, Google Cloud (sobre todo BigQuery) y modelos de lenguaje con RAG. También hay experimentos que hice solo por curiosidad, como entrenar un transformer sobre la obra de Proust para entender los mecanismos de atención por dentro.',
   },
   {
     q: '¿Dónde estudió?',
-    a: 'Andrés González Ortega estudió la carrera de Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y se encuentra en proceso de titulación. Esa formación le dio las bases de probabilidad, estadística, finanzas y teoría del riesgo sobre las que apoya cada proyecto del portafolio.',
+    qVisible: '¿Dónde estudié?',
+    a: 'Andrés González Ortega estudió la carrera de Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y se encuentra en proceso de titulación.',
+    visible:
+      'Estudié Actuaría en la Facultad de Ciencias de la UNAM y estoy en proceso de titulación. De ahí vienen las bases de probabilidad, estadística, finanzas y teoría del riesgo que sostienen todo lo demás.',
   },
   {
     q: '¿Cómo contactarlo?',
+    qVisible: '¿Cómo contactarme?',
     a: `Puedes contactar a Andrés González Ortega por correo en ${email}. También está disponible en GitHub (${github}) y en LinkedIn (${linkedin}), donde publica su trabajo y proyectos.`,
+    visible: `La forma más directa es el correo: ${email}. También publico mi trabajo en GitHub y LinkedIn.`,
     contact: true,
   },
 ];
@@ -76,10 +92,10 @@ const faqSchema = {
         {faqs.map((f, i) => (
           <article class:list={['fade-up', i > 0 && 'pt-12 border-t border-navy/10']}>
             <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
-              {f.q}
+              {f.qVisible ?? f.q}
             </h2>
             <p class="text-navy/80 text-lg leading-relaxed">
-              {f.a}
+              {f.visible ?? f.a}
             </p>
             {f.contact && (
               <div class="flex flex-wrap gap-3 mt-6">

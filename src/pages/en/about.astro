@@ -11,28 +11,44 @@ const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';
 const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
 
-// Single source of truth: the visible Q&A and the FAQPage JSON-LD are built
-// from this array, so they always match.
+// Single source of truth per question: `a` is the third-person answer used in
+// the FAQPage JSON-LD (search engines prefer full-name, self-contained
+// answers); `visible` is the first-person text shown on the page. If
+// `visible` is missing, `a` is shown.
 const faqs = [
   {
     q: 'Who is Andrés González Ortega?',
+    qVisible: 'Who am I?',
     a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias who builds production actuarial and data-science tools. His work joins risk theory with real software: insurance models, reserve valuation, artificial-intelligence agents, and data platforms that solve concrete problems in the Mexican insurance sector.',
+    visible:
+      'I\'m an actuary, trained at UNAM\'s Facultad de Ciencias. What interests me is the point where risk theory meets software: taking a model that usually lives in an exam or a paper and turning it into something a person can open in a browser and use. Most of what you\'ll find in this portfolio started that way, from wanting to see something work that I had only understood on paper.',
   },
   {
     q: 'What does he do?',
-    a: 'Andrés González Ortega builds actuarial and analytical software that reaches production, not just a notebook. He has built pricing engines for major medical expense insurance on CNSF data, reserve-valuation systems under the LISF and CUSF regulatory framework, AI agents that reason over Mexican regulation with retrieval-augmented generation (RAG), and data platforms that process information in the cloud. Every project starts from a question he cannot yet answer and ends in something that works.',
+    qVisible: 'What do I do?',
+    a: 'Andrés González Ortega builds actuarial and analytical software that reaches production. He has built pricing engines for major medical expense insurance on CNSF data, reserve-valuation systems under the LISF and CUSF regulatory framework, AI agents that reason over Mexican regulation with retrieval-augmented generation (RAG), and cloud data platforms.',
+    visible:
+      'I build actuarial and analytical software and take it all the way to production. I\'ve put together a pricing engine for major medical expense insurance using public CNSF data, a reserve-valuation system under the LISF and CUSF framework, an AI agent that answers questions about Mexican regulation citing only the actual text of the law, and cloud data platforms. Not everything worked on the first try; a good part of what I write on the blog is exactly what failed and what I changed.',
   },
   {
     q: 'What technologies and domains does he work in?',
-    a: 'Andrés González Ortega works at the intersection of actuarial science, machine learning, and data engineering. On the actuarial side he applies risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side he uses Python, data platforms on Google Cloud such as BigQuery, language models with retrieval-augmented generation (RAG), and, out of curiosity, he trained a transformer on the work of Proust to understand attention mechanisms from the inside.',
+    qVisible: 'What technologies and domains do I work in?',
+    a: 'Andrés González Ortega works across actuarial science, machine learning, and data engineering. On the actuarial side he applies risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side he uses Python, data platforms on Google Cloud such as BigQuery, and language models with retrieval-augmented generation (RAG).',
+    visible:
+      'I move between the actuarial and the technical. On the actuarial side: risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side: Python, Google Cloud (mostly BigQuery), and language models with RAG. There are also experiments I did purely out of curiosity, like training a transformer on Proust\'s work to understand attention mechanisms from the inside.',
   },
   {
     q: 'Where did he study?',
-    a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree. That training gave him the foundations of probability, statistics, finance, and risk theory that every project in the portfolio rests on.',
+    qVisible: 'Where did I study?',
+    a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree.',
+    visible:
+      'I studied Actuarial Science at UNAM\'s Facultad de Ciencias and I\'m currently completing my degree. That\'s where the probability, statistics, finance, and risk theory underneath everything else comes from.',
   },
   {
     q: 'How to reach him?',
+    qVisible: 'How to reach me?',
     a: `You can reach Andrés González Ortega by email at ${email}. He is also on GitHub (${github}) and LinkedIn (${linkedin}), where he shares his work and projects.`,
+    visible: `The most direct way is email: ${email}. I also publish my work on GitHub and LinkedIn.`,
     contact: true,
   },
 ];
@@ -76,10 +92,10 @@ const faqSchema = {
         {faqs.map((f, i) => (
           <article class:list={['fade-up', i > 0 && 'pt-12 border-t border-navy/10']}>
             <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
-              {f.q}
+              {f.qVisible ?? f.q}
             </h2>
             <p class="text-navy/80 text-lg leading-relaxed">
-              {f.a}
+              {f.visible ?? f.a}
             </p>
             {f.contact && (
               <div class="flex flex-wrap gap-3 mt-6">
