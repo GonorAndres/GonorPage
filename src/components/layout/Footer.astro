@@ -19,14 +19,14 @@ const { lang } = Astro.props;
         <p class="mt-1 text-sm text-cream/60">{lang === 'es' ? 'En proceso de titulación' : 'Degree in progress'}</p>
         <p class="mt-2 text-sm text-cream/60">Andrés González Ortega</p>
       </div>
-      <div class="space-y-2">
-        <a href="https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/" target="_blank" rel="noopener noreferrer" class="inline-block py-1.5 w-fit text-sm hover:text-amber transition-colors">
+      <div class="flex flex-col gap-2">
+        <a href="https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/" target="_blank" rel="noopener noreferrer" class="block py-1.5 w-fit text-sm hover:text-amber transition-colors">
           LinkedIn
         </a>
-        <a href="https://github.com/GonorAndres" target="_blank" rel="noopener noreferrer" class="inline-block py-1.5 w-fit text-sm hover:text-amber transition-colors">
+        <a href="https://github.com/GonorAndres" target="_blank" rel="noopener noreferrer" class="block py-1.5 w-fit text-sm hover:text-amber transition-colors">
           GitHub
         </a>
-        <a href="https://drive.google.com/drive/folders/1M7KZaFbTw19vDoA-AeusJDkL--nnAwEN?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-block py-1.5 w-fit text-sm hover:text-amber transition-colors">
+        <a href="https://drive.google.com/drive/folders/1M7KZaFbTw19vDoA-AeusJDkL--nnAwEN?usp=drive_link" target="_blank" rel="noopener noreferrer" class="block py-1.5 w-fit text-sm hover:text-amber transition-colors">
           {lang === 'es' ? 'Carpeta académica' : 'Academic folder'}
         </a>
       </div>
