@@ -118,3 +118,37 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
     expect(errors).toHaveLength(0);
   });
 });
+
+test.describe('Mobile layout', () => {
+  test.use({ viewport: { width: 320, height: 720 }, isMobile: true });
+
+  test('menu opens accessibly and the page does not overflow horizontally', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('load');
+
+    const menuButton = page.getByRole('button', { name: 'Menu' });
+    await expect(menuButton).toBeVisible();
+    await menuButton.click();
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#mobile-menu')).toHaveAttribute('aria-hidden', 'false');
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth
+    );
+    expect(hasHorizontalOverflow).toBe(false);
+  });
+
+  test('body copy is justified', async ({ page }) => {
+    await page.goto('/about/');
+    const alignment = await page.locator('main p').first().evaluate(
+      (element) => getComputedStyle(element).textAlign
+    );
+    expect(alignment).toBe('justify');
+  });
+
+  test('PDF notes provide an in-page preview', async ({ page }) => {
+    await page.goto('/artifacts/black-scholes-fra-irs/');
+    const preview = page.locator('iframe[title*="Vista previa"]');
+    await expect(preview).toHaveAttribute('src', /drive\.google\.com\/file\/d\/.*\/preview/);
+  });
+});

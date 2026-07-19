@@ -21,8 +21,8 @@ const inactiveClass = 'text-sm font-medium text-navy/70 hover:text-terracotta tr
 ---
 
 <header class="sticky top-0 z-50 bg-[#E8E0D7]/95 backdrop-blur-sm border-b border-amber/20">
-  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href={tp('/')} class="font-serif text-lg md:text-xl font-bold text-navy hover:text-terracotta transition-colors truncate min-w-0">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+    <a href={tp('/')} class="font-serif text-base sm:text-lg md:text-xl font-bold text-navy hover:text-terracotta transition-colors truncate min-w-0">
       Andrés González Ortega
     </a>
 
@@ -54,6 +54,7 @@ const inactiveClass = 'text-sm font-medium text-navy/70 hover:text-terracotta tr
       class="md:hidden p-2 text-navy shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
       aria-label="Menu"
       aria-expanded="false"
+      aria-controls="mobile-menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -62,37 +63,56 @@ const inactiveClass = 'text-sm font-medium text-navy/70 hover:text-terracotta tr
   </nav>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden px-6 pb-4 space-y-3 md:!hidden">
-    <a href={tp('/')} data-nav="home" class={`block py-2 -mx-2 px-2 rounded-lg ${isHome ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isHome ? {'aria-current': 'page'} : {})}>
-      {t(lang, 'nav.home')}
-    </a>
-    <a href={tp('/about/')} class={`block py-2 -mx-2 px-2 rounded-lg ${isAbout ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isAbout ? {'aria-current': 'page'} : {})}>
-      {t(lang, 'nav.about')}
-    </a>
-    <a href={tp('/#proyectos')} data-nav="projects" class="block py-2 -mx-2 px-2 rounded-lg text-sm font-medium text-navy/70 hover:text-terracotta">
-      {t(lang, 'nav.projects')}
-    </a>
-    <a href={tp('/artifacts/')} data-nav="notes" class={`block py-2 -mx-2 px-2 rounded-lg ${isNotes ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isNotes ? {'aria-current': 'page'} : {})}>
-      {t(lang, 'nav.notes')}
-    </a>
-    <a href={tp('/blog/')} class={`block py-2 -mx-2 px-2 rounded-lg ${isBlog ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isBlog ? {'aria-current': 'page'} : {})}>
-      {t(lang, 'nav.blog')}
-    </a>
-    <a href={tp('/#contacto')} class="block py-2 -mx-2 px-2 rounded-lg text-sm font-medium text-navy/70 hover:text-terracotta">
-      {t(lang, 'nav.contact')}
-    </a>
-    <LanguageSwitcher lang={lang} />
+  <div id="mobile-menu" class="grid grid-rows-[0fr] opacity-0 -translate-y-2 pointer-events-none transition-[grid-template-rows,opacity,transform] duration-200 ease-out md:hidden" aria-hidden="true">
+    <div class="overflow-hidden">
+      <div class="px-4 sm:px-6 pb-4 space-y-1">
+        <a href={tp('/')} data-nav="home" class={`flex items-center min-h-[44px] -mx-2 px-2 rounded-lg ${isHome ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isHome ? {'aria-current': 'page'} : {})}>
+          {t(lang, 'nav.home')}
+        </a>
+        <a href={tp('/about/')} class={`flex items-center min-h-[44px] -mx-2 px-2 rounded-lg ${isAbout ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isAbout ? {'aria-current': 'page'} : {})}>
+          {t(lang, 'nav.about')}
+        </a>
+        <a href={tp('/#proyectos')} data-nav="projects" class="flex items-center min-h-[44px] -mx-2 px-2 rounded-lg text-sm font-medium text-navy/70 hover:text-terracotta">
+          {t(lang, 'nav.projects')}
+        </a>
+        <a href={tp('/artifacts/')} data-nav="notes" class={`flex items-center min-h-[44px] -mx-2 px-2 rounded-lg ${isNotes ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isNotes ? {'aria-current': 'page'} : {})}>
+          {t(lang, 'nav.notes')}
+        </a>
+        <a href={tp('/blog/')} class={`flex items-center min-h-[44px] -mx-2 px-2 rounded-lg ${isBlog ? 'text-sm font-medium text-terracotta' : 'text-sm font-medium text-navy/70 hover:text-terracotta'}`} {...(isBlog ? {'aria-current': 'page'} : {})}>
+          {t(lang, 'nav.blog')}
+        </a>
+        <a href={tp('/#contacto')} class="flex items-center min-h-[44px] -mx-2 px-2 rounded-lg text-sm font-medium text-navy/70 hover:text-terracotta">
+          {t(lang, 'nav.contact')}
+        </a>
+        <LanguageSwitcher lang={lang} />
+      </div>
+    </div>
   </div>
 
   <script>
     function initHeader() {
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
-      btn?.addEventListener('click', () => {
-        menu?.classList.toggle('hidden');
-        const expanded = btn?.getAttribute('aria-expanded') === 'true';
-        btn?.setAttribute('aria-expanded', String(!expanded));
-      });
+      const setMenuOpen = (open: boolean) => {
+        btn?.setAttribute('aria-expanded', String(open));
+        menu?.setAttribute('aria-hidden', String(!open));
+        menu?.classList.toggle('grid-rows-[0fr]', !open);
+        menu?.classList.toggle('grid-rows-[1fr]', open);
+        menu?.classList.toggle('opacity-0', !open);
+        menu?.classList.toggle('opacity-100', open);
+        menu?.classList.toggle('-translate-y-2', !open);
+        menu?.classList.toggle('translate-y-0', open);
+        menu?.classList.toggle('pointer-events-none', !open);
+      };
+      btn?.addEventListener('click', () => setMenuOpen(btn.getAttribute('aria-expanded') !== 'true'));
+      menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+      const onEscape = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') setMenuOpen(false);
+      };
+      window.addEventListener('keydown', onEscape);
+      document.addEventListener('astro:before-swap', () => {
+        window.removeEventListener('keydown', onEscape);
+      }, { once: true });
 
       // Scroll-spy: highlight nav link based on which section is in view.
       // Only runs on the homepage where #proyectos and #notas exist.
