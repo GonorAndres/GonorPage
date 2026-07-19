@@ -47,6 +47,15 @@ const jsonLd = {
 const relatedNotes = note.relatedNotes
   ?.map((relSlug) => getNoteBySlug(relSlug, lang))
   .filter((n): n is NonNullable<typeof n> => n !== undefined) ?? [];
+
+const driveFileMatch = note.urls.length === 1
+  ? note.urls[0].url.match(/drive\.google\.com\/file\/d\/([^/]+)/)
+  : null;
+const previewUrl = driveFileMatch
+  ? `https://drive.google.com/file/d/${driveFileMatch[1]}/preview`
+  : undefined;
+const previewLabel = lang === 'es' ? 'Vista previa del material' : 'Material preview';
+const openPreviewLabel = lang === 'es' ? 'Abrir en Google Drive' : 'Open in Google Drive';
 ---
 
 <BaseLayout
@@ -60,7 +69,7 @@ const relatedNotes = note.relatedNotes
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
-  <article class="py-16 px-6">
+  <article class="py-10 sm:py-16 px-4 sm:px-6">
     <div class="max-w-2xl mx-auto">
       <div class="mb-8">
         <a href={tp('/artifacts/')} class="inline-flex items-center py-2 min-h-[40px] text-sm text-terracotta hover:underline mb-4">
@@ -82,6 +91,32 @@ const relatedNotes = note.relatedNotes
       <div class="prose prose-lg max-w-none prose-p:text-navy/80 prose-p:leading-relaxed mb-8">
         <p>{note.description}</p>
       </div>
+
+      {previewUrl && (
+        <section class="mb-8" aria-labelledby="document-preview-title">
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-3">
+            <h2 id="document-preview-title" class="font-serif text-xl font-bold text-navy">
+              {previewLabel}
+            </h2>
+            <a
+              href={note.urls[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center min-h-[40px] text-sm text-terracotta hover:underline"
+            >
+              {openPreviewLabel} <span aria-hidden="true" class="ml-1">↗</span>
+            </a>
+          </div>
+          <div class="overflow-hidden rounded-xl border border-amber/30 bg-white shadow-sm">
+            <iframe
+              src={previewUrl}
+              title={`${previewLabel}: ${note.title}`}
+              loading="lazy"
+              class="block w-full h-[70svh] min-h-[32rem] sm:h-[44rem]"
+            ></iframe>
+          </div>
+        </section>
+      )}
 
       {/* Tags */}
       <div class="flex flex-wrap gap-2 mb-8">

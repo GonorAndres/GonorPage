@@ -155,11 +155,11 @@ function GalleryModal({ images, title, onClose, startIndex = 0 }: {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1B2A4A]/90 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto px-4 py-12 bg-[#1B2A4A]/90 backdrop-blur-sm"
       onClick={(e) => { if (e.target === e.currentTarget && readyRef.current) onClose(idx); }}
     >
       <div
-        className="relative w-full max-w-4xl mx-4"
+        className="relative w-full max-w-4xl"
       >
         {/* Close */}
         <button
@@ -698,7 +698,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
       <div className="flex flex-wrap gap-2 mb-5">
         <button
           onClick={() => handleCategoryChange('all')}
-          className={`px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border ${
+          className={`min-h-[44px] px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border ${
             activeCategory === 'all'
               ? 'bg-[#1B2A4A] text-white border-[#1B2A4A]'
               : 'bg-transparent text-[#1B2A4A]/60 border-[#1B2A4A]/20 hover:border-[#1B2A4A]/40 hover:text-[#1B2A4A]/80'
@@ -711,7 +711,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
             <button
               key={cat}
               onClick={() => handleCategoryChange(cat)}
-              className="px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border"
+              className="min-h-[44px] px-3.5 py-2 rounded text-sm font-medium transition-all duration-200 border"
               style={isActive
                 ? { backgroundColor: accent, color: 'white', borderColor: accent }
                 : { color: accent, borderColor: `${accent}40`, backgroundColor: 'transparent' }
@@ -722,7 +722,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
       </div>
 
       {/* Controls bar */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between mb-8">
         <div className="flex items-center bg-[#1B2A4A]/5 rounded-lg p-1 gap-0.5">
           <button
             onClick={() => setViewMode('grid')}
@@ -750,7 +750,7 @@ export default function ProjectsGrid({ projects, labels }: Props) {
           </button>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between gap-3 sm:justify-end">
           <div className="flex items-center gap-1.5">
             <span className="text-xs text-[#1B2A4A]/40 hidden sm:inline">{labels.sortLabel}</span>
             <select

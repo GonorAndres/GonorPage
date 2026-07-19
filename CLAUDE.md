@@ -239,6 +239,13 @@ Three radius values are used across the site; pick by role, not by aesthetic whi
 
 If a new pattern is needed, extend this list explicitly rather than inventing a fourth value.
 
+## Responsive Typography and Mobile UI
+
+- Paragraph text in main content uses justified alignment with language-aware hyphenation. Keep headings, labels, navigation, buttons, short metadata, and controls naturally aligned; forcing those elements to justify reduces readability.
+- Treat 320px wide screens as a supported baseline. Use `px-4 sm:px-6` for page gutters unless a narrower component requires less.
+- Interactive controls need a minimum 44px touch target. On small screens, controls may wrap or stack but must never overflow horizontally.
+- Mobile menus and disclosure panels should animate their open and closed states, support Escape to close, and expose their state with the appropriate ARIA attributes.
+
 ## Project Categories
 
 - `actuarial`: terracotta (#C17654)

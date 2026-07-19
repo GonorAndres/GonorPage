@@ -134,7 +134,7 @@ const prose = shape;
   datePublished={date}
   dateModified={lastModified}
 >
-  <article class="py-12 md:py-16 px-6">
+  <article class="py-10 md:py-16 px-4 sm:px-6">
     <div class="max-w-[1020px] mx-auto">
       <nav
         class="pd-back font-mono text-[11px] uppercase tracking-[0.12em] text-[#1B2A4A]/50 mb-8"
@@ -368,6 +368,9 @@ const prose = shape;
     font-family: 'Lora', Georgia, serif;
     font-size: 1.02rem;
     max-width: 68ch;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
   }
   .prose ul, .prose ol { font-family: 'Lora', Georgia, serif; max-width: 68ch; }
 
@@ -479,4 +482,13 @@ const prose = shape;
   /* KaTeX readability (keep display math tidy) ------------------------- */
   .prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
   .prose .katex { font-size: 1.02em; }
+
+  @media (max-width: 639px) {
+    .prose h2 { font-size: 1.4rem; }
+    .prose p { font-size: 1rem; }
+    .prose[data-shape="blog"] > p:first-of-type::first-letter,
+    .prose[data-shape="case-study"] > p:first-of-type::first-letter {
+      font-size: 3rem;
+    }
+  }
 </style>

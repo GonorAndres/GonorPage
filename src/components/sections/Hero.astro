@@ -12,7 +12,7 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<section class="relative overflow-hidden py-10 md:py-12 px-6">
+<section class="relative overflow-hidden py-10 md:py-12 px-4 sm:px-6">
   <!-- Decorative blobs -->
   <OrganicBlob variant={1} color="#D4A574" class="w-[500px] h-[500px] -top-20 -right-40 opacity-60" />
   <OrganicBlob variant={3} color="#7A8B6F" class="w-[350px] h-[350px] bottom-0 -left-24 opacity-40" />
@@ -24,14 +24,14 @@ const { lang } = Astro.props;
         <p class="text-sage font-medium text-lg mb-2 fade-up">
           {t(lang, 'hero.greeting')}
         </p>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-navy leading-tight mb-4 fade-up">
+        <h1 class="text-[2.35rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy leading-tight mb-4 fade-up">
           <span class="block">Andrés</span>
           <span class="block">González Ortega</span>
         </h1>
         <p class="text-xl md:text-2xl text-terracotta font-serif mb-6 fade-up">
           {t(lang, 'hero.role')}
         </p>
-        <p class="text-navy/70 text-lg max-w-lg mb-8 fade-up">
+        <p class="text-navy/70 text-base sm:text-lg max-w-lg mb-8 fade-up">
           {t(lang, 'hero.description')}
         </p>
         <div class="flex flex-wrap gap-4 fade-up">
@@ -65,8 +65,8 @@ const { lang } = Astro.props;
 
       <!-- Blog card with toggle (right) -->
       <div class="md:col-span-3 md:col-start-10">
-        <div class="rounded-xl border border-navy/10 bg-white/70 shadow-md backdrop-blur-sm px-4 py-4 flex flex-col gap-3 fade-up" id="blog-bar">
-          <div class="flex items-center gap-1">
+        <div class="rounded-xl border border-navy/10 bg-white/70 shadow-md backdrop-blur-sm px-3 sm:px-4 py-4 flex flex-col gap-3 fade-up" id="blog-bar">
+          <div class="flex items-center gap-1 overflow-x-auto">
             <button
               type="button"
               id="tab-latest"

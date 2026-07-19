@@ -54,15 +54,32 @@
   html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-cream text-navy font-sans;
     overscroll-behavior: none;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  /* Paragraphs are set as continuous editorial text across the site. Labels,
+     controls, and headings retain their natural alignment for readability. */
+  main p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  @media (max-width: 639px) {
+    main p {
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
   }
 }
 
