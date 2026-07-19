@@ -14,8 +14,19 @@ if (key && typeof window !== 'undefined' && !/localhost|127\.0\.0\.1/.test(windo
   posthog.init(key, {
     api_host: 'https://gonor.me/ingest',
     ui_host: 'https://us.posthog.com',
-    autocapture: false,
+    autocapture: true,
     capture_pageview: true,
+    capture_pageleave: true,
+    person_profiles: 'identified_only',
+    session_recording: {
+      maskAllInputs: true,
+    },
+  });
+  posthog.register({
+    app_id: 'gonor-portfolio',
+    deployment_platform: 'github-pages',
+    environment: 'production',
+    analytics_schema_version: 1,
   });
   window.posthog = posthog;
   initialized = true;
@@ -35,6 +46,27 @@ if (key && typeof window !== 'undefined' && !/localhost|127\.0\.0\.1/.test(windo
 export function track(event: string, props?: Record<string, unknown>) {
   if (!initialized) return;
   posthog.capture(event, { site: window.location.hostname, ...props });
+}
+
+export function trackOutboundLink(
+  destination: string,
+  props?: Record<string, unknown>,
+) {
+  if (!initialized) return;
+
+  let destinationHost = destination;
+  try {
+    destinationHost = new URL(destination, window.location.href).hostname;
+  } catch {
+    // Keep the original destination when it is not a parseable URL.
+  }
+
+  posthog.capture('outbound_link_clicked', {
+    site: window.location.hostname,
+    destination_url: destination,
+    destination_host: destinationHost,
+    ...props,
+  });
 }
 
 // GA4 custom event via gtag (defined inline in BaseLayout). Skipped on localhost
