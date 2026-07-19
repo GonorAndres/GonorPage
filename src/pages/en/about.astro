@@ -11,28 +11,58 @@ const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';
 const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
 
-// Single source of truth: the visible Q&A and the FAQPage JSON-LD are built
-// from this array, so they always match.
+// Single source of truth per question: `a` is the third-person answer used in
+// the FAQPage JSON-LD (search engines prefer full-name, self-contained
+// answers); `visible` is the first-person text shown on the page. If
+// `visible` is missing, `a` is shown.
 const faqs = [
   {
     q: 'Who is Andrés González Ortega?',
-    a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias who builds production actuarial and data-science tools. His work joins risk theory with real software: insurance models, reserve valuation, artificial-intelligence agents, and data platforms that solve concrete problems in the Mexican insurance sector.',
+    qVisible: 'Who am I?',
+    a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias. His portfolio documents a way of learning: pick an idea (an insurance product, a law, a risk model), build it as a working tool with modern technology, and publish what was learned so others can use it. His projects span insurance, data engineering, artificial intelligence, and quantitative finance.',
+    visible:
+      'I\'m an actuary, trained at UNAM\'s Facultad de Ciencias. This site exists because building is how I learn: when a topic catches me, I turn it into a working tool and write down what I discovered along the way. Every project started as a question, and what you see here is the journey.',
   },
   {
     q: 'What does he do?',
-    a: 'Andrés González Ortega builds actuarial and analytical software that reaches production, not just a notebook. He has built pricing engines for major medical expense insurance on CNSF data, reserve-valuation systems under the LISF and CUSF regulatory framework, AI agents that reason over Mexican regulation with retrieval-augmented generation (RAG), and data platforms that process information in the cloud. Every project starts from a question he cannot yet answer and ends in something that works.',
+    qVisible: 'What do I do?',
+    a: 'Andrés González Ortega turns questions into working tools. To understand life insurance he built SIMA, an engine that goes from mortality projection to reserves and regulatory capital. To navigate Mexican regulation he built an AI agent that cites the actual text of the LISF and CUSF. To master data at scale he built platforms on Google Cloud with BigQuery. To understand language models he trained a transformer from scratch. All are live projects, documented on his blog.',
+    visible:
+      'I turn questions into tools. I wanted to understand life insurance from the inside, so I built SIMA, an engine that goes from mortality to reserves and regulatory capital. I wanted to stop getting lost in regulation, so I built an AI agent that cites the actual text of the LISF and CUSF. I wanted to master data at scale, so I put together platforms on Google Cloud. I wanted to know how a language model works, so I trained a transformer from scratch. Everything is live, and each project has its story on the blog, including what failed along the way.',
+  },
+  {
+    q: 'Where has he worked?',
+    qVisible: 'Where have I worked?',
+    a: 'Andrés González Ortega worked as a data scientist at Grupo Gigante (September 2025 to May 2026), moving from reports and models to data apps and warehouse centralization on Google Cloud (Cloud SQL, Cloud Run, BigQuery); there he drove the design of a CDP to unify the data sources of one of the group\'s business units. Since June 2026 he is a marketing performance data analyst at Levely, implementing measurement with Google Tag Manager and GA4, building campaign reporting, and running CRO analysis with AI-agent workflows across the agency.',
+    visible:
+      'At Grupo Gigante (2025-2026) I was a data scientist: reports, models, data apps, and a warehouse on Google Cloud; there I drove the design of a CDP to unify the data of a business unit. Today I work at Levely, a marketing performance agency, as a data analyst: measurement with Google Tag Manager and GA4, campaign reporting, and CRO analysis.',
   },
   {
     q: 'What technologies and domains does he work in?',
-    a: 'Andrés González Ortega works at the intersection of actuarial science, machine learning, and data engineering. On the actuarial side he applies risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side he uses Python, data platforms on Google Cloud such as BigQuery, language models with retrieval-augmented generation (RAG), and, out of curiosity, he trained a transformer on the work of Proust to understand attention mechanisms from the inside.',
+    qVisible: 'What technologies and domains do I work in?',
+    a: 'Andrés González Ortega treats tools as a means, not an end: probability and risk models in Python, R, and SQL; deployment through Google Cloud\'s serverless services and the accessible tooling of modern web development; and language models (RAG, agents) integrated where they add value. This site and several of his applications run on his own domain.',
+    visible:
+      'Tools are the means, not the end. The models live in Python, R, and SQL; deployment rides on the democratization of modern web development: Google Cloud serverless services and platforms that let an idea reach production without friction, under my own domain; and language models (RAG, agents) come in where they truly add something. I learn whatever tool the idea requires: that\'s why this portfolio has actuarial science, data clouds, and artificial intelligence living side by side.',
   },
   {
     q: 'Where did he study?',
-    a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree. That training gave him the foundations of probability, statistics, finance, and risk theory that every project in the portfolio rests on.',
+    qVisible: 'Where did I study?',
+    a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree.',
+    visible:
+      'Actuarial Science at UNAM\'s Facultad de Ciencias, currently completing my degree. That\'s where the foundations come from: probability, statistics, finance, and risk theory.',
+  },
+  {
+    q: 'What certifications does he hold?',
+    qVisible: 'What certifications do I hold?',
+    a: 'Andrés González Ortega passed Exam P of the Society of Actuaries (SOA). He also holds Databricks Academy accreditations (Databricks Fundamentals, AI Agent Fundamentals, and Generative AI Fundamentals), the Google Cloud skill badge "Create ML Models with BigQuery ML", and DataCamp certifications in data analysis and data science.',
+    visible:
+      'Exam P of the Society of Actuaries (SOA). Databricks accreditations (Fundamentals, AI Agents, Generative AI), a Google Cloud skill badge in BigQuery ML, and DataCamp certifications in data analysis and data science.',
   },
   {
     q: 'How to reach him?',
+    qVisible: 'How to reach me?',
     a: `You can reach Andrés González Ortega by email at ${email}. He is also on GitHub (${github}) and LinkedIn (${linkedin}), where he shares his work and projects.`,
+    visible: `The most direct way is email: ${email}. I also publish my work on GitHub and LinkedIn. And if you want to know me better, the best introduction is this very site: browse the projects and the blog, that\'s where the work is told first-hand.`,
     contact: true,
   },
 ];
@@ -76,10 +106,10 @@ const faqSchema = {
         {faqs.map((f, i) => (
           <article class:list={['fade-up', i > 0 && 'pt-12 border-t border-navy/10']}>
             <h2 class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
-              {f.q}
+              {f.qVisible ?? f.q}
             </h2>
             <p class="text-navy/80 text-lg leading-relaxed">
-              {f.a}
+              {f.visible ?? f.a}
             </p>
             {f.contact && (
               <div class="flex flex-wrap gap-3 mt-6">
@@ -104,6 +134,18 @@ const faqSchema = {
                   class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
                 >
                   LinkedIn
+                </a>
+                <a
+                  href="/en/#proyectos"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Projects
+                </a>
+                <a
+                  href="/en/blog/"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Blog
                 </a>
               </div>
             )}
