@@ -1,5 +1,9 @@
 # Portfolio Project Guidelines
 
+## Git Workflow -- ALWAYS Ask Before Commit and PR
+
+**Never commit, push, or open/update a PR without asking the user first and receiving explicit confirmation in that same conversation.** "Deploy", "test it", or similar phrasings are NOT authorization to commit; when in doubt, show the pending diff summary and ask. This applies to every branch, including feature branches.
+
 ## Git Workflow -- NEVER Push to Main Directly
 
 **NEVER push commits directly to `main`.** All changes go through pull requests.

@@ -19,36 +19,50 @@ const faqs = [
   {
     q: 'Who is Andrés González Ortega?',
     qVisible: 'Who am I?',
-    a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias who builds production actuarial and data-science tools. His work joins risk theory with real software: insurance models, reserve valuation, artificial-intelligence agents, and data platforms that solve concrete problems in the Mexican insurance sector.',
+    a: 'Andrés González Ortega is an actuary trained at UNAM\'s Facultad de Ciencias. His portfolio documents a way of learning: pick an idea (an insurance product, a law, a risk model), build it as a working tool with modern technology, and publish what was learned so others can use it. His projects span insurance, data engineering, artificial intelligence, and quantitative finance.',
     visible:
-      'I\'m an actuary, trained at UNAM\'s Facultad de Ciencias. What interests me is the point where risk theory meets software: taking a model that usually lives in an exam or a paper and turning it into something a person can open in a browser and use. Most of what you\'ll find in this portfolio started that way, from wanting to see something work that I had only understood on paper.',
+      'I\'m an actuary, trained at UNAM\'s Facultad de Ciencias. This site exists because building is how I learn: when a topic catches me, I turn it into a working tool and write down what I discovered along the way. Every project started as a question, and what you see here is the journey.',
   },
   {
     q: 'What does he do?',
     qVisible: 'What do I do?',
-    a: 'Andrés González Ortega builds actuarial and analytical software that reaches production. He has built pricing engines for major medical expense insurance on CNSF data, reserve-valuation systems under the LISF and CUSF regulatory framework, AI agents that reason over Mexican regulation with retrieval-augmented generation (RAG), and cloud data platforms.',
+    a: 'Andrés González Ortega turns questions into working tools. To understand life insurance he built SIMA, an engine that goes from mortality projection to reserves and regulatory capital. To navigate Mexican regulation he built an AI agent that cites the actual text of the LISF and CUSF. To master data at scale he built platforms on Google Cloud with BigQuery. To understand language models he trained a transformer from scratch. All are live projects, documented on his blog.',
     visible:
-      'I build actuarial and analytical software and take it all the way to production. I\'ve put together a pricing engine for major medical expense insurance using public CNSF data, a reserve-valuation system under the LISF and CUSF framework, an AI agent that answers questions about Mexican regulation citing only the actual text of the law, and cloud data platforms. Not everything worked on the first try; a good part of what I write on the blog is exactly what failed and what I changed.',
+      'I turn questions into tools. I wanted to understand life insurance from the inside, so I built SIMA, an engine that goes from mortality to reserves and regulatory capital. I wanted to stop getting lost in regulation, so I built an AI agent that cites the actual text of the LISF and CUSF. I wanted to master data at scale, so I put together platforms on Google Cloud. I wanted to know how a language model works, so I trained a transformer from scratch. Everything is live, and each project has its story on the blog, including what failed along the way.',
+  },
+  {
+    q: 'Where has he worked?',
+    qVisible: 'Where have I worked?',
+    a: 'Andrés González Ortega worked as a data scientist at Grupo Gigante (September 2025 to May 2026), moving from reports and models to data apps and warehouse centralization on Google Cloud (Cloud SQL, Cloud Run, BigQuery); there he drove the design of a CDP to unify the data sources of one of the group\'s business units. Since June 2026 he is a marketing performance data analyst at Levely, implementing measurement with Google Tag Manager and GA4, building campaign reporting, and running CRO analysis with AI-agent workflows across the agency.',
+    visible:
+      'At Grupo Gigante (2025-2026) I was a data scientist: reports, models, data apps, and a warehouse on Google Cloud; there I drove the design of a CDP to unify the data of a business unit. Today I work at Levely, a marketing performance agency, as a data analyst: measurement with Google Tag Manager and GA4, campaign reporting, and CRO analysis.',
   },
   {
     q: 'What technologies and domains does he work in?',
     qVisible: 'What technologies and domains do I work in?',
-    a: 'Andrés González Ortega works across actuarial science, machine learning, and data engineering. On the actuarial side he applies risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side he uses Python, data platforms on Google Cloud such as BigQuery, and language models with retrieval-augmented generation (RAG).',
+    a: 'Andrés González Ortega treats tools as a means, not an end: probability and risk models in Python, R, and SQL; deployment through Google Cloud\'s serverless services and the accessible tooling of modern web development; and language models (RAG, agents) integrated where they add value. This site and several of his applications run on his own domain.',
     visible:
-      'I move between the actuarial and the technical. On the actuarial side: risk models, pricing with generalized linear models, mortality projection with Lee-Carter, and reserve valuation under Solvency II, the LISF, and the CUSF. On the technical side: Python, Google Cloud (mostly BigQuery), and language models with RAG. There are also experiments I did purely out of curiosity, like training a transformer on Proust\'s work to understand attention mechanisms from the inside.',
+      'Tools are the means, not the end. The models live in Python, R, and SQL; deployment rides on the democratization of modern web development: Google Cloud serverless services and platforms that let an idea reach production without friction, under my own domain; and language models (RAG, agents) come in where they truly add something. I learn whatever tool the idea requires: that\'s why this portfolio has actuarial science, data clouds, and artificial intelligence living side by side.',
   },
   {
     q: 'Where did he study?',
     qVisible: 'Where did I study?',
     a: 'Andrés González Ortega studied Actuarial Science at the Facultad de Ciencias of the Universidad Nacional Autónoma de México (UNAM) and is currently completing his degree.',
     visible:
-      'I studied Actuarial Science at UNAM\'s Facultad de Ciencias and I\'m currently completing my degree. That\'s where the probability, statistics, finance, and risk theory underneath everything else comes from.',
+      'Actuarial Science at UNAM\'s Facultad de Ciencias, currently completing my degree. That\'s where the foundations come from: probability, statistics, finance, and risk theory.',
+  },
+  {
+    q: 'What certifications does he hold?',
+    qVisible: 'What certifications do I hold?',
+    a: 'Andrés González Ortega passed Exam P of the Society of Actuaries (SOA). He also holds Databricks Academy accreditations (Databricks Fundamentals, AI Agent Fundamentals, and Generative AI Fundamentals), the Google Cloud skill badge "Create ML Models with BigQuery ML", and DataCamp certifications in data analysis and data science.',
+    visible:
+      'Exam P of the Society of Actuaries (SOA). Databricks accreditations (Fundamentals, AI Agents, Generative AI), a Google Cloud skill badge in BigQuery ML, and DataCamp certifications in data analysis and data science.',
   },
   {
     q: 'How to reach him?',
     qVisible: 'How to reach me?',
     a: `You can reach Andrés González Ortega by email at ${email}. He is also on GitHub (${github}) and LinkedIn (${linkedin}), where he shares his work and projects.`,
-    visible: `The most direct way is email: ${email}. I also publish my work on GitHub and LinkedIn.`,
+    visible: `The most direct way is email: ${email}. I also publish my work on GitHub and LinkedIn. And if you want to know me better, the best introduction is this very site: browse the projects and the blog, that\'s where the work is told first-hand.`,
     contact: true,
   },
 ];
@@ -120,6 +134,18 @@ const faqSchema = {
                   class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
                 >
                   LinkedIn
+                </a>
+                <a
+                  href="/en/#proyectos"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Projects
+                </a>
+                <a
+                  href="/en/blog/"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Blog
                 </a>
               </div>
             )}

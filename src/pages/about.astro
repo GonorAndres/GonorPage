@@ -19,36 +19,50 @@ const faqs = [
   {
     q: '¿Quién es Andrés González Ortega?',
     qVisible: '¿Quién soy?',
-    a: 'Andrés González Ortega es un actuario formado en la Facultad de Ciencias de la UNAM que construye herramientas actuariales y de ciencia de datos en producción. Su trabajo combina la teoría del riesgo con software real: modelos de seguros, valuación de reservas, agentes de inteligencia artificial y plataformas de datos que resuelven problemas concretos del sector asegurador mexicano.',
+    a: 'Andrés González Ortega es un actuario formado en la Facultad de Ciencias de la UNAM. Su portafolio documenta una forma de aprender: elegir una idea (un seguro, una ley, un modelo de riesgo), construirla como herramienta funcional con tecnología moderna y publicar lo aprendido para que otros lo aprovechen. Sus proyectos abarcan seguros, ingeniería de datos, inteligencia artificial y finanzas cuantitativas.',
     visible:
-      'Soy actuario, formado en la Facultad de Ciencias de la UNAM. Me interesa el punto donde la teoría del riesgo se encuentra con el software: tomar un modelo que normalmente vive en un examen o en un paper y convertirlo en algo que alguien puede abrir en el navegador y usar. Casi todo lo que hay en este portafolio nació así, de querer ver funcionar algo que hasta entonces solo entendía en papel.',
+      'Soy actuario, formado en la Facultad de Ciencias de la UNAM. Este sitio existe porque mi manera de aprender es construir: cuando un tema me interesa, lo convierto en una herramienta que funciona y escribo lo que descubrí en el camino. Cada proyecto empezó como una pregunta, y lo que ves aquí es el recorrido.',
   },
   {
     q: '¿Qué hace?',
     qVisible: '¿Qué hago?',
-    a: 'Andrés González Ortega desarrolla software actuarial y analítico que llega a producción. Ha construido motores de tarificación de gastos médicos mayores con datos de la CNSF, sistemas de valuación de reservas bajo el marco de la LISF y la CUSF, agentes de IA que razonan sobre la regulación mexicana con recuperación aumentada (RAG) y plataformas de datos en la nube.',
+    a: 'Andrés González Ortega convierte preguntas en herramientas funcionales. Para entender el seguro de vida construyó SIMA, un motor que va de la proyección de mortalidad a las reservas y el capital regulatorio. Para navegar la regulación mexicana construyó un agente de IA que cita el texto real de la LISF y la CUSF. Para dominar los datos a escala construyó plataformas en Google Cloud con BigQuery. Para entender los modelos de lenguaje entrenó un transformer desde cero. Todos son proyectos en vivo, documentados en su blog.',
     visible:
-      'Construyo software actuarial y analítico, y lo llevo hasta producción. He armado un motor de tarificación de gastos médicos mayores con datos públicos de la CNSF, un sistema de valuación de reservas bajo la LISF y la CUSF, un agente de IA que responde preguntas sobre la regulación mexicana citando solo texto real de la ley, y plataformas de datos en la nube. No todos salieron a la primera; buena parte de lo que escribo en el blog es justamente qué falló y qué cambié.',
+      'Convierto preguntas en herramientas. Quería entender el seguro de vida por dentro, así que construí SIMA, un motor que va de la mortalidad a las reservas y el capital regulatorio. Quería dejar de perderme en la regulación, así que construí un agente de IA que cita el texto real de la LISF y la CUSF. Quería dominar los datos a gran escala, así que armé plataformas en Google Cloud. Quería saber cómo funciona un modelo de lenguaje, así que entrené un transformer desde cero. Todo está en vivo y cada proyecto tiene su historia en el blog, incluyendo lo que falló en el camino.',
+  },
+  {
+    q: '¿Dónde ha trabajado?',
+    qVisible: '¿Dónde he trabajado?',
+    a: 'Andrés González Ortega trabajó como científico de datos en Grupo Gigante (septiembre 2025 a mayo 2026), donde pasó de reportes y modelos a aplicaciones de datos y centralización en un warehouse sobre Google Cloud (Cloud SQL, Cloud Run, BigQuery); ahí impulsó el diseño de un CDP para unificar las fuentes de datos de una unidad de negocio del grupo. Desde junio de 2026 es analista de datos de marketing performance en Levely, donde implementa medición con Google Tag Manager y GA4, construye reportes de campañas y realiza análisis de CRO, incorporando flujos con agentes de IA en el trabajo de la agencia.',
+    visible:
+      'En Grupo Gigante (2025-2026) fui científico de datos: reportes, modelos, aplicaciones de datos y un warehouse en Google Cloud; ahí impulsé el diseño de un CDP para unificar los datos de una unidad de negocio. Hoy trabajo en Levely, una agencia de marketing performance, como analista de datos: medición con Google Tag Manager y GA4, reporting de campañas y análisis de CRO.',
   },
   {
     q: '¿En qué tecnologías y áreas trabaja?',
     qVisible: '¿En qué tecnologías y áreas trabajo?',
-    a: 'Andrés González Ortega trabaja entre la ciencia actuarial, el aprendizaje automático y la ingeniería de datos. En lo actuarial aplica modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. En lo técnico usa Python, plataformas de datos en Google Cloud como BigQuery y modelos de lenguaje con recuperación aumentada (RAG).',
+    a: 'Andrés González Ortega usa las herramientas como medio, no como fin: modelos de probabilidad y riesgo en Python, R y SQL; despliegue aprovechando los servicios serverless de Google Cloud y las herramientas accesibles del desarrollo web moderno; y modelos de lenguaje (RAG, agentes) integrados donde aportan valor. Este sitio y varias de sus aplicaciones corren sobre su propio dominio.',
     visible:
-      'Me muevo entre lo actuarial y lo técnico. Del lado actuarial: modelos de riesgo, tarificación con modelos lineales generalizados, proyección de mortalidad con Lee-Carter y valuación de reservas bajo Solvencia II, la LISF y la CUSF. Del lado técnico: Python, Google Cloud (sobre todo BigQuery) y modelos de lenguaje con RAG. También hay experimentos que hice solo por curiosidad, como entrenar un transformer sobre la obra de Proust para entender los mecanismos de atención por dentro.',
+      'Las herramientas son el medio, no el fin. Los modelos viven en Python, R y SQL; el despliegue aprovecha la democratización del desarrollo web actual: servicios serverless de Google Cloud y plataformas que permiten que una idea llegue a producción sin fricción, bajo mi propio dominio; y los modelos de lenguaje (RAG, agentes) entran donde de verdad aportan. Aprendo la herramienta que la idea necesite: por eso el mismo portafolio tiene actuaría, nubes de datos e inteligencia artificial conviviendo.',
   },
   {
     q: '¿Dónde estudió?',
     qVisible: '¿Dónde estudié?',
     a: 'Andrés González Ortega estudió la carrera de Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y se encuentra en proceso de titulación.',
     visible:
-      'Estudié Actuaría en la Facultad de Ciencias de la UNAM y estoy en proceso de titulación. De ahí vienen las bases de probabilidad, estadística, finanzas y teoría del riesgo que sostienen todo lo demás.',
+      'Actuaría en la Facultad de Ciencias de la UNAM, en proceso de titulación. De ahí vienen las bases: probabilidad, estadística, finanzas y teoría del riesgo.',
+  },
+  {
+    q: '¿Qué certificaciones tiene?',
+    qVisible: '¿Qué certificaciones tengo?',
+    a: 'Andrés González Ortega aprobó el Exam P de la Society of Actuaries (SOA). Además cuenta con acreditaciones de Databricks Academy (Databricks Fundamentals, AI Agent Fundamentals y Generative AI Fundamentals), el skill badge de Google Cloud "Create ML Models with BigQuery ML" y certificaciones de DataCamp en análisis y ciencia de datos.',
+    visible:
+      'Exam P de la Society of Actuaries (SOA). Acreditaciones de Databricks (Fundamentals, AI Agents, IA Generativa), skill badge de Google Cloud en BigQuery ML y certificaciones de DataCamp en análisis y ciencia de datos.',
   },
   {
     q: '¿Cómo contactarlo?',
     qVisible: '¿Cómo contactarme?',
     a: `Puedes contactar a Andrés González Ortega por correo en ${email}. También está disponible en GitHub (${github}) y en LinkedIn (${linkedin}), donde publica su trabajo y proyectos.`,
-    visible: `La forma más directa es el correo: ${email}. También publico mi trabajo en GitHub y LinkedIn.`,
+    visible: `La forma más directa es el correo: ${email}. También publico mi trabajo en GitHub y LinkedIn. Y si quieres conocerme mejor, la mejor carta de presentación es este mismo sitio: recorre los proyectos y el blog, ahí está el trabajo contado de primera mano.`,
     contact: true,
   },
 ];
@@ -120,6 +134,18 @@ const faqSchema = {
                   class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
                 >
                   LinkedIn
+                </a>
+                <a
+                  href="/#proyectos"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Proyectos
+                </a>
+                <a
+                  href="/blog/"
+                  class="inline-block px-5 py-2.5 border-2 border-navy/20 text-navy font-medium rounded-xl hover:border-terracotta hover:text-terracotta transition-colors"
+                >
+                  Blog
                 </a>
               </div>
             )}

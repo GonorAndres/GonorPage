@@ -68,6 +68,24 @@ export const certificates: Certificate[] = [
     date: { es: 'Abr 2026', en: 'Apr 2026' },
     url: 'https://credentials.databricks.com/45f31d0f-ca80-4e3a-80c1-ede89826f6ce',
   },
+  {
+    name: 'AI Agent Fundamentals',
+    issuer: 'Databricks Academy',
+    date: { es: 'Abr 2026', en: 'Apr 2026' },
+    url: 'https://credentials.databricks.com/14950fb9-6260-46d2-b78e-8ec864397479',
+  },
+  {
+    name: 'Generative AI Fundamentals',
+    issuer: 'Databricks Academy',
+    date: { es: 'Abr 2026', en: 'Apr 2026' },
+    url: 'https://credentials.databricks.com/9e3a7d69-10f5-4474-901f-d35e73bb69b2',
+  },
+  {
+    name: 'Create ML Models with BigQuery ML',
+    issuer: 'Google Cloud',
+    date: { es: 'Jun 2026', en: 'Jun 2026' },
+    url: 'https://www.credly.com/badges/627e036d-0757-4d8a-9dca-6a40a8088f3c',
+  },
 ];
 
 export function getEducation(lang: Lang) {
