@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import type { ProjectCategory } from '../../data/projects';
-import { track, gaEvent } from '../../lib/analytics';
+import { track, trackOutboundLink, gaEvent } from '../../lib/analytics';
 
 interface ProjectData {
   slug: string;
@@ -316,7 +316,7 @@ function LiveLinksMenu({ urls, label, accent, projectTitle }: {
               href={u.url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => { track('tool_used', { tool: u.label }); gaEvent('click_demo', { project: projectTitle }); setOpen(false); }}
+              onClick={() => { track('tool_used', { tool: u.label }); trackOutboundLink(u.url, { project: projectTitle, link_type: 'live_demo' }); gaEvent('click_demo', { project: projectTitle }); setOpen(false); }}
               className="block px-3 py-2 text-xs text-[#1B2A4A]/75 hover:bg-[#EDE6DD] hover:text-[#1B2A4A] transition-colors"
               role="menuitem"
             >
@@ -416,7 +416,7 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
       ) : (
         <a href={project.url}
           {...(!project.url.startsWith('/') && { target: '_blank', rel: 'noopener noreferrer' })}
-          onClick={() => track('tool_used', { tool: project.title })}
+          onClick={() => { track('tool_used', { tool: project.title }); trackOutboundLink(project.url, { project: project.title, link_type: 'card' }); }}
           className="block relative overflow-hidden aspect-[16/9]">
           <div className="w-full h-full flex items-center justify-center relative"
             style={{ backgroundImage: `radial-gradient(circle at center, ${accent}22, transparent 72%)` }}>
@@ -466,7 +466,7 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
               <a
                 href={project.repo ?? project.url}
                 target="_blank" rel="noopener noreferrer"
-                onClick={() => gaEvent('click_repo', { project: project.title })}
+                onClick={() => { trackOutboundLink(project.repo ?? project.url, { project: project.title, link_type: project.platform === 'Drive' ? 'drive' : 'repository' }); gaEvent('click_repo', { project: project.title }); }}
                 className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1B2A4A]/45 hover:text-[#1B2A4A]/75 transition-colors duration-200"
               >
                 {project.platform === 'Drive' ? (
@@ -505,7 +505,7 @@ function GridCard({ project, labels }: { project: ProjectData; labels: Props['la
               <a
                 href={project.url}
                 {...(!project.url.startsWith('/') && { target: '_blank', rel: 'noopener noreferrer' })}
-                onClick={() => gaEvent('click_demo', { project: project.title })}
+                onClick={() => { trackOutboundLink(project.url, { project: project.title, link_type: 'live_demo' }); gaEvent('click_demo', { project: project.title }); }}
                 className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors duration-200"
                 style={{ color: accent }}
               >
@@ -547,7 +547,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
       <a
         href={project.url}
         {...(!project.url.startsWith('/') && { target: '_blank', rel: 'noopener noreferrer' })}
-        onClick={() => track('tool_used', { tool: project.title })}
+        onClick={() => { track('tool_used', { tool: project.title }); trackOutboundLink(project.url, { project: project.title, link_type: 'card' }); }}
         className="absolute inset-0 rounded-xl z-0"
         aria-label={project.title}
         tabIndex={0}
