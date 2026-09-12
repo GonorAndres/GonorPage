@@ -114,6 +114,13 @@ for (const locale of locales) {
       const summaryBox = await page.locator('main article section').first().boundingBox();
       expect(heroBox!.y).toBeGreaterThan(titleBox!.y + titleBox!.height);
       expect(heroBox!.y + heroBox!.height).toBeLessThan(summaryBox!.y);
+      const summary = page.locator('main article section.lede');
+      await expect(summary).toHaveAttribute('aria-label', locale.lang === 'es' ? 'Resumen' : 'Summary');
+      await expect(summary.locator('h2')).toHaveCount(0);
+      expect(await summary.evaluate((el) => {
+        const style = getComputedStyle(el);
+        return [style.borderTopStyle, style.borderRightStyle, style.borderBottomStyle, style.borderLeftStyle];
+      })).toEqual(['solid', 'solid', 'solid', 'solid']);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
     });
   }

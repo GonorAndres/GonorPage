@@ -1,18 +1,22 @@
 # Blog illustrations
 
-Each article has one conceptual diagram shared by its Spanish and English versions. The
-2026-09-12 pass covers all 24 slugs and 48 localized posts. All 24 diagrams were generated with
-the native tool, reviewed against their articles, and optimized into 24 heroes and 24 thumbnails
-(1.22 MiB combined). Metadata and dimensions match the manifest; the 99-page Astro build and
-all 25 Playwright tests pass. Desktop and mobile index/detail previews were inspected locally.
-Commit and publication are pending user approval.
+Each article has one conceptual image shared by its Spanish and English versions. The second
+2026-09-12 pass replaces the repetitive single-diagram treatment with six visual families across
+all 24 slugs and 48 localized posts. All 24 images were generated with the native tool, reviewed
+together at hero and thumbnail scale, and optimized into stable 1536×864 and 640×360 assets.
+The first-round assets remain recoverable under `public/blog-illustrations/v1/`.
+The [second-round contact sheet](blog-illustrations-v2-contact-sheet.jpg) shows all 24 promoted
+heroes together. The Astro production build completes with 99 pages after promotion.
 
 ## Meaning and style
 
-Use a restrained consulting-report exhibit: warm cream `#EDE6DD`, navy `#1B2A4A`, muted
-terracotta, sage, and steel-blue accents, precise relationships, and generous whitespace.
-There are no embedded words, letters, numbers, logos, or legends. Titles and explanations
-remain accessible HTML and can be localized without generating a second image.
+Keep the shared consulting-grade palette—warm cream, navy, muted terracotta, sage, and
+steel blue—while choosing the medium from the article's family: scientific ink plate,
+architectural maquette, documentary evidence still life, dark computational instrument,
+archival legal collage, or kinetic mathematical sculpture. Do not reuse the reference image's
+objects or composition. There are no embedded words, letters, numbers, logos, or legends.
+Titles and explanations remain accessible HTML and can be localized without generating a
+second image.
 
 These are conceptual explanations, not measured charts, real dashboard screenshots, or
 empirical results. A shape, relative area, arrow, or grouping must not imply a finding that
@@ -21,10 +25,11 @@ and belong in the article separately.
 
 ## Generation record
 
-[blog-illustrations.json](blog-illustrations.json) stores the shared style prompt, the style
-reference, each article's concept and mechanism, pitfalls to avoid, localized alt/caption
-text, and output paths. Use the reference for visual consistency; choose the actual subject
-and relationships from the article's brief.
+[blog-illustrations.json](blog-illustrations.json) stores the first-round brief, the complete
+second-round family mapping, family and subject prompts, native output records, each article's
+concept and mechanism, pitfalls to avoid, localized alt/caption text, and output paths. Use a
+family reference for medium, palette, light, and finish only; choose the actual subject and
+relationships from the article brief.
 
 Generate with the native `image_gen.imagegen` tool and keep its original output available
 while reviewing variants. That tool does not expose an explicit model selector; do not

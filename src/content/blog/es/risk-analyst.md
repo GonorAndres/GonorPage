@@ -15,7 +15,7 @@ ficha:
 tags: ["Python", "Riesgo Financiero", "VaR", "Monte Carlo", "Machine Learning", "Deep Hedging", "Copulas", "EVT"]
 lastModified: "2026-09-12"
 heroImage: "/blog-illustrations/risk-analyst.webp"
-heroAlt: "Escenarios de riesgo forman una distribución de pérdidas; los resultados que rebasan el umbral vuelven al proceso de validación."
+heroAlt: "Muestras observadas y distribuciones modeladas se reúnen en una placa de comparación que deja visibles las diferencias."
 heroCaption: "Una medida de riesgo gana utilidad cuando sus estimaciones se contrastan con las pérdidas observadas."
 ---
 

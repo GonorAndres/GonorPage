@@ -5,11 +5,17 @@
 The user authorized a redesign of the blog views and a generated conceptual hero for every
 article. Source changes now cover the ES/EN index and category pages, `BlogSearch.tsx`,
 `BlogPost.astro`, post metadata, and image preparation. There are 24 shared image briefs and
-48 localized post entries. **All 24 generated diagrams pass visual review; asset dimensions and
-bilingual metadata match the manifest. The 99-page build and all 25 Playwright tests pass,
-including responsive layout, controls, image availability, and social metadata.** Desktop and
-mobile previews were inspected locally. Commit and publication remain pending user approval;
-the broader accessibility audit remains open as described below.
+48 localized post entries. **All 24 second-round diagrams pass visual review; six distinct visual
+families now vary the medium by article type while sharing the consulting palette. Stable hero and
+thumbnail dimensions and bilingual metadata match the manifest.** The 99-page build and all 25
+Playwright tests pass, including responsive layout, controls, image availability, and social
+metadata. Desktop and mobile previews were inspected locally. The first-round assets remain
+recoverable under `public/blog-illustrations/v1/`. Commit and publication remain pending user
+approval; the broader accessibility audit remains open as described below.
+
+The article summary keeps an accessible `Resumen`/`Summary` label for assistive technology, while
+the visible “En breve” meta-title has been removed. The summary is now presented as a complete
+bordered panel instead of a single left rule.
 
 | Backlog item | Current state |
 |---|---|
@@ -20,7 +26,7 @@ the broader accessibility audit remains open as described below.
 | BUG 2: contrast | Partial: changed blog views use the navy text ladder, category hue moves to a small dot, and the off-palette ficha link is corrected. This does not close the historical corpus-wide audit or verify contrast in every state. |
 | BUG 4: touch targets | Partial: search/sort, row titles, post back-links, and mobile category/ficha/related links have minimum heights. Some links retain `md:min-h-0`; global `Header.astro` and `Footer.astro` were not fixed in this pass. |
 | IMP 2: scan layout | Updated image/text rows use one stretched title link and a non-interactive reading cue. Mobile categories scroll horizontally; controls remain above results. The earlier special lead-card proposal is not implemented. |
-| IMP 4: illustrations | Direction superseded: generate 24 concept diagrams, one per slug shared by ES/EN, instead of reusing 12 screenshots. All 24 heroes and 24 thumbnails are complete; visual, metadata, build, and browser checks pass. |
+| IMP 4: illustrations | Complete: 24 article-specific diagrams use six differentiated visual families, with shared ES/EN assets, reviewed hero/thumb crops, and matching metadata. |
 
 See [blog illustration workflow](blog-illustrations.md) and [prompts and metadata](blog-illustrations.json).
 The measurements, line references, proposed snippets, and decision questions below are the
@@ -576,10 +582,12 @@ four index/category mappers; responsive thumbnail/hero sources in `BlogSearch.ts
 and alt passed to the SEO layout. Titles are the only interactive target in each stretched-link
 row, so adding a second image link would break that interaction model.
 
-**Verified locally:** all 24 diagrams generated with the native image tool, optimized heroes
-and thumbnails (1.22 MiB total), pixel-to-caption review, 48 matching localized metadata entries,
-99-page build, and 25 passing browser tests. Six illustrations were corrected during review;
-risk-scenario alt wording was aligned with the visible subject. No material visual findings remain.
+**Verified locally:** all 24 second-round diagrams generated with the native image tool, optimized
+heroes and thumbnails (4.2 MiB for the active set; first-round assets archived under `v1/`),
+pixel-to-caption review, 48 matching localized metadata entries, 99-page build, and 25 passing
+browser tests. Six visual families now cover quantitative models, systems, evidence, algorithms,
+regulation, and mathematical intuition. Risk Analyst alt wording was aligned with the visible
+subject. No material visual findings remain.
 
 The generation record is [blog-illustrations.json](blog-illustrations.json); dimensions, asset paths,
 optimization, and review rules are documented in [blog-illustrations.md](blog-illustrations.md).

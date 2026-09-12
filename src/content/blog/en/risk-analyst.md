@@ -15,7 +15,7 @@ ficha:
 tags: ["Python", "Financial Risk", "VaR", "Monte Carlo", "Machine Learning", "Deep Hedging", "Copulas", "EVT"]
 lastModified: "2026-09-12"
 heroImage: "/blog-illustrations/risk-analyst.webp"
-heroAlt: "Risk scenarios form a loss distribution; outcomes beyond the threshold feed back into model validation."
+heroAlt: "Observed samples and modeled distributions meet on a comparison plate that keeps mismatches visible."
 heroCaption: "A risk measure becomes useful when its estimates are checked against observed losses."
 ---
 

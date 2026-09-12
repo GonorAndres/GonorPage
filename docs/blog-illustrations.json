@@ -2,6 +2,122 @@
   "generator": "Codex native image_gen.imagegen",
   "styleReference": "credit-graph-topological-risk",
   "stylePrompt": "Create one finished landscape 16:9 editorial diagram, 1536x864 preferred, for a premium B2B/strategy-consulting-style actuarial and data-science publication. Use the attached image ONLY as a style reference: warm cream #EDE6DD paper, dark navy #1B2A4A structure, muted terracotta #C17654, sage #7A8B6F and steel blue #5B7B9A accents, crisp meticulously aligned geometry, generous whitespace, restrained tactile material and very subtle shadows only when the specific mechanism calls for isometric form. The subject and composition must follow THIS article's mechanism below; never reuse buildings from the reference unless the mechanism requires them. Make one intellectually clear dominant relationship legible at thumbnail size, with polished art direction and 7% safe margins. No words, letters, numbers, logos, watermarks, legends, pseudo-code, stock business people, handshakes, robots, neon, glossy plastic, or generic decorative technology motifs. A conceptual explanatory exhibit, never a fabricated screenshot or measured-data claim.",
+  "visualSystemV2": {
+    "generatedAt": "2026-09-12",
+    "status": "generated, visually reviewed, and promoted locally",
+    "reason": "The first set used one cream isometric diagram grammar for almost every subject. The second set varies medium and spatial language by the kind of thinking in the article while retaining a common editorial palette, material restraint, and consulting-grade finish.",
+    "sharedDirection": "Premium B2B editorial imagery with one dominant mechanism at thumbnail size, 7% safe margins, warm cream, dark navy, muted terracotta, sage, steel blue, tactile materials, controlled light, no embedded text, letters, numbers, logos, watermarks, generic technology motifs, or fabricated measured claims.",
+    "promptAssembly": "For non-representative assets, the final native prompt combined the assigned family's stylePrompt, the article-specific subjectPrompt below, and the existing asset concept/mechanism/avoid constraints. The family reference was used only for medium, palette, lighting, and finish; every prompt explicitly prohibited reuse of its objects and composition.",
+    "families": [
+      {
+        "id": "scientific-ink-plate",
+        "name": "Hand-inked scientific plates",
+        "role": "Quantitative models and actuarial mechanics",
+        "stylePrompt": "Hand-inked scientific-atlas medium on warm ivory fibrous paper: navy technical pen, dry-brush terracotta, sage and steel-blue wash, faint graphite construction, restrained premium economics-journal quality; fully flat two-dimensional scanned print; no isometric objects.",
+        "reference": "/blog-illustrations/actuarial-ml-pricing.webp",
+        "slugs": ["actuarial-ml-pricing", "insurance-claims-dashboard", "pension-simulator", "sima", "soa-probability-foundations", "soa-random-variables-insurance"]
+      },
+      {
+        "id": "architectural-maquette",
+        "name": "Architectural paper maquettes",
+        "role": "Systems, infrastructure, and shared product architecture",
+        "stylePrompt": "Photographed architectural-maquette craft using cream card, navy board, cork, frosted smoke-blue acrylic, muted terracotta and sage markers, brushed brass, soft gallery daylight, and precise physically plausible model-making.",
+        "reference": "/blog-illustrations/meeting-room-booking.webp",
+        "slugs": ["analytics-dashboards", "configuring-your-own-domain", "data-engineering-platform", "meeting-room-booking", "suite-actuarial", "teaching-apis"]
+      },
+      {
+        "id": "evidence-still-life",
+        "name": "Documentary evidence still lifes",
+        "role": "Case studies, portfolio work, and validation",
+        "stylePrompt": "Meticulous overhead evidence-table photography with real paper, wood, glass, metal and ceramic, soft north-window light, subtle film grain, restrained palette, and premium financial-magazine art direction.",
+        "reference": "/blog-illustrations/cartera-autos.webp",
+        "slugs": ["cartera-autos", "data-analyst-portfolio", "gmm-explorer", "risk-analyst"]
+      },
+      {
+        "id": "computational-instrument",
+        "name": "Dark computational instruments",
+        "role": "Algorithms, databases, and machine learning internals",
+        "stylePrompt": "Cinematic macro photography of a handcrafted computational instrument on matte midnight navy using smoked glass, porcelain, oxidized copper, muted blue and sage light, with museum precision and no cyberpunk or circuit-board clichés.",
+        "reference": "/blog-illustrations/proust-attention-machine.webp",
+        "slugs": ["b-trees-optimization", "flight-analytics-pg-bq", "proust-attention-machine"]
+      },
+      {
+        "id": "archival-collage",
+        "name": "Archival legal collages",
+        "role": "Ownership, regulation, provenance, and source grounding",
+        "stylePrompt": "Overhead photographed archival paper collage on deep navy wool using deckled cream folios, vellum, cotton thread, brass pins, muted terracotta, sage and steel blue, with warm library light and restrained law-review art direction.",
+        "reference": "/blog-illustrations/regulation-agent-rag.webp",
+        "slugs": ["credit-graph-topological-risk", "regulation-agent-rag"]
+      },
+      {
+        "id": "kinetic-math-sculpture",
+        "name": "Kinetic mathematical sculptures",
+        "role": "Geometric intuition and probability transformations",
+        "stylePrompt": "Photorealistic kinetic museum sculpture in a cream-plaster gallery using a charcoal stone plinth, aged brass, translucent smoke-blue glass, terracotta and sage accents, precise physical alignment, and raking skylight.",
+        "reference": "/blog-illustrations/math-visualizations.webp",
+        "slugs": ["math-visualizations", "soa-inverse-transform-percentiles", "soa-multivariate-clt"]
+      }
+    ],
+    "subjectPrompts": {
+      "actuarial-ml-pricing": "An asymmetric policy-evidence field separates into an equally credible linear rail and branching model before a paired prediction-and-attribution comparison.",
+      "analytics-dashboards": "A circular decision maquette sends one common data slab through prepared paper layers or a brass computation wheel into the same translucent presentation window.",
+      "b-trees-optimization": "A freestanding shallow wide compartment tree has aligned leaves and exactly one illuminated root-to-leaf lookup route.",
+      "cartera-autos": "One anonymized claim-card stack supports a physical contribution waterfall, development triangle, and anomaly-review field on a real analysis table.",
+      "configuring-your-own-domain": "A browser frame, central proxy gatehouse, and origin archive are joined by two separate glass bridge spans, each with its own lock clasp.",
+      "credit-graph-topological-risk": "Three separated loan-record clusters are connected to one off-center ownership folio by terracotta cotton thread, signaling a review group rather than contagion.",
+      "data-analyst-portfolio": "Seven different evidence samples occupy seven separate trays, each using the same sorting comb, grouping frame, and comparison ruler, with independent endings.",
+      "data-engineering-platform": "Irregular claim slips cross an inspection gate and increasingly ordered table beds into a warehouse lattice while one malformed slip exits to a separate review tray.",
+      "flight-analytics-pg-bq": "Two physical data sculptures compare a single index-selected row against selected vertical columns feeding one aggregate vessel.",
+      "gmm-explorer": "One medical-claim stack separates into three specimen trays, each paired with an independent frequency bead row and severity weight stack.",
+      "insurance-claims-dashboard": "A slightly rotated development grid uses dense crosshatching for observed cells and untouched paper for future cells, with restrained projection arrows.",
+      "math-visualizations": "A brass circle wheel projects one rim point into a translucent sine ribbon with one physically aligned tangent rod.",
+      "meeting-room-booking": "Four-room architectural model shares one frosted schedule rail with three external viewing frames and synchronized occupancy markers.",
+      "pension-simulator": "Contribution marks and a salary ribbon enter a rule mechanism, then split into a main monthly-income vessel and a conditional supplementary vessel.",
+      "proust-attention-machine": "Abstract token tiles feed a strictly lower-triangular smoked-glass attention plane and one next-token probability-fin set.",
+      "regulation-agent-rag": "Cross-referenced archival folios yield three selected passage strips under a glass reading stone and the same strips in a grounded answer sheet.",
+      "risk-analyst": "Natural-material evidence, modeled resin loss forms, and a smoked-glass comparison plate make observed-versus-modeled validation visible.",
+      "sima": "Noisy mortality observations become a graduated curve, then uncertain projection bands feeding premium, reserve, and capital decision seals.",
+      "soa-inverse-transform-percentiles": "Two parallel bead rails preserve matching color order through non-crossing monotone glass linkages while a percentile gate selects the same subset.",
+      "soa-multivariate-clt": "A small pendulum pool supports a broad low average-loss canopy while a larger matching pool supports a narrower taller canopy at the same center.",
+      "soa-probability-foundations": "A mixed population has one exact selected row projected into an inspection lens without changing any selected case type or order.",
+      "soa-random-variables-insurance": "One monumental payment curve has exactly three pieces—zero, one rise shallower than full loss, and one cap—with sample guides on the curve.",
+      "suite-actuarial": "A radial modular calculation drum on a common foundation sends matching modules to library, service connector, and analytical viewing surfaces.",
+      "teaching-apis": "A brass pneumatic-tube apparatus carries a blank request outward and a grid-shaped data parcel back through one gateway with timing and failure branches."
+    },
+    "nativeOutputs": {
+      "actuarial-ml-pricing": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-6daa3c5e-c5f9-44ba-ab7c-6c2eef8fa8ae.png",
+      "analytics-dashboards": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-7a606be9-93d5-4651-b34c-34844f835382.png",
+      "b-trees-optimization": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-1a71790e-ce90-45b8-abda-3f2a99a495dc.png",
+      "cartera-autos": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-cbcc46cc-e2f4-4a46-a9ed-11e2c12bbfb4.png",
+      "configuring-your-own-domain": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-ff370603-d53c-43ce-8f85-01d025c025ef.png",
+      "credit-graph-topological-risk": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-3740cda0-d405-49cf-a24a-f2efdef92ea0.png",
+      "data-analyst-portfolio": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-a7948bfb-da07-48e3-a3d1-ca9b4b6de3f3.png",
+      "data-engineering-platform": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-4ffb7e76-d7dc-4f5f-a916-5a0d0320803a.png",
+      "flight-analytics-pg-bq": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-445eac29-23f1-407e-b5c5-dfd33be1ae03.png",
+      "gmm-explorer": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-f11ed410-ec59-4a7e-80c2-fc781d764d71.png",
+      "insurance-claims-dashboard": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-86a30e05-090a-4572-a1d3-3cd376aff6b6.png",
+      "math-visualizations": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-93632afc-c5a2-46f5-ad1a-61c7477b0015.png",
+      "meeting-room-booking": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-5733ab30-082e-443d-8782-14a4056704bd.png",
+      "pension-simulator": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-55d69f5d-e1b2-43bd-8174-8f6e4d16c014.png",
+      "proust-attention-machine": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-f10583a1-b551-4ae5-8775-979ce2c6e5cc.png",
+      "regulation-agent-rag": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-58242616-8d90-4622-826b-3ea327e0eb15.png",
+      "risk-analyst": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-fad29029-42fb-4fdd-9b65-154491fd9335.png",
+      "sima": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-c959d241-a2c0-4815-a455-888d279884c7.png",
+      "soa-inverse-transform-percentiles": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-86b5de2b-e4ad-43cb-839d-f47b3ed52231.png",
+      "soa-multivariate-clt": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-b070e769-c465-42f8-af8d-e0e9b7591746.png",
+      "soa-probability-foundations": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-926d231b-8837-4e97-8b16-0375ddb59d6f.png",
+      "soa-random-variables-insurance": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-78e385d0-44bd-495a-b838-b633b4eece87.png",
+      "suite-actuarial": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-35088c52-193a-4158-b32c-64cf7507db97.png",
+      "teaching-apis": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-ac944dde-2782-4e51-97aa-bf773846aefb.png"
+    },
+    "outputPolicy": {
+      "stableHeroes": "/blog-illustrations/<slug>.webp",
+      "stableThumbnails": "/blog-illustrations/thumbs/<slug>.webp",
+      "previousRoundArchive": "/blog-illustrations/v1/",
+      "candidateSuffix": "Temporary -v2 review files were removed after promotion; native originals remain at the recorded paths.",
+      "review": "All 24 full-size candidates and their 640x360 thumbnails were reviewed together in a contact sheet. The stable paths were replaced only after confirming distinct family rhythm, article-level semantic fit, no embedded readable text or logos, and thumbnail-level focal clarity."
+    }
+  },
   "dimensions": {
     "hero": [
       1536,
@@ -310,8 +426,8 @@
         "No stock tickers, real market values, benchmark claims, textual labels or numbers."
       ],
       "alt": {
-        "es": "Escenarios de riesgo forman una distribución de pérdidas; los resultados que rebasan el umbral vuelven al proceso de validación.",
-        "en": "Risk scenarios form a loss distribution; outcomes beyond the threshold feed back into model validation."
+        "es": "Muestras observadas y distribuciones modeladas se reúnen en una placa de comparación que deja visibles las diferencias.",
+        "en": "Observed samples and modeled distributions meet on a comparison plate that keeps mismatches visible."
       },
       "caption": {
         "es": "Una medida de riesgo gana utilidad cuando sus estimaciones se contrastan con las pérdidas observadas.",

@@ -109,7 +109,6 @@ const L = {
   series: lang === 'es' ? 'Serie' : 'Series',
   related: lang === 'es' ? 'Relacionados' : 'Related',
   backToBlog: lang === 'es' ? 'Volver al blog' : 'Back to blog',
-  shortAnswer: lang === 'es' ? 'En breve' : 'In brief',
 };
 
 const fichaRows: { key: string; value: string; href?: string }[] = [];
@@ -249,13 +248,7 @@ const metaDescription = description.length <= 160
         </figure>
       )}
 
-      <section class="lede max-w-[68ch] mb-8 pl-5 border-l-2 border-[#C17654]" aria-labelledby="short-answer">
-        <h2
-          id="short-answer"
-          class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#A35E3E] mb-2"
-        >
-          {L.shortAnswer}
-        </h2>
+      <section class="lede max-w-[68ch] mb-8 p-5 md:p-6 border border-[#C17654]/45 rounded-md bg-[#C17654]/5" aria-label={lang === 'es' ? 'Resumen' : 'Summary'}>
         <p class="font-serif text-lg md:text-[19px] leading-[1.6] text-[#1B2A4A]/85 text-left">
           {description}
         </p>
