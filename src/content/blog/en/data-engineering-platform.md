@@ -2,7 +2,6 @@
 title: "Insurance Claims Data Platform on GCP"
 description: "Actuarial teams generate valuable data that gets trapped in spreadsheets and manual processes that do not scale. This platform builds the complete pipeline on GCP, from streaming claims intake to Tweedie GLM pricing, with Dataform and BigQuery as the backbone. The result is an automated, tested, and reproducible flow that turns raw data into inputs ready for the regulator."
 date: "2026-03-18"
-lastModified: "2026-08-30"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "narrative"
@@ -16,6 +15,10 @@ ficha:
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
   live: "https://data-engineer.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-engineering-platform.webp"
+heroAlt: "Claim records pass through validation and structured tables; an exception branches to review before analysis."
+heroCaption: "Validating and transforming data before analysis makes results traceable and exceptions reviewable."
 ---
 
 A mid-sized insurer in Mexico processes between 5,000 and 50,000 claims per year. Each one arrives with inconsistent field names, shifting status codes, and amounts at different stages of settlement. The typical workflow: claims exports a CSV, sends it to the technical team, an analyst opens it in Excel, transforms it manually, pastes it into triangles, generates development factors. At 500 claims it works. At 5,000 it becomes fragile. At 50,000 it breaks. The problem is not just volume; it is reliability. A manual process has no audit trail, no integrity tests, no reproducibility. If someone asks the same question a month later, you repeat everything from scratch.

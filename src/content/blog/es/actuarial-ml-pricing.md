@@ -2,7 +2,6 @@
 title: "Pricing de Seguros con ML: Lo que México Puede Aprender de la Revolución Actuarial Europea"
 description: "Modelos de frecuencia-severidad sobre freMTPL2: Poisson GLM vs XGBoost vs LightGBM con explicabilidad SHAP, auditorías de fairness y un análisis transfronterizo de lo que las técnicas europeas de pricing con ML significan para el mercado mexicano donde el 70% de los autos no tiene seguro."
 date: "2026-03-14"
-lastModified: "2026-09-08"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/insurance-pricing-ml"
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frecuencia-severidad", "Optuna", "MLflow", "fairness"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
+heroAlt: "Los mismos datos de pólizas recorren un modelo lineal y otro de árboles para comparar predicciones y contribuciones de variables."
+heroCaption: "Comparar modelos de tarificación exige considerar tanto la capacidad predictiva como la explicación de cada resultado."
 ---
 
 México es el único país de la OCDE sin seguro obligatorio federal de responsabilidad civil vehicular. Aproximadamente el 30% de los vehículos tienen alguna cobertura. El 70% restante representa 35 millones de autos sin seguro en las calles; una falla de mercado con doble efecto. Las víctimas de accidentes no tienen recurso legal. Las aseguradoras tarifican conservadoramente para compensar la selección adversa que enfrentan. Y los métodos usados por la mayoría de las aseguradoras mexicanas permanecen tradicionales: tablas de tarificación manuales con pocas variables, juicio actuarial por encima de la precisión algorítmica, uso limitado de las técnicas de modelado predictivo que ya han transformado el seguro europeo y norteamericano.

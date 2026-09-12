@@ -2,7 +2,6 @@
 title: "Plataforma de Datos para Siniestros de Seguros sobre GCP"
 description: "Las áreas técnicas de las aseguradoras generan datos valiosos que quedan atrapados en hojas de cálculo y procesos manuales que no escalan. Esta plataforma construye el pipeline completo sobre GCP, desde la ingesta de siniestros en streaming hasta el pricing con GLM Tweedie, con Dataform y BigQuery como columna vertebral. El resultado es un flujo automatizado, testeado y reproducible que transforma datos crudos en insumos listos para el regulador."
 date: "2026-03-18"
-lastModified: "2026-08-30"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "narrative"
@@ -16,6 +15,10 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
   live: "https://data-engineer.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-engineering-platform.webp"
+heroAlt: "Registros de siniestros pasan por validación y tablas estructuradas; una excepción se desvía a revisión antes del análisis."
+heroCaption: "Validar y transformar los datos antes del análisis permite seguir el origen de cada resultado y revisar las excepciones."
 ---
 
 Una aseguradora mediana en México recibe entre 5,000 y 50,000 siniestros al año. Cada uno llega con campos inconsistentes, códigos de estado cambiantes, montos en diferentes etapas de liquidación. El flujo típico: siniestros exporta un CSV, lo envía al área técnica, un analista lo abre en Excel, lo transforma a mano, lo pega en triángulos, genera factores. A 500 siniestros funciona. A 5,000 se vuelve frágil. A 50,000 se rompe. El problema no es solo volumen: es confiabilidad. Un proceso manual no tiene auditoría, no tiene tests de integridad, no tiene reproducibilidad. Si preguntan un mes después, repites todo.

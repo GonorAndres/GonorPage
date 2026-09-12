@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["probability", "exam-P", "SOA", "Bayes", "risk"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-probability-foundations.webp"
+heroAlt: "A highlighted subset of cases is enlarged; its colors stay the same while the reference population changes."
+heroCaption: "Conditioning a probability uses observed information to define the comparison group."
 ---
 
 The SOA-P syllabus looks familiar. The topics come to mind and you understand them abstractly: axioms, conditional probability, Bayes, all covered in an actuarial degree. But when you start doing exercises the feeling changes completely. It feels more like set theory than probability theory. Most of this section uses sigma-algebra properties implicitly. Someone can answer everything correctly without knowing what a "measure" is, but the perspective shifts when you see it from that angle.

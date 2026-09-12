@@ -11,6 +11,10 @@ ficha:
   stack: "Rust · PostgreSQL"
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/b-trees"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/b-trees-optimization.webp"
+heroAlt: "Un árbol de índice ancho y poco profundo destaca una sola ruta desde la raíz hasta una hoja."
+heroCaption: "Agrupar varias claves en cada nodo permite descartar grandes partes de la búsqueda en cada acceso."
 ---
 
 Cuando PostgreSQL tarda 40 milisegundos en encontrar un registro entre 500 millones, no es magia ni hardware excepcional. Es una operación de árbol B que tocó exactamente 9 nodos antes de llegar al dato. Si la misma consulta tarda 40 segundos, es porque no había índice y el motor tuvo que leer todos los bloques de disco en secuencia. La diferencia entre esos dos escenarios no es de configuración ni de recursos: es de estructura de datos.

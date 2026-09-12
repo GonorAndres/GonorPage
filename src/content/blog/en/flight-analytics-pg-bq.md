@@ -2,7 +2,6 @@
 title: "What 5.74 Million Flights Taught Me About PostgreSQL, BigQuery, and Knowing When to Use Each"
 description: "Airlines generate millions of flight, delay, and revenue records, but analyzing that data requires choosing the right database for each question. This project takes 5.74M real records, analyzes them first in PostgreSQL with engine-level optimization, migrates to BigQuery to compare both paradigms, and presents the trade-offs with real timing, real costs, and real query plans."
 date: "2026-03-18"
-lastModified: "2026-08-09"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-posgre"
   live: "https://analytics-flights.gonor.me"
 tags: ["PostgreSQL", "BigQuery", "Python", "ETL", "EXPLAIN ANALYZE", "Docker", "GIS", "Plotly", "Folium", "data-engineering"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/flight-analytics-pg-bq.webp"
+heroAlt: "An index-guided access selects one record, while a column-oriented read gathers data for an aggregation."
+heroCaption: "Finding one record and aggregating many records call for different reading patterns."
 ---
 
 A composite index on two columns cut a query from 33.9ms to 2.6ms. That's 13x faster from a single `CREATE INDEX`. A materialized view over the same dataset dropped it from 174ms to 0.13ms: 1,300x. The most extreme result in the project came from monthly partitioning, which reduced full-table scans to single-partition reads, producing a measured 3,024x speedup in the EXPLAIN ANALYZE output.

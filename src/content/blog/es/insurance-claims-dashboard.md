@@ -14,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/data-analyst-path/tree/main/projects/01-insurance-claims-dashboard"
   live: "https://data-analyst.gonor.me/insurance"
 tags: ["reservas", "chain-ladder", "BF", "IBNR", "P&C", "dashboard", "Python", "SQL"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/insurance-claims-dashboard.webp"
+heroAlt: "Un triángulo de desarrollo distingue los pagos observados de las celdas de desarrollo futuro estimado."
+heroCaption: "La experiencia observada permite proyectar el desarrollo pendiente; esa parte futura sigue siendo una estimación."
 ---
 
 > **Nota:** Este proyecto es parte del [Portafolio de Analista de Datos: 7 Proyectos End-to-End](/blog/data-analyst-portfolio). Aquí se presenta el análisis completo de este proyecto en particular.

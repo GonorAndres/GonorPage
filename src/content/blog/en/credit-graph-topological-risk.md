@@ -13,8 +13,12 @@ ficha:
   regulacion: "CNBV Circular Única de Bancos (Art. 73, Circular 3/2012)"
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/graph-relation-db"
-  live: "https://graph-relation-db.vercel.app/"
+  live: "https://graph-db.gonor.me/"
 tags: ["Neo4j", "PySpark", "Databricks", "Credit risk", "Cypher", "LightGBM", "Platt calibration", "Graphs"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/credit-graph-topological-risk.webp"
+heroAlt: "One shared owner connects three groups of borrowing companies in a relationship map."
+heroCaption: "Shared ownership can connect loans that appear independent when reviewed record by record."
 ---
 
 When AIG collapsed in 2008, the most expensive question wasn't how much individual clients owed. It was who guaranteed whom, and how many degrees of separation existed between a toxic mortgage and an institution that claimed to have no exposure. Lehman Brothers needed 7,000 legal entities to report its risk structure to regulators, a structure no relational database could represent coherently. That's why GLEIF exists today: to map global ownership topology in a format models can actually read.

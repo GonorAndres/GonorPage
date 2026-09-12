@@ -11,6 +11,10 @@ ficha:
   año: "2026"
   stack: "Cloudflare Pages · Pages Functions · D1 (SQLite) · Resend · PostHog · HTML/CSS/JS sin framework"
   estado: "Desplegada, pendiente de estreno"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/meeting-room-booking.webp"
+heroAlt: "Varios teléfonos comparten una cuadrícula de reservas para dos salas, con un intervalo liberado y su rastro de cambio."
+heroCaption: "Una agenda compartida permite consultar la ocupación y hacer visibles los cambios sin estar frente al pizarrón."
 ---
 
 Mientras navegaba por internet encontré una mención a Cloudflare Workers. Yo tenía una idea vaga de Cloudflare: lo veía como un gigante de la infraestructura de internet, asociado a esa famosa imagen sobre el complicado ecosistema que sostiene la red. Por curiosidad, y por mis antecedentes con la nube, decidí investigar. Entré al sitio y entendí un poco la dinámica: Workers permitía usar parte de la infraestructura que ese gigante ha construido durante años, ahora al alcance de cualquiera. Me llamó mucho la atención su base de datos basada en SQLite, que allí se llama D1. Había miles de cosas que al principio me resultaban extrañas, pero poco a poco me fui familiarizando.

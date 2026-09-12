@@ -5,6 +5,10 @@ date: "2026-03-05"
 category: "herramientas"
 lang: "es"
 tags: ["React", "Next.js", "Recharts", "dashboards", "data-analytics", "Airbnb", "Olist"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/analytics-dashboards.webp"
+heroAlt: "Dos rutas, resultados precalculados y cómputo por solicitud, convergen en una misma presentación analítica."
+heroCaption: "La arquitectura depende de si un filtro selecciona resultados ya calculados o exige volver a calcularlos."
 ---
 
 > **Nota:** Este proyecto es parte del [Portafolio de Analista de Datos: 7 Proyectos End-to-End](/blog/data-analyst-portfolio). Aquí se presenta el análisis completo de este proyecto en particular.
@@ -45,7 +49,7 @@ La tipografía del dashboard usa una serif editorial para los títulos y monoesp
 
 **Control de versiones y colaboración.** Este punto parece obvio pero tiene consecuencias reales. El dashboard es código. Se puede revisar en GitHub, comentar en un PR, hacer checkout de la versión del trimestre pasado para comparar, integrar en un pipeline de CI/CD que verifique que el build no se rompe antes de un merge. Un archivo `.pbix` no puede ser diffed. No se puede ver qué cambió entre la versión del Q3 y la del Q4 sin abrir ambas manualmente.
 
-**Despliegue y costos.** El dashboard estático de Airbnb vive en Vercel: global CDN, sin servidor, costo cero hasta un tráfico considerable. El backend de Olist corre en Cloud Run: escala a cero cuando no hay peticiones, y el primer millón de requests mensuales entra en el free tier. Sin licencias. Sin renovaciones anuales. Sin negociación con el área de compras.
+**Despliegue y costos.** Los dashboards de Airbnb y Olist comparten ahora una aplicación Next.js en Cloudflare Pages. El análisis de Airbnb está en <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">/airbnb/</a>, servido como archivos estáticos desde la CDN. El backend de Olist corre en Cloud Run: escala a cero cuando no hay peticiones, y el primer millón de requests mensuales entra en el free tier. Sin licencias. Sin renovaciones anuales. Sin negociación con el área de compras.
 
 ## Las desventajas reales
 
@@ -77,4 +81,5 @@ La segmentación de hosts en el dashboard de Airbnb (enterprise vs casual) usa l
 
 ## Material de referencia
 
-- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">Repositorio en GitHub</a>: Código completo de ambos dashboards: ETL en Python (notebooks de Jupyter), componentes React/TypeScript, backend FastAPI para Olist, y configuración de despliegue. Los notebooks de EDA están disponibles para visualización directa en el repositorio.
+- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/apps/web" target="_blank" rel="noopener">Frontend compartido en GitHub</a>: La aplicación Next.js reúne los componentes React/TypeScript de ambos dashboards y del resto del portafolio.
+- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">Investigación y backend</a>: ETL en Python, notebooks de Jupyter, datos estáticos y backend FastAPI para Olist. Los notebooks de EDA están disponibles para visualización directa en el repositorio.

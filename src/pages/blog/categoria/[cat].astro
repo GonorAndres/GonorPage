@@ -24,6 +24,8 @@ const postsData = posts.map((post) => ({
   slug: post.id.replace(/^(es|en)\//, ''),
   date: post.data.date,
   lastModified: post.data.lastModified,
+  heroImage: post.data.heroImage,
+  heroAlt: post.data.heroAlt,
   categoryKey: post.data.category as Category,
   categoryLabel: categoryLabels['es'][post.data.category as Category] ?? post.data.category,
   tags: post.data.tags,
@@ -47,17 +49,18 @@ const labels = {
   sortRecent: 'Más recientes',
   sortOldest: 'Más antiguos',
   sortTitle: 'Título A–Z',
+  sortLabel: 'Ordenar artículos',
 };
 ---
 
 <BaseLayout title={`${categoryLabels['es'][activeCat]} | Blog`} lang="es">
-  <section class="py-10 sm:py-16 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto">
+  <section class="py-8 sm:py-14 px-4 sm:px-6">
+    <div class="max-w-[1020px] mx-auto">
       <div
-        class="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-x-12 gap-y-6 items-end pb-6 mb-10 border-b border-[#1B2A4A]/15 fade-up"
+        class="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-x-12 gap-y-5 items-end pb-5 mb-6 border-b border-[#1B2A4A]/15 fade-up"
       >
         <div>
-          <div class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#1B2A4A]/45 mb-3">
+          <div class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#1B2A4A]/70 mb-3">
             {t('es', 'section.blog')}
           </div>
           <h1
@@ -66,10 +69,10 @@ const labels = {
             {categoryLabels['es'][activeCat]}
           </h1>
         </div>
-        <nav class="flex flex-col font-mono text-[10px] uppercase tracking-[0.12em]">
+        <nav aria-label="Categorías del blog" class="flex min-w-0 gap-5 overflow-x-auto md:flex-col md:gap-0 font-mono text-[10px] uppercase tracking-[0.1em]">
           <a
             href="/blog/"
-            class="flex justify-between py-1.5 border-b border-[#1B2A4A]/15 text-[#1B2A4A]/55 hover:text-[#1B2A4A] no-underline transition-colors"
+            class="flex shrink-0 justify-between items-center gap-3 min-h-[44px] md:min-h-0 py-1.5 border-b border-[#1B2A4A]/15 text-[#1B2A4A]/70 hover:text-[#1B2A4A] no-underline transition-colors"
           >
             <span>{t('es', 'blog.allPosts')}</span><span>{allEs.length}</span>
           </a>
@@ -77,12 +80,13 @@ const labels = {
             const active = cc.key === activeCat;
             return (
               <a
+                aria-current={active ? 'page' : undefined}
                 href={`/blog/categoria/${cc.key}/`}
                 class:list={[
-                  'flex justify-between py-1.5 border-b no-underline transition-colors',
+                  'flex shrink-0 justify-between items-center gap-3 min-h-[44px] md:min-h-0 py-1.5 border-b no-underline transition-colors',
                   active
                     ? 'border-[#1B2A4A] text-[#1B2A4A]'
-                    : 'border-[#1B2A4A]/15 text-[#1B2A4A]/55 hover:text-[#1B2A4A]',
+                    : 'border-[#1B2A4A]/15 text-[#1B2A4A]/70 hover:text-[#1B2A4A]',
                 ]}
               >
                 <span>{cc.label}</span><span>{cc.count}</span>

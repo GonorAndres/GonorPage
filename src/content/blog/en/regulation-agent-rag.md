@@ -2,7 +2,6 @@
 title: "Actuarial Regulation Assistant: Why RAG Is the Right Approach for LISF and CUSF"
 description: "Interpreting LISF and CUSF means navigating articles that cross-reference each other across laws, and a Ctrl+F can't tell the article defining technical reserves from one that mentions them in passing. AI makes it possible to absorb that entire volume without losing a single detail. This agent uses RAG to index every article individually with a cross-reference graph, eliminating citation hallucinations and ensuring the model only reasons over real legal text. The result is an assistant that amplifies the actuary's memory without replacing their judgment."
 date: "2026-03-22"
-lastModified: "2026-08-14"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -19,6 +18,10 @@ ficha:
     - { label: "LISF/CUSF Explorer", url: "https://lisf.gonor.me/explorer" }
     - { label: "Open-source version (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/lisf-agent" }
 tags: ["RAG", "LISF", "CUSF", "CNSF", "FTS5", "BM25", "Claude", "FastAPI", "GCP", "cross-references"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/regulation-agent-rag.webp"
+heroAlt: "Linked articles from two bodies of regulation are selected as evidence for a response connected to its sources."
+heroCaption: "Retrieval gathers articles and cross-references before producing a response the reader can check."
 ---
 
 LISF and CUSF are the complete regulatory framework for the insurance and surety sector in Mexico. Together they span over a thousand articles, and the complexity isn't just in the volume: it's in the dependencies. LISF article 121 talks about technical reserves, but to understand which reserves and how, you need the CUSF Title 5 provisions. A solvency article points you to three provisions on eligible own funds, which in turn reference valuation criteria in another title. An actuary who has studied both laws thoroughly still forgets details, still needs to search "which provision covered portfolio transfer". That's the nature of the document: too extensive, too interconnected to hold entirely in human memory.

@@ -116,7 +116,7 @@ export const projects: Project[] = [
     },
     url: 'https://data-analyst.gonor.me/',
     urls: [
-      { label: { es: 'Airbnb - Análisis de Mercado', en: 'Airbnb - Market Analysis' }, url: 'https://data-analyst.gonor.me' },
+      { label: { es: 'Airbnb - Análisis de Mercado', en: 'Airbnb - Market Analysis' }, url: 'https://data-analyst.gonor.me/airbnb/' },
       { label: { es: 'Reservas P&C - Seguros', en: 'P&C Reserves - Insurance' }, url: 'https://data-analyst.gonor.me/insurance' },
       { label: { es: 'Olist - Cohortes E-commerce', en: 'Olist - E-commerce Cohorts' }, url: 'https://data-analyst.gonor.me/cohorts' },
       { label: { es: 'A/B Test - Experimentación', en: 'A/B Test - Experimentation' }, url: 'https://data-analyst.gonor.me/abtest' },
@@ -125,15 +125,15 @@ export const projects: Project[] = [
       { label: { es: 'NYC 311 - Eficiencia Operativa', en: 'NYC 311 - Operational Efficiency' }, url: 'https://data-analyst.gonor.me/operations' },
     ],
     repo: 'https://github.com/GonorAndres/data-analyst-path',
-    platform: 'Vercel',
+    platform: 'Cloudflare',
     category: 'data-science',
     tags: {
-      es: ['Python', 'SQL', 'Streamlit', 'Next.js', 'Plotly', 'Power BI'],
-      en: ['Python', 'SQL', 'Streamlit', 'Next.js', 'Plotly', 'Power BI'],
+      es: ['Python', 'SQL', 'Next.js', 'Plotly', 'Power BI'],
+      en: ['Python', 'SQL', 'Next.js', 'Plotly', 'Power BI'],
     },
     variant: 'wide',
     gallery: [
-      { src: '/screenshots/da-gcp-01-cloud-run-services.png', caption: { es: 'Cloud Run: dos servicios (API FastAPI + app Streamlit) con escala a cero', en: 'Cloud Run: two services (FastAPI API + Streamlit app) with scale-to-zero' } },
+      { src: '/screenshots/da-gcp-01-cloud-run-services.png', caption: { es: 'Despliegue inicial en Cloud Run: API FastAPI y app Streamlit con escala a cero, antes de unificar los dashboards', en: 'Initial Cloud Run deployment: FastAPI API and Streamlit app with scale-to-zero, before unifying the dashboards' } },
       { src: '/screenshots/da-gcp-02-cloud-run-metrics.png', caption: { es: 'Métricas del servicio: request count, CPU y latencia p95 (vista SRE)', en: 'Service metrics: request count, CPU, and p95 latency (SRE view)' } },
       { src: '/screenshots/da-gcp-03-cloud-run-revisions.png', caption: { es: 'Revisiones de Cloud Run: cada deploy crea una revisión inmutable, rollback con un solo comando', en: 'Cloud Run revisions: each deploy creates an immutable revision; one-command rollback' } },
       { src: '/screenshots/da-gcp-04-artifact-registry.png', caption: { es: 'Artifact Registry: imágenes Docker etiquetadas con latest y el SHA del commit exacto', en: 'Artifact Registry: Docker images tagged with latest and the exact git SHA' } },
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     blogSlug: 'data-analyst-portfolio',
     tier: 1,
     creation_date: '2026-02-21',
-    last_modification_date: '2026-03-21',
+    last_modification_date: '2026-09-12',
   },
 
   // repo: https://github.com/GonorAndres/graph-relation-db
@@ -522,8 +522,8 @@ export const projects: Project[] = [
     creation_date: '2024-06-01',
   },
 
-  // repo: https://github.com/GonorAndres/Analisis_Seguros_Mexico
-  // local: /home/andtega349/seguridad_social (different path — note the repo is Analisis_Seguros_Mexico)
+  // repo: https://github.com/GonorAndres/suite-actuarial
+  // local: /home/exedev/repos/suite-actuarial
   // source: EMSSA-09 Mexican mortality tables, original actuarial calculations, no external dataset required
   {
     slug: 'actuarial-suite',
@@ -537,7 +537,7 @@ export const projects: Project[] = [
     },
     url: 'https://suite.gonor.me',
     repo: 'https://github.com/GonorAndres/suite-actuarial',
-    platform: 'GCP',
+    platform: 'Cloudflare',
     category: 'actuarial',
     tags: {
       es: ['Python', 'Pydantic', 'Next.js', 'FastAPI', 'LISF', 'RCS', 'CNSF', 'Reaseguro', 'EMSSA-09'],
@@ -560,7 +560,7 @@ export const projects: Project[] = [
     tier: 1,
     relatedTo: ['sima', 'life-insurance', 'property-insurance'],
     creation_date: '2025-11-18',
-    last_modification_date: '2026-05-03',
+    last_modification_date: '2026-09-12',
   },
 
   // repo: https://github.com/GonorAndres/CarteraSeguroAutos

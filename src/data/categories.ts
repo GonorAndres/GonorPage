@@ -12,9 +12,9 @@ export type Category = (typeof categories)[number];
 
 export const categoryLabels: Record<Lang, Record<Category, string>> = {
   es: {
-    'actuaria-para-todos': 'Actuaria para todos',
+    'actuaria-para-todos': 'Actuaría para todos',
     'fundamentos-actuariales': 'Fundamentos actuariales',
-    'proyectos-y-analisis': 'Proyectos y analisis',
+    'proyectos-y-analisis': 'Proyectos y análisis',
     'herramientas': 'Herramientas',
     'mercado-mexicano': 'Mercado mexicano',
   },

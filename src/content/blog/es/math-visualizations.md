@@ -5,6 +5,10 @@ date: "2026-02-01"
 category: "herramientas"
 lang: "es"
 tags: ["matemáticas", "visualización", "análisis", "interactivo"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/math-visualizations.webp"
+heroAlt: "Un punto del círculo se proyecta sobre una curva seno; una tangente muestra su cambio local."
+heroCaption: "La proyección del movimiento circular produce una onda; su tangente describe cómo cambia en cada punto."
 ---
 
 Tres demostraciones interactivas construidas con React y SVG que permiten manipular directamente los parámetros de conceptos fundamentales del cálculo y el análisis complejo.

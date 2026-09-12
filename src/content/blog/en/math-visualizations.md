@@ -5,6 +5,10 @@ date: "2026-02-01"
 category: "herramientas"
 lang: "en"
 tags: ["math", "visualization", "calculus", "interactive"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/math-visualizations.webp"
+heroAlt: "A point on the circle projects onto a sine curve; a tangent shows its local change."
+heroCaption: "Projecting circular motion produces a wave; its tangent describes how it changes at each point."
 ---
 
 Three interactive demonstrations built with React and SVG that let you directly manipulate the parameters of fundamental concepts from calculus and complex analysis.

@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["transformaciones", "percentiles", "examen-P", "SOA", "seguros", "CDF"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-inverse-transform-percentiles.webp"
+heroAlt: "Los mismos puntos ordenados aparecen en dos escalas; la transformación comprime sus valores y conserva el grupo bajo el percentil."
+heroCaption: "Una transformación creciente cambia los valores del percentil y conserva el conjunto de escenarios que queda por debajo."
 ---
 
 Cuando estudias distribuciones por primera vez, el ejercicio estándar es: te dan una distribución, calculas su media, su varianza, su CDF. Pero el Examen P tiene otra pregunta favorita que al principio incomoda: te dan una variable aleatoria X, te dicen que Y = g(X) para alguna función g, y te piden el percentil 90 de Y.

@@ -2,7 +2,6 @@
 title: "Portafolio de Analista de Datos: 7 Proyectos End-to-End"
 description: "Siete proyectos end-to-end en seis dominios: bienes raíces, reservas de seguros, cohortes de e-commerce, experimentación de producto, finanzas (KPIs de SaaS y riesgo de portafolio) y operaciones del sector público. Las mismas herramientas estadísticas atraviesan todos, y ese es el argumento: un analista de datos tiene que sostener varios dominios a la vez, porque el rango es lo que vuelve transferible la profundidad. Cada proyecto se entrega como dashboard interactivo, todos en un solo dominio en vivo."
 date: "2026-03-13"
-lastModified: "2026-08-24"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "narrative"
@@ -15,9 +14,12 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/data-analyst-path"
   live: "https://data-analyst.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-analyst-portfolio.webp"
+heroAlt: "Distintas series de datos atraviesan un proceso común de ordenación, segmentación y comparación."
+heroCaption: "Cambian los dominios; se repite el trabajo de ordenar datos, comparar grupos e interpretar la evidencia."
 ---
 
-<img src="/screenshots/data-analyst-portafolio.png" alt="Portafolio de Analista de Datos" style="width:100%;border-radius:0.75rem;margin-bottom:2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);" />
 
 El trabajo de un analista de datos no es producir gráficas. Es convertir una pregunta de negocio en una decisión informada. Cada proyecto de este portafolio sigue ese arco completo: un stakeholder tiene una pregunta, los datos existen en algún formato inconveniente, el análisis produce un hallazgo, y el hallazgo se entrega en un formato que la audiencia puede usar para actuar.
 
@@ -35,7 +37,7 @@ El dataset de Inside Airbnb para CDMX contiene 27,051 listings con 79 columnas. 
 
 Dashboard construido con Next.js y Recharts, arquitectura estática: JSON precalculado, zero backend.
 
-**Estado:** Completo | <a href="https://data-analyst.gonor.me" target="_blank" rel="noopener">App en vivo</a> | <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">GitHub</a>
+**Estado:** Completo | <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">App en vivo</a> | <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">GitHub</a>
 
 ### 01 - Reservas actuariales P&C: IBNR y siniestralidad
 
@@ -121,11 +123,11 @@ Ninguna herramienta de este portafolio se eligió una sola vez y para siempre. L
 
 **Next.js** entrega hoy los 7 proyectos (del 00 al 06). Lo que compra: control total sobre la estética, modo oscuro, responsive en móvil y componentes reutilizados entre dashboards (KPICard, ChartContainer y ThemeToggle se comparten entre todos). El costo es real: React, TypeScript y un pipeline de build. Se justifica cuando los dashboards tienen vida larga y los componentes de verdad se reutilizan, y después de siete proyectos, se reutilizan.
 
-**Streamlit** ya no está, y cómo salió enseña más que cómo entró. El proyecto 02 empezó como una app de Streamlit desplegada en Cloud Run, una elección razonable: el análisis vivía en Python y Streamlit es el camino más corto de notebook a app interactiva. Luego el propio análisis desarmó su infraestructura. Los tres filtros de la app resultaron ser subconjuntos de una matriz ya agregada, no recálculos sobre las órdenes crudas; nada de lo que el usuario podía tocar necesitaba Python al momento de la petición. La app se reconstruyó como export estático sin backend. La interactividad sobrevivió intacta, y desapareció un servicio con estado, junto con sus cold starts y su costo. La carpeta streamlit/ sigue en el repo, retirada, como registro del primer borrador.
+**Streamlit** ya no está, y cómo salió enseña más que cómo entró. El proyecto 02 empezó como una app de Streamlit desplegada en Cloud Run, una elección razonable: el análisis vivía en Python y Streamlit es el camino más corto de notebook a app interactiva. Luego el propio análisis desarmó su infraestructura. Los tres filtros de la app resultaron ser subconjuntos de una matriz ya agregada, no recálculos sobre las órdenes crudas; nada de lo que el usuario podía tocar necesitaba Python al momento de la petición. La app se reconstruyó como export estático sin backend. La interactividad sobrevivió intacta, y desapareció un servicio con estado, junto con sus cold starts y su costo. El código de Streamlit se archivó fuera del repo y se retiró; los notebooks y datos de investigación se conservaron.
 
 La línea entre **JSON estático** y un **backend con FastAPI** parecía al principio una pregunta sobre filtros: si el usuario puede filtrar, necesitas un servidor. El proyecto 02 desmintió esa regla. La pregunta real es si un filtro cambia el cómputo o solo selecciona un subconjunto de un agregado precalculado. Las vistas de cohortes solo rebanan una matriz agregada, así que viajan como JSON estático. Los triángulos de pérdida del proyecto 01 sí recalculan sobre los datos subyacentes, así que ese dashboard conserva su backend FastAPI; y los datos de mercado en vivo del proyecto 05 no se pueden precalcular, así que ese también.
 
-**Un dominio, un servicio.** Los siete dashboards empezaron como siete despliegues separados, cada uno en la URL de su proveedor. Hoy son un solo proyecto de Cloudflare Pages sirviendo data-analyst.gonor.me, con una ruta por dashboard (/insurance, /cohorts, /abtest, /kpi, /portfolio, /operations, y el análisis de Airbnb en la raíz). Los backends pasaron por la misma consolidación: un solo servicio FastAPI en Cloud Run, con la API de cada proyecto montada bajo su propio prefijo de ruta. Las razones son simples. Siete URLs dividían a la audiencia que pueda tener un portafolio, y ninguna decía de quién era el trabajo. Un dominio es una sola cosa que mantener, un solo lugar adonde mandar a un reclutador y un solo juego de analytics.
+**Un dominio, un servicio.** Los siete dashboards empezaron como siete despliegues separados, cada uno en la URL de su proveedor. Hoy son un solo proyecto de Cloudflare Pages sirviendo data-analyst.gonor.me, con rutas para cada análisis (/insurance, /olist, /cohorts, /abtest, /kpi, /portfolio, /operations y /airbnb); la raíz reúne el portafolio. Los backends pasaron por la misma consolidación: un solo servicio FastAPI en Cloud Run, con la API de cada proyecto montada bajo su propio prefijo de ruta. Las razones son simples. Siete URLs dividían a la audiencia que pueda tener un portafolio, y ninguna decía de quién era el trabajo. Un dominio es una sola cosa que mantener, un solo lugar adonde mandar a un reclutador y un solo juego de analytics.
 
 ## Lo que se transfiere entre dominios
 
@@ -149,8 +151,8 @@ Este portafolio de DA no existe en aislamiento. Los proyectos actuariales en el 
 
 ## Material de referencia
 
-- <a href="https://github.com/GonorAndres/data-analyst-path" target="_blank" rel="noopener">Repositorio principal en GitHub</a>: Código completo de los 7 proyectos, notebooks numerados, queries SQL, pipelines ETL y configuración de despliegue.
-- <a href="https://data-analyst.gonor.me" target="_blank" rel="noopener">Airbnb CDMX (App en vivo)</a>: Dashboard Next.js con análisis de mercado de rentas cortas.
+- <a href="https://github.com/GonorAndres/data-analyst-path" target="_blank" rel="noopener">Repositorio principal en GitHub</a>: Código completo de los 7 proyectos, notebooks numerados, queries SQL, pipelines ETL y configuración de despliegue. El <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/apps/web" target="_blank" rel="noopener">frontend compartido</a> vive en `apps/web`.
+- <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">Airbnb CDMX (App en vivo)</a>: Dashboard Next.js con análisis de mercado de rentas cortas.
 - <a href="https://data-analyst.gonor.me/insurance" target="_blank" rel="noopener">Reservas Actuariales P&C (App en vivo)</a>: Dashboard Next.js + FastAPI con triángulos de pérdida y IBNR.
 - <a href="https://data-analyst.gonor.me/cohorts" target="_blank" rel="noopener">Cohortes E-Commerce (App en vivo)</a>: export estático sin backend, con los cuatro notebooks publicados al lado.
 - <a href="https://data-analyst.gonor.me/abtest" target="_blank" rel="noopener">Pruebas A/B (App en vivo)</a>: Dashboard Next.js con enfoques frecuentista, bayesiano y paradoja de Simpson.

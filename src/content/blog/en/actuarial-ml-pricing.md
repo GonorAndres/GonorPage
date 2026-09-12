@@ -2,7 +2,6 @@
 title: "Insurance Pricing with ML: What Mexico Can Learn from Europe's Actuarial Data Science Revolution"
 description: "Frequency-severity pricing models on freMTPL2: Poisson GLM vs XGBoost vs LightGBM with SHAP explainability, fairness audits, and a cross-border analysis of what European ML pricing techniques mean for Mexico's 70% uninsured auto market."
 date: "2026-03-14"
-lastModified: "2026-09-08"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/insurance-pricing-ml"
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frequency-severity", "Optuna", "MLflow", "fairness"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
+heroAlt: "The same policy data follows linear and tree-based models to compare predictions and feature contributions."
+heroCaption: "Comparing pricing models requires considering predictive performance alongside an explanation of each result."
 ---
 
 Mexico is the only OECD country without mandatory federal auto liability insurance. Roughly 30% of vehicles carry any coverage at all. The remaining 70% represents 35 million uninsured cars on the road; a market failure that cuts two ways. Accident victims have no recourse. Insurers price conservatively to compensate for the adverse selection they face. And the methods used by most Mexican carriers remain traditional: manual rating tables with a handful of variables, actuarial judgment weighted over algorithmic precision, limited use of predictive modeling techniques that have already reshaped European and North American insurance.

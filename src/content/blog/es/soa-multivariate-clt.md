@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["TCL", "examen-P", "SOA", "agregacion", "riesgo"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-multivariate-clt.webp"
+heroAlt: "Una cartera pequeña se compara con otra mayor; la distribución de pérdida media es más estrecha en la segunda."
+heroCaption: "Con riesgos independientes y varianza finita, una cartera mayor reduce la variabilidad de la pérdida media por póliza."
 ---
 
 De los tres temas del Examen P, este es el que conecta más directamente con la operación de una aseguradora. Variables multivariadas y el TCL no son conceptos fáciles, pero la SOA mantiene la evaluación dentro de límites razonables. La mayoría de los problemas involucran variables normales o discretas contables, y los patrones se repiten lo suficiente para que la práctica deliberada rinda dividendos rápidos.

@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["variables-aleatorias", "examen-P", "SOA", "seguros", "distribuciones"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-random-variables-insurance.webp"
+heroAlt: "La curva de pago permanece en cero, crece después del deducible y se aplana al alcanzar el límite de cobertura."
+heroCaption: "El deducible, el coaseguro y el límite transforman el monto del siniestro en el pago de la aseguradora."
 ---
 
 De los tres temas del Examen P, este es el más denso. Variables aleatorias son el pan de cada día de la actuaría: distribuciones, valores esperados, funciones generadoras de momentos. Lo que cambia es el ángulo: la SOA no pregunta si sabes integrar una PDF, pregunta si puedes pensar en términos de póliza, deducible y pérdida.

@@ -2,7 +2,6 @@
 title: "suite_actuarial: open-source actuarial platform for the Mexican insurance market"
 description: "There is no open-source actuarial library built for Mexican regulation. suite_actuarial fills that gap: it covers eight insurance domains (life, P&C, health, pensions, reserves, reinsurance, regulatory, and configuration) with EMSSA-09 mortality tables, CNSF circulars, and SAT tax articles built into the design. It installs with pip, deploys with Docker, and exposes 28 REST endpoints alongside a bilingual Next.js dashboard."
 date: "2026-03-19"
-lastModified: "2026-05-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -16,6 +15,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/suite-actuarial"
   live: "https://suite.gonor.me"
 tags: ["Python", "Pydantic", "LISF", "CUSF", "CNSF", "RCS", "Reserves", "Chain Ladder", "Reinsurance", "Next.js", "EMSSA-09", "SAT", "FastAPI", "GMM", "IMSS"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/suite-actuarial.webp"
+heroAlt: "A modular actuarial calculation core connects the same logic to a library, a service interface, and a dashboard."
+heroCaption: "A shared foundation of calculations and parameters lets different interfaces reuse the same actuarial logic."
 ---
 
 If an actuary in Mexico wants to price a term life policy using the EMSSA-09 table, there are two options: an Excel spreadsheet inherited from the technical department, or writing everything from scratch. Open-source actuarial libraries exist in Python (`chainladder`, `lifelines`, `pyliferisk`), but none of them integrate Mexican regulation: they don't know what an EMSSA-09 table is, don't compute the RCS as defined by the LISF, don't apply articles 93, 142, 151, and 158 of Mexico's income tax law (LISR) to determine premium deductibility. Mexican regulation has requirements that exist in no other market, and the available software assumes the user will adapt generic formulas to their jurisdiction.
@@ -91,6 +94,6 @@ The next step is for an actuary at another insurer to report a bug, or for a stu
 The suite connects with other projects in the portfolio. <a href="/blog/sima/" style="color: #C17654; text-decoration: underline;">SIMA</a> builds its own mortality pipeline from INEGI data via Lee-Carter; with the suite as a module, that pipeline could reuse the commutation functions and RCS calculation that are already validated. The <a href="/blog/regulation-agent-rag/" style="color: #C17654; text-decoration: underline;">regulation agent</a> navigates the LISF and CUSF to find the relevant provisions; this suite implements the math those provisions define.
 
 <div style="margin-top: 2rem; padding: 1rem 1.5rem; border-left: 4px solid #C17654; background-color: #f9f6f2;">
-  <p style="margin: 0 0 0.5rem 0;"><strong>Repository:</strong> <a href="https://github.com/GonorAndres/suite-actuarial" target="_blank" rel="noopener" style="color: #C17654; text-decoration: underline;">github.com/GonorAndres/Analisis_Seguros_Mexico</a></p>
+  <p style="margin: 0 0 0.5rem 0;"><strong>Repository:</strong> <a href="https://github.com/GonorAndres/suite-actuarial" target="_blank" rel="noopener" style="color: #C17654; text-decoration: underline;">github.com/GonorAndres/suite-actuarial</a></p>
   <p style="margin: 0;"><strong>Live app:</strong> <a href="https://suite.gonor.me" target="_blank" rel="noopener" style="color: #C17654; text-decoration: underline;">suite.gonor.me</a></p>
 </div>

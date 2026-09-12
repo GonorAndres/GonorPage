@@ -13,6 +13,8 @@ interface PostData {
   slug: string;
   date: string;
   lastModified?: string;
+  heroImage?: string;
+  heroAlt?: string;
   categoryKey: BlogCategoryKey;
   categoryLabel: string;
   tags?: string[];
@@ -28,6 +30,7 @@ interface Labels {
   sortRecent: string;
   sortOldest: string;
   sortTitle: string;
+  sortLabel: string;
 }
 
 interface Props {
@@ -49,80 +52,60 @@ function formatDotDate(iso: string): string {
   return iso.replaceAll('-', '.');
 }
 
-function PostRow({ post, labels }: { post: PostData; labels: Labels }) {
+function PostRow({ post, labels, priority }: { post: PostData; labels: Labels; priority: boolean }) {
   const href = post.lang === 'es' ? `/blog/${post.slug}/` : `/en/blog/${post.slug}/`;
   const catColor = CATEGORY_COLOR[post.categoryKey] ?? '#1B2A4A';
+  const thumbnail = post.heroImage?.startsWith('/blog-illustrations/')
+    ? post.heroImage.replace('/blog-illustrations/', '/blog-illustrations/thumbs/')
+    : undefined;
 
   return (
-    <article className="grid grid-cols-1 sm:grid-cols-[80px_1fr] md:grid-cols-[92px_1fr_140px] gap-x-4 md:gap-x-6 gap-y-2 py-6 border-t border-[#1B2A4A]/10 items-baseline">
-      <time className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#1B2A4A]/45">
-        {formatDotDate(post.date)}
-      </time>
+    <article className="group relative grid grid-cols-1 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-5 md:gap-8 py-7 md:py-9 border-t border-[#1B2A4A]/20 items-center">
+      {post.heroImage && (
+        <picture className="block overflow-hidden rounded-lg border border-[#1B2A4A]/10 bg-[#E8E0D7]">
+          {thumbnail && (
+            <source
+              type="image/webp"
+              srcSet={`${thumbnail} 640w, ${post.heroImage} 1536w`}
+              sizes="(min-width: 1068px) 443px, (min-width: 768px) calc(45vw - 38px), (min-width: 640px) calc(100vw - 50px), calc(100vw - 34px)"
+            />
+          )}
+          <img
+            src={thumbnail ?? post.heroImage}
+            alt={post.heroAlt ?? ''}
+            width="640"
+            height="360"
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : 'auto'}
+            decoding="async"
+            className="block w-full aspect-[16/9] object-cover motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-[1.02]"
+          />
+        </picture>
+      )}
 
-      <div>
-        <h3 className="font-serif font-medium text-lg md:text-xl text-[#1B2A4A] leading-snug mb-1.5">
+      <div className={`min-w-0 ${post.heroImage ? '' : 'md:col-span-2'}`}>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3 font-mono text-[10px] uppercase tracking-[0.1em] text-[#1B2A4A]/75">
+          <span className="inline-flex items-center gap-2">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: catColor }} aria-hidden="true" />
+            {post.categoryLabel}
+          </span>
+          <time dateTime={post.date}>{formatDotDate(post.date)}</time>
+        </div>
+        <h2 className="font-serif font-medium text-[22px] md:text-[25px] text-[#1B2A4A] leading-[1.2] tracking-tight mb-3">
+          {/* The title stretches across the row; keep other row content non-interactive. */}
           <a
             href={href}
-            className="group/title no-underline hover:text-[#C17654] transition-colors inline-flex items-baseline gap-2"
+            className="inline-flex min-h-[44px] items-center no-underline hover:text-[#A35E3E] focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-[#1B2A4A] transition-colors after:absolute after:inset-0 after:content-['']"
           >
-            <span>{post.title}</span>
-            <span
-              aria-hidden="true"
-              className="inline-flex translate-y-[2px] text-[#C17654] group-hover/title:translate-x-0.5 transition-transform"
-            >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="9" y1="13" x2="15" y2="13" />
-                <line x1="9" y1="17" x2="13" y2="17" />
-              </svg>
-            </span>
+            {post.title}
           </a>
-        </h3>
-        <p className="text-sm text-[#1B2A4A]/65 leading-relaxed max-w-[62ch] mb-3">
+        </h2>
+        <p className="text-sm text-left text-[#1B2A4A]/75 leading-relaxed max-w-[62ch] line-clamp-3 mb-3">
           {post.description}
         </p>
-        {post.tags && post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3">
-            {post.tags.slice(0, 5).map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-[#1B2A4A]/40"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-        <div className="flex flex-wrap gap-2">
-          <a
-            href={href}
-            className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
-          >
-            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            {labels.readMore}
-          </a>
-        </div>
-      </div>
-
-      <div className="sm:col-span-2 md:col-span-1 md:text-right">
-        <span
-          className="font-mono text-[10px] uppercase tracking-[0.16em]"
-          style={{ color: catColor }}
-        >
-          {post.categoryLabel}
+        <span className="inline-flex min-h-[44px] items-center gap-2 text-xs font-medium text-[#1B2A4A] group-hover:text-[#A35E3E] transition-colors" aria-hidden="true">
+          {labels.readMore}
+          <span className="motion-safe:group-hover:translate-x-1 transition-transform">→</span>
         </span>
       </div>
     </article>
@@ -152,10 +135,10 @@ export default function BlogSearch({ posts, labels }: Props) {
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+      <div className="flex flex-col sm:flex-row gap-3 mb-5">
         <div className="relative flex-1">
           <svg
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1B2A4A]/30 pointer-events-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1B2A4A]/70 pointer-events-none"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -170,25 +153,27 @@ export default function BlogSearch({ posts, labels }: Props) {
           </svg>
           <input
             type="search"
+            aria-label={labels.searchPlaceholder}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={labels.searchPlaceholder}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] placeholder:text-[#1B2A4A]/40 focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl min-h-[44px] border border-[#1B2A4A]/50 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] placeholder:text-[#1B2A4A]/70 focus:outline-none focus:border-[#1B2A4A] focus:ring-2 focus:ring-[#1B2A4A] transition-colors"
           />
         </div>
 
         <div className="relative w-full sm:w-auto sm:shrink-0">
           <select
+            aria-label={labels.sortLabel}
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
-            className="w-full appearance-none pl-4 pr-9 py-2.5 rounded-xl border border-[#1B2A4A]/10 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] focus:outline-none focus:border-[#C17654]/40 focus:ring-1 focus:ring-[#C17654]/20 transition-colors cursor-pointer"
+            className="w-full appearance-none pl-4 pr-9 py-2.5 rounded-xl min-h-[44px] border border-[#1B2A4A]/50 bg-[#FFF8F0]/70 text-sm text-[#1B2A4A] focus:outline-none focus:border-[#1B2A4A] focus:ring-2 focus:ring-[#1B2A4A] transition-colors cursor-pointer"
           >
             <option value="recent">{labels.sortRecent}</option>
             <option value="oldest">{labels.sortOldest}</option>
             <option value="title">{labels.sortTitle}</option>
           </select>
           <svg
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1B2A4A]/30 pointer-events-none"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1B2A4A]/70 pointer-events-none"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -199,19 +184,19 @@ export default function BlogSearch({ posts, labels }: Props) {
         </div>
       </div>
 
-      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#1B2A4A]/45 mb-2">
+      <p role="status" aria-live="polite" aria-atomic="true" className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#1B2A4A]/70 mb-2">
         {visible.length} {visible.length === 1 ? labels.articleSingular : labels.articlePlural}
       </p>
 
       {visible.length > 0 ? (
         <div>
-          {visible.map((post) => (
-            <PostRow key={post.slug} post={post} labels={labels} />
+          {visible.map((post, index) => (
+            <PostRow key={post.slug} post={post} labels={labels} priority={index === 0} />
           ))}
           <div className="border-t border-[#1B2A4A]/10"></div>
         </div>
       ) : (
-        <p className="text-[#1B2A4A]/50 text-center py-12">{labels.noResults}</p>
+        <p className="text-[#1B2A4A]/75 text-center py-12">{labels.noResults}</p>
       )}
     </div>
   );

@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["random-variables", "exam-P", "SOA", "insurance", "distributions"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-random-variables-insurance.webp"
+heroAlt: "The payment curve stays at zero, rises after the deductible, and flattens at the coverage limit."
+heroCaption: "The deductible, coinsurance, and limit transform the loss amount into the insurer’s payment."
 ---
 
 Of the three Exam P topics, this is the densest. Random variables are the daily bread of actuarial science: distributions, expected values, moment generating functions. What changes is the angle: the SOA does not ask whether you can integrate a PDF, it asks whether you can think in terms of policies, deductibles, and losses.

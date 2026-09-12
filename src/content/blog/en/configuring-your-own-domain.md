@@ -13,6 +13,10 @@ ficha:
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/GonorPage"
   live: "https://gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/configuring-your-own-domain.webp"
+heroAlt: "A browser connects through a proxy to the origin server, with a secured HTTPS connection on each leg."
+heroCaption: "With a proxy, HTTPS is negotiated on two legs: browser to edge, then edge to origin."
 ---
 
 For a couple of years, my personal site lived at `gonorandres.github.io`. It worked, and it was free. It was also, unmistakably, a room in someone else's house: the URL announced its landlord before it announced me.

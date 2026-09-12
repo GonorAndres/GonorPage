@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["transformations", "percentiles", "exam-P", "SOA", "insurance", "CDF"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-inverse-transform-percentiles.webp"
+heroAlt: "The same ordered dots appear on two scales; the transformation compresses values while preserving the group below the percentile."
+heroCaption: "An increasing transformation changes the percentile value while preserving the set of scenarios below it."
 ---
 
 When you first study distributions, the standard exercise is: you're given a distribution, you compute its mean, its variance, its CDF. But Exam P has another favorite question that feels uncomfortable at first: you're given a random variable X, told that Y = g(X) for some function g, and asked for the 90th percentile of Y.

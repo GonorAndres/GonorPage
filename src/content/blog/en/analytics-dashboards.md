@@ -5,6 +5,10 @@ date: "2026-03-05"
 category: "herramientas"
 lang: "en"
 tags: ["React", "Next.js", "Recharts", "dashboards", "data-analytics", "Airbnb", "Olist"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/analytics-dashboards.webp"
+heroAlt: "Two paths, prepared results and computation on request, converge into one analytical presentation."
+heroCaption: "The architecture depends on whether a filter selects prepared results or requires new computation."
 ---
 
 > **Note:** This project is part of the [Data Analyst Portfolio: 7 End-to-End Projects](/en/blog/data-analyst-portfolio). Here you will find the complete analysis for this particular project.
@@ -47,7 +51,7 @@ This dashboard also has full dark/light mode via CSS custom properties (`--color
 
 **Version control.** The entire dashboard is text. Every chart configuration, every color, every data transformation is in a file that can be diffed, reviewed, reverted, and deployed through a CI/CD pipeline. The alternative is a binary `.pbix` file. Those two sentences are the argument.
 
-**Deployment.** The Airbnb dashboard deploys to Vercel in about 90 seconds. No license. No gateway. No workspace. The Olist API runs on Cloud Run, containerized, scales to zero when unused, costs nothing for moderate traffic. The operational overhead of code-first dashboards, once the pipeline is established, is lower than maintaining a licensed BI platform.
+**Deployment.** The Airbnb and Olist dashboards now share one Next.js application on Cloudflare Pages. The Airbnb analysis is served as static files at <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">/airbnb/</a>. No license. No gateway. No workspace. The Olist API runs on Cloud Run, containerized, scales to zero when unused, costs nothing for moderate traffic. The operational overhead of code-first dashboards, once the pipeline is established, is lower than maintaining a licensed BI platform.
 
 ## The honest tradeoffs
 
@@ -81,4 +85,5 @@ The ETL methodology (price cleaning on the Airbnb dataset, multi-table joins on 
 
 ## Study materials
 
-- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">GitHub repository</a>: Full source code for both dashboards, including the Python ETL scripts, static JSON output, Next.js frontend components, and the FastAPI backend for the Olist cohort analysis. The component library (KPICard, ChartContainer, ThemeToggle, DatasetInfo) is structured to be portable across projects.
+- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/apps/web" target="_blank" rel="noopener">Shared frontend on GitHub</a>: The Next.js application contains the React/TypeScript components for both dashboards and the rest of the portfolio.
+- <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">Research and backend</a>: Python ETL scripts, Jupyter notebooks, static JSON output, and the FastAPI backend for the Olist marketplace analysis. The EDA notebooks remain available to browse directly in the repository.
