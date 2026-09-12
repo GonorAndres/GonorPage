@@ -15,6 +15,24 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
     expect(response?.status()).toBe(200);
   });
 
+  test('homepage relevance order leads with the strongest projects', async ({ page }) => {
+    await page.goto('/');
+    const cards = page.locator('#proyectos article');
+    await expect(cards).toHaveCount(6);
+    const firstSix = await cards.evaluateAll((elements) => elements.slice(0, 6).map((card) => ({
+      title: card.querySelector('h3')?.textContent?.trim(),
+      category: card.querySelector('a .absolute.top-3 span')?.textContent?.trim(),
+    })));
+    expect(firstSix.map((card) => card.title)).toEqual([
+      'SIMA: Sistema Integral de Modelación Actuarial',
+      'CreditGraph: Riesgo Crediticio con Topología de Grafos',
+      'Plataforma de Datos en GCP para Seguros',
+      'Risk Analyst: Análisis Cuantitativo de Riesgos',
+      'La Máquina de Atención de Proust',
+      'GMM Explorer: Gastos Médicos Mayores',
+    ]);
+  });
+
   test('blog loads', async ({ page }) => {
     const response = await page.goto('/blog/');
     expect(response?.status()).toBe(200);

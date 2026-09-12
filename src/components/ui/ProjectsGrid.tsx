@@ -19,6 +19,7 @@ interface ProjectData {
   relatedNames: string[];
   blogUrl?: string;
   tier: number;
+  featuredRank?: number;
   status?: 'completed' | 'in-development';
   creation_date: string;
   last_modification_date?: string;
@@ -690,6 +691,9 @@ export default function ProjectsGrid({ projects, labels }: Props) {
 
   const sorted = [...filtered].sort((a, b) => {
     if (sortMode === 'tier') {
+      const aFeatured = a.featuredRank ?? Number.MAX_SAFE_INTEGER;
+      const bFeatured = b.featuredRank ?? Number.MAX_SAFE_INTEGER;
+      if (aFeatured !== bFeatured) return aFeatured - bFeatured;
       if (a.tier !== b.tier) return a.tier - b.tier;
       const aDate = a.last_modification_date ?? a.creation_date;
       const bDate = b.last_modification_date ?? b.creation_date;

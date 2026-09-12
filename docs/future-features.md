@@ -7,11 +7,12 @@ article. Source changes now cover the ES/EN index and category pages, `BlogSearc
 `BlogPost.astro`, post metadata, and image preparation. There are 24 shared image briefs and
 48 localized post entries. **All 24 second-round diagrams pass visual review; six distinct visual
 families now vary the medium by article type while sharing the consulting palette. Stable hero and
-thumbnail dimensions and bilingual metadata match the manifest.** The 99-page build and all 25
+thumbnail dimensions and bilingual metadata match the manifest.** The 99-page build and all 26
 Playwright tests pass, including responsive layout, controls, image availability, and social
 metadata. Desktop and mobile previews were inspected locally. The first-round assets remain
-recoverable under `public/blog-illustrations/v1/`. Commit and publication remain pending user
-approval; the broader accessibility audit remains open as described below.
+recoverable under `public/blog-illustrations/v1/`. The blog redesign and visual refresh are already
+on `dev`; the current homepage ordering and CV link cleanup remain pending user approval. The
+broader accessibility audit remains open as described below.
 
 The article summary keeps an accessible `Resumen`/`Summary` label for assistive technology, while
 the visible “En breve” meta-title has been removed. The summary is now presented as a complete

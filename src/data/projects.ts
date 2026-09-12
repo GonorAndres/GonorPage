@@ -18,6 +18,7 @@ export interface Project {
   relatedTo?: string[];
   blogSlug?: string;     // English slug of the blog post for this project (e.g. 'sima', 'actuarial-ml-pricing')
   tier: 1 | 2 | 3 | 4; // internal priority: 1=full package, 2=screenshot+blog, 3=academic, 4=minimal
+  featuredRank?: number; // optional homepage order before the relevance fallback
   status?: 'completed' | 'in-development'; // omit or 'completed' = done; 'in-development' = shows badge
   creation_date: string;           // YYYY-MM-DD — when the project was built/started
   last_modification_date?: string; // YYYY-MM-DD — last significant update (optional)
@@ -58,6 +59,7 @@ export const projects: Project[] = [
     relatedTo: ['life-insurance', 'property-insurance', 'gmm-explorer', 'michoacan', 'data-analyst-portfolio'],
     blogSlug: 'sima',
     tier: 1,
+    featuredRank: 1,
     creation_date: '2026-01-23',
     last_modification_date: '2026-03-21',
   },
@@ -95,6 +97,7 @@ export const projects: Project[] = [
     ],
     blogSlug: 'gmm-explorer',
     tier: 1,
+    featuredRank: 6,
     relatedTo: ['sima', 'life-insurance', 'property-insurance', 'data-analyst-portfolio'],
     creation_date: '2025-12-07',
     last_modification_date: '2026-03-21',
@@ -183,6 +186,7 @@ export const projects: Project[] = [
     relatedTo: ['sima', 'credit-risk', 'lisf-agent', 'data-engineering-platform'],
     blogSlug: 'credit-graph-topological-risk',
     tier: 1,
+    featuredRank: 2,
     creation_date: '2026-03-29',
     last_modification_date: '2026-09-08',
   },
@@ -222,6 +226,7 @@ export const projects: Project[] = [
     relatedTo: ['sima', 'insurance-pricing-ml', 'data-analyst-portfolio', 'credit-graph'],
     blogSlug: 'data-engineering-platform',
     tier: 1,
+    featuredRank: 3,
     creation_date: '2026-02-21',
     last_modification_date: '2026-03-21',
   },
@@ -628,6 +633,7 @@ export const projects: Project[] = [
     relatedTo: ['lisf-agent'],
     blogSlug: 'proust-attention-machine',
     tier: 1,
+    featuredRank: 5,
     creation_date: '2026-02-07',
     last_modification_date: '2026-03-14',
   },
@@ -832,6 +838,7 @@ export const projects: Project[] = [
     relatedTo: ['credit-risk', 'derivatives', 'markowitz'],
     blogSlug: 'risk-analyst',
     tier: 2,
+    featuredRank: 4,
     creation_date: '2026-03-18',
     last_modification_date: '2026-03-19',
   },
@@ -947,6 +954,7 @@ export function getProjects(lang: Lang) {
     relatedTo: p.relatedTo,
     blogSlug: p.blogSlug,
     tier: p.tier,
+    featuredRank: p.featuredRank,
     status: p.status,
     creation_date: p.creation_date,
     last_modification_date: p.last_modification_date,
