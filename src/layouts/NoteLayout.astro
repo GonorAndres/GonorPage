@@ -48,9 +48,8 @@ const relatedNotes = note.relatedNotes
   ?.map((relSlug) => getNoteBySlug(relSlug, lang))
   .filter((n): n is NonNullable<typeof n> => n !== undefined) ?? [];
 
-const driveFileMatch = note.urls.length === 1
-  ? note.urls[0].url.match(/drive\.google\.com\/file\/d\/([^/]+)/)
-  : null;
+const driveLink = note.urls.find((link) => link.url.includes('drive.google.com/file/d/'));
+const driveFileMatch = driveLink?.url.match(/drive\.google\.com\/file\/d\/([^/]+)/) ?? null;
 const previewUrl = driveFileMatch
   ? `https://drive.google.com/file/d/${driveFileMatch[1]}/preview`
   : undefined;
@@ -130,7 +129,7 @@ const openPreviewLabel = lang === 'es' ? 'Abrir en Google Drive' : 'Open in Goog
               {previewLabel}
             </h2>
             <a
-              href={note.urls[0].url}
+              href={driveLink?.url}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center min-h-[40px] text-sm text-terracotta hover:underline"
@@ -156,7 +155,7 @@ const openPreviewLabel = lang === 'es' ? 'Abrir en Google Drive' : 'Open in Goog
         ))}
       </div>
 
-      {/* Resource links — PDF download or artifact launch */}
+      {/* Resource links — PDF, publication, or artifact launch */}
       <div class="p-6 rounded-xl border border-amber/30 bg-amber/5 mb-8">
         <h2 class="font-serif text-lg font-bold text-navy mb-4">
           {note.type === 'artifact'
@@ -169,13 +168,14 @@ const openPreviewLabel = lang === 'es' ? 'Abrir en Google Drive' : 'Open in Goog
             const href = isInternal
               ? `${link.url}${link.url.includes('?') ? '&' : '?'}lang=${lang}`
               : link.url;
+            const isDocument = /drive\.google\.com\/file\/d\/|\.pdf(?:[?#]|$)/i.test(link.url);
             return (
               <a
                 href={href}
                 {...(!isInternal && { target: '_blank', rel: 'noopener noreferrer' })}
                 class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-terracotta text-cream text-sm font-medium hover:bg-terracotta/90 transition-colors"
               >
-                {isInternal ? (
+                {isInternal || !isDocument ? (
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

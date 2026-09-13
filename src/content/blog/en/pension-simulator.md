@@ -2,7 +2,6 @@
 title: "IMSS Pension Simulator: Ley 73, Ley 97, and Fondo Bienestar in One Tool"
 description: "Most Mexican workers do not know which pension regime they contribute under or what they will actually receive at retirement, and official sources do not simplify the comparison between Ley 73, Ley 97, and Fondo Bienestar. This simulator implements all three formulas with current data (UMA, CONSAR tables, EMSSA 2009 mortality) and lets users explore scenarios with interactive sensitivity analysis. The result is an educational estimate that shows what you control and what you do not."
 date: "2026-03-16"
-lastModified: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -16,6 +15,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/seguridad-social/tree/main/fondo_bienestar"
   live: "https://simulador-pension-d3qj5vwxtq-uc.a.run.app/"
 tags: ["R", "Shiny", "IMSS", "AFORE", "Pensions", "Ley 73", "Ley 97", "Fondo Bienestar", "social security", "CONSAR"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/pension-simulator.webp"
+heroAlt: "Two routes convert a work history into pension payments; the individual-savings route includes a conditional supplement."
+heroCaption: "The pension regime determines the calculation; on the individual-savings route, a supplement depends on eligibility."
 ---
 
 Mexico's pension system is a legislative palimpsest. Since July 1997, two IMSS pension regimes have run in parallel. Workers who began contributing before that cutoff retire under Ley 73 (Law 73), a defined-benefit formula tied to salary and weeks worked. Those who started after 1997 fall into Ley 97 (Law 97), where individual AFORE accounts accumulate a balance that becomes their pension. Then, in May 2024, the government published the Fondo de Pensiones para el Bienestar (Welfare Pension Fund) decree. This third layer supplements pensions for Ley 97 workers earning below the IMSS average salary. The result: three overlapping rule sets, each with its own formulas, eligibility gates, and hidden assumptions. This simulator calculates all three in one place, with all rates updated to 2025.

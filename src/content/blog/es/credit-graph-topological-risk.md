@@ -13,8 +13,12 @@ ficha:
   regulacion: "CNBV Circular Única de Bancos (Art. 73, Circular 3/2012)"
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/graph-relation-db"
-  live: "https://graph-relation-db.vercel.app/"
+  live: "https://graph-db.gonor.me/"
 tags: ["Neo4j", "PySpark", "Databricks", "Riesgo de crédito", "Cypher", "LightGBM", "Calibración Platt", "Grafos"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/credit-graph-topological-risk.webp"
+heroAlt: "Un propietario compartido conecta tres grupos de empresas deudoras en un mapa de relaciones."
+heroCaption: "Un propietario compartido puede vincular créditos que parecen independientes en una revisión por registro."
 ---
 
 Cuando AIG colapsó en 2008, la pregunta más costosa no era cuánto debían los clientes individuales. Era quién garantizaba a quién, y cuántos niveles de separación había entre una hipoteca tóxica y una institución que juraba no tener exposición. Lehman Brothers necesitó 7,000 entidades legales para reportar su estructura de riesgo a los reguladores, una estructura que ninguna base de datos relacional podía expresar de forma coherente. Por eso existe GLEIF hoy: para mapear la topología de propiedad global en un formato que los modelos puedan leer.

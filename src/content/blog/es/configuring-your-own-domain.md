@@ -13,6 +13,10 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/GonorPage"
   live: "https://gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/configuring-your-own-domain.webp"
+heroAlt: "Un navegador se conecta a un proxy y después al servidor de origen, con una conexión HTTPS protegida en cada tramo."
+heroCaption: "Con un proxy, HTTPS se negocia en dos tramos: del navegador al borde y del borde al servidor de origen."
 ---
 
 Durante un par de años, mi sitio personal vivió en `gonorandres.github.io`. Funcionaba, y era gratis. También era, sin lugar a dudas, un cuarto en la casa de alguien más: la URL anunciaba a su casero antes que a mí.

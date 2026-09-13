@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["CLT", "exam-P", "SOA", "aggregation", "risk"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-multivariate-clt.webp"
+heroAlt: "A small policy pool is compared with a larger one; the average-loss distribution is narrower for the larger pool."
+heroCaption: "With independent risks and finite variance, a larger pool reduces variability in the average loss per policy."
 ---
 
 Of the three Exam P topics, this is the one that connects most directly to how an insurer actually operates. Multivariate variables and the CLT are not easy concepts, but the SOA keeps the evaluation within reasonable bounds. Most problems involve normal variables or countable discrete ones, and the patterns repeat enough that deliberate practice pays off quickly.

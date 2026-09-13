@@ -18,6 +18,7 @@ export interface Project {
   relatedTo?: string[];
   blogSlug?: string;     // English slug of the blog post for this project (e.g. 'sima', 'actuarial-ml-pricing')
   tier: 1 | 2 | 3 | 4; // internal priority: 1=full package, 2=screenshot+blog, 3=academic, 4=minimal
+  featuredRank?: number; // optional homepage order before the relevance fallback
   status?: 'completed' | 'in-development'; // omit or 'completed' = done; 'in-development' = shows badge
   creation_date: string;           // YYYY-MM-DD — when the project was built/started
   last_modification_date?: string; // YYYY-MM-DD — last significant update (optional)
@@ -58,6 +59,7 @@ export const projects: Project[] = [
     relatedTo: ['life-insurance', 'property-insurance', 'gmm-explorer', 'michoacan', 'data-analyst-portfolio'],
     blogSlug: 'sima',
     tier: 1,
+    featuredRank: 1,
     creation_date: '2026-01-23',
     last_modification_date: '2026-03-21',
   },
@@ -95,6 +97,7 @@ export const projects: Project[] = [
     ],
     blogSlug: 'gmm-explorer',
     tier: 1,
+    featuredRank: 6,
     relatedTo: ['sima', 'life-insurance', 'property-insurance', 'data-analyst-portfolio'],
     creation_date: '2025-12-07',
     last_modification_date: '2026-03-21',
@@ -116,7 +119,7 @@ export const projects: Project[] = [
     },
     url: 'https://data-analyst.gonor.me/',
     urls: [
-      { label: { es: 'Airbnb - Análisis de Mercado', en: 'Airbnb - Market Analysis' }, url: 'https://data-analyst.gonor.me' },
+      { label: { es: 'Airbnb - Análisis de Mercado', en: 'Airbnb - Market Analysis' }, url: 'https://data-analyst.gonor.me/airbnb/' },
       { label: { es: 'Reservas P&C - Seguros', en: 'P&C Reserves - Insurance' }, url: 'https://data-analyst.gonor.me/insurance' },
       { label: { es: 'Olist - Cohortes E-commerce', en: 'Olist - E-commerce Cohorts' }, url: 'https://data-analyst.gonor.me/cohorts' },
       { label: { es: 'A/B Test - Experimentación', en: 'A/B Test - Experimentation' }, url: 'https://data-analyst.gonor.me/abtest' },
@@ -125,15 +128,15 @@ export const projects: Project[] = [
       { label: { es: 'NYC 311 - Eficiencia Operativa', en: 'NYC 311 - Operational Efficiency' }, url: 'https://data-analyst.gonor.me/operations' },
     ],
     repo: 'https://github.com/GonorAndres/data-analyst-path',
-    platform: 'Vercel',
+    platform: 'Cloudflare',
     category: 'data-science',
     tags: {
-      es: ['Python', 'SQL', 'Streamlit', 'Next.js', 'Plotly', 'Power BI'],
-      en: ['Python', 'SQL', 'Streamlit', 'Next.js', 'Plotly', 'Power BI'],
+      es: ['Python', 'SQL', 'Next.js', 'Plotly', 'Power BI'],
+      en: ['Python', 'SQL', 'Next.js', 'Plotly', 'Power BI'],
     },
     variant: 'wide',
     gallery: [
-      { src: '/screenshots/da-gcp-01-cloud-run-services.png', caption: { es: 'Cloud Run: dos servicios (API FastAPI + app Streamlit) con escala a cero', en: 'Cloud Run: two services (FastAPI API + Streamlit app) with scale-to-zero' } },
+      { src: '/screenshots/da-gcp-01-cloud-run-services.png', caption: { es: 'Despliegue inicial en Cloud Run: API FastAPI y app Streamlit con escala a cero, antes de unificar los dashboards', en: 'Initial Cloud Run deployment: FastAPI API and Streamlit app with scale-to-zero, before unifying the dashboards' } },
       { src: '/screenshots/da-gcp-02-cloud-run-metrics.png', caption: { es: 'Métricas del servicio: request count, CPU y latencia p95 (vista SRE)', en: 'Service metrics: request count, CPU, and p95 latency (SRE view)' } },
       { src: '/screenshots/da-gcp-03-cloud-run-revisions.png', caption: { es: 'Revisiones de Cloud Run: cada deploy crea una revisión inmutable, rollback con un solo comando', en: 'Cloud Run revisions: each deploy creates an immutable revision; one-command rollback' } },
       { src: '/screenshots/da-gcp-04-artifact-registry.png', caption: { es: 'Artifact Registry: imágenes Docker etiquetadas con latest y el SHA del commit exacto', en: 'Artifact Registry: Docker images tagged with latest and the exact git SHA' } },
@@ -145,12 +148,12 @@ export const projects: Project[] = [
     blogSlug: 'data-analyst-portfolio',
     tier: 1,
     creation_date: '2026-02-21',
-    last_modification_date: '2026-03-21',
+    last_modification_date: '2026-09-12',
   },
 
   // repo: https://github.com/GonorAndres/graph-relation-db
   // local: /home/andtega349/graph-relation-db
-  // source: real UK PSC + GLEIF MX ownership topology with synthetic Mexican credit layer
+  // source: fictional connected-borrower showcase plus a reproducible modeling experiment
   {
     slug: 'credit-graph',
     title: {
@@ -158,16 +161,16 @@ export const projects: Project[] = [
       en: 'CreditGraph: Topological Credit Risk Analysis',
     },
     description: {
-      es: 'El análisis crediticio tradicional trata cada préstamo como evento independiente, pero las cadenas de garantías, garantías circulares y concentración accionaria crean exposición correlacionada invisible a modelos relacionales. CreditGraph modela un portafolio de 500 clientes como grafo en Neo4j, procesa datos con PySpark en Databricks, califica con LightGBM calibrado por Platt, y ejecuta pruebas de estrés topológicas que revelan patrones de riesgo estructural ocultos al SQL.',
-      en: 'Traditional credit analysis treats each loan as independent, but guarantee chains, circular guarantees, and ownership concentration create correlated exposure invisible to relational models. CreditGraph models a 500-client portfolio as a Neo4j graph, processes data with PySpark on Databricks, scores with Platt-calibrated LightGBM, and runs topological stress tests that reveal structural risk patterns hidden from SQL.',
+      es: 'CreditGraph muestra cómo las relaciones entre propietarios, empresas y garantías cambian la revisión de un portafolio. Explora cuatro escenarios ficticios, saldos conectados y un experimento separado que compara modelos con y sin variables de red.',
+      en: 'CreditGraph shows how relationships between owners, companies, and guarantees change portfolio review. Explore four fictional scenarios, connected balances, and a separate experiment comparing models with and without network features.',
     },
-    url: 'https://graph-relation-db.vercel.app/',
+    url: 'https://graph-db.gonor.me/',
     repo: 'https://github.com/GonorAndres/graph-relation-db',
-    platform: 'Vercel',
+    platform: 'Cloudflare',
     category: 'data-science',
     tags: {
-      es: ['Neo4j', 'PySpark', 'Databricks', 'Cypher', 'LightGBM', 'Riesgo crediticio', 'Grafos'],
-      en: ['Neo4j', 'PySpark', 'Databricks', 'Cypher', 'LightGBM', 'Credit risk', 'Graphs'],
+      es: ['Python', 'D3.js', 'LightGBM', 'Riesgo crediticio', 'Grafos'],
+      en: ['Python', 'D3.js', 'LightGBM', 'Credit risk', 'Graphs'],
     },
     variant: 'standard',
     gallery: [
@@ -183,8 +186,9 @@ export const projects: Project[] = [
     relatedTo: ['sima', 'credit-risk', 'lisf-agent', 'data-engineering-platform'],
     blogSlug: 'credit-graph-topological-risk',
     tier: 1,
+    featuredRank: 2,
     creation_date: '2026-03-29',
-    last_modification_date: '2026-03-21',
+    last_modification_date: '2026-09-08',
   },
 
   // repo: https://github.com/GonorAndres/data-engineer-path
@@ -201,7 +205,7 @@ export const projects: Project[] = [
       es: 'Un siniestro de seguros recorre un camino largo entre el evento y el modelo que lo tarifica. Automatizar ese flujo produce datos más rápidos, confiables y consistentes. Este proyecto construye cada tramo sobre GCP: ingesta en tiempo real con Pub/Sub y Beam, warehouse dimensional en BigQuery, orquestación con Dagster, infraestructura con Terraform y un modelo GLM Tweedie que convierte los datos limpios en prima actuarial. Seis etapas, un solo flujo.',
       en: 'An insurance claim travels a long path between the event and the model that prices it. Automating that flow produces faster, more reliable, and more consistent data. This project builds every segment on GCP: real-time ingestion with Pub/Sub and Beam, dimensional warehouse in BigQuery, Dagster orchestration, Terraform infrastructure, and a Tweedie GLM that turns clean data into actuarial premium. Six stages, one continuous flow.',
     },
-    url: 'https://claims-dashboard-451451662791.us-central1.run.app',
+    url: 'https://data-engineer.gonor.me',
     repo: 'https://github.com/GonorAndres/data-engineer-path',
     platform: 'GCP',
     category: 'data-engineering',
@@ -222,6 +226,7 @@ export const projects: Project[] = [
     relatedTo: ['sima', 'insurance-pricing-ml', 'data-analyst-portfolio', 'credit-graph'],
     blogSlug: 'data-engineering-platform',
     tier: 1,
+    featuredRank: 3,
     creation_date: '2026-02-21',
     last_modification_date: '2026-03-21',
   },
@@ -522,8 +527,8 @@ export const projects: Project[] = [
     creation_date: '2024-06-01',
   },
 
-  // repo: https://github.com/GonorAndres/Analisis_Seguros_Mexico
-  // local: /home/andtega349/seguridad_social (different path — note the repo is Analisis_Seguros_Mexico)
+  // repo: https://github.com/GonorAndres/suite-actuarial
+  // local: /home/exedev/repos/suite-actuarial
   // source: EMSSA-09 Mexican mortality tables, original actuarial calculations, no external dataset required
   {
     slug: 'actuarial-suite',
@@ -537,7 +542,7 @@ export const projects: Project[] = [
     },
     url: 'https://suite.gonor.me',
     repo: 'https://github.com/GonorAndres/suite-actuarial',
-    platform: 'GCP',
+    platform: 'Cloudflare',
     category: 'actuarial',
     tags: {
       es: ['Python', 'Pydantic', 'Next.js', 'FastAPI', 'LISF', 'RCS', 'CNSF', 'Reaseguro', 'EMSSA-09'],
@@ -560,7 +565,7 @@ export const projects: Project[] = [
     tier: 1,
     relatedTo: ['sima', 'life-insurance', 'property-insurance'],
     creation_date: '2025-11-18',
-    last_modification_date: '2026-05-03',
+    last_modification_date: '2026-09-12',
   },
 
   // repo: https://github.com/GonorAndres/CarteraSeguroAutos
@@ -628,6 +633,7 @@ export const projects: Project[] = [
     relatedTo: ['lisf-agent'],
     blogSlug: 'proust-attention-machine',
     tier: 1,
+    featuredRank: 5,
     creation_date: '2026-02-07',
     last_modification_date: '2026-03-14',
   },
@@ -659,9 +665,8 @@ export const projects: Project[] = [
     last_modification_date: '2025-08-09',
   },
 
-  // repo: https://github.com/GonorAndres/data-science-path (subfolder: projects/insurance-pricing)
-  // local: /home/andtega349/data-science-path/projects/insurance-pricing
-  // source: synthetic insurance data generated with actuarial assumptions (Poisson/Gamma frequency-severity)
+  // repo: https://github.com/GonorAndres/insurance-pricing-ml
+  // source: freMTPL2 (public benchmark dataset, French motor insurer, via sklearn.fetch_openml)
   {
     slug: 'insurance-pricing-ml',
     title: {
@@ -669,11 +674,11 @@ export const projects: Project[] = [
       en: 'Insurance Pricing with ML',
     },
     description: {
-      es: 'El modelo actuarial clásico ofrece interpretabilidad; machine learning ofrece capacidad predictiva. La pregunta es cuándo la ganancia en precisión justifica la complejidad adicional. Este proyecto corre ambos enfoques sobre los mismos datos de seguros, compara sus resultados y analiza si las primas que genera cada modelo son equitativas entre género y grupos de edad. Resultados explorables en un dashboard interactivo.',
-      en: 'The classic actuarial model offers interpretability; machine learning offers predictive power. The question is when the gain in accuracy justifies the added complexity. This project runs both approaches on the same insurance data, compares their outputs, and analyzes whether each model\'s premiums are equitable across gender and age groups. Results explorable in an interactive dashboard.',
+      es: 'El modelo actuarial clásico ofrece interpretabilidad; el aprendizaje automático ofrece capacidad predictiva. La pregunta es cuándo la ganancia en precisión justifica la complejidad adicional. Este proyecto compara ambos enfoques sobre 678 mil pólizas reales de un asegurador francés, mide cuánto mejora la predicción de siniestros y audita si esa mejora viene acompañada de un sesgo geográfico injustificado. Análisis completo, código reproducible y una API de predicción documentados en el blog.',
+      en: 'The classic actuarial model offers interpretability; machine learning offers predictive power. The question is when the gain in accuracy justifies the added complexity. This project compares both approaches on 678,000 real policies from a French insurer, measures how much claim prediction actually improves, and audits whether that improvement comes with an unwarranted geographic bias. Full analysis, reproducible code, and a prediction API documented in the blog post.',
     },
     url: '/blog/actuarial-ml-pricing/',
-    repo: 'https://github.com/GonorAndres/data-science-path',
+    repo: 'https://github.com/GonorAndres/insurance-pricing-ml',
     platform: 'GitHub',
     category: 'data-science',
     tags: {
@@ -684,8 +689,8 @@ export const projects: Project[] = [
     relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk'],
     blogSlug: 'actuarial-ml-pricing',
     tier: 2,
-    creation_date: '2026-02-21',
-    last_modification_date: '2026-03-15',
+    creation_date: '2026-09-08',
+    last_modification_date: '2026-09-08',
   },
 
   // repo: https://github.com/GonorAndres/b-trees
@@ -833,6 +838,7 @@ export const projects: Project[] = [
     relatedTo: ['credit-risk', 'derivatives', 'markowitz'],
     blogSlug: 'risk-analyst',
     tier: 2,
+    featuredRank: 4,
     creation_date: '2026-03-18',
     last_modification_date: '2026-03-19',
   },
@@ -948,6 +954,7 @@ export function getProjects(lang: Lang) {
     relatedTo: p.relatedTo,
     blogSlug: p.blogSlug,
     tier: p.tier,
+    featuredRank: p.featuredRank,
     status: p.status,
     creation_date: p.creation_date,
     last_modification_date: p.last_modification_date,

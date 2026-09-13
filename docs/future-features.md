@@ -1,5 +1,41 @@
 # Blog UX and accessibility backlog
 
+## Current pass: 2026-09-12
+
+The user authorized a redesign of the blog views and a generated conceptual hero for every
+article. Source changes now cover the ES/EN index and category pages, `BlogSearch.tsx`,
+`BlogPost.astro`, post metadata, and image preparation. There are 24 shared image briefs and
+48 localized post entries. **All 24 second-round diagrams pass visual review; six distinct visual
+families now vary the medium by article type while sharing the consulting palette. Stable hero and
+thumbnail dimensions and bilingual metadata match the manifest.** The 99-page build and all 26
+Playwright tests pass, including responsive layout, controls, image availability, and social
+metadata. Desktop and mobile previews were inspected locally. The first-round assets remain
+recoverable under `public/blog-illustrations/v1/`. The blog redesign and visual refresh are already
+on `dev`; the current homepage ordering and CV link cleanup remain pending user approval. The
+broader accessibility audit remains open as described below.
+
+The article summary keeps an accessible `Resumen`/`Summary` label for assistive technology, while
+the visible “En breve” meta-title has been removed. The summary is now presented as a complete
+bordered panel instead of a single left rule.
+
+| Backlog item | Current state |
+|---|---|
+| BUG 3: search/sort focus | Resolved in source: visible navy focus rings and borders, stronger icons, and accessible control names in `BlogSearch.tsx`. |
+| BUG 5: missing DA image | Resolved in source: the nonexistent `data-analyst-portafolio.png` body image was removed from both posts; generated hero metadata replaces it. The finished replacement hero passes visual and browser checks. |
+| BUG 6: justified blurbs | Resolved in source: descriptions and index subtitles explicitly use `text-left`. |
+| IMP 1: description clamp | Resolved in source: blog rows use `line-clamp-3`; full descriptions remain available for search and metadata. |
+| BUG 2: contrast | Partial: changed blog views use the navy text ladder, category hue moves to a small dot, and the off-palette ficha link is corrected. This does not close the historical corpus-wide audit or verify contrast in every state. |
+| BUG 4: touch targets | Partial: search/sort, row titles, post back-links, and mobile category/ficha/related links have minimum heights. Some links retain `md:min-h-0`; global `Header.astro` and `Footer.astro` were not fixed in this pass. |
+| IMP 2: scan layout | Updated image/text rows use one stretched title link and a non-interactive reading cue. Mobile categories scroll horizontally; controls remain above results. The earlier special lead-card proposal is not implemented. |
+| IMP 4: illustrations | Complete: 24 article-specific diagrams use six differentiated visual families, with shared ES/EN assets, reviewed hero/thumb crops, and matching metadata. |
+
+See [blog illustration workflow](blog-illustrations.md) and [prompts and metadata](blog-illustrations.json).
+The measurements, line references, proposed snippets, and decision questions below are the
+**2026-08-02 historical baseline** unless an item carries a newer status. They are not fresh
+measurements of the redesigned views; do not reapply old snippets over the current components.
+
+## Original audit
+
 Origin: a Playwright QA pass run on 2026-08-02 over the blog at 1280x900 and 390x844, against
 `npx astro preview` serving the production build. The conclusion was that **post detail pages are
 strong** (reading time, "En breve" summary, ficha sidebar, sticky related rail all render and work)
@@ -10,9 +46,9 @@ Everything below was investigated file by file and then re-verified independentl
 are from the tree at commit `2d88033` on branch `dev`. Where the verifier corrected an investigation,
 the corrected value is what appears here; debunked references were removed rather than repeated.
 
-Three facts that override stale instructions elsewhere in the repo:
+Three facts recorded during that audit:
 
-1. `npx astro build` currently prints **97 page(s) built** and `dist/` holds **131 `.html` files**.
+1. `npx astro build` printed **97 page(s) built** and `dist/` held **131 `.html` files** on 2026-08-02.
    The "85 pages" figure in `CLAUDE.md` ("How to Add a Blog Post", step 5) is stale. Do not treat 85
    as the build gate.
 2. **`npx astro check` cannot run here.** `package.json` has no `@astrojs/check` and no `typescript`
@@ -228,6 +264,11 @@ the ladder is rolled out (see IMPROVEMENT 5).
 
 ### BUG 3. Focus indicator effectively invisible (WCAG 2.4.7)
 
+**2026-09-12: resolved and browser-checked.** The current controls use navy two-pixel focus rings,
+stronger borders and icons, and accessible names. Search, reset, sort, and category navigation pass
+in both languages.
+The evidence and fix below describe the earlier implementation.
+
 **What is wrong.** Both blog controls remove the UA focus ring and replace it with a ring that is
 essentially invisible: `focus:ring-[#C17654]/20` measures 1.226:1 and the focus border
 `#C17654`/40 measures 1.471:1. Keyboard users get no perceivable focus state. Related, under 1.4.11:
@@ -317,6 +358,9 @@ at 56/46/109 px, but eyeball the footer.
 
 ### BUG 5. Broken image, live 404 on two published pages
 
+**2026-09-12: resolved and verified.** Both obsolete body-image tags are removed. The posts
+now reference their shared generated hero, which passes visual review and availability checks.
+
 **What is wrong.** Both language versions of the data-analyst-portfolio post embed an image file that
 does not exist, so readers get a broken-image icon in the middle of the article.
 
@@ -334,6 +378,9 @@ and the post is about seven analytics dashboards, not infrastructure. See "Decis
 **Effort.** 5 minutes. **Risk.** None. This is the one change in this document that could ship alone.
 
 ### BUG 6. Card blurbs inherit body justification and produce rivers
+
+**2026-09-12: resolved in source.** `BlogSearch.tsx` descriptions and both index subtitles
+explicitly set `text-left`. The old measurement below remains the baseline for browser comparison.
 
 **What is wrong.** `CLAUDE.md` ("Responsive Typography and Mobile UI") reserves justification for
 "paragraph text in main content" and excludes "short metadata". A 3 to 8 line blurb inside one of 23
@@ -375,6 +422,9 @@ below.
 Judgment calls, not rule violations. Ranked by measured effect divided by effort.
 
 ### IMPROVEMENT 1. Clamp card descriptions (largest measured win per minute)
+
+**2026-09-12: implemented in source.** Blog-row descriptions use `line-clamp-3`. The new
+image/text layout needs fresh measurements; the percentage improvements below apply to the old layout.
 
 **Payoff.** Card height becomes uniform, which is what actually creates a scannable list. Measured by
 injecting `line-clamp-3` live: desktop document height 7,628 to 6,627 px (-13.1%), `<article>` spread
@@ -518,56 +568,31 @@ once code fences, HTML tags and table rows are stripped). Nothing regresses, but
 visible on a higher-traffic surface. Skip `LatestPostCard.astro` for now: it is a mixed feed and only
 blog items have a body, so two of the three visible cards would show nothing.
 
-### IMPROVEMENT 4. Hero images and index thumbnails
+### IMPROVEMENT 4. Generated concept diagrams for every post
 
-**Payoff.** `heroImage` is wired end to end and unused by all 46 posts, so every post's social card is
-the generic `og-default.png` (`src/components/layout/SEOMeta.astro:27,44`, confirmed in
-`dist/blog/sima/index.html`). A complete 640 px WebP thumbnail set already exists and is consumed only
-by `ProjectsGrid.tsx`. Wiring 12 posts costs about 214 KB of already-generated WebP against 1.72 MB if
-PNGs were used.
+**2026-09-12 direction replaces the original screenshot-reuse proposal.** The user requested
+consulting-report-style generated diagrams matched to each article's meaning. There are now
+24 briefs, one per English slug, shared across the 24 ES and 24 EN posts. The former proposal
+to select 12 screenshots, add gradient fallbacks, and reuse project-gallery captions is superseded.
+Existing evidence screenshots may remain in article bodies where they support the narrative.
 
-**Evidence.** Schema at `src/content.config.ts:38-39`, rendered at `src/layouts/BlogPost.astro:240-249`;
-`grep -rn "heroImage" src/content/blog/` returns nothing. `BlogSearch.tsx` has no `<img>` anywhere and
-`PostData` (`:10-20`) has no image field. The mapper to copy verbatim is
-`src/components/ui/ProjectsGrid.tsx:61-68`, used with `<picture>` at `:386-392`. The thumbnail
-generator is `scripts/generate-thumbnails.mjs:22-23` (640 px, quality 72); **do not** run
-`npm run thumbs`, all 102 thumbs exist and regenerating produces a large meaningless binary diff.
+**Implemented in source:** `heroImage`, localized `heroAlt`, and localized `heroCaption` in all
+48 posts; `heroAlt` in the content schema and both detail-page callers; image metadata in all
+four index/category mappers; responsive thumbnail/hero sources in `BlogSearch.tsx` and
+`BlogPost.astro`; fixed image dimensions and eager loading for the priority image; hero image
+and alt passed to the SEO layout. Titles are the only interactive target in each stretched-link
+row, so adding a second image link would break that interaction model.
 
-Twelve posts have a confident match reusing bilingual captions already written in
-`src/data/projects.ts`. One orphan asset is an exact match: `insurance-claims.png` (2880x1800, unused)
-shows the "Reservas y Siniestralidad" dashboard that `insurance-claims-dashboard.md` describes.
+**Verified locally:** all 24 second-round diagrams generated with the native image tool, optimized
+heroes and thumbnails (4.2 MiB for the active set; first-round assets archived under `v1/`),
+pixel-to-caption review, 48 matching localized metadata entries, 99-page build, and 25 passing
+browser tests. Six visual families now cover quantitative models, systems, evidence, algorithms,
+regulation, and mathematical intuition. Risk Analyst alt wording was aligned with the visible
+subject. No material visual findings remain.
 
-**Correction the investigation missed.** Three of the twelve targets already embed a screenshot in the
-post body: `src/content/blog/{es,en}/pension-simulator.md:75`,
-`src/content/blog/{es,en}/regulation-agent-rag.md:80`,
-`src/content/blog/{es,en}/cartera-autos.md:73`. Adding a `heroImage` to those six files stacks two
-screenshots at the top. Either remove the in-body `<img>` or pick a different hero for those three.
-
-Weak matches, do not ship blind: `risk-analyst.png` is a screenshot of the GitHub repo page, not of any
-analysis (`src/data/projects.ts:831`); `data-analyst-portfolio` has no representative image at all, its
-whole gallery is GCP infrastructure (`src/data/projects.ts:135-143`). Nine posts have no usable image
-anywhere, including all four SOA study guides.
-
-**Fix.** Add `heroImage` and a localized `heroCaption` to each post's frontmatter (the `heroImage` path
-is identical in ES and EN; only the caption is translated). Then add `heroImage: post.data.heroImage,`
-to the `postsData` map in **all four** list pages, extend `PostData`, and render the thumbnail inside
-the content cell with `<picture>` plus the WebP source, `alt=""` (decorative, the sibling `<h3>` names
-the post), and a category-tinted gradient block as the fallback for image-less posts, `hidden sm:block`
-so 320 px never shows an empty box. Change `BlogSearch.tsx:57` from `items-baseline` to `items-start`,
-or the date rail drifts once the content cell starts with an image. Drop `loading="lazy"` from
-`src/layouts/BlogPost.astro:242`: it is the LCP element and `aspect-[16/9]` already reserves the box.
-
-One YAML trap: captions reused from `src/data/projects.ts` contain `\$` (for example `:591`), which is
-a no-op in TS but an invalid escape in double-quoted YAML. Write plain `$27,715` in frontmatter;
-`heroCaption` is rendered as `{heroCaption}` at `BlogPost.astro:245` and never passes through remark.
-
-**ES/EN parity.** 12 posts x 2 files of frontmatter, 4 page files, and the shared component edits once.
-The asymmetry risk is forgetting the two `categoria/[cat].astro` files, which would silently drop
-thumbnails on all five category pages in both languages.
-
-**Effort.** 85 minutes. **Risk.** Payload regression if the `<source>` is dropped (214 KB becomes
-1.72 MB); confirm `.webp` is served. 320 px overflow if the thumbnail does not stack
-(`flex-col sm:flex-row`). Live social-preview change on 12 posts, so re-scrape any already-shared URL.
+The generation record is [blog-illustrations.json](blog-illustrations.json); dimensions, asset paths,
+optimization, and review rules are documented in [blog-illustrations.md](blog-illustrations.md).
+Do not run the screenshot thumbnail generator for this collection.
 
 ### IMPROVEMENT 5. Roll the contrast ladder out site-wide
 
@@ -603,11 +628,13 @@ change; do it as its own commit so it can be reverted independently.
 
 ---
 
-## Decisions needed from the user
+## Historical decision questions and remaining scope
 
-Nothing above should be implemented until these are settled. The first block is genuine conflicts
-between the seven investigations: the same lines are edited three different ways, and a naive
-sequential apply will duplicate or drop classes.
+The user-authorized 2026-09-12 pass resolves the image direction and permits the blog-view changes
+recorded above. These earlier questions describe competing proposals; they do not require asking
+again before completing that authorized work. For future backlog changes, review only the unresolved
+choices that actually apply. The original investigations often targeted the same lines, so do not
+combine their snippets mechanically.
 
 **Conflicts on the same lines**
 
@@ -735,7 +762,7 @@ None of the seven investigations covered these. They are observations with evide
 ## How to verify a fix
 
 ```bash
-npx astro build                    # expect "97 page(s) built", zero errors. NOT 85.
+npx astro build                    # zero errors; record the actual page count for the current corpus
 npx astro preview --host 0.0.0.0   # port 4321
 # ... run the checks below ...
 pkill -f "astro preview"
@@ -766,28 +793,29 @@ language, then:
 
 **Fix first (bugs)**
 
-- [ ] BUG 1a. `src/data/categories.ts:15,17` accents, plus `src/components/ui/CategoryBadge.astro:26,28` in the same commit
+- [x] BUG 1a. Spanish category accents corrected in `src/data/categories.ts` and `src/components/ui/CategoryBadge.astro`; category navigation verified (2026-09-12).
 - [ ] BUG 1b. 21 caption lines in `src/data/projects.ts` (297, 299 to 301, 303 to 306, 549 to 557, 918, 920, 922, 923)
-- [ ] BUG 2. Contrast ladder across the 8 blog files (26 tokens), plus `BlogPost.astro:304` off-palette `#39c`
-- [ ] BUG 3. Focus ring and control borders at `BlogSearch.tsx:176,184`; icons at `:158,191`
-- [ ] BUG 4. 44 px targets: 4 page files, `BlogSearch.tsx:176,184`, `Footer.astro:26,29,32`
-- [ ] BUG 5. Delete the 404 `<img>` at `src/content/blog/{es,en}/data-analyst-portfolio.md:20`
-- [ ] BUG 6. `text-left` on `BlogSearch.tsx:91`
+- [ ] BUG 2. Partial: source contrast changes in the redesigned blog views; remaining historical targets and final rendered-state audit still open.
+- [x] BUG 3. Visible search/sort focus rings, borders, icons, and accessible names implemented in `BlogSearch.tsx` (2026-09-12; browser checks pass).
+- [ ] BUG 4. Partial: changed blog controls and mobile links have minimum heights; desktop exceptions and global header/footer targets remain open.
+- [x] BUG 5. Removed the missing `data-analyst-portafolio.png` image from both posts (2026-09-12); replacement hero passes visual and browser checks.
+- [x] BUG 6. Explicit `text-left` on blog descriptions and index subtitles (2026-09-12).
 
 **Improvements**
 
-- [ ] IMP 1. `line-clamp-3` on the card blurb
-- [ ] IMP 2. Index scan layout: lead card, CTA removal, stretched link, mobile control order
+- [x] IMP 1. `line-clamp-3` on blog-row descriptions (2026-09-12).
+- [x] IMP 2. Image/text rows, one stretched title link, and horizontal mobile categories verified on desktop and mobile. The original special lead-card proposal is superseded by the authorized redesign.
 - [ ] IMP 3. Reading time on cards: `src/lib/readingTime.ts`, `blog.readSuffix` in both locales, 4 pages
-- [ ] IMP 4. `heroImage` on 12 posts, thumbnails on the index, `og:image` per post
+- [x] IMP 4a. New 24-diagram direction, shared ES/EN metadata, responsive index/detail layout, and SEO image wiring implemented.
+- [x] IMP 4b. All 24 generated heroes and thumbnails complete; visual review, localized metadata, dimensions, build, and browser checks pass (2026-09-12).
 - [ ] IMP 5. Contrast ladder rolled out to the remaining 16 files (94 instances total)
 - [ ] IMP 6. Delete `BlogPostPreview.astro`, `blog.categories`, `blog.allYears`, the 5 stale screenshots
 
 **Before implementing**
 
-- [ ] Settle conflicts 1 to 11 (they edit the same lines)
-- [ ] Answer open questions 12 to 26
-- [ ] Correct the stale "85 pages" figure in `CLAUDE.md` ("How to Add a Blog Post", step 5) to 97
+- [ ] Review unresolved historical conflicts only when implementing the remaining backlog; current authorized pass is recorded above.
+- [ ] Reassess remaining historical questions for future work; image direction and current blog layout no longer await a new decision.
+- [ ] Replace stale fixed build counts in `CLAUDE.md` with the current verified corpus count; 97 was the August baseline.
 - [ ] Correct the Button Radii Convention pixel values in `CLAUDE.md` against `tailwind.config.mjs:21-29`
 
 **Gaps to scope**

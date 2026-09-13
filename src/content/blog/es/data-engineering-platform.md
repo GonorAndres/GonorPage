@@ -2,7 +2,6 @@
 title: "Plataforma de Datos para Siniestros de Seguros sobre GCP"
 description: "Las áreas técnicas de las aseguradoras generan datos valiosos que quedan atrapados en hojas de cálculo y procesos manuales que no escalan. Esta plataforma construye el pipeline completo sobre GCP, desde la ingesta de siniestros en streaming hasta el pricing con GLM Tweedie, con Dataform y BigQuery como columna vertebral. El resultado es un flujo automatizado, testeado y reproducible que transforma datos crudos en insumos listos para el regulador."
 date: "2026-03-18"
-lastModified: "2026-05-03"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "narrative"
@@ -15,7 +14,11 @@ ficha:
   regulacion: "LISF · CNSF"
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
-  live: "https://claims-dashboard-451451662791.us-central1.run.app"
+  live: "https://data-engineer.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-engineering-platform.webp"
+heroAlt: "Registros de siniestros pasan por validación y tablas estructuradas; una excepción se desvía a revisión antes del análisis."
+heroCaption: "Validar y transformar los datos antes del análisis permite seguir el origen de cada resultado y revisar las excepciones."
 ---
 
 Una aseguradora mediana en México recibe entre 5,000 y 50,000 siniestros al año. Cada uno llega con campos inconsistentes, códigos de estado cambiantes, montos en diferentes etapas de liquidación. El flujo típico: siniestros exporta un CSV, lo envía al área técnica, un analista lo abre en Excel, lo transforma a mano, lo pega en triángulos, genera factores. A 500 siniestros funciona. A 5,000 se vuelve frágil. A 50,000 se rompe. El problema no es solo volumen: es confiabilidad. Un proceso manual no tiene auditoría, no tiene tests de integridad, no tiene reproducibilidad. Si preguntan un mes después, repites todo.
@@ -34,7 +37,7 @@ La idea central es organizar los datos para que un actuario pueda hacer pregunta
 
 Los datos crudos pasan por cuatro capas de transformación orquestadas con Dataform: primero se limpian y estandarizan (staging), luego se cruzan y enriquecen con catálogos (intermediate), después se calculan métricas como triángulos de pérdida y frecuencia (marts), y finalmente se preparan vistas listas para el dashboard (reports). Cada capa alimenta la siguiente, y cualquier error se detecta antes de llegar al modelo. Todo con nombres en español mexicano, códigos INEGI, montos en MXN; un warehouse que refleja el dominio real demuestra comprensión del negocio, no solo capacidad de mover columnas.
 
-Para desarrollo local se usa DuckDB: corre directamente en la máquina, sin servidores ni costos. El mismo SQL funciona en BigQuery sin cambios, así que lo que pasa en local pasa en producción. El dashboard está desplegado en Cloud Run: <a href="https://claims-dashboard-451451662791.us-central1.run.app" target="_blank" rel="noopener">claims-dashboard</a>. Muestra el resumen de la cartera (608 siniestros, \$26.9M pagados totales, \$44K severidad promedio), triángulos de pérdidas acumuladas con factores de desarrollo, y la documentación completa del pipeline. Cincuenta y dos tests de pytest verifican que el esquema sea correcto, que las referencias entre tablas sean consistentes y que las reglas de negocio se cumplan (montos positivos, fechas coherentes, sumas que cuadran entre capas).
+Para desarrollo local se usa DuckDB: corre directamente en la máquina, sin servidores ni costos. El mismo SQL funciona en BigQuery sin cambios, así que lo que pasa en local pasa en producción. El dashboard está desplegado en Cloud Run: <a href="https://data-engineer.gonor.me" target="_blank" rel="noopener">claims-dashboard</a>. Muestra el resumen de la cartera (608 siniestros, \$26.9M pagados totales, \$44K severidad promedio), triángulos de pérdidas acumuladas con factores de desarrollo, y la documentación completa del pipeline. Cincuenta y dos tests de pytest verifican que el esquema sea correcto, que las referencias entre tablas sean consistentes y que las reglas de negocio se cumplan (montos positivos, fechas coherentes, sumas que cuadran entre capas).
 
 Costo: menos de \$1 USD al mes. BigQuery free tier cubre 10 GB de almacenamiento y 1 TB de consultas. GCS para los archivos fuente cuesta centavos.
 
@@ -135,4 +138,4 @@ También falta monitoreo de calidad de datos: Great Expectations o Soda entre la
 
 Cuando la infraestructura de datos es confiable, el juicio actuarial se concentra en lo que realmente importa: elegir supuestos, calibrar modelos, interpretar resultados. No en limpiar datos.
 
-El código, los tests y la documentación están en <a href="https://github.com/GonorAndres/data-engineer-path" target="_blank" rel="noopener">GitHub</a>. El dashboard de siniestros está en producción en <a href="https://claims-dashboard-451451662791.us-central1.run.app" target="_blank" rel="noopener">Cloud Run</a>.
+El código, los tests y la documentación están en <a href="https://github.com/GonorAndres/data-engineer-path" target="_blank" rel="noopener">GitHub</a>. El dashboard de siniestros está en producción en <a href="https://data-engineer.gonor.me" target="_blank" rel="noopener">Cloud Run</a>.

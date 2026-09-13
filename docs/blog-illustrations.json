@@ -1,0 +1,597 @@
+{
+  "generator": "Codex native image_gen.imagegen",
+  "styleReference": "credit-graph-topological-risk",
+  "stylePrompt": "Create one finished landscape 16:9 editorial diagram, 1536x864 preferred, for a premium B2B/strategy-consulting-style actuarial and data-science publication. Use the attached image ONLY as a style reference: warm cream #EDE6DD paper, dark navy #1B2A4A structure, muted terracotta #C17654, sage #7A8B6F and steel blue #5B7B9A accents, crisp meticulously aligned geometry, generous whitespace, restrained tactile material and very subtle shadows only when the specific mechanism calls for isometric form. The subject and composition must follow THIS article's mechanism below; never reuse buildings from the reference unless the mechanism requires them. Make one intellectually clear dominant relationship legible at thumbnail size, with polished art direction and 7% safe margins. No words, letters, numbers, logos, watermarks, legends, pseudo-code, stock business people, handshakes, robots, neon, glossy plastic, or generic decorative technology motifs. A conceptual explanatory exhibit, never a fabricated screenshot or measured-data claim.",
+  "visualSystemV2": {
+    "generatedAt": "2026-09-12",
+    "status": "generated, visually reviewed, and promoted locally",
+    "reason": "The first set used one cream isometric diagram grammar for almost every subject. The second set varies medium and spatial language by the kind of thinking in the article while retaining a common editorial palette, material restraint, and consulting-grade finish.",
+    "sharedDirection": "Premium B2B editorial imagery with one dominant mechanism at thumbnail size, 7% safe margins, warm cream, dark navy, muted terracotta, sage, steel blue, tactile materials, controlled light, no embedded text, letters, numbers, logos, watermarks, generic technology motifs, or fabricated measured claims.",
+    "promptAssembly": "For non-representative assets, the final native prompt combined the assigned family's stylePrompt, the article-specific subjectPrompt below, and the existing asset concept/mechanism/avoid constraints. The family reference was used only for medium, palette, lighting, and finish; every prompt explicitly prohibited reuse of its objects and composition.",
+    "families": [
+      {
+        "id": "scientific-ink-plate",
+        "name": "Hand-inked scientific plates",
+        "role": "Quantitative models and actuarial mechanics",
+        "stylePrompt": "Hand-inked scientific-atlas medium on warm ivory fibrous paper: navy technical pen, dry-brush terracotta, sage and steel-blue wash, faint graphite construction, restrained premium economics-journal quality; fully flat two-dimensional scanned print; no isometric objects.",
+        "reference": "/blog-illustrations/actuarial-ml-pricing.webp",
+        "slugs": ["actuarial-ml-pricing", "insurance-claims-dashboard", "pension-simulator", "sima", "soa-probability-foundations", "soa-random-variables-insurance"]
+      },
+      {
+        "id": "architectural-maquette",
+        "name": "Architectural paper maquettes",
+        "role": "Systems, infrastructure, and shared product architecture",
+        "stylePrompt": "Photographed architectural-maquette craft using cream card, navy board, cork, frosted smoke-blue acrylic, muted terracotta and sage markers, brushed brass, soft gallery daylight, and precise physically plausible model-making.",
+        "reference": "/blog-illustrations/meeting-room-booking.webp",
+        "slugs": ["analytics-dashboards", "configuring-your-own-domain", "data-engineering-platform", "meeting-room-booking", "suite-actuarial", "teaching-apis"]
+      },
+      {
+        "id": "evidence-still-life",
+        "name": "Documentary evidence still lifes",
+        "role": "Case studies, portfolio work, and validation",
+        "stylePrompt": "Meticulous overhead evidence-table photography with real paper, wood, glass, metal and ceramic, soft north-window light, subtle film grain, restrained palette, and premium financial-magazine art direction.",
+        "reference": "/blog-illustrations/cartera-autos.webp",
+        "slugs": ["cartera-autos", "data-analyst-portfolio", "gmm-explorer", "risk-analyst"]
+      },
+      {
+        "id": "computational-instrument",
+        "name": "Dark computational instruments",
+        "role": "Algorithms, databases, and machine learning internals",
+        "stylePrompt": "Cinematic macro photography of a handcrafted computational instrument on matte midnight navy using smoked glass, porcelain, oxidized copper, muted blue and sage light, with museum precision and no cyberpunk or circuit-board clichés.",
+        "reference": "/blog-illustrations/proust-attention-machine.webp",
+        "slugs": ["b-trees-optimization", "flight-analytics-pg-bq", "proust-attention-machine"]
+      },
+      {
+        "id": "archival-collage",
+        "name": "Archival legal collages",
+        "role": "Ownership, regulation, provenance, and source grounding",
+        "stylePrompt": "Overhead photographed archival paper collage on deep navy wool using deckled cream folios, vellum, cotton thread, brass pins, muted terracotta, sage and steel blue, with warm library light and restrained law-review art direction.",
+        "reference": "/blog-illustrations/regulation-agent-rag.webp",
+        "slugs": ["credit-graph-topological-risk", "regulation-agent-rag"]
+      },
+      {
+        "id": "kinetic-math-sculpture",
+        "name": "Kinetic mathematical sculptures",
+        "role": "Geometric intuition and probability transformations",
+        "stylePrompt": "Photorealistic kinetic museum sculpture in a cream-plaster gallery using a charcoal stone plinth, aged brass, translucent smoke-blue glass, terracotta and sage accents, precise physical alignment, and raking skylight.",
+        "reference": "/blog-illustrations/math-visualizations.webp",
+        "slugs": ["math-visualizations", "soa-inverse-transform-percentiles", "soa-multivariate-clt"]
+      }
+    ],
+    "subjectPrompts": {
+      "actuarial-ml-pricing": "An asymmetric policy-evidence field separates into an equally credible linear rail and branching model before a paired prediction-and-attribution comparison.",
+      "analytics-dashboards": "A circular decision maquette sends one common data slab through prepared paper layers or a brass computation wheel into the same translucent presentation window.",
+      "b-trees-optimization": "A freestanding shallow wide compartment tree has aligned leaves and exactly one illuminated root-to-leaf lookup route.",
+      "cartera-autos": "One anonymized claim-card stack supports a physical contribution waterfall, development triangle, and anomaly-review field on a real analysis table.",
+      "configuring-your-own-domain": "A browser frame, central proxy gatehouse, and origin archive are joined by two separate glass bridge spans, each with its own lock clasp.",
+      "credit-graph-topological-risk": "Three separated loan-record clusters are connected to one off-center ownership folio by terracotta cotton thread, signaling a review group rather than contagion.",
+      "data-analyst-portfolio": "Seven different evidence samples occupy seven separate trays, each using the same sorting comb, grouping frame, and comparison ruler, with independent endings.",
+      "data-engineering-platform": "Irregular claim slips cross an inspection gate and increasingly ordered table beds into a warehouse lattice while one malformed slip exits to a separate review tray.",
+      "flight-analytics-pg-bq": "Two physical data sculptures compare a single index-selected row against selected vertical columns feeding one aggregate vessel.",
+      "gmm-explorer": "One medical-claim stack separates into three specimen trays, each paired with an independent frequency bead row and severity weight stack.",
+      "insurance-claims-dashboard": "A slightly rotated development grid uses dense crosshatching for observed cells and untouched paper for future cells, with restrained projection arrows.",
+      "math-visualizations": "A brass circle wheel projects one rim point into a translucent sine ribbon with one physically aligned tangent rod.",
+      "meeting-room-booking": "Four-room architectural model shares one frosted schedule rail with three external viewing frames and synchronized occupancy markers.",
+      "pension-simulator": "Contribution marks and a salary ribbon enter a rule mechanism, then split into a main monthly-income vessel and a conditional supplementary vessel.",
+      "proust-attention-machine": "Abstract token tiles feed a strictly lower-triangular smoked-glass attention plane and one next-token probability-fin set.",
+      "regulation-agent-rag": "Cross-referenced archival folios yield three selected passage strips under a glass reading stone and the same strips in a grounded answer sheet.",
+      "risk-analyst": "Natural-material evidence, modeled resin loss forms, and a smoked-glass comparison plate make observed-versus-modeled validation visible.",
+      "sima": "Noisy mortality observations become a graduated curve, then uncertain projection bands feeding premium, reserve, and capital decision seals.",
+      "soa-inverse-transform-percentiles": "Two parallel bead rails preserve matching color order through non-crossing monotone glass linkages while a percentile gate selects the same subset.",
+      "soa-multivariate-clt": "A small pendulum pool supports a broad low average-loss canopy while a larger matching pool supports a narrower taller canopy at the same center.",
+      "soa-probability-foundations": "A mixed population has one exact selected row projected into an inspection lens without changing any selected case type or order.",
+      "soa-random-variables-insurance": "One monumental payment curve has exactly three pieces—zero, one rise shallower than full loss, and one cap—with sample guides on the curve.",
+      "suite-actuarial": "A radial modular calculation drum on a common foundation sends matching modules to library, service connector, and analytical viewing surfaces.",
+      "teaching-apis": "A brass pneumatic-tube apparatus carries a blank request outward and a grid-shaped data parcel back through one gateway with timing and failure branches."
+    },
+    "nativeOutputs": {
+      "actuarial-ml-pricing": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-6daa3c5e-c5f9-44ba-ab7c-6c2eef8fa8ae.png",
+      "analytics-dashboards": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-7a606be9-93d5-4651-b34c-34844f835382.png",
+      "b-trees-optimization": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-1a71790e-ce90-45b8-abda-3f2a99a495dc.png",
+      "cartera-autos": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-cbcc46cc-e2f4-4a46-a9ed-11e2c12bbfb4.png",
+      "configuring-your-own-domain": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-ff370603-d53c-43ce-8f85-01d025c025ef.png",
+      "credit-graph-topological-risk": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-3740cda0-d405-49cf-a24a-f2efdef92ea0.png",
+      "data-analyst-portfolio": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-a7948bfb-da07-48e3-a3d1-ca9b4b6de3f3.png",
+      "data-engineering-platform": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-4ffb7e76-d7dc-4f5f-a916-5a0d0320803a.png",
+      "flight-analytics-pg-bq": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-445eac29-23f1-407e-b5c5-dfd33be1ae03.png",
+      "gmm-explorer": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-f11ed410-ec59-4a7e-80c2-fc781d764d71.png",
+      "insurance-claims-dashboard": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-86a30e05-090a-4572-a1d3-3cd376aff6b6.png",
+      "math-visualizations": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-93632afc-c5a2-46f5-ad1a-61c7477b0015.png",
+      "meeting-room-booking": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-5733ab30-082e-443d-8782-14a4056704bd.png",
+      "pension-simulator": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-55d69f5d-e1b2-43bd-8174-8f6e4d16c014.png",
+      "proust-attention-machine": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-f10583a1-b551-4ae5-8775-979ce2c6e5cc.png",
+      "regulation-agent-rag": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-58242616-8d90-4622-826b-3ea327e0eb15.png",
+      "risk-analyst": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-fad29029-42fb-4fdd-9b65-154491fd9335.png",
+      "sima": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-c959d241-a2c0-4815-a455-888d279884c7.png",
+      "soa-inverse-transform-percentiles": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-86b5de2b-e4ad-43cb-839d-f47b3ed52231.png",
+      "soa-multivariate-clt": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-b070e769-c465-42f8-af8d-e0e9b7591746.png",
+      "soa-probability-foundations": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-926d231b-8837-4e97-8b16-0375ddb59d6f.png",
+      "soa-random-variables-insurance": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-78e385d0-44bd-495a-b838-b633b4eece87.png",
+      "suite-actuarial": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-35088c52-193a-4158-b32c-64cf7507db97.png",
+      "teaching-apis": "/home/exedev/.codex/generated_images/01a09696-6fcb-7e70-99d6-c590837b493c/exec-ac944dde-2782-4e51-97aa-bf773846aefb.png"
+    },
+    "outputPolicy": {
+      "stableHeroes": "/blog-illustrations/<slug>.webp",
+      "stableThumbnails": "/blog-illustrations/thumbs/<slug>.webp",
+      "previousRoundArchive": "/blog-illustrations/v1/",
+      "candidateSuffix": "Temporary -v2 review files were removed after promotion; native originals remain at the recorded paths.",
+      "review": "All 24 full-size candidates and their 640x360 thumbnails were reviewed together in a contact sheet. The stable paths were replaced only after confirming distinct family rhythm, article-level semantic fit, no embedded readable text or logos, and thumbnail-level focal clarity."
+    }
+  },
+  "dimensions": {
+    "hero": [
+      1536,
+      864
+    ],
+    "thumbnail": [
+      640,
+      360
+    ]
+  },
+  "assets": [
+    {
+      "slug": "actuarial-ml-pricing",
+      "concept": "When does a more flexible insurance pricing model justify its added complexity? Compare two modeling routes from the same policy characteristics, keeping explanation beside prediction.",
+      "mechanism": "Landscape consulting exhibit on warm cream #EDE6DD. A compact matrix of anonymous policy-feature marks at left feeds two equally weighted horizontal paths: a restrained linear sequence above and a shallow branching tree below. Both paths end beside the same comparison plate at right, where a few aligned bars and a small positive-and-negative contribution sequence express prediction and attribution. Use navy #1B2A4A structure, steel-blue and terracotta route accents, fine rules, generous whitespace. One dominant split-and-compare relationship; flat precise diagram, no words, letters, logos, numbers, axis labels, or UI chrome.",
+      "avoid": "Do not depict universal ML superiority, a regulatory approval stamp, lower premiums for every policyholder, measured lift or Gini values, French parameters applied directly to Mexico, or SHAP as proof of causation. Do not use a brain, robot, racing car, or decorative neural network. The abstract marks must not pretend to reproduce measured results.",
+      "alt": {
+        "es": "Los mismos datos de pólizas recorren un modelo lineal y otro de árboles para comparar predicciones y contribuciones de variables.",
+        "en": "The same policy data follows linear and tree-based models to compare predictions and feature contributions."
+      },
+      "caption": {
+        "es": "Comparar modelos de tarificación exige considerar tanto la capacidad predictiva como la explicación de cada resultado.",
+        "en": "Comparing pricing models requires considering predictive performance alongside an explanation of each result."
+      },
+      "image": "/blog-illustrations/actuarial-ml-pricing.webp",
+      "thumbnail": "/blog-illustrations/thumbs/actuarial-ml-pricing.webp"
+    },
+    {
+      "slug": "analytics-dashboards",
+      "concept": "Which analytical results can be prepared in advance, and which must be computed when a visitor changes a filter? Two data paths support a shared interactive presentation.",
+      "mechanism": "A single data-table motif on the left forks into two clear horizontal lanes. The upper lane passes through a small orderly stack of prepared result sheets; the lower passes through a compact computation module with one restrained return arrow indicating a request and response. Both converge into one abstract report composition on the right made of a chart frame, a few bars and a selected point, without resembling a real software interface. Landscape 16:9, warm cream, navy rules, sage prepared-data lane, steel-blue computation lane, a tiny terracotta selection accent. Clear geometric spacing, no words, numbers, letters, product logos, mock code, or screen chrome.",
+      "avoid": "Do not equate interactivity with needing a backend; both lanes must reach the interactive output. Do not show every Olist analysis as server-backed or every filter as a recomputation. Avoid latency claims, price comparisons, obsolete Vercel branding, and an invented screenshot of the real dashboard.",
+      "alt": {
+        "es": "Dos rutas, resultados precalculados y cómputo por solicitud, convergen en una misma presentación analítica.",
+        "en": "Two paths, prepared results and computation on request, converge into one analytical presentation."
+      },
+      "caption": {
+        "es": "La arquitectura depende de si un filtro selecciona resultados ya calculados o exige volver a calcularlos.",
+        "en": "The architecture depends on whether a filter selects prepared results or requires new computation."
+      },
+      "image": "/blog-illustrations/analytics-dashboards.webp",
+      "thumbnail": "/blog-illustrations/thumbs/analytics-dashboards.webp"
+    },
+    {
+      "slug": "b-trees-optimization",
+      "concept": "How does a database narrow a large search with few page accesses? Show a shallow, wide tree and one selected lookup path.",
+      "mechanism": "A precise three-level B-tree-style index fills the landscape. Each node is a wide rectangle divided into blank ordered key compartments. One root fans to three internal blocks, which fan into evenly spaced leaves; every leaf sits on the same horizontal baseline. Highlight exactly one continuous root-to-leaf route in terracotta, including the relevant compartments, while sibling paths remain navy hairlines and muted steel-blue. The many compact key compartments communicate useful work per page access. Use generous cream whitespace around the tree, flat report-exhibit geometry, and no literal keys, letters, digits, labels, logos, shadows, or botanical imagery.",
+      "avoid": "No binary tree, uneven leaf depths, roots below leaves, disconnected selected edges, cyclic parent pointers, numeric speedups, or suggestion that a lookup always takes a fixed number of accesses regardless of dataset size. Do not show every leaf being visited for a single-key search.",
+      "alt": {
+        "es": "Un árbol de índice ancho y poco profundo destaca una sola ruta desde la raíz hasta una hoja.",
+        "en": "A wide, shallow index tree highlights one route from the root to a leaf."
+      },
+      "caption": {
+        "es": "Agrupar varias claves en cada nodo permite descartar grandes partes de la búsqueda en cada acceso.",
+        "en": "Grouping several keys in each node lets each access narrow the remaining search."
+      },
+      "image": "/blog-illustrations/b-trees-optimization.webp",
+      "thumbnail": "/blog-illustrations/thumbs/b-trees-optimization.webp"
+    },
+    {
+      "slug": "cartera-autos",
+      "concept": "How can one auto-claims portfolio support pricing, reserve estimates, and investigation priorities? Show a common evidence base branching into three distinct decisions.",
+      "mechanism": "A restrained stack of anonymous claim records with one small car-outline glyph anchors the left third. A single navy junction branches to three vertically aligned analytical outputs at right: a compact contribution waterfall for pricing, a partially completed development triangle for reserves, and a field of points with one outlined outlier for review. Keep these outputs equally sized and subordinate to the clear one-source-to-three-decisions structure. Warm cream, navy, terracotta pricing marks, steel-blue reserving marks, sage review marks. Thin precise connectors, no decorative office scenes, text, letters, numbers, logos, currency symbols, or fabricated UI.",
+      "avoid": "An outlier is a review signal, not proven fraud: no handcuffs, criminal silhouettes, red guilty stamp, or automatic denial. Do not portray the synthetic portfolio as measured national market data. Avoid uninsured-market percentages, fabricated price amounts, precise solvency thresholds, or a claim that the three outputs are interchangeable.",
+      "alt": {
+        "es": "Un conjunto de siniestros de autos alimenta una descomposición de prima, un triángulo de reservas y la revisión de anomalías.",
+        "en": "One set of auto claims feeds a premium decomposition, a reserve triangle, and anomaly review."
+      },
+      "caption": {
+        "es": "La misma experiencia de siniestros ayuda a tarificar, estimar pagos pendientes y priorizar casos para revisión.",
+        "en": "The same claims experience helps price coverage, estimate unpaid losses, and prioritize cases for review."
+      },
+      "image": "/blog-illustrations/cartera-autos.webp",
+      "thumbnail": "/blog-illustrations/thumbs/cartera-autos.webp"
+    },
+    {
+      "slug": "configuring-your-own-domain",
+      "concept": "What must connect correctly for a custom hostname to serve a site securely through a proxy? Make the two HTTPS connections visible.",
+      "mechanism": "One clean horizontal connection runs from a minimal browser outline on the left, through a restrained proxy-cloud outline in the center, to a server-and-document outline on the right. Place a small separate padlock directly on each connection leg, making two independently secured connections unmistakable. The origin carries a small blank certificate-shaped sheet; a matching shape beside the browser suggests hostname identity without written names. Use warm cream, navy linework, steel-blue connection lines and a small terracotta accent at each certificate check. Landscape 16:9, rigorous report-exhibit alignment, ample whitespace, no text, numbers, letters, addresses, vendor logos, or brand-colored cloud symbols.",
+      "avoid": "Do not depict one uninterrupted encryption tunnel passing through a proxy that cannot read traffic; the proxy terminates two TLS connections. Do not imply DNS itself encrypts web traffic, certificate issuance is synchronous with DNS propagation, a padlock guarantees the content is safe, or every DNS resolver is also the HTTP proxy. Avoid invented hostnames and decorative world maps.",
+      "alt": {
+        "es": "Un navegador se conecta a un proxy y después al servidor de origen, con una conexión HTTPS protegida en cada tramo.",
+        "en": "A browser connects through a proxy to the origin server, with a secured HTTPS connection on each leg."
+      },
+      "caption": {
+        "es": "Con un proxy, HTTPS se negocia en dos tramos: del navegador al borde y del borde al servidor de origen.",
+        "en": "With a proxy, HTTPS is negotiated on two legs: browser to edge, then edge to origin."
+      },
+      "image": "/blog-illustrations/configuring-your-own-domain.webp",
+      "thumbnail": "/blog-illustrations/thumbs/configuring-your-own-domain.webp"
+    },
+    {
+      "slug": "credit-graph-topological-risk",
+      "concept": "Which apparently separate borrowers should be reviewed together? Reveal a shared owner across separate loan records.",
+      "mechanism": "Match the approved pilot: one terracotta owner connects three groups of borrower-building nodes in a restrained isometric ownership map. Use warm cream, navy and earth accents, landscape 16:9, generous whitespace, and no embedded words, letters, digits, logos, amounts or implied default events.",
+      "avoid": "Do not assert that SQL cannot represent these relationships. No automatic contagion flames, collapsing dominoes, zero-value guarantee symbols, doubled exposure totals, inferred legal liability, measured default probabilities, or presentation of fictional borrowers as empirical market findings. Relationships identify a review group; they do not prove loss or contagion.",
+      "alt": {
+        "es": "Un propietario compartido conecta tres grupos de empresas deudoras en un mapa de relaciones.",
+        "en": "One shared owner connects three groups of borrowing companies in a relationship map."
+      },
+      "caption": {
+        "es": "Un propietario compartido puede vincular créditos que parecen independientes en una revisión por registro.",
+        "en": "Shared ownership can connect loans that appear independent when reviewed record by record."
+      },
+      "image": "/blog-illustrations/credit-graph-topological-risk.webp",
+      "thumbnail": "/blog-illustrations/thumbs/credit-graph-topological-risk.webp"
+    },
+    {
+      "slug": "data-analyst-portfolio",
+      "concept": "What makes analytical depth transferable across different business domains? Show the same process organizing different evidence into useful comparisons.",
+      "mechanism": "Seven slim horizontal streams begin at left with different patterns of small anonymous observations: clustered dots, irregular bars, short sequences. They pass through the same three aligned vertical bands, shown only through transformation of the marks: messy records become ordered, then partition into groups, then end as concise comparative patterns. Do not enclose each stream in a dashboard card; the repetition across one unified exhibit is the message. A very light common bracket connects the final comparisons. Warm cream canvas, navy architecture, restrained terracotta/sage/steel-blue group accents, precise spacing, generous margins, landscape 16:9, no labels, text, digits, letters, logos, or decorative business people.",
+      "avoid": "Do not imply the domains share identical data, causal effects, or numerical findings. Do not turn the visual into seven unrelated stock icons or fake screenshots. Avoid a single rising profit curve, universal business success claims, or treating exploratory charts as decisions made automatically without interpretation.",
+      "alt": {
+        "es": "Distintas series de datos atraviesan un proceso común de ordenación, segmentación y comparación.",
+        "en": "Different data series follow a common process of organization, segmentation, and comparison."
+      },
+      "caption": {
+        "es": "Cambian los dominios; se repite el trabajo de ordenar datos, comparar grupos e interpretar la evidencia.",
+        "en": "The domains change; organizing data, comparing groups, and interpreting evidence recur."
+      },
+      "image": "/blog-illustrations/data-analyst-portfolio.webp",
+      "thumbnail": "/blog-illustrations/thumbs/data-analyst-portfolio.webp",
+      "revisionPrompts": [
+        "Edit only the misleading aggregation on the far right of this image. Remove the three coin stacks, their small pedestal, the final common junction and every dark curved line that merges the seven rows together. Preserve every existing mark in all seven analysis rows and all internal left-to-right connectors. Each of the seven rows must end independently at its own final comparison motif. No connector may join outputs from different rows. Fill the removed far-right region with matching clean warm cream paper; keep the framing, palette, lighting, material and all remaining geometry identical. The message is a common analytical method applied across distinct domains, never a combined monetary result. No added objects or text."
+      ]
+    },
+    {
+      "slug": "data-engineering-platform",
+      "concept": "How do inconsistent claim events become dependable inputs for actuarial analysis? Trace one visible flow through validation and structured transformations.",
+      "mechanism": "A horizontal pipeline begins with a few irregular claim-record slips, passes through a precise validation gate, then through progressively tidier table layers and into a compact warehouse grid. A single malformed slip branches downward into a clearly separate review tray before the warehouse. At the far right, two small analytical forms, a development triangle and a smooth model curve, draw from the same structured grid. The dominant relationship is raw inputs becoming traceable analytical inputs. Use flat thin navy connectors, warm cream, sage validated data, steel-blue table layers, terracotta rejected record. No platform logos, cloud-brand icons, words, digits, code, or mock dashboards.",
+      "avoid": "Do not show malformed records silently disappearing, rejection proving fraud, all projects running in real time, every component deployed, zero-cost infrastructure, a regulatory certification, or tests guaranteeing all data quality. Keep the review path visible and avoid an ungrounded giant cloud architecture with dozens of services.",
+      "alt": {
+        "es": "Registros de siniestros pasan por validación y tablas estructuradas; una excepción se desvía a revisión antes del análisis.",
+        "en": "Claim records pass through validation and structured tables; an exception branches to review before analysis."
+      },
+      "caption": {
+        "es": "Validar y transformar los datos antes del análisis permite seguir el origen de cada resultado y revisar las excepciones.",
+        "en": "Validating and transforming data before analysis makes results traceable and exceptions reviewable."
+      },
+      "image": "/blog-illustrations/data-engineering-platform.webp",
+      "thumbnail": "/blog-illustrations/thumbs/data-engineering-platform.webp"
+    },
+    {
+      "slug": "flight-analytics-pg-bq",
+      "concept": "Why do selective lookups and broad aggregations favor different database access patterns? Contrast a targeted record retrieval with scanning selected columns.",
+      "mechanism": "Two equal adjacent table diagrams depict the same anonymous airline-record grid. In the left diagram, a tiny index-tree path highlights one selected row segment while the surrounding grid stays muted. In the right diagram, selected vertical columns are highlighted and feed parallel thin streams into one compact aggregate bar. The comparison concerns work performed, not measured speed. Use a subtle shared dataset connector above, and at most one tiny route-node motif as a contextual cue. Landscape cream field, navy fine table rules, terracotta targeted lookup, steel-blue column scan, generous whitespace. No words, digits, database logos, airplane pictures, axes, timings, currency amounts, or pretend query text.",
+      "avoid": "Do not declare PostgreSQL or BigQuery universally faster or cheaper, suggest every columnar query scans the whole table, reproduce unverified benchmark ratios, or label all dataset rows as flights. Do not imply the two engines are physically identical except for color. Avoid geospatial route maps that dominate the database trade-off.",
+      "alt": {
+        "es": "Un acceso guiado por índice selecciona un registro, mientras una lectura por columnas reúne datos para una agregación.",
+        "en": "An index-guided access selects one record, while a column-oriented read gathers data for an aggregation."
+      },
+      "caption": {
+        "es": "Buscar un registro y agregar muchos registros requieren patrones de lectura distintos.",
+        "en": "Finding one record and aggregating many records call for different reading patterns."
+      },
+      "image": "/blog-illustrations/flight-analytics-pg-bq.webp",
+      "thumbnail": "/blog-illustrations/thumbs/flight-analytics-pg-bq.webp",
+      "revisionPrompts": [
+        "Correct ONLY the small branching index tree at the upper-left of this image; keep the tables, right-hand column comparison, entire rest of the image, palette, lighting and framing unchanged. Redraw that small tree as a proper simple rooted tree: one root connects to three separate internal nodes; each internal node connects to exactly two exclusive leaf nodes below it. A leaf must have ONE parent only. Highlight exactly one complete root → right internal node → its left leaf path in terracotta. Remove the existing erroneous diagonal from the middle internal node to that highlighted leaf; no shared children, cross-links, loops or other extra edges. Continue the existing connection from the selected leaf into the selected row of the left table. No labels, words or numbers.",
+        "Use case: precise-object-edit. Input image is the edit target. Preserve this exact finished illustration, colors, composition, tables, platforms, highlighted orange path and all other connections. Change ONLY the wide sage-green bottom-middle leaf of the small tree on the left, which currently receives two curved edges from the SAME middle internal node. Split that single wide bottom leaf into TWO DISTINCT SMALL sage-green leaf tiles with a visible cream gap between them. The left existing curved edge ends on the left small tile; the right existing curved edge ends on the right small tile. Each of these two tiles gets exactly one edge. Thus this tree has one root, three intermediate nodes, and six separate leaves. No duplicate edges, no shared leaf, no text. Preserve every other visual feature."
+      ]
+    },
+    {
+      "slug": "gmm-explorer",
+      "concept": "What is lost when different types of medical care are priced as one pooled risk? Separate claim records into parallel care groups before estimating frequency and severity.",
+      "mechanism": "A mixed stack of anonymous medical claim slips at left divides into three clearly parallel horizontal lanes. Identify the lanes through small understated line glyphs only: outpatient consultation, hospital bed, and complex-care monitor. Each lane ends in the same paired analytical motif: a row of event dots beside a small set of cost bars, representing frequency and severity without measured values. No lane connects to another; these are categories, not stages of illness. Cream background, navy structure, sage/steel-blue/terracotta category accents, crisp consulting-report hierarchy and plenty of space, landscape 16:9, no text, digits, labels, logos, red-cross emblem, or currency signs.",
+      "avoid": "Do not show a patient progressing from mild care to critical care, mortality risk, a Gaussian mixture model, validated AI accuracy, confidence equated with accuracy, fitted severity tails that the post says remain unknown, or commercially valid premiums. Do not encode the article's percentages as area or bar ratios.",
+      "alt": {
+        "es": "Los siniestros médicos se separan en tres tipos de atención, cada uno con medidas de frecuencia y costo.",
+        "en": "Medical claims separate into three care categories, each with frequency and cost measures."
+      },
+      "caption": {
+        "es": "Separar los tipos de atención permite estimar frecuencia y severidad para cada grupo, sin ocultarlas en un solo promedio.",
+        "en": "Separating care categories lets frequency and severity be estimated for each group instead of hidden in one average."
+      },
+      "image": "/blog-illustrations/gmm-explorer.webp",
+      "thumbnail": "/blog-illustrations/thumbs/gmm-explorer.webp"
+    },
+    {
+      "slug": "insurance-claims-dashboard",
+      "concept": "How does observed claim development inform an estimate of what remains unpaid? Distinguish the known part of a loss triangle from projected future development.",
+      "mechanism": "One large square development matrix is the hero. Rows represent successive accident periods and columns development periods, without written labels. The observed region occupies the upper-left triangle: the oldest row is complete, each later row contains fewer observed cells, and the newest row contains only its first cell. These cells use restrained navy and steel-blue fills. Across a crisp descending diagonal frontier, the lower-right region uses fine terracotta outlines and light hatching for projected development. A few subtle rightward connectors cross the boundary within rows. Consistent cells, spacious cream margins, flat consulting-report geometry, landscape 16:9. No values, letters, text, currency, legends, logos, UI frames, or decorative objects.",
+      "avoid": "Do not reverse the observed triangle, present projected cells as observations, show missing future cells as zeros, imply estimates are certain, or invent reserve amounts and confidence intervals. Do not equate every unpaid loss with a claim not yet reported, and do not imply a completed triangle alone establishes reserve adequacy.",
+      "alt": {
+        "es": "Un triángulo de desarrollo distingue los pagos observados de las celdas de desarrollo futuro estimado.",
+        "en": "A development triangle distinguishes observed payments from estimated future-development cells."
+      },
+      "caption": {
+        "es": "La experiencia observada permite proyectar el desarrollo pendiente; esa parte futura sigue siendo una estimación.",
+        "en": "Observed experience supports projections of remaining development; the future portion remains an estimate."
+      },
+      "image": "/blog-illustrations/insurance-claims-dashboard.webp",
+      "thumbnail": "/blog-illustrations/thumbs/insurance-claims-dashboard.webp",
+      "revisionPrompts": [
+        "Correct the cell fills of this exact 6-by-6 square development matrix, preserving its position, size, cream background, cell borders, flat style and palette. There must be exactly six rows and six columns. Observed solid-blue cells from left to right per row, TOP TO BOTTOM: row 1 SIX blue cells and no hatching; row 2 FIVE blue and ONE hatched; row 3 FOUR blue and TWO hatched; row 4 THREE blue and THREE hatched; row 5 TWO blue and FOUR hatched; row 6 ONE blue and FIVE hatched. This creates a perfect straight descending diagonal boundary from upper right to lower left. All other cells are terracotta outline with diagonal hatching. Remove the arrow on the top fully observed row; rows two through six may each have one small rightward arrow crossing their own observed/projected boundary. Do not add rows, columns, words, numbers, legends or other elements. The row counts here are instructions, not text to print."
+      ]
+    },
+    {
+      "slug": "math-visualizations",
+      "concept": "How can geometry make periodic functions and their rates of change intuitive? Connect a point moving around a circle to a sine curve and its local tangent.",
+      "mechanism": "A mathematically coherent unit-circle diagram sits in the left third, with a radius pointing into the first quadrant at a modest positive angle. A fine horizontal projection from that point leads to the matching height on the first rising portion of a sine wave extending across the right two-thirds. Mark the matched points in terracotta; place a short positively sloped tangent touching the wave exactly at its marked point. Include faint unlabeled axes and one restrained angle arc, with no ticks or symbols. Warm cream, navy curve and circle, steel-blue projection, terracotta highlights, clean consulting-report precision, landscape 16:9. No equations, letters, digits, words, logos, or decorative spirals.",
+      "avoid": "Do not mismatch circle height and sine-wave height, put the tangent off the marked point, give it a negative slope on the rising first-quadrant segment, draw a helix in place of the complex plane, label an approximation as exact, or imply the diagram is a formal proof. Avoid a collage of unrelated formulas or pseudo-mathematical symbols.",
+      "alt": {
+        "es": "Un punto del círculo se proyecta sobre una curva seno; una tangente muestra su cambio local.",
+        "en": "A point on the circle projects onto a sine curve; a tangent shows its local change."
+      },
+      "caption": {
+        "es": "La proyección del movimiento circular produce una onda; su tangente describe cómo cambia en cada punto.",
+        "en": "Projecting circular motion produces a wave; its tangent describes how it changes at each point."
+      },
+      "image": "/blog-illustrations/math-visualizations.webp",
+      "thumbnail": "/blog-illustrations/thumbs/math-visualizations.webp"
+    },
+    {
+      "slug": "meeting-room-booking",
+      "concept": "How can people coordinate use of the same physical rooms without standing in front of a shared whiteboard? One shared schedule makes occupancy and changes visible across devices.",
+      "mechanism": "Landscape consulting exhibit with a central, precise schedule grid containing exactly two horizontal room lanes. Simple room outlines sit at the left of the lanes; several restrained phone outlines connect to the same central grid from above and below. A few solid terracotta or sage reservation blocks occupy nonoverlapping intervals; a single newly released interval is an outline block with a tiny connected history marker. Each phone shows a miniature of the same schedule, with consistent occupied slots. Emphasize many distributed viewers converging on one authoritative view of two physical spaces, with generous cream negative space and fine navy rules.",
+      "avoid": [
+        "No app screenshots, workplace names, user identities, access links, logos, UI words or numbers.",
+        "Do not imply adoption, measured productivity gains, or that the tool has launched.",
+        "Never show overlapping confirmed reservations in the same room; do not imply each phone owns a separate schedule.",
+        "Do not turn the concept into generic cloud infrastructure or a crowded office illustration."
+      ],
+      "alt": {
+        "es": "Varios teléfonos comparten una cuadrícula de reservas para dos salas, con un intervalo liberado y su rastro de cambio.",
+        "en": "Several phones share one booking grid for two rooms, with a released interval and its change record."
+      },
+      "caption": {
+        "es": "Una agenda compartida permite consultar la ocupación y hacer visibles los cambios sin estar frente al pizarrón.",
+        "en": "A shared schedule makes occupancy and changes visible without requiring everyone to stand at the whiteboard."
+      },
+      "image": "/blog-illustrations/meeting-room-booking.webp",
+      "thumbnail": "/blog-illustrations/thumbs/meeting-room-booking.webp"
+    },
+    {
+      "slug": "pension-simulator",
+      "concept": "Why can similar work histories lead to different retirement estimates? Pension rules determine the route from contributions and salary to monthly income, while a supplement is conditional.",
+      "mechanism": "Two parallel comparison lanes start from the same restrained employment-history motif: a sequence of contribution marks and a salary bar. The upper lane passes through a small structured rule table and becomes a steady row of pension-payment blocks. The lower lane passes through an accumulated-savings container and then becomes another row of payment blocks. Only in the lower lane, a dashed sage side path passes through a small eligibility gate and adds an outlined supplement above the base payment. The supplement remains visibly conditional through its dashed outline. Keep the payment rows qualitative and avoid any precise relative amount. Use navy structure, steel-blue accumulated balance, terracotta payment blocks, and sage conditional addition.",
+      "avoid": [
+        "Do not present Fondo Bienestar as a separate universal pension regime; it is a conditional addition to the individual-account route.",
+        "No promises of guaranteed future income, retirement outcomes, returns, eligibility or regulatory approval.",
+        "No quantified bar comparison, equal-pay claim, dates, currency, numbered laws, logos or textual labels.",
+        "Do not depict pension projection uncertainty as if every future rule and contribution is fixed."
+      ],
+      "alt": {
+        "es": "Dos recorridos convierten una historia laboral en pagos de pensión; el de ahorro individual incluye un complemento condicionado.",
+        "en": "Two routes convert a work history into pension payments; the individual-savings route includes a conditional supplement."
+      },
+      "caption": {
+        "es": "El régimen define cómo se calcula la pensión; en el ahorro individual, el complemento depende de cumplir condiciones.",
+        "en": "The pension regime determines the calculation; on the individual-savings route, a supplement depends on eligibility."
+      },
+      "image": "/blog-illustrations/pension-simulator.webp",
+      "thumbnail": "/blog-illustrations/thumbs/pension-simulator.webp"
+    },
+    {
+      "slug": "proust-attention-machine",
+      "concept": "What turns a sequence of characters into a prediction of the next character? Learned attention weights combine earlier context and produce a probability distribution.",
+      "mechanism": "A horizontal sequence of small blank character tiles enters a prominent square attention matrix. The matrix has a fully blank upper-right triangle and colored cells only on or below the diagonal, with restrained terracotta, sage and steel-blue intensity differences. A focused row is connected to several earlier tiles by thin navy arcs; no arc reaches a future tile. The matrix feeds a small cluster of unequal probability bars and one selected blank next-character tile. Make the causal triangular structure the dominant visual relationship, with generous margins and no literary portrait or decorative machinery.",
+      "avoid": [
+        "No text, letters, formulas, matrix indices, numbers, logos, readable book pages or quoted Proust passages.",
+        "No future-token access; the causal attention triangle must be oriented consistently.",
+        "No brain, sentient robot, magical intelligence, or suggestion of human-level understanding.",
+        "Do not imply coherent Proust imitation, production-scale model capacity, or interpretability guarantees."
+      ],
+      "alt": {
+        "es": "Una secuencia de fichas pasa por una matriz de atención causal y produce probabilidades para la siguiente ficha.",
+        "en": "A sequence of tiles passes through a causal attention matrix and produces probabilities for the next tile."
+      },
+      "caption": {
+        "es": "La atención combina el contexto anterior para calcular una distribución sobre el siguiente carácter.",
+        "en": "Attention combines earlier context to calculate a distribution over the next character."
+      },
+      "image": "/blog-illustrations/proust-attention-machine.webp",
+      "thumbnail": "/blog-illustrations/thumbs/proust-attention-machine.webp"
+    },
+    {
+      "slug": "regulation-agent-rag",
+      "concept": "How can a regulation assistant ground a response in the relevant legal provisions and their dependencies? Retrieve the articles and cross-references before composing the answer.",
+      "mechanism": "Two orderly clusters of small blank legal-document cards sit at the left, linked across clusters by sparse navy reference lines. A focused set of cards is highlighted in terracotta and sage while unselected cards remain pale. These selected cards converge into a compact evidence tray at center, which feeds a larger blank response card on the right. Fine return lines connect source markers on the response card to the exact highlighted documents, making provenance visually explicit. Cross-document selection followed by a traceable answer is the dominant relationship; keep the layout editorial and calm.",
+      "avoid": [
+        "Do not claim that retrieval eliminates every hallucination or guarantees correct legal interpretation.",
+        "No court verdict, approval seal, compliance checkmark, robotic judge or replacement of professional judgment.",
+        "No readable legal text, article numbers, logos, credentials or access codes.",
+        "Do not show all documents flowing indiscriminately into the answer; retrieval must visibly select a relevant subset."
+      ],
+      "alt": {
+        "es": "Artículos vinculados entre dos conjuntos normativos se seleccionan como evidencia para una respuesta conectada con sus fuentes.",
+        "en": "Linked articles from two bodies of regulation are selected as evidence for a response connected to its sources."
+      },
+      "caption": {
+        "es": "La recuperación reúne artículos y referencias cruzadas antes de elaborar una respuesta que el lector pueda contrastar.",
+        "en": "Retrieval gathers articles and cross-references before producing a response the reader can check."
+      },
+      "image": "/blog-illustrations/regulation-agent-rag.webp",
+      "thumbnail": "/blog-illustrations/thumbs/regulation-agent-rag.webp"
+    },
+    {
+      "slug": "risk-analyst",
+      "concept": "What makes a risk estimate credible beyond a formula? Simulated and modeled losses need to be checked against observed outcomes.",
+      "mechanism": "Several restrained market scenario paths enter a central right-skewed loss-distribution silhouette. Its right tail is terracotta beyond a thin vertical risk-threshold marker. On the right, a short ordered strip of outcome dots is compared with a horizontal risk band: most dots stay within it, while a few terracotta dots cross the boundary. A fine return arrow connects these exceptions back to the modeling stage. The dominant story is estimate, observe, and validate, with the tail prominent and the feedback loop readable. These are schematic shapes, not data plots: no ticks, values or asserted performance.",
+      "avoid": [
+        "Never depict VaR as the maximum possible loss or draw a hard wall cutting off the loss tail.",
+        "No promised returns, guaranteed coverage, regulatory certification, or universal outperformance.",
+        "Do not imply that every module uses one identical model or that all risk disappears after testing.",
+        "No stock tickers, real market values, benchmark claims, textual labels or numbers."
+      ],
+      "alt": {
+        "es": "Muestras observadas y distribuciones modeladas se reúnen en una placa de comparación que deja visibles las diferencias.",
+        "en": "Observed samples and modeled distributions meet on a comparison plate that keeps mismatches visible."
+      },
+      "caption": {
+        "es": "Una medida de riesgo gana utilidad cuando sus estimaciones se contrastan con las pérdidas observadas.",
+        "en": "A risk measure becomes useful when its estimates are checked against observed losses."
+      },
+      "image": "/blog-illustrations/risk-analyst.webp",
+      "thumbnail": "/blog-illustrations/thumbs/risk-analyst.webp"
+    },
+    {
+      "slug": "sima",
+      "concept": "How do noisy mortality observations become inputs for life-insurance decisions? Graduation and projection connect empirical mortality data to premiums, reserves, and capital analysis.",
+      "mechanism": "An elegant horizontal sequence of four connected exhibits: scattered age-pattern mortality observations with a noisy thin line; a smoother navy age-pattern curve preserving an early dip and later rise; a projected curve with a widening translucent uncertainty envelope; and a compact set of balanced actuarial reserve and cash-flow blocks. Keep the first two panels explicitly as the same qualitative mortality shape before and after graduation. Connect stages with fine terracotta arrows so the end-to-end relationship is clear. Use steel blue for observations, navy for the fitted signal, and sage for the projection envelope. No numeric axes or asserted measured outputs.",
+      "avoid": [
+        "Do not show smoothing as removal of every real shock or imply one fitted curve is certain.",
+        "Do not conflate mortality probabilities, central death rates, and survivor counts on the same unlabelled scale.",
+        "No suggestion that SIMA is CNSF-certified or an exact production implementation of every LISF capital rule.",
+        "No unsupported premium reductions, precise mortality results, regulatory seals, words or numbers."
+      ],
+      "alt": {
+        "es": "Observaciones de mortalidad pasan a una curva graduada, una proyección con incertidumbre y bloques de cálculo actuarial.",
+        "en": "Mortality observations become a graduated curve, a projection with uncertainty, and actuarial calculation blocks."
+      },
+      "caption": {
+        "es": "Graduar y proyectar la mortalidad conecta los datos observados con el cálculo de primas, reservas y capital.",
+        "en": "Graduating and projecting mortality connects observed data with premiums, reserves, and capital calculations."
+      },
+      "image": "/blog-illustrations/sima.webp",
+      "thumbnail": "/blog-illustrations/thumbs/sima.webp"
+    },
+    {
+      "slug": "soa-inverse-transform-percentiles",
+      "concept": "How can a payment percentile be found without deriving a new distribution? A monotone transformation preserves scenario ordering while changing the loss values.",
+      "mechanism": "Two stacked, parallel ordered rails of identical scenario dots form the dominant exhibit. Each dot on the upper loss rail connects to the same dot on the lower payment rail. The lower rail compresses spacing after a visible breakpoint while preserving every dot's order and color; it never swaps dots. One terracotta highlighted percentile dot has a thin vertical guide through both rails, and the same subset to its left is softly shaded on both. A small monotone bent-line transfer motif between the rails explains the change of scale. This is a schematic monotone piecewise transformation, with no numeric scale, exact percentile, text or formula.",
+      "avoid": [
+        "Do not suggest that probability density heights remain unchanged; scenario probabilities and ordering are what the schematic preserves.",
+        "Do not use a decreasing or nonmonotone transformation while preserving the same percentile rule.",
+        "Do not include flat deductible/cap sections without showing their resulting point masses; the chosen visual uses strictly increasing pieces.",
+        "No mismatched scenario identities, invented quantiles, percentage labels or equations."
+      ],
+      "alt": {
+        "es": "Los mismos puntos ordenados aparecen en dos escalas; la transformación comprime sus valores y conserva el grupo bajo el percentil.",
+        "en": "The same ordered dots appear on two scales; the transformation compresses values while preserving the group below the percentile."
+      },
+      "caption": {
+        "es": "Una transformación creciente cambia los valores del percentil y conserva el conjunto de escenarios que queda por debajo.",
+        "en": "An increasing transformation changes the percentile value while preserving the set of scenarios below it."
+      },
+      "image": "/blog-illustrations/soa-inverse-transform-percentiles.webp",
+      "thumbnail": "/blog-illustrations/thumbs/soa-inverse-transform-percentiles.webp",
+      "revisionPrompts": [
+        "Correct only the scenario counts, lower-rail spacing, and matching connectors in this image, keeping its cream/navy/earth palette and clean layout. Preserve the upper rail EXACTLY as it is: SIX sage dots, ONE terracotta highlighted dot, SIX blue dots, in that order. The lower rail must contain exactly SIX sage, ONE terracotta, SIX blue dots in the SAME order; REMOVE the two extra lower blue dots. Preserve the first six green positions and highlighted orange alignment. Place the six lower blue dots closer together than the upper blue dots, ending earlier on the lower rail, to show a compressed value scale. Connect each upper dot to its one corresponding lower dot with a SINGLE fine line; blue connectors angle inward without crossing, branching or ending between dots. Remove extraneous old connector lines. Keep the same softly shaded left subset on both rails and the small monotone transfer motif; no case can be created, deleted, duplicated or reordered by the transformation. The output needs thirteen dots per rail exactly. No words, numbers, formulas, extra dots or new decoration."
+      ]
+    },
+    {
+      "slug": "soa-multivariate-clt",
+      "concept": "Why does pooling suitable risks improve predictability? Under independence and finite variance, the average loss becomes more concentrated as the pool grows.",
+      "mechanism": "A comparison of two clean horizontal lanes on a common visual basis. The upper lane has a small collection of identical policy tiles leading to a broad, low loss-per-policy distribution. The lower lane has a much larger collection of the same policy tiles leading to a narrower, taller distribution centered at the same horizontal position. Both distributions visibly retain tails and comparable area, with a shared light center guide. The dominant contrast is pool size versus concentration of the average, not total money at risk. Use navy curves, steel-blue policy tiles, and sage concentration shading; no numeric axes or exact policy counts.",
+      "avoid": [
+        "Never imply the absolute variance of total losses shrinks as policies are added; the depicted quantity is average loss per policy.",
+        "Do not imply independence in catastrophe portfolios or that the CLT applies to infinite-variance losses.",
+        "Do not depict every distribution as exactly normal at finite sample size or remove the tails entirely.",
+        "No guaranteed solvency, universal diversification claim, unsupported ratios, words or numbers."
+      ],
+      "alt": {
+        "es": "Una cartera pequeña se compara con otra mayor; la distribución de pérdida media es más estrecha en la segunda.",
+        "en": "A small policy pool is compared with a larger one; the average-loss distribution is narrower for the larger pool."
+      },
+      "caption": {
+        "es": "Con riesgos independientes y varianza finita, una cartera mayor reduce la variabilidad de la pérdida media por póliza.",
+        "en": "With independent risks and finite variance, a larger pool reduces variability in the average loss per policy."
+      },
+      "image": "/blog-illustrations/soa-multivariate-clt.webp",
+      "thumbnail": "/blog-illustrations/thumbs/soa-multivariate-clt.webp"
+    },
+    {
+      "slug": "soa-probability-foundations",
+      "concept": "How does observing evidence change the relevant risk estimate? Conditional probability selects the relevant population before comparing outcomes.",
+      "mechanism": "One broad field of evenly sized circular cases occupies the left half, with two case types distinguished by navy outlines and terracotta centers. A thin rectangular selection window highlights a subset containing a visibly different mixture of these types. Two exact corner-to-corner projection lines enlarge that selected subset into a framed field on the right, preserving all selected cases, their relative ordering, and their type colors. Cases outside the selection remain visible but muted. The composition should make the change of reference population unmistakable, with no arrow suggesting the individual cases themselves changed.",
+      "avoid": [
+        "Do not reverse conditional probability or imply a changed denominator changes the underlying people or outcomes.",
+        "Do not make the observed subset certain, all one class, or representative of every risk group.",
+        "No claims that a positive test proves a condition, no demographic stereotypes or human portraits.",
+        "No fixed event counts, measured prevalence, numerical probability, words, equations or identity data."
+      ],
+      "alt": {
+        "es": "Un subconjunto resaltado de casos se amplía; sus colores se conservan mientras cambia la población de referencia.",
+        "en": "A highlighted subset of cases is enlarged; its colors stay the same while the reference population changes."
+      },
+      "caption": {
+        "es": "Condicionar una probabilidad significa tomar la información observada para definir el grupo de comparación.",
+        "en": "Conditioning a probability uses observed information to define the comparison group."
+      },
+      "image": "/blog-illustrations/soa-probability-foundations.webp",
+      "thumbnail": "/blog-illustrations/thumbs/soa-probability-foundations.webp",
+      "revisionPrompts": [
+        "Correct this conditional-population zoom diagram without changing the overall cream/navy consulting-report style or its large-left-grid to enlarged-right-selection composition. The small selection frame at left currently encloses THREE rows of FOUR cases. Keep that exact selection frame and every case in the full left population unchanged. REDRAW THE RIGHT-HAND ENLARGEMENT to contain exactly the SAME THREE rows of FOUR cases, no extra rows or columns. Preserve the selected left subset's exact colors and ordering case-for-case: top selected row terracotta, muted taupe, terracotta, terracotta; middle selected row muted taupe, terracotta, terracotta, sage; bottom selected row terracotta, terracotta, muted taupe, sage. These twelve cases must be copied faithfully in the enlarged right frame. It is magnification only: no new cases, no missing cases, no changed mixture. Preserve the two corner projection lines and all other left-grid details. No words, letters, numerals, legends or symbols."
+      ]
+    },
+    {
+      "slug": "soa-random-variables-insurance",
+      "concept": "Why is the insurer's payment different from the underlying loss? Deductibles, coinsurance, and limits transform losses into a policy-specific payment.",
+      "mechanism": "A single large, precise piecewise payment curve dominates the landscape: it begins flat on the horizontal axis, rises with a positive slope shallower than a pale diagonal reference, then becomes horizontal at a payment ceiling. Two subtle vertical rules mark the deductible threshold and the onset of the limit. A handful of equal-height loss markers on the horizontal baseline project vertically to the payment curve, showing zero, partial, and capped payments. Use navy axes with no ticks, terracotta payment curve, and extremely light steel-blue full-loss reference. Retain ample negative space and mathematical clarity, with no decorative insurance icons.",
+      "avoid": [
+        "Use an ordinary deductible, not a franchise deductible: no jump to full reimbursement after the threshold.",
+        "Do not imply coinsurance covers the full excess or that the policy limit truncates the actual loss itself.",
+        "Do not confuse this payment function with a probability density or assert any premium amount.",
+        "No formula, axis labels, percentage, currency, numeric thresholds, legends or logos."
+      ],
+      "alt": {
+        "es": "La curva de pago permanece en cero, crece después del deducible y se aplana al alcanzar el límite de cobertura.",
+        "en": "The payment curve stays at zero, rises after the deductible, and flattens at the coverage limit."
+      },
+      "caption": {
+        "es": "El deducible, el coaseguro y el límite transforman el monto del siniestro en el pago de la aseguradora.",
+        "en": "The deductible, coinsurance, and limit transform the loss amount into the insurer’s payment."
+      },
+      "image": "/blog-illustrations/soa-random-variables-insurance.webp",
+      "thumbnail": "/blog-illustrations/thumbs/soa-random-variables-insurance.webp",
+      "revisionPrompts": [
+        "Correct only the terracotta payment curve and its attached dots/guides in this image; keep the cream background, navy axes, pale dashed full-loss diagonal, overall frame and style unchanged. The payment function must consist of EXACTLY THREE straight pieces: a horizontal zero-payment piece from the origin to a positive deductible, ONE single straight rising segment after the deductible, then ONE horizontal cap segment. Remove the extra kink currently early in the rising segment. Critically, the entire rising segment must be visibly SHALLOWER than the pale dashed full-loss diagonal: choose a lower payment ceiling if necessary. It must never approach or cross above that dashed reference. Put each terracotta example dot exactly on the new three-piece curve and adjust its vertical guide to meet it; no off-curve dot or redundant breakpoint. Keep the rising segment's slope constant from deductible to cap. The deductible is ordinary (continuous zero-to-rise), with constant coinsurance below 100%, and a cap. No text, labels, equations, numbers, new decoration or replacement of the existing pale full-loss reference.",
+        "Use case: precise-object-edit. Input image is the edit target, 1672 by 941. Correct only the chart's payment slope and guide alignment. Preserve cream texture, axes, colors, framing, x positions of every marked value, and no labels/text. Lower the terracotta horizontal payment ceiling from its current pixel y=476 to pixel y=600, keeping its starting x=1100 and ending x=1534. Move both orange plateau dots to y=600. The entire terracotta payment function must consist of EXACTLY THREE straight segments: from (142,774) to (580,774), then from (580,774) to (1100,600), then from (1100,600) to (1534,600). Draw ONE perfectly straight rising segment with no bend. This rises only 174 pixels across 520 pixels, visibly shallower than the dashed full-loss reference. Keep the dashed full-loss reference a SINGLE perfectly straight diagonal from the origin (142,774) toward (1460,117). The payment slope must be much gentler than this reference. Extend/shorten only the rightmost vertical dotted guide to meet the newly lowered plateau. The other two vertical guides retain their current x positions. Coordinates are drawing instructions only; render no numerals, text or formula."
+      ]
+    },
+    {
+      "slug": "suite-actuarial",
+      "concept": "How can the same actuarial rules serve several insurance workflows without being rewritten in every interface? A shared calculation core exposes consistent logic through a library, API, and dashboard.",
+      "mechanism": "A substantial central calculation core contains a tidy modular grid of small insurance-domain motifs, expressed only as abstract blocks, simple risk curves and table cells. A thin foundation slab beneath it represents shared regulatory parameters and mortality tables. Three equal-weight branches emerge from that same core toward a compact embedded-code module, a connector port, and a small dashboard panel. Match corresponding colored domain blocks across the core and all three output surfaces to make reuse visible. The dominant relationship is one shared core feeding three interfaces, not a sequential data pipeline. Use navy architecture, cream space, and restrained sage/terracotta/steel-blue modular accents.",
+      "avoid": [
+        "No implication of regulatory certification, complete market coverage, external adoption, or verified applicability to every insurer.",
+        "Do not depict library, API and dashboard as independent competing calculation engines.",
+        "No vendor logos, code words, endpoint counts, numbered domains, formulas or legal article text.",
+        "Do not turn the illustration into an impenetrable architecture chart; one core and three readable surfaces suffice."
+      ],
+      "alt": {
+        "es": "Un núcleo modular de cálculo actuarial conecta la misma lógica con una biblioteca, una interfaz de servicio y un tablero.",
+        "en": "A modular actuarial calculation core connects the same logic to a library, a service interface, and a dashboard."
+      },
+      "caption": {
+        "es": "Una base común de cálculos y parámetros permite reutilizar la lógica actuarial desde distintas interfaces.",
+        "en": "A shared foundation of calculations and parameters lets different interfaces reuse the same actuarial logic."
+      },
+      "image": "/blog-illustrations/suite-actuarial.webp",
+      "thumbnail": "/blog-illustrations/thumbs/suite-actuarial.webp"
+    },
+    {
+      "slug": "teaching-apis",
+      "concept": "What happens between an analyst asking for data and receiving a usable result? A request-response path makes the source, transfer, response, and failure points visible.",
+      "mechanism": "An analyst's restrained data-table panel sits at left and a simple remote data-source stack at right. A narrow outbound arrow carries a small outlined request envelope through a central service gateway; a separate return arrow carries a structured grid of data cells back to the analyst's panel. On the returning path, a small timed checkpoint and one terracotta interrupted side branch make latency and failures visible without dominating the successful exchange. Main arrows must have unambiguous opposing directions. The dominant mechanism is the round trip from a request to a response, drawn as a calm editorial systems exhibit rather than a network map.",
+      "avoid": [
+        "Do not show a one-way download as if it explains the entire request-response cycle.",
+        "No authentication tokens, API keys, real endpoints, HTTP status numbers, source logos or code labels.",
+        "No claim of fixed response times, always-available services, or the local source being universally faster.",
+        "Avoid generic cloud art, excessive devices, or decorative warning clutter."
+      ],
+      "alt": {
+        "es": "Una solicitud va de una tabla de análisis a una fuente remota; la respuesta regresa por una ruta con puntos de demora y fallo.",
+        "en": "A request travels from an analysis table to a remote source; the response returns through potential delay and failure points."
+      },
+      "caption": {
+        "es": "Seguir el recorrido de la solicitud y la respuesta permite reconocer dónde se demora o falla la entrega de datos.",
+        "en": "Following the request and response helps identify where data delivery slows down or fails."
+      },
+      "image": "/blog-illustrations/teaching-apis.webp",
+      "thumbnail": "/blog-illustrations/thumbs/teaching-apis.webp"
+    }
+  ]
+}

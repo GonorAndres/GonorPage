@@ -2,7 +2,6 @@
 title: "Por qué todo analista debería entender APIs (y no solo los desarrolladores)"
 description: "Si trabajas con tasas de la Fed, tipo de cambio de Banxico o esperanza de vida del Banco Mundial, ya consumes APIs. Entender qué pasa entre tu solicitud y tus datos te convierte en un mejor analista: puedes diagnosticar cuando algo falla, optimizar cuando algo es lento, y construir cuando necesitas algo que no existe. Este proyecto lo demuestra con datos reales y laboratorios interactivos."
 date: "2026-05-03"
-lastModified: "2026-08-09"
 category: "herramientas"
 lang: "es"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-apis"
   live: "https://learning-apis.gonor.me"
 tags: ["APIs", "Next.js", "TypeScript", "FRED", "Banxico", "World Bank", "Educativo"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/teaching-apis.webp"
+heroAlt: "Una solicitud va de una tabla de análisis a una fuente remota; la respuesta regresa por una ruta con puntos de demora y fallo."
+heroCaption: "Seguir el recorrido de la solicitud y la respuesta permite reconocer dónde se demora o falla la entrega de datos."
 ---
 
 Cuando un actuario abre R y escribe `fredr::fredr(series_id = "FEDFUNDS")`, está consumiendo una API. Cuando un analista de riesgo descarga el tipo de cambio USD/MXN desde el portal de Banxico, el portal está consumiendo una API por él. Cuando un demógrafo consulta esperanza de vida en el sitio del Banco Mundial, hay una API detrás de esa tabla.

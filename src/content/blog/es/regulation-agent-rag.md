@@ -2,7 +2,6 @@
 title: "Asistente de Regulación Actuarial: por qué RAG es el enfoque correcto para LISF y CUSF"
 description: "Interpretar la LISF y la CUSF exige navegar entre artículos que se referencian mutuamente entre leyes, y un Ctrl+F no distingue el artículo que define reservas técnicas del que las menciona de paso. La IA permite absorber todo ese volumen sin perder un solo detalle. Este agente usa RAG para indexar cada artículo de forma individual con un grafo de referencias cruzadas, eliminando las alucinaciones de citas y permitiendo que el modelo razone solo sobre texto real de la ley. El resultado es un asistente que amplifica la memoria del actuario sin sustituir su criterio."
 date: "2026-03-22"
-lastModified: "2026-08-14"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -19,6 +18,10 @@ ficha:
     - { label: "Explorador LISF/CUSF", url: "https://lisf.gonor.me/explorer" }
     - { label: "Versión open-source (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/lisf-agent" }
 tags: ["RAG", "LISF", "CUSF", "CNSF", "FTS5", "BM25", "Claude", "FastAPI", "GCP", "referencias-cruzadas"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/regulation-agent-rag.webp"
+heroAlt: "Artículos vinculados entre dos conjuntos normativos se seleccionan como evidencia para una respuesta conectada con sus fuentes."
+heroCaption: "La recuperación reúne artículos y referencias cruzadas antes de elaborar una respuesta que el lector pueda contrastar."
 ---
 
 La LISF y la CUSF son el marco regulatorio completo del sector asegurador y afianzador en México. Juntas suman más de mil artículos, y la complejidad no está solo en el volumen: está en las dependencias. El artículo 121 de la LISF habla de reservas técnicas, pero para entender qué reservas y cómo, necesitas las disposiciones del Título 5 de la CUSF. Un artículo de solvencia te remite a tres disposiciones sobre fondos propios admisibles, que a su vez referencian criterios de valuación en otro título. Un actuario que ha estudiado ambas leyes a fondo sigue olvidando detalles, sigue necesitando buscar "en cuál disposición estaba lo de cesión de cartera". Es la naturaleza del documento: demasiado extenso, demasiado interconectado para retener completo en la memoria humana.

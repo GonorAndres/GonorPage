@@ -2,7 +2,6 @@
 title: "SIMA: From Raw INEGI Data to Solvency Capital Requirements Under Mexican LISF, End-to-End"
 description: "SIMA centralizes actuarial techniques for pricing life insurance: it takes raw mortality data from INEGI/CONAPO, graduates it with methods like Whittaker-Henderson and Lee-Carter to obtain curves that respect human biology, and projects forward to calculate premiums, reserves, and capital requirements under LISF. Everything exposed as an API, allowing it to connect with other systems, automate sensitivity analysis, and meet CNSF requirements. Open source and built to expand into other lines of business."
 date: "2026-03-15"
-lastModified: "2026-03-21"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -16,6 +15,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/SIMA"
   live: "https://sima.gonor.me"
 tags: ["Lee-Carter", "mortality", "LISF", "CUSF", "CNSF", "Whittaker-Henderson", "SVD", "reserves", "SCR", "commutation-functions", "INEGI", "CONAPO", "FastAPI", "React"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/sima.webp"
+heroAlt: "Mortality observations become a graduated curve, a projection with uncertainty, and actuarial calculation blocks."
+heroCaption: "Graduating and projecting mortality connects observed data with premiums, reserves, and capital calculations."
 ---
 
 The actuarial science curriculum in Mexico teaches $q_x$, $p_x$, commutation functions, and the equivalence principle. It also teaches how to build life tables. What it treats as secondary, as a mechanical exercise, is precisely what defines actuarial work in practice: given real empirical data, what is the best way to arrive at that table? Which graduation method, which projection model, how to handle a catastrophic event in the time series. Those decisions have concrete regulatory and financial implications, and they are the core of what an insurer defends before the CNSF every quarter. SIMA is an attempt to build that entire pipeline, from raw CSV to final SCR, with every step documented, tested, and exposed via API.

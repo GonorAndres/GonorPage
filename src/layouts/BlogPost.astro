@@ -39,6 +39,7 @@ interface Props {
   ficha?: FichaFields;
   heroImage?: string;
   heroCaption?: string;
+  heroAlt?: string;
   relatedPosts: RelatedPost[];
 }
 
@@ -55,6 +56,7 @@ const {
   ficha,
   heroImage,
   heroCaption,
+  heroAlt,
   relatedPosts,
 } = Astro.props;
 
@@ -72,7 +74,9 @@ const categoryDisplay = categoryLabels[lang]?.[category as Category] ?? category
 const categoryHref =
   lang === 'es' ? `/blog/categoria/${category}/` : `/en/blog/categoria/${category}/`;
 const backHref = lang === 'es' ? '/blog/' : '/en/blog/';
-const backLabel = lang === 'es' ? 'Blog' : 'Blog';
+const heroThumbnail = heroImage?.startsWith('/blog-illustrations/')
+  ? heroImage.replace('/blog-illustrations/', '/blog-illustrations/thumbs/')
+  : undefined;
 
 const CATEGORY_COLOR: Record<Category, string> = {
   'actuaria-para-todos': '#7A8B6F',
@@ -105,7 +109,6 @@ const L = {
   series: lang === 'es' ? 'Serie' : 'Series',
   related: lang === 'es' ? 'Relacionados' : 'Related',
   backToBlog: lang === 'es' ? 'Volver al blog' : 'Back to blog',
-  shortAnswer: lang === 'es' ? 'En breve' : 'In brief',
 };
 
 const fichaRows: { key: string; value: string; href?: string }[] = [];
@@ -141,7 +144,7 @@ const metaDescription = description.length <= 160
   datePublished={date}
   dateModified={lastModified}
   image={heroImage}
-  imageAlt={heroCaption ?? title}
+  imageAlt={heroAlt ?? title}
   section={categoryDisplay}
   tags={tags}
 >
@@ -173,88 +176,91 @@ const metaDescription = description.length <= 160
       })}
     />
   </Fragment>
-  <article class="py-10 md:py-16 px-4 sm:px-6">
+  <article class="py-6 md:py-10 px-4 sm:px-6">
     <div class="max-w-[1020px] mx-auto">
       <nav
-        class="pd-back font-mono text-[11px] uppercase tracking-[0.12em] text-[#1B2A4A]/50 mb-8"
-        aria-label="Breadcrumb"
+        class="pd-back font-mono text-[11px] uppercase tracking-[0.12em] text-[#1B2A4A]/70 mb-4"
+        aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}
       >
-        <a href={backHref} class="hover:text-[#A35E3E] no-underline">{L.backToBlog}</a>
+        <a href={backHref} class="inline-flex items-center min-h-[44px] hover:text-[#A35E3E] no-underline">← {L.backToBlog}</a>
       </nav>
 
-      <div class="pd-kicker flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
-        <a
-          href={categoryHref}
-          class="font-mono text-[10px] uppercase tracking-[0.16em] px-2 py-0.5 border no-underline transition-colors"
-          style={`color: ${catColor}; border-color: ${catColor};`}
-        >
-          {categoryDisplay}
-        </a>
-        {tags.slice(0, 4).length > 0 && (
-          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-[#1B2A4A]/55">
-            {tags.slice(0, 4).join(' \u00b7 ')}
-          </span>
-        )}
-        <time
-          class="font-mono text-[10px] uppercase tracking-[0.12em] text-[#1B2A4A]/55"
-          datetime={date}>{formattedDate}</time
-        >
-      </div>
-
-      <h1
-        class="font-serif font-semibold text-3xl md:text-[40px] text-[#1B2A4A] leading-[1.08] tracking-tight mb-4 text-balance"
-      >
-        {title}
-      </h1>
-
-      <section class="lede max-w-[64ch] mb-5" aria-labelledby="short-answer">
-        <h2
-          id="short-answer"
-          class="font-mono text-[10px] uppercase tracking-[0.16em] text-[#A35E3E] mb-2"
-        >
-          {L.shortAnswer}
-        </h2>
-        <p class="font-serif text-lg md:text-[19px] leading-[1.55] text-[#1B2A4A]/75">
-          {description}
-        </p>
-      </section>
-
-      <div
-        class="byline font-mono text-[10px] uppercase tracking-[0.14em] text-[#1B2A4A]/55 pt-4 border-t border-[#1B2A4A]/10 flex flex-wrap gap-x-4 gap-y-1"
-      >
-        <span>
-          {L.by}
+      <header class="post-heading">
+        <div class="pd-kicker mb-3">
           <a
-            href={lang === 'es' ? '/about/' : '/en/about/'}
-            rel="author"
-            class="text-[#1B2A4A] font-medium hover:text-[#A35E3E] underline underline-offset-2"
+            href={categoryHref}
+            class="inline-flex items-center gap-2 min-h-[44px] font-mono text-[10px] uppercase tracking-[0.14em] text-[#1B2A4A]/75 no-underline hover:text-[#1B2A4A] transition-colors"
           >
-            Andrés González Ortega
+            <span class="h-1.5 w-1.5 rounded-full" style={`background-color: ${catColor};`} aria-hidden="true"></span>
+            {categoryDisplay}
           </a>
-        </span>
-        <span>{formattedDate}</span>
-        {formattedUpdated && <span>{L.updated} {formattedUpdated}</span>}
-        <span>{readingTime} {L.read}</span>
-      </div>
+        </div>
+
+        <h1
+          class="font-serif font-semibold text-[32px] md:text-[44px] lg:text-[48px] text-[#1B2A4A] leading-[1.12] tracking-tight mb-5 text-balance break-words"
+        >
+          {title}
+        </h1>
+
+        <div class="byline text-xs leading-relaxed text-[#1B2A4A]/75 flex flex-wrap items-center gap-x-4 gap-y-1 pb-5">
+          <span>
+            {L.by}{' '}
+            <a
+              href={lang === 'es' ? '/about/' : '/en/about/'}
+              rel="author"
+              class="inline-flex items-center min-h-[44px] text-[#1B2A4A] font-medium hover:text-[#A35E3E] underline underline-offset-4"
+            >
+              Andrés González Ortega
+            </a>
+          </span>
+          <time datetime={date}>{formattedDate}</time>
+          <span>{readingTime} {L.read}</span>
+          {formattedUpdated && <span>{L.updated} <time datetime={lastModified}>{formattedUpdated}</time></span>}
+        </div>
+      </header>
 
       {heroImage && (
-        <figure class="hero-img mt-8">
-          <img src={heroImage} alt={heroCaption ?? title} class="w-full aspect-[16/9] object-cover" loading="lazy" />
+        <figure class="hero-img mb-8">
+          <picture class="block overflow-hidden rounded-lg border border-[#1B2A4A]/15 bg-[#E8E0D7]">
+            {heroThumbnail && (
+              <source
+                type="image/webp"
+                srcset={`${heroThumbnail} 640w, ${heroImage} 1536w`}
+                sizes="(min-width: 1068px) 1020px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+              />
+            )}
+            <img
+              src={heroImage}
+              alt={heroAlt ?? ''}
+              width="1536"
+              height="864"
+              class="block w-full aspect-[16/9] object-cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
           {heroCaption && (
-            <figcaption class="font-mono text-[10px] uppercase tracking-[0.12em] text-[#1B2A4A]/50 mt-2">
+            <figcaption class="text-xs sm:text-sm leading-relaxed text-[#1B2A4A]/75 mt-3 max-w-[85ch]">
               {heroCaption}
             </figcaption>
           )}
         </figure>
       )}
 
-      <div class="pd-body grid grid-cols-1 md:grid-cols-[1fr_220px] gap-x-12 gap-y-10 mt-10 items-start">
+      <section class="lede max-w-[68ch] mb-8 p-5 md:p-6 border border-[#C17654]/45 rounded-md bg-[#C17654]/5" aria-label={lang === 'es' ? 'Resumen' : 'Summary'}>
+        <p class="font-serif text-lg md:text-[19px] leading-[1.6] text-[#1B2A4A]/85 text-left">
+          {description}
+        </p>
+      </section>
+
+      <div class="pd-body grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_220px] gap-x-12 gap-y-10 mt-10 items-start">
         <div
           class:list={[
-            'prose max-w-none',
+            'prose min-w-0 max-w-none',
             'text-[#1B2A4A]',
             'prose-p:leading-[1.65] prose-p:text-[#1B2A4A]/85',
-            'prose-a:text-[#C17654] prose-a:no-underline hover:prose-a:underline',
+            'prose-a:text-[#A35E3E] prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-[#1B2A4A]',
             'prose-strong:text-[#1B2A4A] prose-strong:font-semibold',
             'prose-code:font-mono prose-code:text-[#A35E3E] prose-code:bg-[#E8E0D7] prose-code:px-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none',
             'prose-blockquote:border-l-[#C17654] prose-blockquote:bg-[#C17654]/5 prose-blockquote:italic prose-blockquote:text-[#1B2A4A]',
@@ -268,25 +274,25 @@ const metaDescription = description.length <= 160
 
         <aside class="pd-side self-start md:self-stretch">
           <div
-            class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
+            class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/70 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
           >
             {L.ficha}
           </div>
 
           <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
-            <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">{L.date}</span>
+            <span class="k text-[#1B2A4A]/70 uppercase tracking-[0.14em] text-[9.5px]">{L.date}</span>
             <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">{formattedDate}</span>
           </div>
           {formattedUpdated && (
             <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
-              <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">
+              <span class="k text-[#1B2A4A]/70 uppercase tracking-[0.14em] text-[9.5px]">
                 {L.lastMod}
               </span>
               <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">{formattedUpdated}</span>
             </div>
           )}
           <div class="row hidden md:flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
-            <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">
+            <span class="k text-[#1B2A4A]/70 uppercase tracking-[0.14em] text-[9.5px]">
               {L.readTime}
             </span>
             <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">{readingTime}</span>
@@ -294,14 +300,14 @@ const metaDescription = description.length <= 160
 
           {fichaRows.map((r) => (
             <div class="row flex items-baseline gap-3 py-1.5 font-mono text-[11px]">
-              <span class="k text-[#1B2A4A]/50 uppercase tracking-[0.14em] text-[9.5px]">{r.key}</span>
+              <span class="k text-[#1B2A4A]/70 uppercase tracking-[0.14em] text-[9.5px]">{r.key}</span>
               <span class="v ml-auto text-right text-[#1B2A4A] tabular-nums">
                 {r.href ? (
                   <a
                     href={r.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-block py-1 no-underline border-b border-dotted border-[#39c] text-[#39c] hover:text-[#A35E3E] hover:border-[#A35E3E]"
+                    class="inline-flex items-center min-h-[44px] md:min-h-0 py-1 no-underline border-b border-dotted border-[#C17654] text-[#1B2A4A] hover:text-[#A35E3E] hover:border-[#A35E3E]"
                   >
                     {r.value}
                   </a>
@@ -315,7 +321,7 @@ const metaDescription = description.length <= 160
           {tags.length > 0 && (
             <div class="block mt-6">
               <div
-                class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
+                class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/70 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
               >
                 {L.topics}
               </div>
@@ -332,7 +338,7 @@ const metaDescription = description.length <= 160
           {relatedPosts.length > 0 && (
             <div class="block mt-6 md:sticky md:top-8 md:max-h-[calc(100vh-4rem)] md:overflow-y-auto">
               <div
-                class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/50 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
+                class="lbl font-mono text-[10px] uppercase tracking-[0.18em] text-[#1B2A4A]/70 pb-2.5 border-b border-[#1B2A4A]/15 mb-3"
               >
                 {L.related}
               </div>
@@ -341,7 +347,7 @@ const metaDescription = description.length <= 160
                   <li class="m-0">
                     <a
                       href={lang === 'es' ? `/blog/${r.slug}/` : `/en/blog/${r.slug}/`}
-                      class="group/rel block py-1 no-underline"
+                      class="group/rel flex items-center min-h-[44px] md:min-h-0 py-1 no-underline"
                     >
                       <span class="flex items-baseline gap-1.5">
                         <span class="font-serif text-[13.5px] leading-snug text-[#1B2A4A] group-hover/rel:text-[#A35E3E] border-b border-dotted border-[#C17654]/60 group-hover/rel:border-[#A35E3E] pb-0.5 transition-colors">
@@ -366,7 +372,7 @@ const metaDescription = description.length <= 160
       <div class="mt-16 pt-6 border-t border-[#1B2A4A]/10">
         <a
           href={backHref}
-          class="font-mono text-[11px] uppercase tracking-[0.12em] text-[#1B2A4A]/50 hover:text-[#A35E3E] no-underline"
+          class="inline-flex items-center min-h-[44px] font-mono text-[11px] uppercase tracking-[0.12em] text-[#1B2A4A]/70 hover:text-[#A35E3E] no-underline"
         >
           &larr; {L.backToBlog}
         </a>

@@ -14,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/data-analyst-path/tree/main/projects/01-insurance-claims-dashboard"
   live: "https://data-analyst.gonor.me/insurance"
 tags: ["reserves", "chain-ladder", "BF", "IBNR", "P&C", "dashboard", "Python", "SQL"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/insurance-claims-dashboard.webp"
+heroAlt: "A development triangle distinguishes observed payments from estimated future-development cells."
+heroCaption: "Observed experience supports projections of remaining development; the future portion remains an estimate."
 ---
 
 > **Note:** This project is part of the [Data Analyst Portfolio: 7 End-to-End Projects](/en/blog/data-analyst-portfolio). Here you will find the complete analysis for this particular project.

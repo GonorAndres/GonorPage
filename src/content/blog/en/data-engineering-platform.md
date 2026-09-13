@@ -2,7 +2,6 @@
 title: "Insurance Claims Data Platform on GCP"
 description: "Actuarial teams generate valuable data that gets trapped in spreadsheets and manual processes that do not scale. This platform builds the complete pipeline on GCP, from streaming claims intake to Tweedie GLM pricing, with Dataform and BigQuery as the backbone. The result is an automated, tested, and reproducible flow that turns raw data into inputs ready for the regulator."
 date: "2026-03-18"
-lastModified: "2026-05-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "narrative"
@@ -15,7 +14,11 @@ ficha:
   regulacion: "LISF · CNSF"
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
-  live: "https://claims-dashboard-451451662791.us-central1.run.app"
+  live: "https://data-engineer.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-engineering-platform.webp"
+heroAlt: "Claim records pass through validation and structured tables; an exception branches to review before analysis."
+heroCaption: "Validating and transforming data before analysis makes results traceable and exceptions reviewable."
 ---
 
 A mid-sized insurer in Mexico processes between 5,000 and 50,000 claims per year. Each one arrives with inconsistent field names, shifting status codes, and amounts at different stages of settlement. The typical workflow: claims exports a CSV, sends it to the technical team, an analyst opens it in Excel, transforms it manually, pastes it into triangles, generates development factors. At 500 claims it works. At 5,000 it becomes fragile. At 50,000 it breaks. The problem is not just volume; it is reliability. A manual process has no audit trail, no integrity tests, no reproducibility. If someone asks the same question a month later, you repeat everything from scratch.
@@ -34,7 +37,7 @@ The core idea is to organize data so that an actuary can ask questions directly:
 
 Raw data flows through four transformation layers managed by Dataform: cleaned and standardized first (staging), then joined and enriched with reference catalogs (intermediate), then aggregated into metrics like loss triangles and claim frequency (marts), and finally shaped into dashboard-ready views (reports). Each layer feeds the next, and errors get caught before reaching the model. Everything uses Mexican locale names, INEGI state codes, and MXN currency; a warehouse that reflects the real domain demonstrates business understanding, not just the ability to move columns around.
 
-For local development, DuckDB runs directly on the machine with no servers to install or pay for. The same SQL runs on BigQuery without changes, so what works locally works in production. The dashboard is deployed on Cloud Run: <a href="https://claims-dashboard-451451662791.us-central1.run.app" target="_blank" rel="noopener">claims-dashboard</a>. It shows the portfolio summary (608 claims, \$26.9M total paid, \$44K average severity), cumulative loss triangles with development factors, and the full pipeline documentation. Fifty-two pytest tests verify schema correctness, referential integrity between tables, and business rules (positive amounts, coherent dates, sums that balance across layers).
+For local development, DuckDB runs directly on the machine with no servers to install or pay for. The same SQL runs on BigQuery without changes, so what works locally works in production. The dashboard is deployed on Cloud Run: <a href="https://data-engineer.gonor.me" target="_blank" rel="noopener">claims-dashboard</a>. It shows the portfolio summary (608 claims, \$26.9M total paid, \$44K average severity), cumulative loss triangles with development factors, and the full pipeline documentation. Fifty-two pytest tests verify schema correctness, referential integrity between tables, and business rules (positive amounts, coherent dates, sums that balance across layers).
 
 Cost: under \$1 per month. BigQuery's free tier covers 10 GB of storage and 1 TB of queries. GCS for source files costs pennies.
 
@@ -136,4 +139,4 @@ Data quality monitoring is also missing. Great Expectations or a similar framewo
 
 When data infrastructure is reliable, actuarial judgment can focus on what actually matters: choosing assumptions, calibrating models, interpreting results. Not cleaning data.
 
-The code, tests, and infrastructure definitions are on <a href="https://github.com/GonorAndres/data-engineer-path" target="_blank" rel="noopener">GitHub</a>. The claims dashboard is live on <a href="https://claims-dashboard-451451662791.us-central1.run.app" target="_blank" rel="noopener">Cloud Run</a>.
+The code, tests, and infrastructure definitions are on <a href="https://github.com/GonorAndres/data-engineer-path" target="_blank" rel="noopener">GitHub</a>. The claims dashboard is live on <a href="https://data-engineer.gonor.me" target="_blank" rel="noopener">Cloud Run</a>.

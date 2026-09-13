@@ -6,6 +6,10 @@ category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["probabilidad", "examen-P", "SOA", "Bayes", "riesgo"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/soa-probability-foundations.webp"
+heroAlt: "Un subconjunto resaltado de casos se amplía; sus colores se conservan mientras cambia la población de referencia."
+heroCaption: "Condicionar una probabilidad significa tomar la información observada para definir el grupo de comparación."
 ---
 
 El temario del SOA-P se ve familiar. Los temas llegan a la mente y los entiendes abstractamente (axiomas, probabilidad condicional, Bayes, todo eso ya lo vi en la carrera). Pero al resolver ejercicios la sensación cambia por completo. Se siente más como teoría de conjuntos que como teoría de probabilidad. La mayoría de esta sección usa propiedades de sigma-álgebras de manera implícita. Alguien puede resolver todo correctamente sin saber que es una "medida", pero la perspectiva cambia cuando lo ves desde ahí.

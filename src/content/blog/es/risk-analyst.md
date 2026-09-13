@@ -2,7 +2,6 @@
 title: "Risk Analyst: 13 Proyectos de Análisis Cuantitativo de Riesgos Financieros"
 description: "Los modelos de riesgo financiero pierden credibilidad cuando existen solo como fórmulas en un PDF. Estos 13 módulos los implementan en Python tipado con tests automatizados: desde VaR de portafolio y simulación Monte Carlo hasta cópulas, EVT, deep hedging y redes neuronales en grafos para contagio sistémico. Cada módulo combina teoría en LaTeX con resultados reproducibles sobre datos públicos de mercado."
 date: "2026-03-19"
-lastModified: "2026-03-30"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -14,6 +13,10 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/risk-analyst"
 tags: ["Python", "Riesgo Financiero", "VaR", "Monte Carlo", "Machine Learning", "Deep Hedging", "Copulas", "EVT"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/risk-analyst.webp"
+heroAlt: "Muestras observadas y distribuciones modeladas se reúnen en una placa de comparación que deja visibles las diferencias."
+heroCaption: "Una medida de riesgo gana utilidad cuando sus estimaciones se contrastan con las pérdidas observadas."
 ---
 
 ¿Cómo pasas de un número de VaR en una hoja de cálculo a un sistema validado y reproducible? Lo construyes tú mismo, pieza por pieza. Este proyecto son 13 módulos que avanzan desde los fundamentos (VaR de portafolio, motores Monte Carlo) a herramientas de grado regulatorio (pruebas de estrés, riesgo de cola con EVT) hasta territorio de investigación (deep hedging, redes neuronales en grafos para contagio sistémico, una innovación no trivial en el campo). Cada módulo combina teoría en LaTeX con Python tipado, tests automatizados y resultados reproducibles. Son ejercicios modelados con información pública; alguien con experiencia real en el medio encontrará margen de mejora sustancial, y ese es precisamente el punto de partida.

@@ -2,7 +2,6 @@
 title: "Simulador de Pensión IMSS: Ley 73, Ley 97 y Fondo Bienestar en una Sola Herramienta"
 description: "La mayoría de los trabajadores mexicanos no sabe bajo qué régimen de pensión cotiza ni cuánto recibirá al retiro, y la información oficial no simplifica la comparación entre Ley 73, Ley 97 y Fondo Bienestar. Este simulador implementa las tres fórmulas con datos actualizados (UMA, tablas CONSAR, mortalidad EMSSA 2009) y permite explorar escenarios con análisis de sensibilidad interactivo. El resultado es una estimación educativa que muestra qué controlas y qué no."
 date: "2026-03-16"
-lastModified: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -16,6 +15,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/seguridad-social/tree/main/fondo_bienestar"
   live: "https://simulador-pension-d3qj5vwxtq-uc.a.run.app/"
 tags: ["R", "Shiny", "IMSS", "AFORE", "Pensiones", "Ley 73", "Ley 97", "Fondo Bienestar", "seguridad social", "CONSAR"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/pension-simulator.webp"
+heroAlt: "Dos recorridos convierten una historia laboral en pagos de pensión; el de ahorro individual incluye un complemento condicionado."
+heroCaption: "El régimen define cómo se calcula la pensión; en el ahorro individual, el complemento depende de cumplir condiciones."
 ---
 
 El sistema de pensiones mexicano es una acumulación de legislaciones superpuestas. Desde julio de 1997, dos regímenes del IMSS corren en paralelo. Los trabajadores que comenzaron a cotizar antes de esa fecha se pensionan bajo Ley 73, con una fórmula de beneficio definido ligada al salario y semanas trabajadas. Los que empezaron después de 1997 caen en Ley 97, donde cuentas AFORE individuales acumulan un saldo que se convierte en su pensión. Luego, en mayo de 2024, el gobierno publicó el decreto del Fondo de Pensiones para el Bienestar. Esta tercera capa complementa pensiones de trabajadores Ley 97 que ganan por debajo del promedio del IMSS. El resultado: tres conjuntos de reglas superpuestas, cada uno con sus propias fórmulas, requisitos y supuestos ocultos. Este simulador las calcula las tres en un solo lugar, con todas las tasas actualizadas a 2025.

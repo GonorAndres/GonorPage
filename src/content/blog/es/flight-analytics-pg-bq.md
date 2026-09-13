@@ -2,7 +2,6 @@
 title: "Qué 5.74 Millones de Vuelos me Enseñaron sobre PostgreSQL, BigQuery y Cuándo Usar Cada Uno"
 description: "Las aerolíneas generan millones de registros de vuelos, retrasos e ingresos, pero analizar esos datos exige elegir la base de datos correcta para cada pregunta. Este proyecto toma 5.74M registros reales, los analiza primero en PostgreSQL optimizando desde el motor, los migra a BigQuery para comparar ambos paradigmas, y presenta los trade-offs con timing, costos y planes de consulta reales."
 date: "2026-03-18"
-lastModified: "2026-08-09"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-posgre"
   live: "https://analytics-flights.gonor.me"
 tags: ["PostgreSQL", "BigQuery", "Python", "ETL", "EXPLAIN ANALYZE", "Docker", "GIS", "Plotly", "Folium", "data-engineering"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/flight-analytics-pg-bq.webp"
+heroAlt: "Un acceso guiado por índice selecciona un registro, mientras una lectura por columnas reúne datos para una agregación."
+heroCaption: "Buscar un registro y agregar muchos registros requieren patrones de lectura distintos."
 ---
 
 Un índice compuesto en dos columnas redujo el tiempo de una consulta de 33.9ms a 2.6ms. Eso es una mejora de 13x con un solo `CREATE INDEX`. Una vista materializada sobre el mismo dataset la llevó de 174ms a 0.13ms: 1,300x. Y el ejemplo más extremo del proyecto fue una consulta con particionamiento por mes que pasó de escanear toda la tabla a leer solo la partición relevante, con un speedup medido de 3,024x en los datos de EXPLAIN ANALYZE.

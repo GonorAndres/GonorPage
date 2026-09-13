@@ -11,6 +11,10 @@ ficha:
   stack: "Rust · PostgreSQL"
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/b-trees"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/b-trees-optimization.webp"
+heroAlt: "A wide, shallow index tree highlights one route from the root to a leaf."
+heroCaption: "Grouping several keys in each node lets each access narrow the remaining search."
 ---
 
 When PostgreSQL finds one record among 500 million in 40 milliseconds, that is not magic or exceptional hardware. It is a B-tree traversal that touched exactly 9 nodes before reaching the data. If the same query takes 40 seconds, it is because there was no index and the engine had to read every disk block in sequence. The difference between those two scenarios is not configuration or resources: it is data structure.

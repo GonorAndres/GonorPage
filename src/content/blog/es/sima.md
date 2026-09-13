@@ -2,7 +2,6 @@
 title: "SIMA: De Datos Crudos del INEGI a Requerimientos de Capital bajo LISF, End-to-End"
 description: "SIMA centraliza las técnicas actuariales para valuar seguros de vida: toma mortalidad cruda de INEGI/CONAPO, la gradúa con métodos como Whittaker-Henderson y Lee-Carter para obtener curvas que respetan la biología humana, y proyecta hacia el futuro para calcular primas, reservas y requerimientos de capital bajo LISF. Todo expuesto como API, lo que permite conectarlo con otros sistemas, automatizar análisis de sensibilidad y cumplir con los requisitos de la CNSF. Código abierto y diseñado para crecer hacia otros ramos."
 date: "2026-03-15"
-lastModified: "2026-03-21"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -16,6 +15,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/SIMA"
   live: "https://sima.gonor.me"
 tags: ["Lee-Carter", "mortalidad", "LISF", "CUSF", "CNSF", "Whittaker-Henderson", "SVD", "reservas", "SCR", "funciones-de-conmutación", "INEGI", "CONAPO", "FastAPI", "React"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/sima.webp"
+heroAlt: "Observaciones de mortalidad pasan a una curva graduada, una proyección con incertidumbre y bloques de cálculo actuarial."
+heroCaption: "Graduar y proyectar la mortalidad conecta los datos observados con el cálculo de primas, reservas y capital."
 ---
 
 La carrera de actuaría en México enseña $q_x$, $p_x$, funciones de conmutación y el principio de equivalencia. También enseña a construir tablas de vida. Lo que trata como secundario, como un ejercicio mecánico, es justamente lo que en la práctica define el trabajo actuarial: ante datos empíricos reales, cuál es la mejor forma de llegar a esa tabla. Qué método de graduación, qué modelo de proyección, cómo manejar un evento catastrófico en la serie temporal. Esas decisiones tienen implicaciones regulatorias y financieras concretas, y son el núcleo de lo que una aseguradora defiende ante la CNSF cada trimestre. SIMA es un intento de construir ese pipeline completo, desde el CSV crudo hasta el SCR final, con cada paso documentado, testado y expuesto vía API.

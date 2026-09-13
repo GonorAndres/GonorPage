@@ -2,7 +2,6 @@
 title: "Data Analyst Portfolio: 7 End-to-End Projects"
 description: "Seven end-to-end projects across six domains: real estate, insurance reserves, e-commerce cohorts, product experimentation, finance (SaaS KPIs and portfolio risk), and public-sector operations. The same statistical toolkit runs through all of them, and that is the argument: a data analyst has to hold several domains in view at once, because range is what makes depth transferable. Each project ships as an interactive dashboard, all on one live domain."
 date: "2026-03-13"
-lastModified: "2026-08-24"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "narrative"
@@ -15,9 +14,12 @@ ficha:
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/data-analyst-path"
   live: "https://data-analyst.gonor.me"
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/data-analyst-portfolio.webp"
+heroAlt: "Different data series follow a common process of organization, segmentation, and comparison."
+heroCaption: "The domains change; organizing data, comparing groups, and interpreting evidence recur."
 ---
 
-<img src="/screenshots/data-analyst-portafolio.png" alt="Data Analyst Portfolio" style="width:100%;border-radius:0.75rem;margin-bottom:2rem;box-shadow:0 4px 16px rgba(0,0,0,0.08);" />
 
 A data analyst's job is not to produce charts. It is to convert a business question into an informed decision. Every project in this portfolio follows that full arc: a stakeholder has a question, the data exists in some inconvenient format, the analysis produces a finding, and that finding gets delivered in a format the audience can act on.
 
@@ -35,7 +37,7 @@ The Inside Airbnb dataset for CDMX contains 27,051 listings across 79 columns. T
 
 Dashboard built with Next.js and Recharts, static architecture: precomputed JSON, zero backend.
 
-**Status:** Complete | <a href="https://data-analyst.gonor.me" target="_blank" rel="noopener">Live app</a> | <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">GitHub</a>
+**Status:** Complete | <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">Live app</a> | <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/projects/00-demo-aestehtics" target="_blank" rel="noopener">GitHub</a>
 
 ### 01 - P&C actuarial reserves: IBNR and loss experience
 
@@ -121,11 +123,11 @@ None of these tools was chosen once and for all. The choice follows the shape of
 
 **Next.js** now ships all seven projects (00 through 06). What it buys: full control over aesthetics, dark mode, mobile responsiveness, and components reused across dashboards (KPICard, ChartContainer, and ThemeToggle are shared by all of them). The cost is real: React, TypeScript, and a build pipeline. It is justified when dashboards have a long shelf life and the components are genuinely reused, and after seven projects, they are.
 
-**Streamlit** is gone, and how it left teaches more than how it arrived. Project 02 began as a Streamlit app deployed on Cloud Run, a reasonable choice: the analysis lived in Python, and Streamlit is the shortest path from notebook to interactive app. Then the analysis undid its own infrastructure. All three of the app's filters turned out to be subsets of an already-aggregated matrix, not recomputations over the raw orders; nothing the user could click needed Python at request time. The app was rebuilt as a zero-backend static export. The interactivity survived intact, and a stateful service disappeared, along with its cold starts and its cost. The retired streamlit/ folder is still in the repo, a record of the first draft.
+**Streamlit** is gone, and how it left teaches more than how it arrived. Project 02 began as a Streamlit app deployed on Cloud Run, a reasonable choice: the analysis lived in Python, and Streamlit is the shortest path from notebook to interactive app. Then the analysis undid its own infrastructure. All three of the app's filters turned out to be subsets of an already-aggregated matrix, not recomputations over the raw orders; nothing the user could click needed Python at request time. The app was rebuilt as a zero-backend static export. The interactivity survived intact, and a stateful service disappeared, along with its cold starts and its cost. The Streamlit source was archived outside the repo and removed; the research notebooks and data were preserved.
 
 The line between **static JSON** and a **FastAPI backend** looked at first like a question about filters: if the user can filter, you need a server. Project 02 disproved that rule. The real question is whether a filter changes the computation or merely selects a subset of a precomputed aggregate. The cohort views only slice an aggregated matrix, so they ship as static JSON. The loss triangles in project 01 do recompute against the underlying data, so that dashboard keeps its FastAPI backend; and the live market data in project 05 cannot be precomputed at all, so that one keeps a backend too.
 
-**One domain, one service.** The seven dashboards began as seven separate deployments, each on its own provider URL. They are now a single Cloudflare Pages project serving data-analyst.gonor.me, one path per dashboard (/insurance, /cohorts, /abtest, /kpi, /portfolio, /operations, with the Airbnb analysis at the root). The backends went through the same consolidation: one FastAPI service on Cloud Run, with each project's API mounted under its own path prefix. The reasons are plain. Seven URLs split whatever audience a portfolio has, and none of them said whose work it was. One domain is one thing to maintain, one place to send a recruiter, and one set of analytics.
+**One domain, one service.** The seven dashboards began as seven separate deployments, each on its own provider URL. They are now a single Cloudflare Pages project serving data-analyst.gonor.me, with routes for each analysis (/insurance, /olist, /cohorts, /abtest, /kpi, /portfolio, /operations, and /airbnb); the root introduces the portfolio. The backends went through the same consolidation: one FastAPI service on Cloud Run, with each project's API mounted under its own path prefix. The reasons are plain. Seven URLs split whatever audience a portfolio has, and none of them said whose work it was. One domain is one thing to maintain, one place to send a recruiter, and one set of analytics.
 
 ## What transfers across domains
 
@@ -149,8 +151,8 @@ This DA portfolio does not exist in isolation. The actuarial projects in the mai
 
 ## Reference materials
 
-- <a href="https://github.com/GonorAndres/data-analyst-path" target="_blank" rel="noopener">Main GitHub repository</a>: Complete source code for all 7 projects, numbered notebooks, SQL queries, ETL pipelines, and deployment configuration.
-- <a href="https://data-analyst.gonor.me" target="_blank" rel="noopener">Airbnb CDMX (Live app)</a>: Next.js dashboard with short-term rental market analysis.
+- <a href="https://github.com/GonorAndres/data-analyst-path" target="_blank" rel="noopener">Main GitHub repository</a>: Complete source code for all 7 projects, numbered notebooks, SQL queries, ETL pipelines, and deployment configuration. The <a href="https://github.com/GonorAndres/data-analyst-path/tree/main/apps/web" target="_blank" rel="noopener">shared frontend</a> lives in `apps/web`.
+- <a href="https://data-analyst.gonor.me/airbnb/" target="_blank" rel="noopener">Airbnb CDMX (Live app)</a>: Next.js dashboard with short-term rental market analysis.
 - <a href="https://data-analyst.gonor.me/insurance" target="_blank" rel="noopener">P&C Actuarial Reserves (Live app)</a>: Next.js + FastAPI dashboard with loss triangles and IBNR.
 - <a href="https://data-analyst.gonor.me/cohorts" target="_blank" rel="noopener">E-Commerce Cohorts (Live app)</a>: zero-backend static export, with the four notebooks published alongside.
 - <a href="https://data-analyst.gonor.me/abtest" target="_blank" rel="noopener">A/B Testing (Live app)</a>: Next.js dashboard with frequentist, Bayesian, and Simpson's Paradox approaches.

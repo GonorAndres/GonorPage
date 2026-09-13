@@ -41,8 +41,8 @@ export const certificates: Certificate[] = [
     name: 'SOA Exam P',
     issuer: 'Society of Actuaries',
     date: { es: 'Mar 2026', en: 'Mar 2026' },
-    url: 'https://drive.google.com/file/d/1rt3emgBnPpQi7NiXkBQeA5WwJTV0JuAf/view?usp=drive_link',
-    note: { es: 'Resultado preliminar aprobado, en espera de confirmación oficial', en: 'Preliminary pass, awaiting official confirmation' },
+    url: 'https://www.soa.org/globalassets/assets/files/exam-results/2026/edu-2026-03-p-names-3n3s2rmt.pdf#page=8',
+    note: { es: 'Aprobado · lista oficial de la SOA, entrada 249 (p. 8)', en: 'Passed · official SOA list, entry 249 (p. 8)' },
   },
   {
     name: 'Associate Data Analyst (SQL)',

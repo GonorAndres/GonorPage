@@ -15,6 +15,24 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
     expect(response?.status()).toBe(200);
   });
 
+  test('homepage relevance order leads with the strongest projects', async ({ page }) => {
+    await page.goto('/');
+    const cards = page.locator('#proyectos article');
+    await expect(cards).toHaveCount(6);
+    const firstSix = await cards.evaluateAll((elements) => elements.slice(0, 6).map((card) => ({
+      title: card.querySelector('h3')?.textContent?.trim(),
+      category: card.querySelector('a .absolute.top-3 span')?.textContent?.trim(),
+    })));
+    expect(firstSix.map((card) => card.title)).toEqual([
+      'SIMA: Sistema Integral de Modelación Actuarial',
+      'CreditGraph: Riesgo Crediticio con Topología de Grafos',
+      'Plataforma de Datos en GCP para Seguros',
+      'Risk Analyst: Análisis Cuantitativo de Riesgos',
+      'La Máquina de Atención de Proust',
+      'GMM Explorer: Gastos Médicos Mayores',
+    ]);
+  });
+
   test('blog loads', async ({ page }) => {
     const response = await page.goto('/blog/');
     expect(response?.status()).toBe(200);
@@ -23,6 +41,16 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
   test('notes loads', async ({ page }) => {
     const response = await page.goto('/notes/');
     expect(response?.status()).toBe(200);
+  });
+
+  test('volcanic research note links to the published article and keeps its PDF preview', async ({ page }) => {
+    await page.goto('/artifacts/volcanic-eruption-forecasting/');
+    const publication = page.getByRole('link', { name: 'Publicación en ScienceDirect' });
+    await expect(publication).toHaveAttribute(
+      'href',
+      'https://www.sciencedirect.com/science/article/abs/pii/S0895981126003305'
+    );
+    await expect(page.locator('iframe[title*="Vista previa"]').first()).toBeVisible();
   });
 
   // --- SEO & meta ---

@@ -2,7 +2,6 @@
 title: "Why every analyst should understand APIs (not just developers)"
 description: "If you work with Fed rates, Banxico exchange rates, or World Bank life expectancy, you already consume APIs. Understanding what happens between your request and your data makes you a better analyst: you can diagnose when something fails, optimize when something is slow, and build when you need something custom. This project demonstrates it with real data and interactive labs."
 date: "2026-05-03"
-lastModified: "2026-08-09"
 category: "herramientas"
 lang: "en"
 shape: "case-study"
@@ -15,6 +14,10 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-apis"
   live: "https://learning-apis.gonor.me"
 tags: ["APIs", "Next.js", "TypeScript", "FRED", "Banxico", "World Bank", "Educational"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/teaching-apis.webp"
+heroAlt: "A request travels from an analysis table to a remote source; the response returns through potential delay and failure points."
+heroCaption: "Following the request and response helps identify where data delivery slows down or fails."
 ---
 
 When an actuary opens R and types `fredr::fredr(series_id = "FEDFUNDS")`, they are consuming an API. When a risk analyst downloads the USD/MXN exchange rate from Banxico's portal, the portal is consuming an API for them. When a demographer looks up life expectancy on the World Bank site, there is an API behind that table.

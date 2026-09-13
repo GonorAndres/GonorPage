@@ -2,7 +2,6 @@
 title: "Construyendo un Transformer desde cero: La Máquina de Atención de Proust"
 description: "Quería entender qué pasa realmente dentro de un modelo de lenguaje. Construí uno desde la primera multiplicación de matrices, lo entrené con los 7 volúmenes de Proust, y lo que más me enseñó no fue la arquitectura sino lo que implica que todo sea números."
 date: "2026-02-15"
-lastModified: "2026-03-28"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -17,6 +16,10 @@ ficha:
   extraLinks:
     - { label: "Demo interactiva (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/proust-attention" }
 tags: ["deep-learning", "transformers", "NLP", "PyTorch", "NumPy"]
+lastModified: "2026-09-12"
+heroImage: "/blog-illustrations/proust-attention-machine.webp"
+heroAlt: "Una secuencia de fichas pasa por una matriz de atención causal y produce probabilidades para la siguiente ficha."
+heroCaption: "La atención combina el contexto anterior para calcular una distribución sobre el siguiente carácter."
 ---
 
 La revolución de la IA ya llegó. Pero lo que me golpeó no fue que los modelos pudieran generar texto; fue que hablar con un modelo frontera se siente como hablar con alguien más capaz intelectualmente que la mayoría de las personas que conozco. No en términos de creatividad libre o espíritu salvaje, sino en capacidad de razonamiento, en conectar ideas, en mantener un argumento. Eso me hizo pensar: algo complejo tiene que estar pasando en esas GPUs. Algo que quiero entender.
