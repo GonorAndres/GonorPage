@@ -43,6 +43,16 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
     expect(response?.status()).toBe(200);
   });
 
+  test('volcanic research note links to the published article and keeps its PDF preview', async ({ page }) => {
+    await page.goto('/artifacts/volcanic-eruption-forecasting/');
+    const publication = page.getByRole('link', { name: 'Publicación en ScienceDirect' });
+    await expect(publication).toHaveAttribute(
+      'href',
+      'https://www.sciencedirect.com/science/article/abs/pii/S0895981126003305'
+    );
+    await expect(page.locator('iframe[title*="Vista previa"]').first()).toBeVisible();
+  });
+
   // --- SEO & meta ---
 
   test('SEO meta tags present', async ({ page }) => {

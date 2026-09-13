@@ -292,6 +292,7 @@ export const notes: Note[] = [
     },
     urls: [
       { label: { es: 'Ver PDF', en: 'View PDF' }, url: 'https://drive.google.com/file/d/1eaQmrc0HuQ5fXli6E5HQ54N5vRNkFT9o/view?usp=sharing' },
+      { label: { es: 'Publicación en ScienceDirect', en: 'ScienceDirect publication' }, url: 'https://www.sciencedirect.com/science/article/abs/pii/S0895981126003305' },
     ],
     tags: {
       es: ['Probabilidad', 'Volcanes', 'Modelos'],

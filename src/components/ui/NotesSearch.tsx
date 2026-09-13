@@ -127,6 +127,7 @@ function NoteRow({ note, labels }: { note: NoteData; labels: Labels }) {
             const linkHref = isInternal
               ? `${link.url}${link.url.includes('?') ? '&' : '?'}lang=${note.lang}`
               : link.url;
+            const isDocument = /drive\.google\.com\/file\/d\/|\.pdf(?:[?#]|$)/i.test(link.url);
             return (
               <a
                 key={link.url}
@@ -134,7 +135,7 @@ function NoteRow({ note, labels }: { note: NoteData; labels: Labels }) {
                 {...(!isInternal && { target: '_blank', rel: 'noopener noreferrer' })}
                 className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded border border-[#C17654] text-[#C17654] text-xs font-medium hover:bg-[#C17654] hover:text-cream transition-colors no-underline"
               >
-                {isInternal ? <LaunchIcon /> : <DownloadIcon />}
+                {isInternal || !isDocument ? <LaunchIcon /> : <DownloadIcon />}
                 {link.label}
               </a>
             );
