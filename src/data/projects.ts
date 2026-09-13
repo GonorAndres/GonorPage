@@ -665,7 +665,7 @@ export const projects: Project[] = [
     last_modification_date: '2025-08-09',
   },
 
-  // repo: https://github.com/GonorAndres/insurance-pricing-ml
+  // repo: https://github.com/GonorAndres/insurance-pricing-ml (private as of 2026-09-13; do not expose a public repo link)
   // source: freMTPL2 (public benchmark dataset, French motor insurer, via sklearn.fetch_openml)
   {
     slug: 'insurance-pricing-ml',
@@ -674,11 +674,10 @@ export const projects: Project[] = [
       en: 'Insurance Pricing with ML',
     },
     description: {
-      es: 'El modelo actuarial clásico ofrece interpretabilidad; el aprendizaje automático ofrece capacidad predictiva. La pregunta es cuándo la ganancia en precisión justifica la complejidad adicional. Este proyecto compara ambos enfoques sobre 678 mil pólizas reales de un asegurador francés, mide cuánto mejora la predicción de siniestros y audita si esa mejora viene acompañada de un sesgo geográfico injustificado. Análisis completo, código reproducible y una API de predicción documentados en el blog.',
-      en: 'The classic actuarial model offers interpretability; machine learning offers predictive power. The question is when the gain in accuracy justifies the added complexity. This project compares both approaches on 678,000 real policies from a French insurer, measures how much claim prediction actually improves, and audits whether that improvement comes with an unwarranted geographic bias. Full analysis, reproducible code, and a prediction API documented in the blog post.',
+      es: 'El modelo actuarial clásico ofrece interpretabilidad; el aprendizaje automático puede ordenar mejor el riesgo. Este análisis compara ambos enfoques sobre 678 mil pólizas reales de un asegurador francés, mide cuánto mejora la predicción de siniestros y audita si esa mejora viene acompañada de un sesgo geográfico injustificado. Sus hallazgos se pueden explorar en el laboratorio interactivo.',
+      en: 'The classic actuarial model offers interpretability; machine learning can rank risk more accurately. This analysis compares both approaches on 678,000 real policies from a French insurer, measures how much claim prediction improves, and audits whether that improvement brings unwarranted geographic bias. Its findings can be explored in the interactive lab.',
     },
     url: '/blog/actuarial-ml-pricing/',
-    repo: 'https://github.com/GonorAndres/insurance-pricing-ml',
     platform: 'GitHub',
     category: 'data-science',
     tags: {
@@ -686,11 +685,42 @@ export const projects: Project[] = [
       en: ['Python', 'GLM', 'XGBoost', 'SHAP', 'Fairness', 'FastAPI'],
     },
     variant: 'wide',
-    relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk'],
+    relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk', 'insurance-pricing-lab'],
     blogSlug: 'actuarial-ml-pricing',
     tier: 2,
     creation_date: '2026-09-08',
-    last_modification_date: '2026-09-08',
+    last_modification_date: '2026-09-13',
+  },
+
+  // live: https://ml-insurance.gonor.me
+  // repo: https://github.com/GonorAndres/insurance-pricing-lab (private as of 2026-09-13, so no `repo` field: it would 404 for visitors)
+  // local: /home/exedev/repos/insurance-pricing-lab
+  // source: frozen models exported from insurance-pricing-ml; freMTPL2 (public benchmark, French motor insurer)
+  // reference for the blog post: docs/insurance-pricing-lab-reference.md
+  {
+    slug: 'insurance-pricing-lab',
+    title: {
+      es: 'Laboratorio de Tarificación: la fórmula frente al modelo',
+      en: 'Pricing Lab: the formula versus the model',
+    },
+    description: {
+      es: 'Una aseguradora tiene que justificar cada precio que cobra, así que un modelo más preciso solo sirve si además se puede explicar. Este laboratorio compara la fórmula de tarificación que la industria usa desde hace décadas contra un modelo de aprendizaje automático sobre 678 mil pólizas reales, y muestra dónde coinciden, dónde no y qué factor movió cada predicción. El visitante arma una póliza hipotética y ve en vivo la frecuencia de siniestros que estima cada enfoque.',
+      en: 'An insurer has to defend every price it charges, so a more accurate model is only useful if it can also be explained. This lab compares the pricing formula the industry has used for decades against a machine-learning model over 678,000 real policies, showing where they agree, where they part ways, and which factor moved each prediction. Visitors build a hypothetical policy and watch both approaches estimate its claim frequency live.',
+    },
+    url: 'https://ml-insurance.gonor.me',
+    platform: 'Cloudflare',
+    category: 'data-science',
+    tags: {
+      es: ['GLM', 'XGBoost', 'SHAP', 'FastAPI', 'Cloud Run', 'Cloudflare'],
+      en: ['GLM', 'XGBoost', 'SHAP', 'FastAPI', 'Cloud Run', 'Cloudflare'],
+    },
+    variant: 'standard',
+    relatedTo: ['insurance-pricing-ml', 'sima', 'gmm-explorer'],
+    blogSlug: 'insurance-pricing-lab',
+    tier: 2,
+    status: 'completed',
+    creation_date: '2026-09-12',
+    last_modification_date: '2026-09-13',
   },
 
   // repo: https://github.com/GonorAndres/b-trees

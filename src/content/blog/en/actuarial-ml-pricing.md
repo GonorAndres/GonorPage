@@ -12,9 +12,8 @@ ficha:
   datos: "freMTPL2 (678,013 pólizas reales, asegurador francés)"
   regulacion: "LISF (nota técnica de suficiencia)"
   estado: "Finalizado"
-  repositorio: "https://github.com/GonorAndres/insurance-pricing-ml"
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frequency-severity", "Optuna", "MLflow", "fairness"]
-lastModified: "2026-09-12"
+lastModified: "2026-09-13"
 heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
 heroAlt: "The same policy data follows linear and tree-based models to compare predictions and feature contributions."
 heroCaption: "Comparing pricing models requires considering predictive performance alongside an explanation of each result."
@@ -90,7 +89,7 @@ What Mexico lacks is a centralized, anonymized claims database equivalent to fre
 
 On the modeling side, CatBoost and Explainable Boosting Machines (EBMs) would extend the comparison. A Tweedie GLM modeling pure premium directly (skipping the frequency-severity split) is the natural baseline extension. Bootstrap confidence intervals on Gini and deviance would convert point estimates into ranges that reflect honest uncertainty.
 
-All of the above, including the tuning code, the tests for the evaluation metrics, and a small FastAPI endpoint that serves the winning model's prediction, is in the [project repository](https://github.com/GonorAndres/insurance-pricing-ml), along with the full results table and every chart referenced here.
+The comparison now has a public companion: the [Insurance Pricing Lab](https://ml-insurance.gonor.me) lets visitors enter a hypothetical policy and compare the GLM and XGBoost frequency estimates directly. It serves frozen model files from this analysis; it does not retrain models or present the result as a production quote. The research code and full experiment remain private while they are being prepared for release.
 
 ## Academic foundation
 
