@@ -1,6 +1,6 @@
 ---
-title: "The equivalence principle in a two-minute video"
-description: "An explanation of insurance pricing built around a formula can be hard to follow. I made a two-minute video that starts with an unexpected event and a shared fund, and arrives at time and probability as the basis of what insurance costs. I built it in about two and a half hours with a coding agent, Remotion and an ElevenLabs synthetic voice, with nothing recorded."
+title: "How I made an explainer video with a coding agent and a synthetic voice"
+description: "The equivalence principle explains how the amount each person pays for insurance is calculated, and it is usually taught with formulas. This two-minute video explains it with images and narration, and it was made without recording audio or using a video editor: the animation is written in code with Remotion, the voice was generated with ElevenLabs from the script, and a coding agent wrote most of the program. The workflow makes it possible to produce visual explainers in a few hours and correct them easily."
 date: "2026-09-28"
 category: "actuaria-para-todos"
 lang: "en"
@@ -21,66 +21,71 @@ ficha:
 
 *The video is narrated in Spanish.*
 
-I wanted to make a short video explaining how the price of insurance is worked out. I chose the equivalence principle and started with a simple situation: someone faces an unexpected event, and a shared fund helps cover it. I built the animation with code.
+This post describes how I made a two-minute explainer video without recording audio or using video editing software. I worked with a coding agent and a text-to-speech service. The whole session, from the first generated voice clip to the final video, took about two and a half hours.
 
-## A couple of hours, nothing recorded
+The video is about the equivalence principle. When someone buys insurance, they pay an amount called the premium, and this principle is the rule actuaries use to calculate it: what the insurer expects to collect in premiums must equal what it expects to pay in claims (the events the policy covers, such as an accident), with both amounts expressed in today's money. The video is meant for people who have not studied actuarial science.
 
-The whole video came out of a single session of about two and a half hours, from the first generated voice clip to the final render. I didn't record my voice, use a camera or open a video editor.
+## What the video covers
 
-I worked in conversation with a coding agent. I wrote the script and described what should appear at each moment. The agent turned that into Remotion components and rendered them. I reviewed the result and asked for changes. The voice came from ElevenLabs, generated from the script text. When an idea didn't work, like the first version, I asked for it again with a different approach.
+The script has eight parts. It starts with an everyday situation and explains the idea behind the formula:
 
-That let me spend my time on the part I know: deciding what to explain, in what order, and checking that every sentence was correct. The fix to block 5, described below, came out of that review.
+1. An accident can cost more than one person can pay alone.
+2. Several people can pool money in a shared fund to cover each other. In insurance this is called mutuality.
+3. Insurance works like this: each person pays a premium, and the insurer pays when a claim occurs.
+4. The question is how much each person should contribute. The answer is the equivalence principle.
+5. Time matters: a thousand pesos today is worth more than a thousand pesos in ten years, because in the meantime it can earn interest. Bringing a future amount to its value today is called calculating its present value.
+6. With data, it is possible to estimate how likely an accident is and how much it would cost, even without knowing who it will happen to.
+7. That is why two people with the same coverage can pay different premiums if their risk is different.
+8. A closing section on what this principle is useful for.
 
-## The first version
+On screen, the equation is shown as a scale: premiums sit on one side and the payments promised by the policy sit on the other. The full narration and the corresponding formula are in the [project repository](https://github.com/GonorAndres/principio-equivalencia-video/blob/main/docs/GUION.md) (in Spanish).
 
-My first attempt had seven silent scenes and lasted forty seconds in total. It included an introduction, the elements of insurance, the equation, a numerical example, the portfolio, the loaded premium and a closing scene.
+## The tools
 
-I had put in too much information. I showed the equation before explaining what it was for. Since the video was silent, viewers had to read every label to follow it.
+**[Remotion](https://www.remotion.dev)** is a library for making videos by writing code in [React](https://react.dev), a tool used to build many websites. In a traditional video editor, animations are built by dragging elements along a timeline. In Remotion, code describes what appears in each frame, for example: "the scale appears at second 3 and tilts between seconds 7 and 9". Remotion turns that description into a video file.
 
-## I wrote the script first
+**[ElevenLabs](https://elevenlabs.io)** is a text-to-speech service: it takes written text and returns audio narrated by a natural-sounding synthetic voice. For this video I used its multilingual model in Spanish. Changing a sentence means editing the text and generating the audio again.
 
-For the second version, I wrote the script before animating. I divided it into eight blocks:
+**A coding agent** is an artificial intelligence program that writes and runs code from instructions in plain language. I described a scene ("a scale with coins on one side and a shield on the other, which levels out when the voice says *benefits*"), the agent wrote the Remotion component and rendered the video, and I reviewed the result.
 
-1. An unexpected event can be too much for one person.
-2. Mutuality: a shared fund everyone contributes to.
-3. Insurance: the premium as the price of protection.
-4. How much should each person contribute? The expected present value of net premiums must equal that of the benefits.
-5. Time: the value of a thousand pesos changes depending on whether they are received today or in ten years.
-6. Uncertainty: we can measure the probability of a claim, even if we do not know who will have one.
-7. Risk and premium: two students with the same coverage may pay different amounts.
-8. The closing line from the video: “no se trata de controlar el futuro, sino de no enfrentarlo a solas”.
+## How it was put together
 
-I used a scale to represent the formula. I put coins on one side and a shield with a house on the other. I left the full script in the [repository](https://github.com/GonorAndres/principio-equivalencia-video/blob/main/docs/GUION.md), along with the equation I explain in words in block 4.
+The first version had seven scenes with no narration and lasted forty seconds. It showed the equation from the start along with a numerical example, and it relied on the viewer reading every label on screen. I discarded it and started again from the script.
 
-## I matched the animation to the voice
-
-Remotion turns React components into video. In the code, I can define what appears in each frame based on its number. That let me time the movements to each spoken phrase.
-
-I generated one ElevenLabs voice clip per block. I calculated each block's length by adding the clip's duration, a short lead-in and one second at the end for the transition. In the code, I noted when each word that accompanied a movement could be heard:
+With the script ready, I generated one ElevenLabs audio clip for each of the eight parts. Each part of the video lasts as long as its audio, plus a short lead-in and one second for the transition. Then I timed each animation to the moment the voice says the matching word. Those timings are written down in the code:
 
 ```ts
 // Voz desde 0.6 s: "¿cuánto aportar?" 1.2 · "propone un equilibrio" 6.0 · "primas puras" 8.5
 // · "prestaciones" 10.6 · "no incluye gastos" 15.5 · "tiempo y probabilidad" 17.8
 ```
 
-The scale moves while the voice mentions premiums and benefits. It levels out just after that.
-
-## I corrected a sentence in block 5
-
-I generated two takes of the block about time. The first ended like this:
+I reviewed the content myself, sentence by sentence. In part 5, the first version of the audio said:
 
 > El valor presente usa una tasa de interés para comparar esos pagos en una misma fecha.
+>
+> (Present value uses an interest rate to compare those payments at the same date.)
 
-When I reviewed it, I saw that I needed to specify the date. We can compare payments by bringing them to a common date. For present value, that date is *today*. I changed the sentence, and the final take says:
+That sentence did not specify the date: present value expresses payments in today's money. The final version says:
 
 > El valor presente usa una tasa de interés para expresar montos de distintas fechas en un valor equivalente hoy, y así poder compararlos.
+>
+> (Present value uses an interest rate to express amounts from different dates as an equivalent value today, so they can be compared.)
 
-The new take has 2.6 more seconds of audio. That change also made the block longer. Since I was already calculating durations from each clip, I could make the adjustment in minutes. I saved the discarded take under `public/voz/alternativas/` in the repository so anyone can listen to the difference.
+The new audio is 2.6 seconds longer. I generated the sentence again and updated that part's duration in the code. The discarded audio is in the repository under `public/voz/alternativas/`.
 
-## What I would do next
+## Advantages and limits of this workflow
 
-- **Automate the timestamps.** I wrote down by hand when each word could be heard. For a longer video, I would use the timestamps ElevenLabs can return.
-- **Add subtitles.** I would use those timestamps to sync them so the video can be followed without sound.
-- **Make a one-minute vertical version.** I would use blocks 4, 5 and 6, where I explain equivalence, time and probability.
+Advantages I found:
 
-I kept the video as an introduction to the net premium: the expected cost of protection, expressed in today's value. I leave the full calculation to the projects where I apply that idea. In those, I show how [major medical expenses are priced](/en/blog/gmm-explorer/) and how [SIMA](/en/blog/sima/) handles these calculations for life insurance.
+- **No recording needed.** The voice is generated from text, so there is no need for a microphone, a studio or several takes.
+- **Changes are cheap.** Fixing a sentence means editing text; moving an animation means changing a number in the code.
+- **The result is reproducible.** The code, script and audio are public, and anyone can generate the same video or modify it.
+- **It helps explain ideas visually.** A scale, a timeline or a group of people help someone who does not read formulas understand a technical idea.
+
+Limits:
+
+- I wrote down the timing of each word by hand. ElevenLabs can return those timestamps automatically, and they would be useful for a longer video.
+- The video does not have subtitles yet; the same timestamps could be used to generate them.
+- The synthetic voice and the agent reproduce what they are asked for, correct or not. Checking that each actuarial statement is right is the job of someone who knows the subject.
+
+To see the equivalence principle applied to real data, there are the projects on [major medical expense pricing](/en/blog/gmm-explorer/) and on [SIMA](/en/blog/sima/), which runs these calculations for life insurance.
