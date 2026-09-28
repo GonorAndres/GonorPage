@@ -13,6 +13,9 @@ ficha:
   estado: "Published"
   repositorio: "https://github.com/GonorAndres/principio-equivalencia-video"
   live: "https://youtu.be/tHidN68enIg"
+heroImage: "/blog-illustrations/equivalence-principle-video.webp"
+heroAlt: "A scale with coins on the premiums side and a shield and a house on the benefits side, level under the word Equilibrio."
+heroCaption: "The equivalence principle shown as a scale between what is collected and what is promised."
 ---
 
 <div style="position:relative;padding-bottom:56.25%;height:0;margin:1.75rem 0;">

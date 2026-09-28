@@ -13,6 +13,9 @@ ficha:
   estado: "Publicado"
   repositorio: "https://github.com/GonorAndres/principio-equivalencia-video"
   live: "https://youtu.be/tHidN68enIg"
+heroImage: "/blog-illustrations/equivalence-principle-video.webp"
+heroAlt: "Una balanza con monedas en el plato de las primas y un escudo y una casa en el de las prestaciones, nivelada bajo la palabra Equilibrio."
+heroCaption: "El principio de equivalencia, representado como una balanza entre lo que se cobra y lo que se promete pagar."
 ---
 
 <div style="position:relative;padding-bottom:56.25%;height:0;margin:1.75rem 0;">
