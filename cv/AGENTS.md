@@ -1,4 +1,4 @@
-# CLAUDE.md -- CV
+# AGENTS.md -- CV
 
 Guidance for Claude Code when working inside `cv/`.
 
@@ -21,7 +21,7 @@ They live in the private **`github.com/GonorAndres/claude-job`** repo, which is 
 employer-specific tailoring, job postings, cover letters and application emails belong.
 
 `.gitignore` enforces this with an **allowlist**: everything under `cv/` is ignored except
-`cv-andres-gonzalez.tex`, `qr_portfolio.png`, `build.sh`, `CLAUDE.md`, `README.md`. A new
+`cv-andres-gonzalez.tex`, `qr_portfolio.png`, `build.sh`, `AGENTS.md`, `README.md`. A new
 variant cannot be committed by accident. Do not weaken that allowlist to "just add one".
 
 If a task asks for a tailored variant, do it in `claude-job`, not here.
