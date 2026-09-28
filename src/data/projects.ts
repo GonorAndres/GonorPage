@@ -965,6 +965,45 @@ export const projects: Project[] = [
     creation_date: '2026-05-01',
     last_modification_date: '2026-08-09',
   },
+
+  // repo: https://github.com/GonorAndres/principio-equivalencia-video
+  // live: https://youtu.be/tHidN68enIg
+  // local: /home/exedev/projects/principio-equivalencia-video
+  {
+    slug: 'equivalence-principle-video',
+    title: {
+      es: 'El principio de equivalencia en video',
+      en: 'The Equivalence Principle on Video',
+    },
+    description: {
+      es: 'Casi nadie sabe por qué su seguro cuesta lo que cuesta. Este video de dos minutos lo explica sin fórmulas: parte de un imprevisto y un fondo común, y llega a la idea de que lo que se aporta debe equilibrar, en promedio y traído a hoy, lo que el seguro promete pagar. Animado con código y narrado con voz sintética; el repositorio incluye el guion y las tomas descartadas.',
+      en: 'Few people know why their insurance costs what it does. This two-minute video explains it without formulas: it starts from an unexpected event and a shared fund, and arrives at the idea that what people contribute must balance, on average and brought to today, what the insurance promises to pay. Animated with code and narrated with a synthetic voice; the repository includes the script and the discarded takes.',
+    },
+    url: 'https://youtu.be/tHidN68enIg',
+    repo: 'https://github.com/GonorAndres/principio-equivalencia-video',
+    platform: 'GitHub',
+    category: 'actuarial',
+    tags: {
+      es: ['Remotion', 'React', 'ElevenLabs', 'Divulgación', 'Principio de equivalencia', 'Valor presente'],
+      en: ['Remotion', 'React', 'ElevenLabs', 'Science communication', 'Equivalence principle', 'Present value'],
+    },
+    variant: 'standard',
+    screenshot: '/screenshots/equivalencia-04-balanza.png',
+    gallery: [
+      { src: '/screenshots/equivalencia-01-v1-ecuacion.png', caption: { es: 'Primera versión: la fórmula en pantalla antes de que hubiera una razón para que importara', en: 'First version: the formula on screen before there was any reason for it to matter' } },
+      { src: '/screenshots/equivalencia-02-v1-ejemplo.png', caption: { es: 'Primera versión: ejemplo numérico, correcto y mudo', en: 'First version: a numerical example, correct and silent' } },
+      { src: '/screenshots/equivalencia-03-mutualidad.png', caption: { es: 'Versión final, guion primero: la mutualidad antes que cualquier cálculo', en: 'Final version, script first: mutuality before any calculation' } },
+      { src: '/screenshots/equivalencia-04-balanza.png', caption: { es: 'La balanza reemplaza a la ecuación y se mueve al ritmo de la voz', en: 'A scale replaces the equation and moves with the narration' } },
+      { src: '/screenshots/equivalencia-05-tiempo.png', caption: { es: 'Tiempo: mil pesos dentro de diez años valen menos hoy', en: 'Time: a thousand pesos in ten years is worth less today' } },
+      { src: '/screenshots/equivalencia-06-riesgo.png', caption: { es: 'Misma cobertura, distinto riesgo, distinta prima', en: 'Same coverage, different risk, different premium' } },
+      { src: '/screenshots/equivalencia-07-cierre.png', caption: { es: 'Cierre: no se trata de controlar el futuro', en: 'Close: it is not about controlling the future' } },
+    ],
+    blogSlug: 'equivalence-principle-video',
+    relatedTo: ['gmm-explorer', 'sima'],
+    tier: 1,
+    creation_date: '2026-09-22',
+    last_modification_date: '2026-09-28',
+  },
 ];
 
 export function getProjects(lang: Lang) {
