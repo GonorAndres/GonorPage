@@ -21,7 +21,7 @@ and are **not shareable**, so they live in the private `GonorAndres/claude-job` 
 job postings, cover letters and application emails.
 
 This repo is public, and `.gitignore` enforces the rule as an allowlist: everything under `cv/`
-is ignored except `cv-andres-gonzalez.tex`, `qr_portfolio.png`, `build.sh`, `CLAUDE.md` and
+is ignored except `cv-andres-gonzalez.tex`, `qr_portfolio.png`, `build.sh`, `AGENTS.md`, `CLAUDE.md` and
 `README.md`. Do not weaken it to add "just one" variant.
 
 ## Requirements
@@ -42,4 +42,4 @@ Building a PDF does not change the site. To publish, copy the built PDF over
 `../public/docs/cv-andres-gonzalez.pdf` and deploy -- that tracked file is what `Hero.astro`
 and `Contact.astro` link to.
 
-See `CLAUDE.md` for the full editorial rules: narrative, style, ATS, skill integrity.
+See `AGENTS.md` for the full editorial rules: narrative, style, ATS, skill integrity.

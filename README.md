@@ -64,5 +64,9 @@ scripts/          OG image and thumbnail generation
 
 Content, writing and data-layer conventions (blog filename parity between
 languages, project card style, note metadata, category colours, button radii)
-are documented in [`CLAUDE.md`](CLAUDE.md). Interactive HTML artifacts follow
+are documented in [`AGENTS.md`](AGENTS.md). Interactive HTML artifacts follow
 the contract in [`ARTIFACTS.md`](ARTIFACTS.md).
+
+The current exploration-stage [capability roadmap](docs/capability-roadmap.md)
+records how portfolio evidence, reliable AI and decision-quality data work will
+be assessed before new projects are started.

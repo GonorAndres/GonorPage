@@ -1,5 +1,7 @@
 # Blog UX and accessibility backlog
 
+Historical references to `CLAUDE.md` below refer to the same guidance now maintained in `AGENTS.md`; `CLAUDE.md` is a compatibility symlink.
+
 ## Current pass: 2026-09-12
 
 The user authorized a redesign of the blog views and a generated conceptual hero for every
@@ -815,8 +817,8 @@ language, then:
 
 - [ ] Review unresolved historical conflicts only when implementing the remaining backlog; current authorized pass is recorded above.
 - [ ] Reassess remaining historical questions for future work; image direction and current blog layout no longer await a new decision.
-- [ ] Replace stale fixed build counts in `CLAUDE.md` with the current verified corpus count; 97 was the August baseline.
-- [ ] Correct the Button Radii Convention pixel values in `CLAUDE.md` against `tailwind.config.mjs:21-29`
+- [x] Remove the stale fixed build count from `AGENTS.md`; use the build output instead (2026-09-27).
+- [x] Correct the Button Radii Convention pixel values in `AGENTS.md` against `tailwind.config.mjs:21-29` (2026-09-27).
 
 **Gaps to scope**
 

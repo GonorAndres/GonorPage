@@ -25,7 +25,7 @@ Your responsibility is how projects appear to visitors -- the narrative, groupin
 - **Hero right column**: LatestPostCard (3 newest) + DiscoverPostCard (shuffled remaining) stacked vertically with `md:flex-col md:gap-4`
 - **SharedNotes section**: 10 notes in 3 category groups (Actuarial 4, Quant Finance 3, Statistics 3) with category subheadings
 
-## Portfolio Narrative Principles (from CLAUDE.md)
+## Portfolio Narrative Principles (from AGENTS.md)
 
 - "Isolated pieces look like coursework, connected pieces look like a body of work"
 - Key connections: Michoacan mortality <-> life insurance, A/B testing <-> credit risk, Markowitz <-> derivatives, data cleaning <-> any data project
