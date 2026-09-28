@@ -362,11 +362,11 @@ Two systems run in production, disabled on localhost:
 - Blog content in src/content/blog/es/ and src/content/blog/en/; collection config at src/content.config.ts
 - Subagent outputs go to repositorio/subagents_outputs/
 - Planning and reference docs go in docs/
-- CV LaTeX sources go in cv/ -- see [`cv/CLAUDE.md`](cv/CLAUDE.md)
+- CV LaTeX sources go in cv/ -- see [`cv/AGENTS.md`](cv/AGENTS.md)
 
 ## CV (`cv/`)
 
-The LaTeX CV lives in this repo so its wording and `src/data/projects.ts` stay in sync: when a project card's description changes, the matching CV bullet should follow, and vice versa. Read [`cv/CLAUDE.md`](cv/CLAUDE.md) before editing anything under `cv/` -- it carries the narrative rules, ATS constraints, and the skill-integrity rule (never claim a skill no project backs).
+The LaTeX CV lives in this repo so its wording and `src/data/projects.ts` stay in sync: when a project card's description changes, the matching CV bullet should follow, and vice versa. Read [`cv/AGENTS.md`](cv/AGENTS.md) before editing anything under `cv/` -- it carries the narrative rules, ATS constraints, and the skill-integrity rule (never claim a skill no project backs).
 
 **Only sources are tracked.** This repo is public, so `.gitignore` excludes compiled PDFs, job postings, application emails, exam proofs, and employer-specific variants. That material stays in the private `GonorAndres/claude-job` repo, which is also where employer-specific tailoring is done. Check the diff before committing anything under `cv/`.
 

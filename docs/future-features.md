@@ -49,7 +49,7 @@ the corrected value is what appears here; debunked references were removed rathe
 Three facts recorded during that audit:
 
 1. `npx astro build` printed **97 page(s) built** and `dist/` held **131 `.html` files** on 2026-08-02.
-   The "85 pages" figure in `CLAUDE.md` ("How to Add a Blog Post", step 5) is stale. Do not treat 85
+   The "85 pages" figure in `AGENTS.md` ("How to Add a Blog Post", step 5) is stale. Do not treat 85
    as the build gate.
 2. **`npx astro check` cannot run here.** `package.json` has no `@astrojs/check` and no `typescript`
    dependency; scripts are only `dev`, `build`, `preview`, `astro`, `og`, `thumbs`. Consequence:
@@ -94,7 +94,7 @@ Palette hues used as text on cream: amber `#D4A574` 1.798, terracotta `#C17654` 
 navy), sage `#7A8B6F` 2.950, steel `#5B7B9A` 3.575, navy `#1B2A4A` 11.488, off-palette `#39c` 2.582.
 On the search input fill (`#FFF8F0`/70 composited): `/30` 1.820, `/40` 2.296, `/55` 3.374, `/70` 5.191.
 
-Touch targets at 390x844, against the 44 px minimum in `CLAUDE.md`:
+Touch targets at 390x844, against the 44 px minimum in `AGENTS.md`:
 
 | Control | Height | File |
 |---|---|---|
@@ -117,12 +117,12 @@ Corpus figures: 23 ES plus 23 EN posts with matching filenames; 14 of 23 ES post
 
 ## Fix first
 
-Six objective bugs. Each one violates either a stated `CLAUDE.md` rule or a WCAG 2.1 AA threshold.
+Six objective bugs. Each one violates either a stated `AGENTS.md` rule or a WCAG 2.1 AA threshold.
 None of them is a design preference.
 
 ### BUG 1. Missing Spanish diacritics in shipped UI labels
 
-**What is wrong.** `CLAUDE.md` ("Writing Standards") makes Spanish diacritics mandatory. Two blog
+**What is wrong.** `AGENTS.md` ("Writing Standards") makes Spanish diacritics mandatory. Two blog
 category display labels and 21 Spanish gallery captions ship without them.
 
 **Evidence.**
@@ -303,7 +303,7 @@ site-wide decision, not a blog fix.
 
 ### BUG 4. Touch targets below the 44 px minimum
 
-**What is wrong.** `CLAUDE.md` ("Responsive Typography and Mobile UI") mandates 44 px. Nine controls
+**What is wrong.** `AGENTS.md` ("Responsive Typography and Mobile UI") mandates 44 px. Nine controls
 on `/blog/` are under it (see the baseline table), and the category filter rows are the worst: 28 px
 with **zero** gap between adjacent rows, so a mis-tap lands on the neighbouring category.
 
@@ -382,7 +382,7 @@ and the post is about seven analytics dashboards, not infrastructure. See "Decis
 **2026-09-12: resolved in source.** `BlogSearch.tsx` descriptions and both index subtitles
 explicitly set `text-left`. The old measurement below remains the baseline for browser comparison.
 
-**What is wrong.** `CLAUDE.md` ("Responsive Typography and Mobile UI") reserves justification for
+**What is wrong.** `AGENTS.md` ("Responsive Typography and Mobile UI") reserves justification for
 "paragraph text in main content" and excludes "short metadata". A 3 to 8 line blurb inside one of 23
 list rows is metadata about a link target, not the main content of `/blog/`. The measured cost is
 inter-word gaps up to 13.69 px against a 3.94 px natural space, a 3.48x stretch.
@@ -432,7 +432,7 @@ collapses from 141 px to 28 px; mobile 10,835 to 8,537 px (-21.2%), spread from 
 description settles at exactly 68 px (3 x 22.75 px).
 
 **Why not rewrite the descriptions instead.** The `description` field also feeds `og:description` and
-the JSON-LD, and `CLAUDE.md` mandates the three-beat structure. `src/layouts/BlogPost.astro:127-130`
+the JSON-LD, and `AGENTS.md` mandates the three-beat structure. `src/layouts/BlogPost.astro:127-130`
 already machine-truncates the meta tag at 157 chars while `:135-137` passes the **full** text as
 `structuredDescription`. Shortening the field would degrade the structured data. A CSS clamp changes
 neither: the full string stays in the DOM and in the served HTML.
@@ -677,7 +677,7 @@ combine their snippets mechanically.
 12. `'Actuaría para todos'` (the discipline) or `'Actuaria para todos'` (a female actuary)? The EN
     label "Actuarial for everyone" points to the discipline, which is what BUG 1 assumes.
 13. Category label hue: four of the five palette hues cannot reach 4.5:1 on cream as text (amber 1.798,
-    terracotta 2.833, sage 2.950, steel 3.575). `CLAUDE.md` forbids inventing hues, so: (a) keep the
+    terracotta 2.833, sage 2.950, steel 3.575). `AGENTS.md` forbids inventing hues, so: (a) keep the
     hue but move it off the text onto a dot or a left rule and set the label to navy/70, (b) darken the
     five palette values globally, which affects `ProjectsGrid`, badges and category pages, or
     (c) accept and document the exception.
@@ -709,7 +709,7 @@ combine their snippets mechanically.
     a cue, or is a small "Buscar y filtrar" anchor wanted?
 24. Delete `src/components/ui/BlogPostPreview.astro` (and then `blog.readMore` from both locales), or
     keep it?
-25. Should `CLAUDE.md`'s "Responsive Typography and Mobile UI" section gain an explicit sentence
+25. Should `AGENTS.md`'s "Responsive Typography and Mobile UI" section gain an explicit sentence
     excluding list-row and card blurbs from justification, so the next component does not reintroduce
     BUG 6?
 26. Do the `src/data/projects.ts` caption fixes ride in the same commit as the two category labels, or
@@ -743,10 +743,10 @@ None of the seven investigations covered these. They are observations with evide
    hits across `src/` (only `prefers-reduced-motion` at `src/styles/global.css:101` and
    `src/layouts/BaseLayout.astro:107`). Every color recommendation here is implicitly light-only.
 8. **Zero uses of `:focus-visible`** anywhere in the repo; every control uses plain `focus:`.
-9. **`CLAUDE.md`'s Button Radii Convention quotes wrong pixel values.** It documents
+9. **`AGENTS.md`'s Button Radii Convention quotes wrong pixel values.** It documents
    `rounded-xl` = 12 px and `rounded-lg` = 8 px, but `tailwind.config.mjs:21-29` overrides
    `borderRadius` to DEFAULT 3 px, sm 2 px, md 4 px, lg 5 px, xl 6 px. Any radius decision made from
-   `CLAUDE.md` is made on false numbers.
+   `AGENTS.md` is made on false numbers.
 10. **View transitions are never considered.** `ClientRouter` is enabled at
     `src/layouts/BaseLayout.astro:78`; `BlogSearch` is `client:idle`, so its query and sort state resets
     on every soft navigation. `BlogPost.astro:396` already rebinds on `astro:page-load`, so the pattern
@@ -815,8 +815,8 @@ language, then:
 
 - [ ] Review unresolved historical conflicts only when implementing the remaining backlog; current authorized pass is recorded above.
 - [ ] Reassess remaining historical questions for future work; image direction and current blog layout no longer await a new decision.
-- [ ] Replace stale fixed build counts in `CLAUDE.md` with the current verified corpus count; 97 was the August baseline.
-- [ ] Correct the Button Radii Convention pixel values in `CLAUDE.md` against `tailwind.config.mjs:21-29`
+- [ ] Replace stale fixed build counts in `AGENTS.md` with the current verified corpus count; 97 was the August baseline.
+- [ ] Correct the Button Radii Convention pixel values in `AGENTS.md` against `tailwind.config.mjs:21-29`
 
 **Gaps to scope**
 
