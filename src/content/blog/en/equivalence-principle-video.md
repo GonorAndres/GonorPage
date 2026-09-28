@@ -25,7 +25,7 @@ This post describes how I made a two-minute explainer video without recording au
 
 The video is about the equivalence principle. When someone buys insurance, they pay an amount called the premium, and this principle is the rule actuaries use to calculate it: what the insurer expects to collect in premiums must equal what it expects to pay in claims (the events the policy covers, such as an accident), with both amounts expressed in today's money. The video is meant for people who have not studied actuarial science.
 
-## What the video covers
+## What the video explains
 
 The script has eight parts. It starts with an everyday situation and explains the idea behind the formula:
 
@@ -40,24 +40,42 @@ The script has eight parts. It starts with an everyday situation and explains th
 
 On screen, the equation is shown as a scale: premiums sit on one side and the payments promised by the policy sit on the other. The full narration and the corresponding formula are in the [project repository](https://github.com/GonorAndres/principio-equivalencia-video/blob/main/docs/GUION.md) (in Spanish).
 
-## The tools
+## Tools used
 
-**[Remotion](https://www.remotion.dev)** is a library for making videos by writing code in [React](https://react.dev), a tool used to build many websites. In a traditional video editor, animations are built by dragging elements along a timeline. In Remotion, code describes what appears in each frame, for example: "the scale appears at second 3 and tilts between seconds 7 and 9". Remotion turns that description into a video file.
+### LLM and coding agent
 
-**[ElevenLabs](https://elevenlabs.io)** is a text-to-speech service: it takes written text and returns audio narrated by a natural-sounding synthetic voice. For this video I used its multilingual model in Spanish. Changing a sentence means editing the text and generating the audio again.
+An LLM (large language model) is an artificial intelligence program trained on large amounts of text to understand instructions and produce text, including code. Claude and ChatGPT are well-known examples.
 
-**A coding agent** is an artificial intelligence program that writes and runs code from instructions in plain language. I described a scene ("a scale with coins on one side and a shield on the other, which levels out when the voice says *benefits*"), the agent wrote the Remotion component and rendered the video, and I reviewed the result.
+A coding agent is an LLM with access to a computer: besides writing code, it can run it and check the result, all from instructions in plain language. In this project the workflow was a conversation: I described a scene ("a scale with coins on one side and a shield on the other, which levels out when the voice says *benefits*"), the agent wrote the Remotion component and rendered the video, and I reviewed the result.
 
-## How it was put together
+### Remotion: video written in code
+
+[Remotion](https://www.remotion.dev) is a library for making videos by writing code in [React](https://react.dev), a tool used to build many websites. In a traditional video editor, animations are built by dragging elements along a timeline. In Remotion, code describes what appears in each frame, for example: "the scale appears at second 3 and tilts between seconds 7 and 9". Remotion turns that description into a video file.
+
+### ElevenLabs: voice generated from text
+
+[ElevenLabs](https://elevenlabs.io) is a text-to-speech service: it takes written text and returns audio narrated by a natural-sounding synthetic voice. For this video I used its multilingual model in Spanish. Changing a sentence means editing the text and generating the audio again.
+
+## Step-by-step creation process
+
+### 1. A first version that was discarded
 
 The first version had seven scenes with no narration and lasted forty seconds. It showed the equation from the start along with a numerical example, and it relied on the viewer reading every label on screen. I discarded it and started again from the script.
 
-With the script ready, I generated one ElevenLabs audio clip for each of the eight parts. Each part of the video lasts as long as its audio, plus a short lead-in and one second for the transition. Then I timed each animation to the moment the voice says the matching word. Those timings are written down in the code:
+### 2. Script and voice in parts
+
+With the script ready, I generated one ElevenLabs audio clip for each of the eight parts. Each part of the video lasts as long as its audio, plus a short lead-in and one second for the transition.
+
+### 3. Animation synced to the voice
+
+Then I timed each animation to the moment the voice says the matching word. Those timings are written down in the code:
 
 ```ts
 // Voz desde 0.6 s: "¿cuánto aportar?" 1.2 · "propone un equilibrio" 6.0 · "primas puras" 8.5
 // · "prestaciones" 10.6 · "no incluye gastos" 15.5 · "tiempo y probabilidad" 17.8
 ```
+
+### 4. Content review
 
 I reviewed the content myself, sentence by sentence. In part 5, the first version of the audio said:
 
@@ -73,7 +91,7 @@ That sentence did not specify the date: present value expresses payments in toda
 
 The new audio is 2.6 seconds longer. I generated the sentence again and updated that part's duration in the code. The discarded audio is in the repository under `public/voz/alternativas/`.
 
-## Advantages and limits of this workflow
+## Advantages and limits of the LLM workflow
 
 Advantages I found:
 
