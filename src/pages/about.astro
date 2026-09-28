@@ -5,63 +5,55 @@ import Squiggle from '../components/decorations/Squiggle.astro';
 
 const lang = 'es';
 const title = 'Sobre mí · Andrés González Ortega';
-const description = 'Andrés González Ortega es actuario por la UNAM y especialista en datos de performance marketing en Levely, en Ciudad de México. Trabaja en medición y análisis de conversión para growth (crecimiento del negocio basado en datos) y decisiones de go-to-market (GTM), y desarrolla proyectos de seguros, datos e inteligencia artificial.';
+const description = 'Soy actuario por la UNAM y especialista en datos de performance marketing en Levely, en Ciudad de México. Trabajo en medición y análisis de conversión para growth (crecimiento del negocio basado en datos) y decisiones de go-to-market (GTM), y desarrollo proyectos de seguros, datos e inteligencia artificial.';
 
 const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';
 const linkedin = 'https://www.linkedin.com/in/andr%C3%A9s-g%C3%B3nzalez-ortega-190b49371/';
 
-// Single source of truth per question: `a` is the third-person answer used in
-// the FAQPage JSON-LD (search engines prefer full-name, self-contained
-// answers); `visible` is the first-person text shown on the page. If
-// `visible` is missing, `a` is shown.
+// One first-person answer per question, shown on the page and reused as the
+// FAQPage JSON-LD answer. `q` keeps the full name for search engines;
+// `qVisible` is the heading shown on the page.
 const faqs = [
   {
     q: '¿Quién es Andrés González Ortega?',
     qVisible: '¿Quién soy?',
-    a: 'Andrés González Ortega trabaja en análisis de datos y desarrollo de aplicaciones, con formación actuarial. Sus proyectos abarcan seguros, ingeniería de datos, inteligencia artificial y finanzas cuantitativas.',
     visible:
-      'Soy Andrés González Ortega. Trabajo en análisis de datos y desarrollo de aplicaciones, con formación actuarial. Mis proyectos abarcan seguros, ingeniería de datos, inteligencia artificial y finanzas cuantitativas.',
+      'Soy Andrés González Ortega, actuario formado en la UNAM y en proceso de titulación. Hoy trabajo como especialista en datos de performance marketing en Levely, en Ciudad de México. La actuaría está presente en mi forma de abordar ese trabajo: qué podemos medir, qué necesitamos estimar y con qué información contamos para decidir. Al reunir datos de ventas, publicidad y comportamiento digital, busco entender el recorrido de una compra, incluso cuando la información está incompleta.',
   },
   {
     q: '¿Qué hace?',
     qVisible: '¿Qué hago?',
-    a: 'Andrés González Ortega ha desarrollado SIMA, un motor de seguros de vida que abarca la proyección de mortalidad, las reservas y el capital regulatorio, y un agente de IA que consulta la regulación mexicana y cita el texto de la LISF y la CUSF. Ha construido plataformas de datos en Google Cloud con BigQuery y entrenado un transformer desde cero. Sus proyectos están disponibles en línea. En su blog documenta el desarrollo, las dificultades y los ajustes realizados.',
     visible:
-      'He desarrollado SIMA, un motor de seguros de vida que abarca la proyección de mortalidad, las reservas y el capital regulatorio, y un agente de IA que consulta la regulación mexicana y cita el texto de la LISF y la CUSF. He construido plataformas de datos en Google Cloud con BigQuery y entrenado un transformer desde cero. Los proyectos están disponibles en línea. En el blog documento su desarrollo, las dificultades y los ajustes que hice.',
+      'En Levely construyo herramientas para que el equipo consulte datos y dé seguimiento a su trabajo. De ahí salieron tres artículos en septiembre de 2026, con ejemplos ficticios: cómo conciliar lo que reporta una plataforma publicitaria con lo que registra el negocio, comprobar el recorrido del clic al CRM antes de optimizar y mostrar en un tablero hasta qué hora están completos los datos. Ese mes también hice un video sobre el principio de equivalencia actuarial con un agente de código y voz sintética, en unas dos horas y media. Construí un laboratorio de tarificación de seguros y una app para reservar salas de un cowork sobre Cloudflare. En julio puse en marcha gonor.me con correo propio. Antes desarrollé SIMA, un motor de seguros de vida que abarca mortalidad, reservas y capital regulatorio, y un asistente de IA que consulta la LISF y la CUSF y cita el texto real. En el blog cuento cómo construí cada proyecto, qué problemas aparecieron y qué tuve que ajustar.',
   },
   {
     q: '¿Dónde ha trabajado?',
     qVisible: '¿Dónde he trabajado?',
-    a: 'Andrés González Ortega trabaja en Levely como analista de performance marketing desde junio de 2026. Integra datos de ventas, publicidad y comportamiento digital para analizar las cuentas y formular recomendaciones. Su trabajo en growth, el crecimiento del negocio basado en datos, abarca la medición y el análisis del embudo de conversión y los recorridos de compra. Ese análisis sirve de base para decisiones de go-to-market (GTM): cómo llevar un producto o servicio a su público mediante la elección de canales, audiencias y mensajes. Desarrolla herramientas de consulta y seguimiento para el equipo, y trabaja en la calidad de la medición con Google Cloud, Google Analytics 4 y Google Tag Manager. Ayuda a sus compañeros a incorporar modelos de lenguaje (LLM) en flujos que ellos definen según su conocimiento del tema y las necesidades de cada tarea. Fue científico de datos en Grupo Gigante de septiembre de 2025 a mayo de 2026. Allí desarrolló reportes, modelos y aplicaciones de datos, y trabajó en la centralización de información en un almacén de datos (warehouse) en Google Cloud con Cloud SQL, Cloud Run y BigQuery. Impulsó el diseño de una plataforma de datos de clientes (CDP) para unificar las fuentes de una unidad de negocio.',
     visible:
-      'Desde junio de 2026 trabajo en Levely como analista de performance marketing. Integro datos de ventas, publicidad y comportamiento digital para analizar las cuentas y formular recomendaciones. Mi trabajo en growth, el crecimiento del negocio basado en datos, abarca la medición y el análisis del embudo de conversión y los recorridos de compra. Ese análisis sirve de base para decisiones de go-to-market (GTM): cómo llevar un producto o servicio a su público mediante la elección de canales, audiencias y mensajes. Desarrollo herramientas de consulta y seguimiento para el equipo, y trabajo en la calidad de la medición con Google Cloud, Google Analytics 4 y Google Tag Manager. Ayudo a mis compañeros a incorporar modelos de lenguaje (LLM) en flujos que ellos definen según su conocimiento del tema y las necesidades de cada tarea. Antes fui científico de datos en Grupo Gigante, de septiembre de 2025 a mayo de 2026. Allí desarrollé reportes, modelos y aplicaciones de datos, y trabajé en la centralización de información en un almacén de datos (warehouse) en Google Cloud con Cloud SQL, Cloud Run y BigQuery. Impulsé el diseño de una plataforma de datos de clientes (CDP) para unificar las fuentes de una unidad de negocio.',
+      'Llegué a Levely en junio de 2026, con el puesto de analista de performance marketing. Trabajo en growth, el crecimiento del negocio basado en datos: mido el embudo de conversión y analizo los recorridos de compra. Ese análisis sirve de base para decisiones de go-to-market (GTM), es decir, cómo llevar un producto o servicio a su público, con qué canales y mensajes. Para la medición uso Google Cloud, Google Analytics 4 y Google Tag Manager. Antes fui científico de datos en Grupo Gigante, de septiembre de 2025 a mayo de 2026. Allí desarrollé reportes, modelos y aplicaciones de datos, trabajé en un almacén de datos (warehouse) en Google Cloud con Cloud SQL, Cloud Run y BigQuery, e impulsé el diseño de una plataforma de datos de clientes (CDP) para una unidad de negocio.',
   },
   {
     q: '¿En qué tecnologías y áreas trabaja?',
     qVisible: '¿Qué tecnologías uso?',
-    a: 'Andrés González Ortega usa Python, R y SQL para trabajar con datos y modelos de probabilidad y riesgo. Despliega aplicaciones web con servicios serverless de Google Cloud e integra modelos de lenguaje mediante recuperación de información (RAG) y agentes. Su sitio y varias de sus aplicaciones están disponibles bajo su propio dominio.',
     visible:
-      'Uso Python, R y SQL para trabajar con datos y modelos de probabilidad y riesgo. Despliego aplicaciones web con servicios serverless de Google Cloud e integro modelos de lenguaje mediante recuperación de información (RAG) y agentes. Este sitio y varias de mis aplicaciones están disponibles bajo mi propio dominio.',
+      'Trabajo con Python, R y SQL para analizar datos y construir modelos de probabilidad y riesgo. He construido plataformas de datos en Google Cloud y aplicaciones sobre Cloudflare, y he entrenado un transformer desde cero. En Levely también ayudo a mis compañeros a incorporar modelos de lenguaje (LLM) en flujos de trabajo que ellos mismos definen.',
   },
   {
     q: '¿Dónde estudió?',
     qVisible: '¿Dónde estudié?',
-    a: 'Andrés González Ortega estudió Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y está en proceso de titulación. Su formación incluye probabilidad, estadística, finanzas y teoría del riesgo.',
     visible:
-      'Estudié Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y estoy en proceso de titulación. Mi formación incluye probabilidad, estadística, finanzas y teoría del riesgo.',
+      'Estudié Actuaría en la Facultad de Ciencias de la Universidad Nacional Autónoma de México (UNAM) y estoy en proceso de titulación. Durante mi servicio social en el Instituto de Geofísica de la UNAM participé como coautor en un artículo científico sobre predicción de erupciones del Popocatépetl.',
   },
   {
     q: '¿Qué certificaciones tiene?',
     qVisible: '¿Qué certificaciones tengo?',
-    a: 'Andrés González Ortega aprobó el Exam P de la Society of Actuaries (SOA). Cuenta con las acreditaciones Databricks Fundamentals, AI Agent Fundamentals y Generative AI Fundamentals de Databricks Academy, el skill badge «Create ML Models with BigQuery ML» de Google Cloud y certificaciones de DataCamp en análisis y ciencia de datos.',
     visible:
-      'Aprobé el Exam P de la Society of Actuaries (SOA). Cuento con las acreditaciones Databricks Fundamentals, AI Agent Fundamentals y Generative AI Fundamentals de Databricks Academy, el skill badge «Create ML Models with BigQuery ML» de Google Cloud y certificaciones de DataCamp en análisis y ciencia de datos.',
+      'En marzo de 2026 aprobé el Exam P de la Society of Actuaries (SOA). También tengo las acreditaciones Databricks Fundamentals, AI Agent Fundamentals y Generative AI Fundamentals de Databricks Academy, el skill badge «Create ML Models with BigQuery ML» de Google Cloud y certificaciones de DataCamp en análisis y ciencia de datos.',
   },
   {
     q: '¿Cómo contactarlo?',
     qVisible: '¿Cómo contactarme?',
-    a: `Andrés González Ortega recibe consultas por correo en ${email}. Comparte su trabajo y sus proyectos en GitHub (${github}) y LinkedIn (${linkedin}).`,
     visible: `Puedes escribirme a ${email}. Comparto mi trabajo y mis proyectos en GitHub y LinkedIn.`,
     contact: true,
   },
@@ -76,7 +68,7 @@ const faqSchema = {
     name: f.q,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: f.a,
+      text: f.visible,
     },
   })),
 };
@@ -109,7 +101,7 @@ const faqSchema = {
               {f.qVisible ?? f.q}
             </h2>
             <p class="text-navy/80 text-lg leading-relaxed">
-              {f.visible ?? f.a}
+              {f.visible}
             </p>
             {f.contact && (
               <div class="flex flex-wrap gap-3 mt-6">
