@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/gmm-explorer"
   live: "https://gmm.gonor.me/contexto"
 tags: ["GMM", "tarificación", "CNSF", "hospitalización", "Claude AI", "frecuencia-severidad", "credibilidad", "LISF", "Next.js", "Python"]
-lastModified: "2026-09-12"
+lastModified: "2026-09-28"
 heroImage: "/blog-illustrations/gmm-explorer.webp"
 heroAlt: "Los siniestros médicos se separan en tres tipos de atención, cada uno con medidas de frecuencia y costo."
 heroCaption: "Separar los tipos de atención permite estimar frecuencia y severidad para cada grupo, sin ocultarlas en un solo promedio."
@@ -185,3 +185,5 @@ No; el tarificador entrega un precio de referencia, no una tarifa comercialmente
 El dashboard está desplegado en <a href="https://gmm.gonor.me/contexto" target="_blank" rel="noopener">Vercel</a> y el código está en <a href="https://github.com/GonorAndres/gmm-explorer" target="_blank" rel="noopener">GitHub</a>. La nota técnica completa está disponible desde la sección `/contexto` del dashboard.
 
 El análisis muestra algo que va más allá de este proyecto concreto: cuando los datos existen y son lo suficientemente grandes, la pregunta de si una distinción de riesgo es real tiene respuesta empírica. La industria puede seguir tarificando GMM como un solo bloque, pero los datos de la CNSF ya no permiten argumentar que eso es una simplificación inocua.
+
+Si quieres la intuición antes que los números, el principio de equivalencia que sostiene esta prima pura está explicado sin fórmulas en <a href="/blog/equivalence-principle-video/">un video de dos minutos</a>.

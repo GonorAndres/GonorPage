@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/gmm-explorer"
   live: "https://gmm.gonor.me/contexto"
 tags: ["GMM", "pricing", "CNSF", "hospitalization", "Claude AI", "frequency-severity", "credibility", "LISF", "Next.js", "Python"]
-lastModified: "2026-09-12"
+lastModified: "2026-09-28"
 heroImage: "/blog-illustrations/gmm-explorer.webp"
 heroAlt: "Medical claims separate into three care categories, each with frequency and cost measures."
 heroCaption: "Separating care categories lets frequency and severity be estimated for each group instead of hidden in one average."
@@ -185,3 +185,5 @@ No; the calculator returns a reference price, not a commercially usable tariff. 
 The dashboard is live on <a href="https://gmm.gonor.me/contexto" target="_blank" rel="noopener">Vercel</a> and the code is on <a href="https://github.com/GonorAndres/gmm-explorer" target="_blank" rel="noopener">GitHub</a>. The full nota técnica is available from the `/contexto` section of the dashboard.
 
 The analysis points to something beyond this project: when data exists and is large enough, the question of whether a risk distinction is real has an empirical answer. The industry can continue pricing GMM as a single block, but the CNSF data no longer supports the argument that doing so is a harmless simplification.
+
+If you want the intuition before the numbers, the equivalence principle behind this net premium is explained without formulas in <a href="/en/blog/equivalence-principle-video/">a two-minute video</a>.
