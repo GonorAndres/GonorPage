@@ -16,9 +16,11 @@
 \definecolor{primaryColor}{RGB}{217, 119, 87}
 \usepackage{enumitem}
 \usepackage{fontawesome5}
+\usepackage{etoolbox}
+\usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage[
-    pdftitle={Andrés González Ortega -- CV Agosto 2026},
+    pdftitle={Andrés González Ortega -- CV Septiembre 2026},
     pdfauthor={Andrés González Ortega},
     pdfcreator={LaTeX with RenderCV},
     colorlinks=true,
@@ -33,7 +35,7 @@
 \usepackage{ifthen}
 \usepackage{needspace}
 \usepackage{iftex}
-% graphicx not needed -- using pdfximage primitive for QR code
+% graphicx supports QR placement when the source is rendered with XeTeX.
 
 % ATS parsable:
 \ifPDFTeX
@@ -164,9 +166,9 @@
     \put(\LenToUnit{\paperwidth-0.3 cm},\LenToUnit{\paperheight-0.2 cm}){%
       \vtop{{\null}\makebox[0pt][r]{%
         \vbox{%
-          \hbox to 1.7cm{\hfil{\small\color{gray}\textit{Agosto 2026}}\hfil}%
+          \hbox to 2.5cm{\hfil{\small\color{gray}\textit{Septiembre 2026}}\hfil}%
           \vspace{0.05cm}%
-          \hbox to 1.7cm{\hfil\pdfximage width 1.3cm {qr_portfolio.png}\pdfrefximage\pdflastximage\hfil}%
+          \hbox to 1.7cm{\hfil\ifPDFTeX\pdfximage width 1.3cm {qr_portfolio.png}\pdfrefximage\pdflastximage\else\includegraphics[width=1.3cm]{qr_portfolio.png}\fi\hfil}%
           \vspace{0.03cm}%
           \hbox to 1.7cm{\hfil{\tiny\color{gray}\textit{portafolio}}\hfil}%
         }
@@ -203,7 +205,7 @@
         \kern 0.25 cm%
         \AND%
         \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{mailto:gonorandres@ciencias.unam.mx}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}gonorandres@ciencias.unam.mx}}%
+        \mbox{\hrefWithoutArrow{mailto:gonorandres@ciencias.unam.mx}{{\footnotesize\faEnvelope}\hspace*{0.13cm}gonorandres@ciencias.unam.mx}}%
         \kern 0.25 cm%
         \AND%
         \kern 0.25 cm%
@@ -222,7 +224,7 @@
     \section{Sobre mí}
 
         \begin{onecolentry}
-Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de performance marketing en la agencia \textbf{Levely} y co-autor de artículo científico en el IGF-UNAM. Tomo problemas de medición y de una aseguradora (atribución, tracking, pricing, reservas, capital regulatorio) y los llevo a un sistema en producción: modelo, pipeline en \textbf{GCP}, API y dashboard. Practico la formación continua y el trabajo con equipos multidisciplinarios. En \href{https://gonor.me/}{mi página web} comparto lo que aprendo y construyo.
+Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de performance marketing en \textbf{Levely} y coautor de un artículo científico en el IGF-UNAM. Construyo herramientas que conectan datos y decisiones en medición, seguros y análisis de riesgo. Practico la formación continua y disfruto el trabajo con equipos multidisciplinarios. En \href{https://gonor.me/}{mi página web} comparto lo que aprendo y construyo.
         \end{onecolentry}
 
 
@@ -231,7 +233,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
         \begin{onecolentry}
             \textbf{Analista de Performance Marketing} -- Levely\quad{\small\color{gray}\textit{Junio 2026 -- Presente}}
             \begin{highlights}
-                \item Construyo la capa de datos que conecta ventas, analítica y publicidad: implemento conversiones \textbf{server-side}, concilio fuentes y convierto señales de compra en análisis y monitores para orientar la inversión. Complemento con CRO cuantitativo y cualitativo de sesiones para priorizar mejoras con criterios estadísticos y humanos. \textit{BigQuery, GA4, PostHog, Clarity}.
+                \item Integro datos de ventas, publicidad y comportamiento digital para analizar el desempeño y orientar decisiones. Desarrollo herramientas para que el equipo consulte información y dé seguimiento a sus cuentas; trabajo en la calidad de la medición y el análisis de conversión. También apoyo a mis compañeros a incorporar LLM en flujos que ellos dirigen, con pautas adaptadas a su conocimiento del tema. \textit{GCP, GA4, GTM}.
             \end{highlights}
             \end{onecolentry}
 
@@ -259,11 +261,11 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 
 \begin{onecolentry}
     \begin{highlightsforbulletentries}
-        \item \textit{Lenguajes:} Python, R, SQL, TypeScript, Bash, Git, \LaTeX, Excel Avanzado
-        \item \textit{Ciencia Actuarial:} Seguros Vida/Daños/GMM, \textbf{Tarificación} (GLM, frecuencia-severidad, credibilidad), \textbf{Reservas} (BEL, IBNR, Chain Ladder, BF), Lee-Carter, \textbf{RCS/SCR} bajo \textbf{LISF/CUSF}, EMSSA-09, Reaseguro, CONAPO/HMD, Pensiones IMSS (Ley 73/97, Fondo Bienestar)
-        \item \textit{Cloud \& DevOps:} GCP (Cloud Run, BigQuery, Pub/Sub), Docker, Terraform, Dagster, GitHub Actions, PostgreSQL
-        \item \textit{Medición \& Marketing Analytics:} GA4, Google Tag Manager (web y server-side), Meta Ads / Conversions API, Google Ads / Enhanced Conversions, Databox, Looker Studio, UTM y atribución
-        \item \textit{Data Science, ML \& IA:} scikit-learn, PyTorch, XGBoost, LightGBM, Monte Carlo, SHAP, Pandas, FastAPI, Streamlit, LLMs, Claude Agent SDK, RAG, Transformers, Inferencia Bayesiana
+        \item \textit{Lenguajes y herramientas:} Python, R, SQL, TypeScript, Git, Excel
+        \item \textit{Ciencia actuarial:} tarificación de seguros, reservas, modelación de riesgo y regulación mexicana
+        \item \textit{Datos y nube:} GCP, BigQuery, integración de fuentes, calidad de datos y tableros
+        \item \textit{Medición y marketing:} GA4, GTM, atribución, análisis de embudos y CRO
+        \item \textit{Modelos e IA:} aprendizaje automático, modelos de lenguaje, RAG e inferencia estadística
         \item \textit{Idiomas:} Inglés avanzado (lectura, redacción, comunicación fluida)
     \end{highlightsforbulletentries}
 \end{onecolentry}
@@ -302,7 +304,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://sima.gonor.me}{app live}}
     \textbf{SIMA -- Sistema Integral de Modelación Actuarial}
     \begin{highlights}
-        \item Valuar reservas de vida exige conectar mortalidad, producto y capital en un solo flujo. SIMA lo integra: \hl{Lee-Carter}, conmutación, \hl{BEL} para tres productos y \hl{RCS} bajo \hl{LISF} con pruebas de estrés. \textit{Python, FastAPI, React, GCP.}
+        \item Valuar reservas de vida exige conectar mortalidad, producto y capital. SIMA reúne esas piezas y permite explorar cómo cambian las reservas y el capital regulatorio bajo distintos supuestos. \textit{GCP.}
     \end{highlights}
 \end{twocolentrynarrow}
 
@@ -311,7 +313,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://cartera-autos-451451662791.us-central1.run.app}{app live}}
     \textbf{Plataforma Integral de Seguros de Autos}
     \begin{highlights}
-        \item Una cartera con datos dispersos genera decisiones lentas e inconsistentes. Unifica tarificación \hl{GLM}, reservas \hl{IBNR} (Chain Ladder + BF), estrés \hl{Monte Carlo} (VaR/TVaR) y detección de fraude sobre 140K pólizas mexicanas. \textit{R Shiny, Plotly, Docker, GCP.}
+        \item Integra tarificación, reservas y escenarios de riesgo en una vista de cartera que permite comparar resultados y revisar sus supuestos. \textit{GCP.}
     \end{highlights}
 \end{twocolentrynarrow}
 
@@ -320,7 +322,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://gmm.gonor.me/contexto}{app live}}
     \textbf{GMM Explorer -- Tarificador de Gastos Médicos}
     \begin{highlights}
-        \item Tarificar GMM sin datos reales es especular. Procesa 5.1M siniestros de la CNSF, los clasifica en tres niveles con IA y calcula prima pura por \hl{frecuencia-severidad} ajustada por inflación médica. \textit{Python, Next.js, Vercel.}
+        \item Usa datos públicos de siniestros para mostrar cómo la edad, la frecuencia y la severidad intervienen en una prima estimada de gastos médicos.
     \end{highlights}
 \end{twocolentrynarrow}
 
@@ -329,7 +331,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://lisf.gonor.me/}{app live}}
     \textbf{Asistente de Regulación Actuarial (RAG)}
     \begin{highlights}
-        \item LISF y CUSF suman 1,000+ artículos interrelacionados que Ctrl+F no resuelve. Agente que indexa ambas leyes con \hl{FTS5/BM25} y grafo de referencias; responde con cita exacta, sin alucinaciones. Código: \texttt{actuaria-claude}. \textit{Claude Agent SDK, FastAPI, GCP.}
+        \item La regulación mexicana exige seguir referencias entre artículos. Este asistente consulta la LISF y la CUSF y muestra las fuentes de sus respuestas para que puedan verificarse. \textit{GCP.}
     \end{highlights}
 \end{twocolentrynarrow}
 
@@ -338,7 +340,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://gonor.me/blog/data-engineering-platform/}{blog}}
     \textbf{Plataforma de Datos en GCP para Seguros}
     \begin{highlights}
-        \item Un siniestro viaja lejos entre el evento y el modelo que lo tarifica. Pipeline end-to-end: \hl{Pub/Sub}+Beam, warehouse \hl{BigQuery}, \hl{Dagster}, Terraform y modelo \hl{GLM Tweedie}. \textit{Python, GCP, Docker.}
+        \item Cuando los siniestros llegan de distintas fuentes, hay que ordenar y verificar sus datos. La plataforma conecta la captura con el análisis actuarial y permite rastrear cada resultado. \textit{GCP.}
     \end{highlights}
 \end{twocolentrynarrow}
 
@@ -347,7 +349,7 @@ Soy actuario de la UNAM con \textbf{SOA Exam Probability aprobado}, analista de 
 \begin{twocolentrynarrow}{\href{https://gonor.me/blog/credit-graph-topological-risk/}{blog}}
     \textbf{CreditGraph -- Riesgo Crediticio Topológico}
     \begin{highlights}
-        \item SQL trata cada préstamo como evento independiente; garantías circulares crean exposición invisible al SQL. \hl{Neo4j}, \hl{PySpark} en Databricks, \hl{LightGBM}+Platt. \textit{Python, Cypher, Databricks.}
+        \item Representa relaciones entre créditos y garantías para encontrar concentraciones de riesgo que pueden pasar inadvertidas al estudiar cada operación por separado.
     \end{highlights}
 \end{twocolentrynarrow}
 \endgroup

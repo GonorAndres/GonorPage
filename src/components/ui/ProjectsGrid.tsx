@@ -88,6 +88,7 @@ const categoryAccent: Record<ProjectCategory, string> = {
   'data-engineering': '#5B7B9A', // steel blue
   'quant-finance':'#D4A574', // amber
   'applied-math': '#1B2A4A', // navy
+  'performance-marketing': '#426B5C', // pine
 };
 
 const categoryBadge: Record<ProjectCategory, string> = {
@@ -96,6 +97,7 @@ const categoryBadge: Record<ProjectCategory, string> = {
   'data-engineering': 'bg-[#5B7B9A]/15 text-[#5B7B9A]',
   'quant-finance':'bg-[#D4A574]/25 text-[#8a5e1a]',
   'applied-math': 'bg-[#1B2A4A]/10 text-[#1B2A4A]',
+  'performance-marketing': 'bg-[#426B5C]/15 text-[#426B5C]',
 };
 
 const placeholderGradients: Record<ProjectCategory, string> = {
@@ -104,6 +106,7 @@ const placeholderGradients: Record<ProjectCategory, string> = {
   'data-engineering': 'from-[#5B7B9A]/15 via-[#5B7B9A]/8 to-transparent',
   'quant-finance':'from-[#D4A574]/20 via-[#D4A574]/8 to-transparent',
   'applied-math': 'from-[#1B2A4A]/12 via-[#1B2A4A]/6 to-transparent',
+  'performance-marketing': 'from-[#426B5C]/15 via-[#426B5C]/8 to-transparent',
 };
 
 const categoryIconPaths: Record<ProjectCategory, string> = {
@@ -112,6 +115,7 @@ const categoryIconPaths: Record<ProjectCategory, string> = {
   'data-engineering': 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
   'quant-finance':'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
   'applied-math': 'M4.871 4A17.926 17.926 0 003 12c0 2.874.673 5.59 1.871 8m14.13 0A17.926 17.926 0 0021 12a17.926 17.926 0 00-1.871-8M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+  'performance-marketing': 'M3 12h3l3-7 4 14 3-7h5M4 20h16',
 };
 
 // --- Gallery Modal ---
@@ -666,7 +670,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
 type SortMode = 'tier' | 'newest' | 'oldest' | 'updated';
 type FilterCat = ProjectCategory | 'all';
 
-const CATEGORY_ORDER: ProjectCategory[] = ['actuarial', 'data-science', 'data-engineering', 'quant-finance', 'applied-math'];
+const CATEGORY_ORDER: ProjectCategory[] = ['actuarial', 'data-science', 'data-engineering', 'quant-finance', 'applied-math', 'performance-marketing'];
 
 export default function ProjectsGrid({ projects, labels }: Props) {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');

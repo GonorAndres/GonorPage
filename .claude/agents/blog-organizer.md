@@ -69,7 +69,7 @@ Do NOT use Tailwind classes in markdown -- they get purged. Use inline `style=""
 
 - Link between related blog posts where the connection is genuine
 - Reference portfolio projects by name when relevant (GMM Explorer, credit risk model, A/B testing framework, etc.)
-- Maintain the CLAUDE.md connection map -- when adding a new post, check if it creates new cross-project links worth documenting
+- Maintain the AGENTS.md connection map -- when adding a new post, check if it creates new cross-project links worth documenting
 
 ## Critical i18n Rule
 
@@ -78,7 +78,7 @@ Blog post filenames MUST use the **English slug** in BOTH `es/` and `en/` direct
 - Correct: `es/welcome.md` + `en/welcome.md`
 - Wrong: `es/bienvenida.md` + `en/welcome.md`
 
-## Content Tone (from CLAUDE.md)
+## Content Tone (from AGENTS.md)
 
 - NEVER use assignment framing ("the objective was...", "the professor asked...")
 - ALWAYS lead with the problem and why it matters in the real world

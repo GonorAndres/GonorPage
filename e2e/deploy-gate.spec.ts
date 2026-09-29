@@ -29,7 +29,7 @@ test.describe('Deploy Gate -- blocks deploy if any fail', () => {
       'Plataforma de Datos en GCP para Seguros',
       'Risk Analyst: Análisis Cuantitativo de Riesgos',
       'La Máquina de Atención de Proust',
-      'GMM Explorer: Gastos Médicos Mayores',
+      'Motion Commerce Lab: del anuncio a la compra',
     ]);
   });
 

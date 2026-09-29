@@ -12,8 +12,8 @@ export const skillGroups: SkillGroup[] = [
       en: 'Languages & Tools',
     },
     skills: {
-      es: ['Python', 'TypeScript', 'R', 'SQL', 'Bash', 'Excel Avanzado', 'Git', 'LaTeX'],
-      en: ['Python', 'TypeScript', 'R', 'SQL', 'Bash', 'Advanced Excel', 'Git', 'LaTeX'],
+      es: ['Python', 'TypeScript', 'R', 'SQL', 'Bash', 'Excel', 'Git', 'LaTeX'],
+      en: ['Python', 'TypeScript', 'R', 'SQL', 'Bash', 'Excel', 'Git', 'LaTeX'],
     },
   },
   {
@@ -22,8 +22,18 @@ export const skillGroups: SkillGroup[] = [
       en: 'Cloud & DevOps',
     },
     skills: {
-      es: ['GCP Cloud Run', 'Cloud SQL', 'BigQuery', 'Docker', 'GitHub Actions', 'Secret Manager', 'PostgreSQL'],
-      en: ['GCP Cloud Run', 'Cloud SQL', 'BigQuery', 'Docker', 'GitHub Actions', 'Secret Manager', 'PostgreSQL'],
+      es: ['GCP', 'BigQuery', 'Dataform', 'Docker', 'GitHub Actions', 'Secret Manager', 'PostgreSQL'],
+      en: ['GCP', 'BigQuery', 'Dataform', 'Docker', 'GitHub Actions', 'Secret Manager', 'PostgreSQL'],
+    },
+  },
+  {
+    title: {
+      es: 'Medición y análisis',
+      en: 'Measurement & Analytics',
+    },
+    skills: {
+      es: ['GA4', 'GTM', 'Atribución', 'Calidad de datos', 'Análisis de embudos', 'CRO'],
+      en: ['GA4', 'GTM', 'Attribution', 'Data quality', 'Funnel analysis', 'CRO'],
     },
   },
   {
@@ -52,8 +62,8 @@ export const skillGroups: SkillGroup[] = [
       en: 'Web Development & AI',
     },
     skills: {
-      es: ['FastAPI', 'React', 'Astro', 'Tailwind CSS', 'Claude Code', 'Anthropic API', 'Plotly'],
-      en: ['FastAPI', 'React', 'Astro', 'Tailwind CSS', 'Claude Code', 'Anthropic API', 'Plotly'],
+      es: ['FastAPI', 'React', 'Astro', 'Tailwind CSS', 'LLM', 'Claude Code', 'Plotly'],
+      en: ['FastAPI', 'React', 'Astro', 'Tailwind CSS', 'LLM', 'Claude Code', 'Plotly'],
     },
   },
   {

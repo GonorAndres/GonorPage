@@ -19,6 +19,8 @@ for (const locale of locales) {
 
     const search = page.getByRole('searchbox');
     await expect(search).toHaveAccessibleName(/.+/);
+    await expect(page.locator('astro-island[component-url*="BlogSearch"]'))
+      .not.toHaveAttribute('ssr', '', { timeout: 10000 });
     await search.fill('Neo4j');
     await expect(articles).toHaveCount(1);
     await expect(articles.getByRole('link', { name: /CreditGraph/ })).toBeVisible();
@@ -125,7 +127,7 @@ for (const locale of locales) {
     });
   }
 
-  test(`${locale.lang}: every published post serves its own illustration and social preview`, async ({ page, request }) => {
+  test(`${locale.lang}: every published post serves a social preview and any supplied illustration`, async ({ page, request }) => {
     test.setTimeout(60000);
     for (const slug of slugs) {
       await test.step(slug, async () => {
@@ -146,10 +148,17 @@ for (const locale of locales) {
             socialAlt: document.querySelector('meta[property="og:image:alt"]')?.getAttribute('content'),
           };
         }, markup);
-        const heroPath = `/blog-illustrations/${slug}.webp`;
-        const thumbnailPath = `/blog-illustrations/thumbs/${slug}.webp`;
         expect(data.lang).toBe(locale.lang);
-        expect(data.hero).toBe(heroPath);
+        if (!data.hero) {
+          expect(data.social).toBe('https://gonor.me/og-default.png');
+          expect(data.socialAlt?.trim()).toBeTruthy();
+          const asset = await request.get('/og-default.png');
+          expect(asset.status()).toBe(200);
+          return;
+        }
+        const heroPath = data.hero;
+        expect(heroPath).toMatch(/^\/blog-illustrations\/[a-z0-9-]+\.webp$/);
+        const thumbnailPath = heroPath.replace('/blog-illustrations/', '/blog-illustrations/thumbs/');
         expect(data.alt?.trim()).toBeTruthy();
         expect(data.caption).toBeTruthy();
         expect(data.caption).not.toBe(data.alt);

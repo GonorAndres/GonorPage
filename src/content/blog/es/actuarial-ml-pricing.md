@@ -12,9 +12,8 @@ ficha:
   datos: "freMTPL2 (678,013 pólizas reales, asegurador francés)"
   regulacion: "LISF (nota técnica de suficiencia)"
   estado: "Finalizado"
-  repositorio: "https://github.com/GonorAndres/insurance-pricing-ml"
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frecuencia-severidad", "Optuna", "MLflow", "fairness"]
-lastModified: "2026-09-12"
+lastModified: "2026-09-13"
 heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
 heroAlt: "Los mismos datos de pólizas recorren un modelo lineal y otro de árboles para comparar predicciones y contribuciones de variables."
 heroCaption: "Comparar modelos de tarificación exige considerar tanto la capacidad predictiva como la explicación de cada resultado."
@@ -90,7 +89,7 @@ Lo que México carece es una base de datos centralizada y anonimizada de siniest
 
 En el lado de modelado, CatBoost y Explainable Boosting Machines (EBMs) extenderían la comparación. Un GLM Tweedie que modele la prima pura directamente (omitiendo la descomposición frecuencia-severidad) es la extensión natural del baseline. Intervalos de confianza bootstrap sobre Gini y deviance convertirían estimaciones puntuales en rangos que reflejan incertidumbre honesta.
 
-Todo lo anterior, incluyendo el código de afinación, las pruebas para las métricas de evaluación y un pequeño endpoint FastAPI que sirve la predicción del modelo ganador, está en el [repositorio del proyecto](https://github.com/GonorAndres/insurance-pricing-ml), junto con la tabla completa de resultados y cada gráfica referenciada aquí.
+La comparación ahora tiene un acompañamiento público: el [Laboratorio de Tarificación](https://ml-insurance.gonor.me) permite armar una póliza hipotética y comparar directamente las estimaciones de frecuencia del GLM y de XGBoost. Sirve modelos congelados de este análisis; no reentrena modelos ni presenta el resultado como una cotización de producción. El código de investigación y el experimento completo permanecen privados mientras se preparan para su publicación.
 
 ## Fundamento académico
 

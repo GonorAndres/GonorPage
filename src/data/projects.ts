@@ -1,12 +1,13 @@
 import type { Lang } from '../i18n';
 
-export type ProjectCategory = 'actuarial' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math';
+export type ProjectCategory = 'actuarial' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math' | 'performance-marketing';
 
 export interface Project {
   slug: string;
   title: Record<Lang, string>;
   description: Record<Lang, string>;
   url: string;           // primary link: live app, Drive folder, Colab, or GitHub if no live version
+  localizedUrl?: Partial<Record<Lang, string>>; // optional live URL for a specific portfolio language
   urls?: Array<{ label: Record<Lang, string>; url: string }>; // optional: when present, "Ver en vivo" opens a dropdown with multiple live URLs
   repo?: string;         // GitHub repo URL — only set when url points to a live deployment
   platform: 'GitHub' | 'Drive' | 'Vercel' | 'Colab' | 'GCP' | 'HuggingFace' | 'Firebase' | 'Cloudflare';
@@ -25,6 +26,35 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // live: https://code-video.gonor.me
+  // source: original portfolio; editable scenes, rendering workflow, and independent product concepts
+  {
+    slug: 'motion-commerce-lab',
+    title: {
+      es: 'Motion Commerce Lab: del anuncio a la compra',
+      en: 'Motion Commerce Lab: from ad to purchase',
+    },
+    description: {
+      es: 'Un anuncio presenta un producto; la página de compra ayuda a decidir. Este laboratorio reúne seis videos cortos y una propuesta interactiva para mejorar esa página. Explora las piezas y compara la propuesta con su punto de partida.',
+      en: 'An ad introduces a product; the purchase page helps people decide. This lab brings together six short films and an interactive proposal for improving that page. Explore the films and compare the proposal with its starting point.',
+    },
+    url: 'https://code-video.gonor.me',
+    localizedUrl: { es: 'https://code-video.gonor.me/index.es' },
+    platform: 'Cloudflare',
+    category: 'performance-marketing',
+    tags: {
+      es: ['Marketing de performance', 'Video programable', 'CRO', 'Playwright', 'FFmpeg'],
+      en: ['Performance marketing', 'Programmatic video', 'CRO', 'Playwright', 'FFmpeg'],
+    },
+    variant: 'wide',
+    screenshot: '/screenshots/motion-commerce-lab.jpg',
+    blogSlug: 'motion-commerce-lab',
+    tier: 1,
+    featuredRank: 6,
+    creation_date: '2026-09-29',
+    last_modification_date: '2026-09-29',
+  },
+
   // repo: https://github.com/GonorAndres/SIMA
   // live: https://sima.gonor.me
   // local: /home/andtega349/SIMA
@@ -665,7 +695,7 @@ export const projects: Project[] = [
     last_modification_date: '2025-08-09',
   },
 
-  // repo: https://github.com/GonorAndres/insurance-pricing-ml
+  // repo: https://github.com/GonorAndres/insurance-pricing-ml (private as of 2026-09-13; do not expose a public repo link)
   // source: freMTPL2 (public benchmark dataset, French motor insurer, via sklearn.fetch_openml)
   {
     slug: 'insurance-pricing-ml',
@@ -674,11 +704,10 @@ export const projects: Project[] = [
       en: 'Insurance Pricing with ML',
     },
     description: {
-      es: 'El modelo actuarial clásico ofrece interpretabilidad; el aprendizaje automático ofrece capacidad predictiva. La pregunta es cuándo la ganancia en precisión justifica la complejidad adicional. Este proyecto compara ambos enfoques sobre 678 mil pólizas reales de un asegurador francés, mide cuánto mejora la predicción de siniestros y audita si esa mejora viene acompañada de un sesgo geográfico injustificado. Análisis completo, código reproducible y una API de predicción documentados en el blog.',
-      en: 'The classic actuarial model offers interpretability; machine learning offers predictive power. The question is when the gain in accuracy justifies the added complexity. This project compares both approaches on 678,000 real policies from a French insurer, measures how much claim prediction actually improves, and audits whether that improvement comes with an unwarranted geographic bias. Full analysis, reproducible code, and a prediction API documented in the blog post.',
+      es: 'El modelo actuarial clásico ofrece interpretabilidad; el aprendizaje automático puede ordenar mejor el riesgo. Este análisis compara ambos enfoques sobre 678 mil pólizas reales de un asegurador francés, mide cuánto mejora la predicción de siniestros y audita si esa mejora viene acompañada de un sesgo geográfico injustificado. Sus hallazgos se pueden explorar en el laboratorio interactivo.',
+      en: 'The classic actuarial model offers interpretability; machine learning can rank risk more accurately. This analysis compares both approaches on 678,000 real policies from a French insurer, measures how much claim prediction improves, and audits whether that improvement brings unwarranted geographic bias. Its findings can be explored in the interactive lab.',
     },
     url: '/blog/actuarial-ml-pricing/',
-    repo: 'https://github.com/GonorAndres/insurance-pricing-ml',
     platform: 'GitHub',
     category: 'data-science',
     tags: {
@@ -686,11 +715,42 @@ export const projects: Project[] = [
       en: ['Python', 'GLM', 'XGBoost', 'SHAP', 'Fairness', 'FastAPI'],
     },
     variant: 'wide',
-    relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk'],
+    relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk', 'insurance-pricing-lab'],
     blogSlug: 'actuarial-ml-pricing',
     tier: 2,
     creation_date: '2026-09-08',
-    last_modification_date: '2026-09-08',
+    last_modification_date: '2026-09-13',
+  },
+
+  // live: https://ml-insurance.gonor.me
+  // repo: https://github.com/GonorAndres/insurance-pricing-lab (private as of 2026-09-13, so no `repo` field: it would 404 for visitors)
+  // local: /home/exedev/repos/insurance-pricing-lab
+  // source: frozen models exported from insurance-pricing-ml; freMTPL2 (public benchmark, French motor insurer)
+  // reference for the blog post: docs/insurance-pricing-lab-reference.md
+  {
+    slug: 'insurance-pricing-lab',
+    title: {
+      es: 'Laboratorio de Tarificación: la fórmula frente al modelo',
+      en: 'Pricing Lab: the formula versus the model',
+    },
+    description: {
+      es: 'Una aseguradora tiene que justificar cada precio que cobra, así que un modelo más preciso solo sirve si además se puede explicar. Este laboratorio compara la fórmula de tarificación que la industria usa desde hace décadas contra un modelo de aprendizaje automático sobre 678 mil pólizas reales, y muestra dónde coinciden, dónde no y qué factor movió cada predicción. El visitante arma una póliza hipotética y ve en vivo la frecuencia de siniestros que estima cada enfoque.',
+      en: 'An insurer has to defend every price it charges, so a more accurate model is only useful if it can also be explained. This lab compares the pricing formula the industry has used for decades against a machine-learning model over 678,000 real policies, showing where they agree, where they part ways, and which factor moved each prediction. Visitors build a hypothetical policy and watch both approaches estimate its claim frequency live.',
+    },
+    url: 'https://ml-insurance.gonor.me',
+    platform: 'Cloudflare',
+    category: 'data-science',
+    tags: {
+      es: ['GLM', 'XGBoost', 'SHAP', 'FastAPI', 'Cloud Run', 'Cloudflare'],
+      en: ['GLM', 'XGBoost', 'SHAP', 'FastAPI', 'Cloud Run', 'Cloudflare'],
+    },
+    variant: 'standard',
+    relatedTo: ['insurance-pricing-ml', 'sima', 'gmm-explorer'],
+    blogSlug: 'insurance-pricing-lab',
+    tier: 2,
+    status: 'completed',
+    creation_date: '2026-09-12',
+    last_modification_date: '2026-09-13',
   },
 
   // repo: https://github.com/GonorAndres/b-trees
@@ -935,6 +995,45 @@ export const projects: Project[] = [
     creation_date: '2026-05-01',
     last_modification_date: '2026-08-09',
   },
+
+  // repo: https://github.com/GonorAndres/principio-equivalencia-video
+  // live: https://youtu.be/tHidN68enIg
+  // local: /home/exedev/projects/principio-equivalencia-video
+  {
+    slug: 'equivalence-principle-video',
+    title: {
+      es: 'El principio de equivalencia en video',
+      en: 'The Equivalence Principle on Video',
+    },
+    description: {
+      es: 'Un video explicativo de dos minutos sobre el principio de equivalencia actuarial, hecho en una sesión de unas dos horas y media sin grabar audio ni usar un editor de video. Un agente de código escribió la animación en Remotion a partir de descripciones en lenguaje cotidiano, y ElevenLabs generó la narración a partir del guion. El repositorio incluye el código, el guion, los audios y la versión del audio que se corrigió.',
+      en: 'A two-minute explainer on the actuarial equivalence principle, made in a session of about two and a half hours without recording audio or using a video editor. A coding agent wrote the Remotion animation from plain-language descriptions, and ElevenLabs generated the narration from the script. The repository includes the code, the script, the audio and the original audio clip before the correction.',
+    },
+    url: 'https://youtu.be/tHidN68enIg',
+    repo: 'https://github.com/GonorAndres/principio-equivalencia-video',
+    platform: 'GitHub',
+    category: 'actuarial',
+    tags: {
+      es: ['Agente de código', 'Remotion', 'ElevenLabs', 'Texto a voz', 'Divulgación', 'Principio de equivalencia', 'Valor presente'],
+      en: ['Coding agent', 'Remotion', 'ElevenLabs', 'Text to speech', 'Science communication', 'Equivalence principle', 'Present value'],
+    },
+    variant: 'standard',
+    screenshot: '/screenshots/equivalencia-04-balanza.png',
+    gallery: [
+      { src: '/screenshots/equivalencia-01-v1-ecuacion.png', caption: { es: 'Primera versión: la fórmula en pantalla antes de que hubiera una razón para que importara', en: 'First version: the formula on screen before there was any reason for it to matter' } },
+      { src: '/screenshots/equivalencia-02-v1-ejemplo.png', caption: { es: 'Primera versión: ejemplo numérico, correcto y mudo', en: 'First version: a numerical example, correct and silent' } },
+      { src: '/screenshots/equivalencia-03-mutualidad.png', caption: { es: 'Versión final, guion primero: la mutualidad antes que cualquier cálculo', en: 'Final version, script first: mutuality before any calculation' } },
+      { src: '/screenshots/equivalencia-04-balanza.png', caption: { es: 'La balanza reemplaza a la ecuación y se mueve al ritmo de la voz', en: 'A scale replaces the equation and moves with the narration' } },
+      { src: '/screenshots/equivalencia-05-tiempo.png', caption: { es: 'Tiempo: mil pesos dentro de diez años valen menos hoy', en: 'Time: a thousand pesos in ten years is worth less today' } },
+      { src: '/screenshots/equivalencia-06-riesgo.png', caption: { es: 'Misma cobertura, distinto riesgo, distinta prima', en: 'Same coverage, different risk, different premium' } },
+      { src: '/screenshots/equivalencia-07-cierre.png', caption: { es: 'Cierre: no se trata de controlar el futuro', en: 'Close: it is not about controlling the future' } },
+    ],
+    blogSlug: 'equivalence-principle-video',
+    relatedTo: ['gmm-explorer', 'sima'],
+    tier: 1,
+    creation_date: '2026-09-22',
+    last_modification_date: '2026-09-28',
+  },
 ];
 
 export function getProjects(lang: Lang) {
@@ -942,7 +1041,7 @@ export function getProjects(lang: Lang) {
     slug: p.slug,
     title: p.title[lang],
     description: p.description[lang],
-    url: p.url.startsWith('/') && lang === 'en' ? `/en${p.url}` : p.url,
+    url: p.localizedUrl?.[lang] ?? (p.url.startsWith('/') && lang === 'en' ? `/en${p.url}` : p.url),
     urls: p.urls?.map(u => ({ label: u.label[lang], url: u.url })),
     repo: p.repo,
     platform: p.platform,
