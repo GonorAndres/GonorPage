@@ -1,12 +1,13 @@
 import type { Lang } from '../i18n';
 
-export type ProjectCategory = 'actuarial' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math';
+export type ProjectCategory = 'actuarial' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math' | 'performance-marketing';
 
 export interface Project {
   slug: string;
   title: Record<Lang, string>;
   description: Record<Lang, string>;
   url: string;           // primary link: live app, Drive folder, Colab, or GitHub if no live version
+  localizedUrl?: Partial<Record<Lang, string>>; // optional live URL for a specific portfolio language
   urls?: Array<{ label: Record<Lang, string>; url: string }>; // optional: when present, "Ver en vivo" opens a dropdown with multiple live URLs
   repo?: string;         // GitHub repo URL — only set when url points to a live deployment
   platform: 'GitHub' | 'Drive' | 'Vercel' | 'Colab' | 'GCP' | 'HuggingFace' | 'Firebase' | 'Cloudflare';
@@ -25,6 +26,35 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // live: https://code-video.gonor.me
+  // source: original portfolio; editable scenes, rendering workflow, and independent product concepts
+  {
+    slug: 'motion-commerce-lab',
+    title: {
+      es: 'Motion Commerce Lab: del anuncio a la compra',
+      en: 'Motion Commerce Lab: from ad to purchase',
+    },
+    description: {
+      es: 'Un anuncio presenta un producto; la página de compra ayuda a decidir. Este laboratorio reúne seis videos cortos y una propuesta interactiva para mejorar esa página. Explora las piezas y compara la propuesta con su punto de partida.',
+      en: 'An ad introduces a product; the purchase page helps people decide. This lab brings together six short films and an interactive proposal for improving that page. Explore the films and compare the proposal with its starting point.',
+    },
+    url: 'https://code-video.gonor.me',
+    localizedUrl: { es: 'https://code-video.gonor.me/index.es' },
+    platform: 'Cloudflare',
+    category: 'performance-marketing',
+    tags: {
+      es: ['Marketing de performance', 'Video programable', 'CRO', 'Playwright', 'FFmpeg'],
+      en: ['Performance marketing', 'Programmatic video', 'CRO', 'Playwright', 'FFmpeg'],
+    },
+    variant: 'wide',
+    screenshot: '/screenshots/motion-commerce-lab.jpg',
+    blogSlug: 'motion-commerce-lab',
+    tier: 1,
+    featuredRank: 6,
+    creation_date: '2026-09-29',
+    last_modification_date: '2026-09-29',
+  },
+
   // repo: https://github.com/GonorAndres/SIMA
   // live: https://sima.gonor.me
   // local: /home/andtega349/SIMA
@@ -972,7 +1002,7 @@ export function getProjects(lang: Lang) {
     slug: p.slug,
     title: p.title[lang],
     description: p.description[lang],
-    url: p.url.startsWith('/') && lang === 'en' ? `/en${p.url}` : p.url,
+    url: p.localizedUrl?.[lang] ?? (p.url.startsWith('/') && lang === 'en' ? `/en${p.url}` : p.url),
     urls: p.urls?.map(u => ({ label: u.label[lang], url: u.url })),
     repo: p.repo,
     platform: p.platform,

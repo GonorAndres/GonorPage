@@ -43,6 +43,7 @@ export default {
   'projects.quant-finance': 'Finanzas Cuantitativas',
   'projects.data-engineering': 'Ingeniería de Datos',
   'projects.applied-math': 'Matemáticas Aplicadas',
+  'projects.performance-marketing': 'Marketing de performance',
   'projects.inDevelopment': 'En desarrollo',
   'projects.seeAlso': 'Ver también:',
   'projects.showAll': 'Ver todos los proyectos',
