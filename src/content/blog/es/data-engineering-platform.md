@@ -1,6 +1,6 @@
 ---
-title: "Plataforma de Datos para Siniestros de Seguros sobre GCP"
-description: "Las áreas técnicas de las aseguradoras generan datos valiosos que quedan atrapados en hojas de cálculo y procesos manuales que no escalan. Esta plataforma construye el pipeline completo sobre GCP, desde la ingesta de siniestros en streaming hasta el pricing con GLM Tweedie, con Dataform y BigQuery como columna vertebral. El resultado es un flujo automatizado, testeado y reproducible que transforma datos crudos en insumos listos para el regulador."
+title: "Pipeline de datos de siniestros en GCP: BigQuery, Dataform y Terraform"
+description: "Una plataforma de datos de siniestros sobre GCP encadena ingesta en streaming, un warehouse en BigQuery, transformaciones en Dataform, Terraform y pricing con GLM Tweedie en seis proyectos conectados. Saca a las áreas técnicas de las hojas de cálculo y los procesos manuales con un flujo automatizado, probado y reproducible que convierte siniestros crudos en insumos listos para el regulador."
 date: "2026-03-18"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
   live: "https://data-engineer.gonor.me"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/data-engineering-platform.webp"
 heroAlt: "Registros de siniestros pasan por validación y tablas estructuradas; una excepción se desvía a revisión antes del análisis."
 heroCaption: "Validar y transformar los datos antes del análisis permite seguir el origen de cada resultado y revisar las excepciones."

@@ -1,12 +1,12 @@
 ---
-title: "Por Qué Funciona el Seguro: El Teorema Central del Límite y la Magia de Agregar Riesgos"
-description: "Guía de estudio para el tercer tema del Examen P: variables multivariadas, la Ley de Eve y el TCL. Los conceptos que explican por qué el seguro funciona como negocio."
+title: "Teorema Central del Límite en seguros: por qué funciona agrupar riesgos (Examen P)"
+description: "El Teorema Central del Límite (TCL) es la justificación matemática de que el seguro funcione como negocio: al agregar muchos riesgos, el total se comporta de forma predecible. Esta guía del Examen P de la SOA cubre también variables aleatorias multivariadas, covarianza y dependencia, y la Ley de Eve para descomponer variabilidad."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["TCL", "examen-P", "SOA", "agregacion", "riesgo"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-multivariate-clt.webp"
 heroAlt: "Una cartera pequeña se compara con otra mayor; la distribución de pérdida media es más estrecha en la segunda."
 heroCaption: "Con riesgos independientes y varianza finita, una cartera mayor reduce la variabilidad de la pérdida media por póliza."

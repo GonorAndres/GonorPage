@@ -1,12 +1,12 @@
 ---
-title: "Random Variables in Insurance: Deductibles, Limits, and the Math of Paying Claims"
-description: "Study guide for the heaviest topic on Exam P: random variables, distributions, and payment modifications. The topic where mechanical errors hurt more than conceptual ones."
+title: "SOA Exam P Random Variables: Deductibles, Policy Limits and Payment Math"
+description: "The univariate random variables section, about 45% of SOA Exam P, tests distributions, expected values and payment modifications such as deductibles and limits, and mechanical errors cost more than conceptual ones. This study guide shows how the pieces connect and why they matter in insurance."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["random-variables", "exam-P", "SOA", "insurance", "distributions"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-random-variables-insurance.webp"
 heroAlt: "The payment curve stays at zero, rises after the deductible, and flattens at the coverage limit."
 heroCaption: "The deductible, coinsurance, and limit transform the loss amount into the insurer’s payment."

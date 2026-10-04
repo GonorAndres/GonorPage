@@ -1,7 +1,8 @@
 ---
-title: "Cómo hice un video explicativo con un agente de código y voz sintética"
-description: "El principio de equivalencia explica cómo se calcula lo que cada persona paga por un seguro, y suele enseñarse con fórmulas. Este video de dos minutos lo explica con imágenes y una narración, y se hizo sin grabar audio ni usar un editor de video: la animación está escrita en código con Remotion, la voz se generó con ElevenLabs a partir del guion y un agente de código escribió la mayor parte del programa. El flujo permite producir material visual de divulgación en pocas horas y corregirlo con facilidad."
+title: "Principio de equivalencia: cómo se calcula la prima de un seguro (video)"
+description: "El principio de equivalencia fija la prima de modo que lo que la aseguradora espera cobrar iguale lo que espera pagar en siniestros. Este video de dos minutos lo explica con imágenes y narración, y lo hice con un agente de código: animación con Remotion y voz sintética de ElevenLabs, sin grabar audio."
 date: "2026-09-28"
+lastModified: "2026-10-03"
 category: "actuaria-para-todos"
 lang: "es"
 shape: "case-study"

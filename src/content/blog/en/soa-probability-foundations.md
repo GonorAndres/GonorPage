@@ -1,12 +1,12 @@
 ---
-title: "Actuarial Probability Foundations: What Exam P Reveals About Thinking in Risk"
-description: "Study guide for the first section of the SOA Exam P: axioms, conditional probability, and Bayes. Not formulas to memorize, but the mental toolkit an actuary uses to classify risk and decide under uncertainty."
+title: "SOA Exam P Probability Study Guide: Axioms, Conditional Probability, Bayes"
+description: "The first section of Exam P covers probability axioms, conditional probability and Bayes, the toolkit an actuary uses to classify risk and decide under uncertainty. This study guide explains why the SOA puts them first and how they connect to real actuarial work."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["probability", "exam-P", "SOA", "Bayes", "risk"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-probability-foundations.webp"
 heroAlt: "A highlighted subset of cases is enlarged; its colors stay the same while the reference population changes."
 heroCaption: "Conditioning a probability uses observed information to define the comparison group."

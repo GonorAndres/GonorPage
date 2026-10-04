@@ -1,7 +1,8 @@
 ---
-title: "A dashboard should say how far its knowledge reaches"
-description: "Sales, advertising and web analytics rarely refresh at the same time. A fictional day shows how a shared cutoff prevents misleading comparisons. A dashboard can support decisions only when it states which hours are complete."
+title: "Dashboard Data Freshness: Why Sources Need a Common Cutoff Time"
+description: "A dashboard that compares sources refreshing at different times should show a common cutoff, the last hour all of them have complete. A fictional day, with ads complete through 3 p.m., sales through 1 p.m. and web traffic through 2 p.m., shows how a return metric otherwise mixes three clocks."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "herramientas"
 lang: "en"
 shape: "case-study"

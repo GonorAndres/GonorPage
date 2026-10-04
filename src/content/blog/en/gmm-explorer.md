@@ -1,6 +1,6 @@
 ---
-title: "GMM Explorer: Three Hospitalization Levels to Price What the Industry Treats as a Single Risk"
-description: "How classifying 5.1M Major Medical Expenses claims into three hospitalization levels changes the way you price a risk the industry treats as one. A UNAM team project that became a complete pricing system."
+title: "Mexico Major Medical (GMM) Pricing by Hospitalization Level (5.1M Claims)"
+description: "Major medical expenses (GMM) can be priced by splitting 5.1M CNSF claims into three hospitalization levels instead of one average cost. 9,409 diagnoses are classified into those levels, with frequencies and severities by age and sex and an interactive tariff calculator. It began as a UNAM team project."
 date: "2026-03-21"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/gmm-explorer"
   live: "https://gmm.gonor.me/contexto"
 tags: ["GMM", "pricing", "CNSF", "hospitalization", "Claude AI", "frequency-severity", "credibility", "LISF", "Next.js", "Python"]
-lastModified: "2026-09-28"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/gmm-explorer.webp"
 heroAlt: "Medical claims separate into three care categories, each with frequency and cost measures."
 heroCaption: "Separating care categories lets frequency and severity be estimated for each group instead of hidden in one average."

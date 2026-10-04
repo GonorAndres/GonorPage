@@ -1,6 +1,6 @@
 ---
 title: "IMSS Pension Simulator: Ley 73, Ley 97, and Fondo Bienestar in One Tool"
-description: "Most Mexican workers do not know which pension regime they contribute under or what they will actually receive at retirement, and official sources do not simplify the comparison between Ley 73, Ley 97, and Fondo Bienestar. This simulator implements all three formulas with current data (UMA, CONSAR tables, EMSSA 2009 mortality) and lets users explore scenarios with interactive sensitivity analysis. The result is an educational estimate that shows what you control and what you do not."
+description: "The IMSS Pension Simulator compares what a worker would receive under Ley 73, Ley 97 (AFORE) and Fondo Bienestar, implementing all three formulas with current data (UMA, CONSAR tables, EMSSA 2009 mortality). Most Mexican workers do not know their regime or expected pension; interactive sensitivity analysis gives an educational estimate that shows what they control and what they do not."
 date: "2026-03-16"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/seguridad-social/tree/main/fondo_bienestar"
   live: "https://simulador-pension-d3qj5vwxtq-uc.a.run.app/"
 tags: ["R", "Shiny", "IMSS", "AFORE", "Pensions", "Ley 73", "Ley 97", "Fondo Bienestar", "social security", "CONSAR"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/pension-simulator.webp"
 heroAlt: "Two routes convert a work history into pension payments; the individual-savings route includes a conditional supplement."
 heroCaption: "The pension regime determines the calculation; on the individual-savings route, a supplement depends on eligibility."

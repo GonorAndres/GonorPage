@@ -1,7 +1,8 @@
 ---
-title: "When data sources tell different stories"
-description: "An ad platform can claim more conversions than a business records. A fictional example keeps the two counts separate and examines why they differ. Reconciliation shows which number answers which question without inventing a single truth."
+title: "Why Ad Platform Conversions Don't Match Sales Data (and How to Reconcile)"
+description: "Ad platform and sales counts differ because each observes a different moment, unit and attribution window, so neither is necessarily broken. A fictional example with 20 attributed conversions against 15 confirmed orders reconciles them and shows which number answers which question."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"

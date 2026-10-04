@@ -1,7 +1,8 @@
 ---
-title: "From click to outcome: verify the journey before optimizing"
-description: "A campaign can generate clicks without showing what happened next. A fictional journey from ad to CRM illustrates how to verify events, parameters and outcomes. Only then can a funnel support a responsible improvement decision."
+title: "How to Verify Ad-to-CRM Conversion Tracking Before Optimizing a Funnel"
+description: "Verify each step of the journey, from ad click to page, form submission and CRM record, before reading a funnel decline as a user-experience problem. A fictional ad-to-CRM example shows which events, parameters and outcomes to check so an improvement decision rests on evidence."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"

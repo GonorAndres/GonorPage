@@ -202,6 +202,12 @@ const metaDescription = description.length <= 160
           {title}
         </h1>
 
+        <section class="lede max-w-[68ch] mb-4 p-5 md:p-6 border border-[#C17654]/45 rounded-md bg-[#C17654]/5" aria-label={lang === 'es' ? 'Resumen' : 'Summary'}>
+          <p class="font-serif text-lg md:text-[19px] leading-[1.6] text-[#1B2A4A]/85 text-left">
+            {description}
+          </p>
+        </section>
+
         <div class="byline text-xs leading-relaxed text-[#1B2A4A]/75 flex flex-wrap items-center gap-x-4 gap-y-1 pb-5">
           <span>
             {L.by}{' '}
@@ -247,12 +253,6 @@ const metaDescription = description.length <= 160
           )}
         </figure>
       )}
-
-      <section class="lede max-w-[68ch] mb-8 p-5 md:p-6 border border-[#C17654]/45 rounded-md bg-[#C17654]/5" aria-label={lang === 'es' ? 'Resumen' : 'Summary'}>
-        <p class="font-serif text-lg md:text-[19px] leading-[1.6] text-[#1B2A4A]/85 text-left">
-          {description}
-        </p>
-      </section>
 
       <div class="pd-body grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_220px] gap-x-12 gap-y-10 mt-10 items-start">
         <div

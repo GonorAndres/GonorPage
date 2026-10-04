@@ -1,7 +1,8 @@
 ---
 title: "From ad to purchase: how I built Motion Commerce Lab"
-description: "The story behind six product ads, a proposed purchase page, and a tool for turning marketing ideas into work people can see, review, and improve."
+description: "Motion Commerce Lab turns marketing ideas into work people can open, review and change: six product ads and a proposed purchase page, built so the ad moment and the product-page moment are worked on together. This post tells how it was built."
 date: "2026-09-29"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"

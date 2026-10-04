@@ -1,7 +1,8 @@
 ---
 title: "Del anuncio a la compra: cómo construí Motion Commerce Lab"
-description: "Un recorrido por seis anuncios de producto, una propuesta de página de compra y la herramienta que permite convertir ideas de marketing en piezas que se pueden ver, revisar y mejorar."
+description: "Motion Commerce Lab convierte ideas de marketing en piezas que se pueden abrir, revisar y cambiar: seis anuncios de producto y una propuesta de página de compra, construidos para trabajar juntos el momento del anuncio y el de la página de producto. Este post cuenta cómo se construyó."
 date: "2026-09-29"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"

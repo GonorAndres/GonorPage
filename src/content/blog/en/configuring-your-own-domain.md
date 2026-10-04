@@ -1,6 +1,6 @@
 ---
-title: "Configuring Your Own Domain: How gonor.me Became My Place on the Internet"
-description: "You buy a domain, open the DNS panel, and find an empty table with no hint of what goes where. This is a plain, honest walkthrough of pointing a custom domain at GitHub Pages through Cloudflare, written by someone doing it for only the second time, with every wrong turn left in. By the end, the handful of moving pieces make enough sense to reuse on your own domain."
+title: "How to Point a Custom Domain to GitHub Pages with Cloudflare DNS"
+description: "Pointing a custom domain at GitHub Pages through Cloudflare comes down to a few DNS records, a decision about www, and HTTPS with a real certificate. This walkthrough follows gonor.me from an empty DNS table to a working site, with the wrong turns left in."
 date: "2026-07-12"
 category: "herramientas"
 lang: "en"
@@ -13,7 +13,7 @@ ficha:
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/GonorPage"
   live: "https://gonor.me"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/configuring-your-own-domain.webp"
 heroAlt: "A browser connects through a proxy to the origin server, with a secured HTTPS connection on each leg."
 heroCaption: "With a proxy, HTTPS is negotiated on two legs: browser to edge, then edge to origin."

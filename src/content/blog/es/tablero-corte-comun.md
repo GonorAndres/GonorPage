@@ -1,7 +1,8 @@
 ---
-title: "Un tablero debe decir hasta qué hora sabe"
-description: "Ventas, publicidad y analítica web rara vez se actualizan al mismo tiempo. Un día ficticio muestra cómo un corte común evita comparaciones engañosas. El tablero puede orientar decisiones sólo cuando declara qué horas están completas."
+title: "Tablero con fuentes distintas: por qué usar un corte común de datos"
+description: "Un tablero que compara fuentes con actualizaciones distintas debe mostrar un corte común, la última hora que todas tienen completa. Un día ficticio, con publicidad completa hasta las 15:00, ventas hasta las 13:00 y tráfico web hasta las 14:00, muestra cómo el retorno mezcla tres relojes si no se hace."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "herramientas"
 lang: "es"
 shape: "case-study"

@@ -1,6 +1,6 @@
 ---
-title: "Pricing de Seguros con ML: Lo que México Puede Aprender de la Revolución Actuarial Europea"
-description: "Modelos de frecuencia-severidad sobre freMTPL2: Poisson GLM vs XGBoost vs LightGBM con explicabilidad SHAP, auditorías de fairness y un análisis transfronterizo de lo que las técnicas europeas de pricing con ML significan para el mercado mexicano donde el 70% de los autos no tiene seguro."
+title: "Pricing de seguros de auto con machine learning: GLM vs XGBoost (freMTPL2)"
+description: "El pricing de seguros con ML separa frecuencia y severidad de siniestros y compara un GLM Poisson contra XGBoost y LightGBM sobre 678,013 pólizas de freMTPL2. La explicabilidad SHAP y una auditoría de fairness revisan cada modelo, y un análisis transfronterizo pregunta qué significan estas técnicas europeas para México, donde cerca del 70% de los vehículos no tiene seguro."
 date: "2026-03-14"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -13,7 +13,7 @@ ficha:
   regulacion: "LISF (nota técnica de suficiencia)"
   estado: "Finalizado"
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frecuencia-severidad", "Optuna", "MLflow", "fairness"]
-lastModified: "2026-09-13"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
 heroAlt: "Los mismos datos de pólizas recorren un modelo lineal y otro de árboles para comparar predicciones y contribuciones de variables."
 heroCaption: "Comparar modelos de tarificación exige considerar tanto la capacidad predictiva como la explicación de cada resultado."

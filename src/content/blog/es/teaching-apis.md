@@ -1,6 +1,6 @@
 ---
-title: "Por qué todo analista debería entender APIs (y no solo los desarrolladores)"
-description: "Si trabajas con tasas de la Fed, tipo de cambio de Banxico o esperanza de vida del Banco Mundial, ya consumes APIs. Entender qué pasa entre tu solicitud y tus datos te convierte en un mejor analista: puedes diagnosticar cuando algo falla, optimizar cuando algo es lento, y construir cuando necesitas algo que no existe. Este proyecto lo demuestra con datos reales y laboratorios interactivos."
+title: "Qué es una API y por qué un analista debe entenderla (Banxico, FRED)"
+description: "Una API es la interfaz que entrega datos a tu código, y los analistas ya las usan al descargar tasas de la Fed, el tipo de cambio de Banxico o la esperanza de vida del Banco Mundial. Entenderla permite diagnosticar fallas, corregir consultas lentas y construir herramientas propias; el proyecto lo muestra con datos reales y laboratorios interactivos."
 date: "2026-05-03"
 category: "herramientas"
 lang: "es"
@@ -14,7 +14,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-apis"
   live: "https://learning-apis.gonor.me"
 tags: ["APIs", "Next.js", "TypeScript", "FRED", "Banxico", "World Bank", "Educativo"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/teaching-apis.webp"
 heroAlt: "Una solicitud va de una tabla de análisis a una fuente remota; la respuesta regresa por una ruta con puntos de demora y fallo."
 heroCaption: "Seguir el recorrido de la solicitud y la respuesta permite reconocer dónde se demora o falla la entrega de datos."

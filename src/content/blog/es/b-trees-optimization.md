@@ -1,6 +1,6 @@
 ---
-title: "Árboles B: la estructura simple que sostiene cada consulta que has hecho"
-description: "PostgreSQL, MySQL, SQLite y la mayoría de los sistemas de archivos modernos usan árboles B como estructura central de sus índices. Entender por qué cambia cómo piensas sobre el diseño de consultas y el costo real de una búsqueda."
+title: "Qué es un árbol B y cómo funcionan los índices de una base de datos"
+description: "Un árbol B mantiene los datos ordenados en nodos anchos y poco profundos, de modo que encontrar un registro entre 500 millones puede tocar unos 9 nodos; por eso PostgreSQL, MySQL y SQLite lo usan en sus índices. Entender la estructura cambia cómo diseñas consultas y cómo estimas el costo real de una búsqueda."
 date: "2026-03-13"
 category: "herramientas"
 lang: "es"
@@ -11,7 +11,7 @@ ficha:
   stack: "Rust · PostgreSQL"
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/b-trees"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/b-trees-optimization.webp"
 heroAlt: "Un árbol de índice ancho y poco profundo destaca una sola ruta desde la raíz hasta una hoja."
 heroCaption: "Agrupar varias claves en cada nodo permite descartar grandes partes de la búsqueda en cada acceso."

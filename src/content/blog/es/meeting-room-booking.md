@@ -1,6 +1,6 @@
 ---
-title: "Un proyecto con Cloudflare: la app de salas que empezó en un pizarrón"
-description: "Las herramientas de la web y los agentes de código permiten algo que antes pedía un equipo entero: que un grupo pequeño tenga una herramienta hecha a su medida. Esta es la historia de un cowork que administraba sus dos salas en un pizarrón físico, donde saber si una estaba libre obligaba a caminar hasta ahí. Mover esa información al teléfono con Cloudflare Pages y una base D1 fue lo fácil; lo demás fue diseñar una forma de coordinación asíncrona, como la que hoy necesitan muchos equipos."
+title: "Cómo hacer una app de reserva de salas con Cloudflare Pages y D1"
+description: "Un grupo pequeño puede tener una app de reserva de salas hecha a su medida con Cloudflare Pages, una base de datos D1 y un agente de código. Esta reemplazó el pizarrón físico de un cowork con dos salas, donde saber si una estaba libre obligaba a caminar hasta ahí, y llevó esa información al teléfono."
 date: "2026-09-05"
 category: "herramientas"
 lang: "es"
@@ -11,7 +11,7 @@ ficha:
   año: "2026"
   stack: "Cloudflare Pages · Pages Functions · D1 (SQLite) · Resend · PostHog · HTML/CSS/JS sin framework"
   estado: "Desplegada, pendiente de estreno"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/meeting-room-booking.webp"
 heroAlt: "Varios teléfonos comparten una cuadrícula de reservas para dos salas, con un intervalo liberado y su rastro de cambio."
 heroCaption: "Una agenda compartida permite consultar la ocupación y hacer visibles los cambios sin estar frente al pizarrón."

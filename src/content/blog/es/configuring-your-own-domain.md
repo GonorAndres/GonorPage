@@ -1,6 +1,6 @@
 ---
-title: "Configurar tu propio dominio: cómo gonor.me se convirtió en mi lugar en internet"
-description: "Compras un dominio, abres el panel de DNS y te encuentras con una tabla vacía sin ninguna pista de qué va dónde. Este es un recorrido llano y honesto para apuntar un dominio propio a GitHub Pages a través de Cloudflare, escrito por alguien que apenas lo hace por segunda vez, con todos los tropiezos incluidos. Al final, las pocas piezas que se mueven quedan lo bastante claras como para reutilizarlas en tu propio dominio."
+title: "Cómo conectar un dominio propio a GitHub Pages con Cloudflare (DNS)"
+description: "Conectar un dominio propio a GitHub Pages con Cloudflare se reduce a unos cuantos registros DNS, una decisión sobre www y HTTPS con un certificado real. Este recorrido sigue a gonor.me desde una tabla de DNS vacía hasta un sitio funcionando, con los tropiezos incluidos."
 date: "2026-07-12"
 category: "herramientas"
 lang: "es"
@@ -13,7 +13,7 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/GonorPage"
   live: "https://gonor.me"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/configuring-your-own-domain.webp"
 heroAlt: "Un navegador se conecta a un proxy y después al servidor de origen, con una conexión HTTPS protegida en cada tramo."
 heroCaption: "Con un proxy, HTTPS se negocia en dos tramos: del navegador al borde y del borde al servidor de origen."

@@ -1,6 +1,6 @@
 ---
-title: "Plataforma de Siniestralidad Auto: tres preguntas que toda aseguradora necesita responder"
-description: "En México, cerca del 70% de los vehículos circulan sin seguro. Para las aseguradoras que cubren el resto, el negocio se reduce a tres preguntas: cuánto cobrar, cuánto reservar y dónde está el fraude. Esta plataforma construye un dashboard que responde las tres con datos calibrados al mercado mexicano, separando frecuencia de severidad para tarificar, estimando lo que falta por pagar con dos métodos que se complementan, y detectando reclamaciones anómalas antes de que lleguen a ajuste."
+title: "Seguro de auto en México: cómo tarificar, reservar y detectar fraude"
+description: "Una aseguradora de autos necesita responder tres preguntas: cuánto cobrar, cuánto reservar y dónde está el fraude. Este dashboard las responde para el mercado mexicano, donde cerca del 70% de los vehículos circula sin seguro: un GLM de frecuencia-severidad para tarificar, reservas IBNR con dos métodos complementarios y alertas de reclamaciones anómalas antes del ajuste, sobre una cartera sintética calibrada con datos públicos de CONDUSEF y AMIS."
 date: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/CarteraSeguroAutos"
   live: "https://cartera-autos-451451662791.us-central1.run.app"
 tags: ["R", "Shiny", "GLM", "IBNR", "Monte Carlo", "bslib", "CONDUSEF", "AMIS", "fraude", "autos"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/cartera-autos.webp"
 heroAlt: "Un conjunto de siniestros de autos alimenta una descomposición de prima, un triángulo de reservas y la revisión de anomalías."
 heroCaption: "La misma experiencia de siniestros ayuda a tarificar, estimar pagos pendientes y priorizar casos para revisión."

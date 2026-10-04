@@ -1,6 +1,6 @@
 ---
-title: "Construyendo un Transformer desde cero: La Máquina de Atención de Proust"
-description: "Quería entender qué pasa realmente dentro de un modelo de lenguaje. Construí uno desde la primera multiplicación de matrices, lo entrené con los 7 volúmenes de Proust, y lo que más me enseñó no fue la arquitectura sino lo que implica que todo sea números."
+title: "Cómo construir un Transformer desde cero en NumPy (entrenado con Proust)"
+description: "Un transformer construido desde la primera multiplicación de matrices en NumPy puro, sin autograd, muestra qué pasa dentro de un modelo de lenguaje. Entrenado con los 7 volúmenes de Proust, me enseñó menos sobre la arquitectura que sobre lo que implica que todo sea números."
 date: "2026-02-15"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -16,7 +16,7 @@ ficha:
   extraLinks:
     - { label: "Demo interactiva (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/proust-attention" }
 tags: ["deep-learning", "transformers", "NLP", "PyTorch", "NumPy"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/proust-attention-machine.webp"
 heroAlt: "Una secuencia de fichas pasa por una matriz de atención causal y produce probabilidades para la siguiente ficha."
 heroCaption: "La atención combina el contexto anterior para calcular una distribución sobre el siguiente carácter."

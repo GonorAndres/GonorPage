@@ -1,6 +1,6 @@
 ---
-title: "Reserves and Loss Experience: Interactive P&C Insurance Dashboard"
-description: "Actuarial reserve analysis using Chain-Ladder and Bornhuetter-Ferguson methods on NAIC Schedule P regulatory data. Interactive dashboard with loss triangles, IBNR estimates, and combined ratios across 6 lines of business."
+title: "Loss Reserving with Chain-Ladder and Bornhuetter-Ferguson (NAIC Data)"
+description: "Insurance reserves are estimated by developing loss triangles with methods such as Chain-Ladder and Bornhuetter-Ferguson, which produce IBNR estimates. An interactive dashboard on NAIC Schedule P regulatory data applies both actuarial methods across six lines of business, with loss triangles, IBNR and combined ratios, to answer whether reserves are enough."
 date: "2026-03-05"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -14,7 +14,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/data-analyst-path/tree/main/projects/01-insurance-claims-dashboard"
   live: "https://data-analyst.gonor.me/insurance"
 tags: ["reserves", "chain-ladder", "BF", "IBNR", "P&C", "dashboard", "Python", "SQL"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/insurance-claims-dashboard.webp"
 heroAlt: "A development triangle distinguishes observed payments from estimated future-development cells."
 heroCaption: "Observed experience supports projections of remaining development; the future portion remains an estimate."

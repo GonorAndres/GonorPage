@@ -1,6 +1,6 @@
 ---
-title: "CreditGraph: Topological Credit Risk with Neo4j, PySpark, and LightGBM"
-description: "Traditional credit analysis treats each loan as independent, but guarantee chains, circular guarantees, and ownership concentration create correlated exposure that relational models cannot express. This project models a 500-client portfolio as a Neo4j knowledge graph, processed with PySpark on Databricks and scored with calibrated LightGBM, to surface structural risk patterns that SQL keeps hidden."
+title: "Graph-Based Credit Risk: Neo4j, PySpark and LightGBM on Guarantee Chains"
+description: "Graph-based credit risk models loans as a network, so guarantee chains, circular guarantees and ownership concentration become measurable, which a relational loan table cannot express. A 500-client portfolio as a Neo4j knowledge graph, processed with PySpark on Databricks and scored with calibrated LightGBM, surfaces the structural risk that SQL keeps hidden."
 date: "2026-03-30"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/graph-relation-db"
   live: "https://graph-db.gonor.me/"
 tags: ["Neo4j", "PySpark", "Databricks", "Credit risk", "Cypher", "LightGBM", "Platt calibration", "Graphs"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/credit-graph-topological-risk.webp"
 heroAlt: "One shared owner connects three groups of borrowing companies in a relationship map."
 heroCaption: "Shared ownership can connect loans that appear independent when reviewed record by record."
