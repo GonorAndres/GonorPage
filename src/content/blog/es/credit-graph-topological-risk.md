@@ -1,5 +1,5 @@
 ---
-title: "Riesgo de crédito con grafos: garantías cruzadas con Neo4j y LightGBM"
+title: "CreditGraph: riesgo de crédito con grafos y garantías cruzadas con Neo4j y LightGBM"
 description: "El riesgo de crédito con grafos modela los préstamos como una red, de modo que las cadenas de garantías, las garantías circulares y la concentración accionaria se pueden medir, algo que una tabla relacional no expresa. Un portafolio de 500 clientes como grafo de conocimiento en Neo4j, procesado con PySpark en Databricks y calificado con LightGBM calibrado, hace visible el riesgo estructural que el SQL oculta."
 date: "2026-03-30"
 category: "proyectos-y-analisis"

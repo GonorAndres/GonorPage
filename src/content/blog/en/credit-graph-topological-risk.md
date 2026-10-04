@@ -1,5 +1,5 @@
 ---
-title: "Graph-Based Credit Risk: Neo4j, PySpark and LightGBM on Guarantee Chains"
+title: "CreditGraph: Graph-Based Credit Risk with Neo4j, PySpark and LightGBM on Guarantee Chains"
 description: "Graph-based credit risk models loans as a network, so guarantee chains, circular guarantees and ownership concentration become measurable, which a relational loan table cannot express. A 500-client portfolio as a Neo4j knowledge graph, processed with PySpark on Databricks and scored with calibrated LightGBM, surfaces the structural risk that SQL keeps hidden."
 date: "2026-03-30"
 category: "proyectos-y-analisis"
