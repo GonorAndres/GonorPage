@@ -1,11 +1,11 @@
 ---
-title: "Interactive Math Visualizations"
-description: "Interactive demonstrations of fundamental calculus concepts: the sin(x)/x limit, derivative of sine, and Euler's formula. With manipulable SVG visualizations."
+title: "Euler's Formula, sin(x)/x Limit and Derivative of Sine: Interactive Visuals"
+description: "Three interactive SVG visualizations let you manipulate the sin(x)/x limit, the derivative of sine and Euler's formula to see why each holds. They matter in actuarial and financial work: sin(θ) ≈ θ for small angles underpins the linear approximations used in sensitivities."
 date: "2026-02-01"
 category: "herramientas"
 lang: "en"
 tags: ["math", "visualization", "calculus", "interactive"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/math-visualizations.webp"
 heroAlt: "A point on the circle projects onto a sine curve; a tangent shows its local change."
 heroCaption: "Projecting circular motion produces a wave; its tangent describes how it changes at each point."

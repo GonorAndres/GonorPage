@@ -1,6 +1,6 @@
 ---
-title: "SIMA: De Datos Crudos del INEGI a Requerimientos de Capital bajo LISF, End-to-End"
-description: "SIMA centraliza las técnicas actuariales para valuar seguros de vida: toma mortalidad cruda de INEGI/CONAPO, la gradúa con métodos como Whittaker-Henderson y Lee-Carter para obtener curvas que respetan la biología humana, y proyecta hacia el futuro para calcular primas, reservas y requerimientos de capital bajo LISF. Todo expuesto como API, lo que permite conectarlo con otros sistemas, automatizar análisis de sensibilidad y cumplir con los requisitos de la CNSF. Código abierto y diseñado para crecer hacia otros ramos."
+title: "Prima de seguro de vida: de la mortalidad INEGI al capital LISF (SIMA)"
+description: "Calcular la prima de un seguro de vida en México empieza por graduar la mortalidad cruda: SIMA toma defunciones del INEGI y población del CONAPO, las suaviza con Whittaker-Henderson y Lee-Carter, y proyecta primas, reservas y requerimientos de capital bajo la LISF. Todo queda expuesto como API para conectarse con otros sistemas, automatizar análisis de sensibilidad y cumplir con los requisitos de la CNSF; es código abierto y está diseñado para crecer hacia otros ramos."
 date: "2026-03-15"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/SIMA"
   live: "https://sima.gonor.me"
 tags: ["Lee-Carter", "mortalidad", "LISF", "CUSF", "CNSF", "Whittaker-Henderson", "SVD", "reservas", "SCR", "funciones-de-conmutación", "INEGI", "CONAPO", "FastAPI", "React"]
-lastModified: "2026-09-28"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/sima.webp"
 heroAlt: "Observaciones de mortalidad pasan a una curva graduada, una proyección con incertidumbre y bloques de cálculo actuarial."
 heroCaption: "Graduar y proyectar la mortalidad conecta los datos observados con el cálculo de primas, reservas y capital."

@@ -1,6 +1,6 @@
 ---
-title: "SIMA: From Raw INEGI Data to Solvency Capital Requirements Under Mexican LISF, End-to-End"
-description: "SIMA centralizes actuarial techniques for pricing life insurance: it takes raw mortality data from INEGI/CONAPO, graduates it with methods like Whittaker-Henderson and Lee-Carter to obtain curves that respect human biology, and projects forward to calculate premiums, reserves, and capital requirements under LISF. Everything exposed as an API, allowing it to connect with other systems, automate sensitivity analysis, and meet CNSF requirements. Open source and built to expand into other lines of business."
+title: "Mortality Tables to Solvency Capital: Life Insurance Pricing under LISF"
+description: "Life insurance pricing starts by graduating raw mortality data: SIMA takes INEGI and CONAPO deaths and population, smooths them with Whittaker-Henderson and Lee-Carter, and projects forward to premiums, reserves and capital requirements under the LISF. Everything is exposed as an API to connect with other systems, automate sensitivity analysis and meet CNSF requirements; it is open source and built to expand into other lines of business."
 date: "2026-03-15"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/SIMA"
   live: "https://sima.gonor.me"
 tags: ["Lee-Carter", "mortality", "LISF", "CUSF", "CNSF", "Whittaker-Henderson", "SVD", "reserves", "SCR", "commutation-functions", "INEGI", "CONAPO", "FastAPI", "React"]
-lastModified: "2026-09-28"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/sima.webp"
 heroAlt: "Mortality observations become a graduated curve, a projection with uncertainty, and actuarial calculation blocks."
 heroCaption: "Graduating and projecting mortality connects observed data with premiums, reserves, and capital calculations."

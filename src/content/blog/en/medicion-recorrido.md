@@ -1,7 +1,8 @@
 ---
-title: "From click to outcome: verify the journey before optimizing"
-description: "A campaign can generate clicks without showing what happened next. A fictional journey from ad to CRM illustrates how to verify events, parameters and outcomes. Only then can a funnel support a responsible improvement decision."
+title: "How to Verify Ad-to-CRM Conversion Tracking Before Optimizing a Funnel"
+description: "Verify each step of the journey, from ad click to page, form submission and CRM record, before reading a funnel decline as a user-experience problem. A fictional ad-to-CRM example shows which events, parameters and outcomes to check so an improvement decision rests on evidence."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -12,6 +13,9 @@ ficha:
   datos: "Fictional journey and figures; no real person or client"
   estado: "Method case study"
 relatedPosts: ["fuentes-no-coinciden", "analytics-dashboards"]
+heroImage: "/blog-illustrations/medicion-recorrido.webp"
+heroAlt: "A product ad on a phone leads to a landing page with a form and to a CRM record; verified tracking tags hang along the path, except the last one, still empty."
+heroCaption: "Before optimizing, each step of the journey needs its own evidence."
 ---
 
 A campaign produces clicks, but the team cannot tell how many visitors reached the form, how many submitted it, and how many became useful prospects. Without that chain, a funnel decline might be a user-experience problem or a measurement problem. Changing the site before distinguishing them can send effort to the wrong place.

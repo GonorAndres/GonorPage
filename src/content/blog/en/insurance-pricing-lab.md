@@ -1,6 +1,6 @@
 ---
-title: "Insurance Pricing Lab: When a Better Model Is Not Yet a Better Rate"
-description: "An interactive comparison of a Poisson GLM and XGBoost on 678,013 motor policies: better risk ranking, SHAP explanations, a geographic fairness check, and the regulatory limit that keeps ML a pricing challenger."
+title: "Poisson GLM vs XGBoost for Insurance Pricing: Interactive Lab"
+description: "On 678,013 motor policies XGBoost ranks risk better than a Poisson GLM, but a rate still has to be explained in a technical note and defended to a regulator, which keeps ML as a pricing challenger. The interactive lab shows SHAP explanations and a geographic fairness check."
 date: "2026-09-13"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -14,10 +14,10 @@ ficha:
   estado: "Completed"
   live: "https://ml-insurance.gonor.me"
 tags: ["insurance pricing", "GLM", "XGBoost", "SHAP", "fairness", "freMTPL2", "actuarial", "Cloud Run"]
-lastModified: "2026-09-13"
-heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
-heroAlt: "The same motor-policy data follows a linear model and a tree-based model so their risk predictions can be compared."
-heroCaption: "A pricing model needs both predictive evidence and an explanation that can be audited."
+lastModified: "2026-10-03"
+heroImage: "/blog-illustrations/insurance-pricing-lab.webp"
+heroAlt: "Controls build a car policy that feeds two instruments: an open formula with every weight visible and a box of trees whose lens shows what moved the prediction; behind them, the technical note."
+heroCaption: "The formula is visible in full; the model needs a lens to explain itself, and both must be defended in a technical note."
 relatedPosts: ["actuarial-ml-pricing", "sima", "gmm-explorer"]
 ---
 

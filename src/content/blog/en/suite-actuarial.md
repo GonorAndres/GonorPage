@@ -1,6 +1,6 @@
 ---
-title: "suite_actuarial: open-source actuarial platform for the Mexican insurance market"
-description: "There is no open-source actuarial library built for Mexican regulation. suite_actuarial fills that gap: it covers eight insurance domains (life, P&C, health, pensions, reserves, reinsurance, regulatory, and configuration) with EMSSA-09 mortality tables, CNSF circulars, and SAT tax articles built into the design. It installs with pip, deploys with Docker, and exposes 28 REST endpoints alongside a bilingual Next.js dashboard."
+title: "Open-Source Actuarial Library for Mexico: suite_actuarial (EMSSA-09, LISF)"
+description: "suite_actuarial is an open-source Python library for Mexican actuarial work, covering eight domains (life, P&C, health, pensions, reserves, reinsurance, regulatory and configuration) with EMSSA-09 mortality tables, CNSF circulars and SAT tax articles built in. It installs with pip, deploys with Docker and exposes 28 REST endpoints alongside a bilingual Next.js dashboard; no other open-source library targets Mexican regulation."
 date: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/suite-actuarial"
   live: "https://suite.gonor.me"
 tags: ["Python", "Pydantic", "LISF", "CUSF", "CNSF", "RCS", "Reserves", "Chain Ladder", "Reinsurance", "Next.js", "EMSSA-09", "SAT", "FastAPI", "GMM", "IMSS"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/suite-actuarial.webp"
 heroAlt: "A modular actuarial calculation core connects the same logic to a library, a service interface, and a dashboard."
 heroCaption: "A shared foundation of calculations and parameters lets different interfaces reuse the same actuarial logic."

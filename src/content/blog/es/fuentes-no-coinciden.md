@@ -1,7 +1,8 @@
 ---
-title: "Cuando las fuentes no cuentan la misma historia"
-description: "Una plataforma publicitaria puede atribuirse más conversiones que las que registra un negocio. Un ejemplo ficticio separa ambos conteos y comprueba dónde difieren. La conciliación permite decidir qué cifra responde cada pregunta sin inventar una verdad única."
+title: "Por qué las conversiones de publicidad no coinciden con las ventas"
+description: "Las conversiones de una plataforma publicitaria y las ventas del negocio difieren porque cada fuente observa un momento, una unidad y una ventana de atribución distintos. Un ejemplo ficticio de 20 conversiones atribuidas contra 15 pedidos confirmados las concilia y muestra qué cifra responde cada pregunta."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -12,6 +13,9 @@ ficha:
   datos: "Ejemplo ficticio; ninguna cifra corresponde a un cliente"
   estado: "Caso metodológico"
 relatedPosts: ["data-engineering-platform", "teaching-apis"]
+heroImage: "/blog-illustrations/fuentes-no-coinciden.webp"
+heroAlt: "Una columna de conversiones atribuidas a un anuncio se empareja con hilos contra cajas de pedidos confirmados; algunas conversiones quedan aparte, sin pedido."
+heroCaption: "La plataforma y el registro de ventas cuentan cosas distintas; la conciliación muestra dónde se encuentran."
 ---
 
 Una campaña puede informar veinte conversiones mientras el sistema comercial registra quince ventas. La diferencia no prueba por sí sola que una de las fuentes esté rota. Cada una observa un momento distinto y responde una pregunta distinta: la plataforma calcula qué acciones puede atribuirse; el negocio registra lo que realmente ocurrió en la venta.

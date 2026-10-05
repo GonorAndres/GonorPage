@@ -1,11 +1,11 @@
 ---
-title: "Dashboards with React: Why Build Analytical Reports in Code"
-description: "Two exploratory analysis dashboards (Airbnb CDMX and Olist E-Commerce) as a case study for why Next.js and Recharts are a serious alternative to Power BI and Tableau for production-grade analytical reports."
+title: "Next.js and Recharts vs Power BI: Building Analytics Dashboards in Code"
+description: "Next.js with Recharts is a serious alternative to Power BI and Tableau when a report must ship as a finished, fast, mobile-friendly product instead of a workspace artifact. Two dashboards, an Airbnb CDMX market analysis and an Olist e-commerce cohort study, test that claim."
 date: "2026-03-05"
 category: "herramientas"
 lang: "en"
 tags: ["React", "Next.js", "Recharts", "dashboards", "data-analytics", "Airbnb", "Olist"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/analytics-dashboards.webp"
 heroAlt: "Two paths, prepared results and computation on request, converge into one analytical presentation."
 heroCaption: "The architecture depends on whether a filter selects prepared results or requires new computation."

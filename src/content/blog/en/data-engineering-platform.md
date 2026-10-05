@@ -1,6 +1,6 @@
 ---
-title: "Insurance Claims Data Platform on GCP"
-description: "Actuarial teams generate valuable data that gets trapped in spreadsheets and manual processes that do not scale. This platform builds the complete pipeline on GCP, from streaming claims intake to Tweedie GLM pricing, with Dataform and BigQuery as the backbone. The result is an automated, tested, and reproducible flow that turns raw data into inputs ready for the regulator."
+title: "Insurance Claims Data Pipeline on GCP: BigQuery, Dataform, Terraform"
+description: "An insurance claims data platform on GCP chains streaming intake, a BigQuery warehouse, Dataform transformations, Terraform provisioning and Tweedie GLM pricing in six connected projects. It frees actuarial teams from spreadsheets and manual processes with an automated, tested and reproducible flow that turns raw claims into regulator-ready inputs."
 date: "2026-03-18"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/data-engineer-path"
   live: "https://data-engineer.gonor.me"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/data-engineering-platform.webp"
 heroAlt: "Claim records pass through validation and structured tables; an exception branches to review before analysis."
 heroCaption: "Validating and transforming data before analysis makes results traceable and exceptions reviewable."

@@ -1,6 +1,6 @@
 ---
-title: "CreditGraph: Riesgo de Crédito Topológico con Neo4j, PySpark y LightGBM"
-description: "El análisis crediticio tradicional trata cada préstamo como independiente, pero las cadenas de garantías, las garantías circulares y la concentración accionaria crean exposición correlacionada que los modelos relacionales no pueden expresar. Este proyecto modela un portafolio de 500 clientes como un grafo en Neo4j, procesado con PySpark en Databricks y calificado con LightGBM calibrado, para hacer visibles los patrones de riesgo estructural que el SQL oculta."
+title: "CreditGraph: riesgo de crédito con grafos y garantías cruzadas con Neo4j y LightGBM"
+description: "El riesgo de crédito con grafos modela los préstamos como una red, de modo que las cadenas de garantías, las garantías circulares y la concentración accionaria se pueden medir, algo que una tabla relacional no expresa. Un portafolio de 500 clientes como grafo de conocimiento en Neo4j, procesado con PySpark en Databricks y calificado con LightGBM calibrado, hace visible el riesgo estructural que el SQL oculta."
 date: "2026-03-30"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/graph-relation-db"
   live: "https://graph-db.gonor.me/"
 tags: ["Neo4j", "PySpark", "Databricks", "Riesgo de crédito", "Cypher", "LightGBM", "Calibración Platt", "Grafos"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/credit-graph-topological-risk.webp"
 heroAlt: "Un propietario compartido conecta tres grupos de empresas deudoras en un mapa de relaciones."
 heroCaption: "Un propietario compartido puede vincular créditos que parecen independientes en una revisión por registro."

@@ -1,6 +1,6 @@
 ---
-title: "Reservas y Siniestralidad: Dashboard Interactivo de Seguros P&C"
-description: "Análisis de reservas actuariales con métodos Chain-Ladder y Bornhuetter-Ferguson sobre datos regulatorios NAIC Schedule P. Dashboard interactivo con triángulos de pérdida, IBNR y ratios combinados para 6 ramos de seguros."
+title: "Reservas IBNR con Chain-Ladder y Bornhuetter-Ferguson: dashboard de seguros P&C"
+description: "Las reservas de un seguro de daños se estiman desarrollando triángulos de pérdida con métodos como Chain-Ladder y Bornhuetter-Ferguson, que producen la estimación de IBNR. Un dashboard interactivo con datos regulatorios NAIC Schedule P aplica ambos métodos actuariales en seis ramos, con triángulos de pérdida, IBNR y ratios combinados, para responder si las reservas alcanzan."
 date: "2026-03-05"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -14,7 +14,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/data-analyst-path/tree/main/projects/01-insurance-claims-dashboard"
   live: "https://data-analyst.gonor.me/insurance"
 tags: ["reservas", "chain-ladder", "BF", "IBNR", "P&C", "dashboard", "Python", "SQL"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/insurance-claims-dashboard.webp"
 heroAlt: "Un triángulo de desarrollo distingue los pagos observados de las celdas de desarrollo futuro estimado."
 heroCaption: "La experiencia observada permite proyectar el desarrollo pendiente; esa parte futura sigue siendo una estimación."

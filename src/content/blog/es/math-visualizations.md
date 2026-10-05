@@ -1,11 +1,11 @@
 ---
-title: "Visualizaciones Matemáticas Interactivas"
-description: "Demostraciones interactivas de conceptos fundamentales del análisis: límite sin(x)/x, derivada del seno y la fórmula de Euler. Con visualizaciones SVG manipulables."
+title: "Límite de sin(x)/x, derivada del seno y fórmula de Euler interactivos"
+description: "Tres visualizaciones interactivas en SVG permiten manipular el límite de sin(x)/x, la derivada del seno y la fórmula de Euler para ver por qué se cumplen. Importan en el trabajo actuarial y financiero: sin(θ) ≈ θ para ángulos pequeños sostiene las aproximaciones lineales que se usan en sensibilidades."
 date: "2026-02-01"
 category: "herramientas"
 lang: "es"
 tags: ["matemáticas", "visualización", "análisis", "interactivo"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/math-visualizations.webp"
 heroAlt: "Un punto del círculo se proyecta sobre una curva seno; una tangente muestra su cambio local."
 heroCaption: "La proyección del movimiento circular produce una onda; su tangente describe cómo cambia en cada punto."

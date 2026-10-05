@@ -1,12 +1,12 @@
 ---
-title: "Variables Aleatorias en el Mundo del Seguro: Deducibles, Límites y la Matemática de Pagar Siniestros"
-description: "Guía de estudio para el tema más pesado del Examen P: variables aleatorias, distribuciones y modificaciones de pago. El tema donde los errores mecánicos duelen más que los conceptuales."
+title: "Examen P de la SOA: variables aleatorias, deducibles y límites de póliza"
+description: "La sección de variables aleatorias univariadas, cerca del 45% del Examen P de la SOA, evalúa distribuciones, valores esperados y modificaciones de pago como deducibles y límites, y los errores mecánicos pesan más que los conceptuales. Esta guía muestra cómo se conectan las piezas y por qué importan en seguros."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["variables-aleatorias", "examen-P", "SOA", "seguros", "distribuciones"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-random-variables-insurance.webp"
 heroAlt: "La curva de pago permanece en cero, crece después del deducible y se aplana al alcanzar el límite de cobertura."
 heroCaption: "El deducible, el coaseguro y el límite transforman el monto del siniestro en el pago de la aseguradora."

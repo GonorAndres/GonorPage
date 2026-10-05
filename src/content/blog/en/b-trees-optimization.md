@@ -1,6 +1,6 @@
 ---
-title: "B-Trees: the simple structure behind every query you have ever run"
-description: "PostgreSQL, MySQL, SQLite, and most modern file systems use B-trees as the core structure for their indexes. Understanding why changes how you think about query design and the real cost of a lookup."
+title: "How B-Trees Work: Why Database Indexes Find One Row in 500 Million"
+description: "A B-tree keeps data sorted in wide, shallow nodes, so a lookup among 500 million records can touch only about 9 nodes; PostgreSQL, MySQL and SQLite use it for their indexes. Understanding the structure changes how you design queries and judge the real cost of a lookup."
 date: "2026-03-13"
 category: "herramientas"
 lang: "en"
@@ -11,7 +11,7 @@ ficha:
   stack: "Rust · PostgreSQL"
   estado: "Completed"
   repositorio: "https://github.com/GonorAndres/b-trees"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/b-trees-optimization.webp"
 heroAlt: "A wide, shallow index tree highlights one route from the root to a leaf."
 heroCaption: "Grouping several keys in each node lets each access narrow the remaining search."

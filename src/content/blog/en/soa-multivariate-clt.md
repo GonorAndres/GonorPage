@@ -1,12 +1,12 @@
 ---
-title: "Why Insurance Works: The Central Limit Theorem and the Power of Aggregating Risk"
-description: "Study guide for the third Exam P topic: multivariate variables, Eve's Law, and the CLT. The concepts that explain why insurance works as a business."
+title: "Central Limit Theorem in Insurance: Why Pooling Risk Works (SOA Exam P)"
+description: "The Central Limit Theorem (CLT) is the mathematical justification for why insurance works as a business: aggregating many risks makes the total behave predictably. This SOA Exam P study guide also covers multivariate random variables, covariance and dependence, and Eve's Law for decomposing variability."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["CLT", "exam-P", "SOA", "aggregation", "risk"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-multivariate-clt.webp"
 heroAlt: "A small policy pool is compared with a larger one; the average-loss distribution is narrower for the larger pool."
 heroCaption: "With independent risks and finite variance, a larger pool reduces variability in the average loss per policy."

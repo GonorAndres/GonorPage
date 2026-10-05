@@ -1,7 +1,8 @@
 ---
-title: "Del clic al resultado: comprobar el recorrido antes de optimizar"
-description: "Una campaña puede generar clics sin dejar claro qué pasó después. Un recorrido ficticio del anuncio al CRM muestra cómo verificar eventos, parámetros y resultados. Sólo con esa cadena comprobada tiene sentido interpretar el embudo y priorizar mejoras."
+title: "Cómo verificar el seguimiento de conversiones del anuncio al CRM"
+description: "Hay que verificar cada paso del recorrido, del clic en el anuncio a la página, el envío del formulario y el registro en el CRM, antes de interpretar una caída del embudo como un problema de experiencia. Un ejemplo ficticio muestra qué eventos, parámetros y resultados comprobar para que la mejora se apoye en evidencia."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "es"
 shape: "case-study"
@@ -12,6 +13,9 @@ ficha:
   datos: "Recorrido y cifras ficticios; ninguna persona o cliente real"
   estado: "Caso metodológico"
 relatedPosts: ["fuentes-no-coinciden", "analytics-dashboards"]
+heroImage: "/blog-illustrations/medicion-recorrido.webp"
+heroAlt: "Un anuncio de producto en el teléfono lleva a una página con formulario y a una ficha en el CRM; etiquetas de seguimiento verificadas cuelgan del recorrido, salvo la última, todavía vacía."
+heroCaption: "Antes de optimizar, cada paso del recorrido necesita su propia evidencia."
 ---
 
 Una campaña genera clics, pero el equipo no sabe cuántos visitantes llegaron al formulario, cuántos lo enviaron y cuántos terminaron como prospectos útiles. Sin esa cadena, una caída del embudo puede ser un problema de experiencia de usuario o de medición. Cambiar el sitio antes de distinguirlos puede gastar esfuerzo en el lugar equivocado.

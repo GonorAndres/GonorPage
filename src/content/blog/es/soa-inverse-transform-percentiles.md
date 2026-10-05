@@ -1,12 +1,12 @@
 ---
-title: "Transformar una Variable Aleatoria No Cambia la Probabilidad: El Truco de la Función Inversa"
-description: "Cuando una póliza modifica el pago según la pérdida, lo que tienes es una variable aleatoria transformada. Calcular sus percentiles no requiere derivar una nueva distribución desde cero — solo requiere invertir la transformación y usar la CDF que ya tienes."
+title: "Percentil de una variable aleatoria transformada (Examen P SOA)"
+description: "Para hallar un percentil de una variable aleatoria transformada, como el pago de una aseguradora tras un deducible, se invierte la transformación y se usa la CDF que ya tienes, sin derivar una distribución nueva. El post lo construye desde el deducible ordinario, como suele preguntarlo el Examen P de la SOA."
 date: "2026-03-05"
 category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["transformaciones", "percentiles", "examen-P", "SOA", "seguros", "CDF"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-inverse-transform-percentiles.webp"
 heroAlt: "Los mismos puntos ordenados aparecen en dos escalas; la transformación comprime sus valores y conserva el grupo bajo el percentil."
 heroCaption: "Una transformación creciente cambia los valores del percentil y conserva el conjunto de escenarios que queda por debajo."

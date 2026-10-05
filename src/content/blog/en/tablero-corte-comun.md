@@ -1,7 +1,8 @@
 ---
-title: "A dashboard should say how far its knowledge reaches"
-description: "Sales, advertising and web analytics rarely refresh at the same time. A fictional day shows how a shared cutoff prevents misleading comparisons. A dashboard can support decisions only when it states which hours are complete."
+title: "Dashboard Data Freshness: Why Sources Need a Common Cutoff Time"
+description: "A dashboard that compares sources refreshing at different times should show a common cutoff, the last hour all of them have complete. A fictional day, with ads complete through 3 p.m., sales through 1 p.m. and web traffic through 2 p.m., shows how a return metric otherwise mixes three clocks."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "herramientas"
 lang: "en"
 shape: "case-study"
@@ -12,6 +13,9 @@ ficha:
   datos: "Fictional scenario; no figures come from a client"
   estado: "Method case study"
 relatedPosts: ["analytics-dashboards", "fuentes-no-coinciden"]
+heroImage: "/blog-illustrations/tablero-corte-comun.webp"
+heroAlt: "Three data ribbons (ads and spend, sales, web sessions) arrive with different clocks; one vertical line cuts all of them, and the chart, where the shortest ends."
+heroCaption: "The dashboard compares only up to the hour every source has complete."
 ---
 
 A dashboard can look current while comparing data that arrived at different times. If advertising is complete through 3 p.m., sales through 1 p.m., and web traffic through 2 p.m., a return metric at 3 p.m. mixes three clocks. Spend seems to rise without matching sales. That may be a real problem, or merely a difference in when the data arrived.

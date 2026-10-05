@@ -1,12 +1,12 @@
 ---
-title: "Los Cimientos de la Probabilidad Actuarial: Lo que el Examen P Revela sobre Pensar en Riesgo"
-description: "Guía de estudio para la primera sección del Examen P de la SOA: axiomas, probabilidad condicional y Bayes. No son fórmulas para memorizar, son la herramienta mental que un actuario usa para clasificar riesgo y decidir bajo incertidumbre."
+title: "Examen P de la SOA: guía de probabilidad, condicional y Bayes"
+description: "La primera sección del Examen P cubre axiomas, probabilidad condicional y Bayes, la herramienta mental con la que un actuario clasifica riesgo y decide bajo incertidumbre. Esta guía explica por qué la SOA las pone primero y cómo se conectan con el trabajo actuarial real."
 date: "2026-02-18"
 category: "fundamentos-actuariales"
 lang: "es"
 shape: "study-guide"
 tags: ["probabilidad", "examen-P", "SOA", "Bayes", "riesgo"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-probability-foundations.webp"
 heroAlt: "Un subconjunto resaltado de casos se amplía; sus colores se conservan mientras cambia la población de referencia."
 heroCaption: "Condicionar una probabilidad significa tomar la información observada para definir el grupo de comparación."

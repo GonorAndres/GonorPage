@@ -1,6 +1,6 @@
 ---
-title: "Qué 5.74 Millones de Vuelos me Enseñaron sobre PostgreSQL, BigQuery y Cuándo Usar Cada Uno"
-description: "Las aerolíneas generan millones de registros de vuelos, retrasos e ingresos, pero analizar esos datos exige elegir la base de datos correcta para cada pregunta. Este proyecto toma 5.74M registros reales, los analiza primero en PostgreSQL optimizando desde el motor, los migra a BigQuery para comparar ambos paradigmas, y presenta los trade-offs con timing, costos y planes de consulta reales."
+title: "PostgreSQL vs BigQuery: cuándo usar cada uno (benchmark con 5.74M de vuelos)"
+description: "PostgreSQL conviene para búsquedas puntuales con índice (2.6 ms frente a unos 500 ms mínimos en BigQuery) y BigQuery para analítica sobre tablas completas a bajo costo. Ambos se miden con 5.74M de registros reales de vuelos, desde la optimización de índices hasta la migración, con tiempos, costos y planes de consulta reales."
 date: "2026-03-18"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -14,7 +14,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/learning-posgre"
   live: "https://analytics-flights.gonor.me"
 tags: ["PostgreSQL", "BigQuery", "Python", "ETL", "EXPLAIN ANALYZE", "Docker", "GIS", "Plotly", "Folium", "data-engineering"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/flight-analytics-pg-bq.webp"
 heroAlt: "Un acceso guiado por índice selecciona un registro, mientras una lectura por columnas reúne datos para una agregación."
 heroCaption: "Buscar un registro y agregar muchos registros requieren patrones de lectura distintos."

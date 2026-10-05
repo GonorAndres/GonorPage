@@ -1,6 +1,6 @@
 ---
-title: "Laboratorio de Tarificación: cuando un modelo mejor aún no es una tarifa mejor"
-description: "Una comparación interactiva entre un GLM Poisson y XGBoost sobre 678,013 pólizas de autos: mejor ordenamiento del riesgo, explicaciones SHAP, revisión de fairness geográfico y el límite regulatorio que mantiene al ML como challenger."
+title: "GLM Poisson vs XGBoost para tarificar seguros de auto: laboratorio interactivo"
+description: "Con 678,013 pólizas de autos, XGBoost ordena mejor el riesgo que un GLM Poisson, pero cada tarifa debe explicarse en una nota técnica y defenderse ante el regulador, lo que mantiene al ML como challenger. El laboratorio interactivo muestra explicaciones SHAP y una revisión de fairness geográfico."
 date: "2026-09-13"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -14,10 +14,10 @@ ficha:
   estado: "Finalizado"
   live: "https://ml-insurance.gonor.me"
 tags: ["tarificación", "GLM", "XGBoost", "SHAP", "fairness", "freMTPL2", "actuaría", "Cloud Run"]
-lastModified: "2026-09-13"
-heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
-heroAlt: "Los datos de pólizas de autos recorren un modelo lineal y otro de árboles para comparar sus predicciones de riesgo."
-heroCaption: "Un modelo de tarificación necesita evidencia predictiva y una explicación que se pueda auditar."
+lastModified: "2026-10-03"
+heroImage: "/blog-illustrations/insurance-pricing-lab.webp"
+heroAlt: "Unos controles arman una póliza de auto que alimenta dos instrumentos: una fórmula abierta de pesos a la vista y una caja con árboles cuya lupa muestra qué movió la predicción; detrás, la nota técnica."
+heroCaption: "La fórmula se ve completa; el modelo necesita una lupa para explicarse, y ambos se defienden en una nota técnica."
 relatedPosts: ["actuarial-ml-pricing", "sima", "gmm-explorer"]
 ---
 

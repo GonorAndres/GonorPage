@@ -1,7 +1,8 @@
 ---
-title: "When data sources tell different stories"
-description: "An ad platform can claim more conversions than a business records. A fictional example keeps the two counts separate and examines why they differ. Reconciliation shows which number answers which question without inventing a single truth."
+title: "Why Ad Platform Conversions Don't Match Sales Data (and How to Reconcile)"
+description: "Ad platform and sales counts differ because each observes a different moment, unit and attribution window, so neither is necessarily broken. A fictional example with 20 attributed conversions against 15 confirmed orders reconciles them and shows which number answers which question."
 date: "2026-09-27"
+lastModified: "2026-10-03"
 category: "proyectos-y-analisis"
 lang: "en"
 shape: "case-study"
@@ -12,6 +13,9 @@ ficha:
   datos: "Fictional example; no figures come from a client"
   estado: "Method case study"
 relatedPosts: ["data-engineering-platform", "teaching-apis"]
+heroImage: "/blog-illustrations/fuentes-no-coinciden.webp"
+heroAlt: "A column of conversions attributed to an ad is matched by threads to boxes of confirmed orders; a few conversions sit apart, with no order."
+heroCaption: "The ad platform and the sales record count different things; reconciliation shows where they meet."
 ---
 
 A campaign may report twenty conversions while the commercial system records fifteen sales. That difference alone does not prove either source is broken. Each observes a different moment and answers a different question: the platform estimates the actions it can credit to itself; the business records what happened in the sale.

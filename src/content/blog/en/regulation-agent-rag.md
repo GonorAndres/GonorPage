@@ -1,6 +1,6 @@
 ---
-title: "Actuarial Regulation Assistant: Why RAG Is the Right Approach for LISF and CUSF"
-description: "Interpreting LISF and CUSF means navigating articles that cross-reference each other across laws, and a Ctrl+F can't tell the article defining technical reserves from one that mentions them in passing. AI makes it possible to absorb that entire volume without losing a single detail. This agent uses RAG to index every article individually with a cross-reference graph, eliminating citation hallucinations and ensuring the model only reasons over real legal text. The result is an assistant that amplifies the actuary's memory without replacing their judgment."
+title: "RAG for Insurance Regulation: A LISF and CUSF Search Assistant"
+description: "RAG suits insurance regulation because LISF and CUSF articles cross-reference each other, and Ctrl+F cannot tell the article that defines technical reserves from one that mentions them in passing. The agent indexes each article individually with a cross-reference graph, eliminating citation hallucinations so the model reasons only over the real text of the law and amplifies the actuary's memory without replacing their judgment."
 date: "2026-03-22"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -18,7 +18,7 @@ ficha:
     - { label: "LISF/CUSF Explorer", url: "https://lisf.gonor.me/explorer" }
     - { label: "Open-source version (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/lisf-agent" }
 tags: ["RAG", "LISF", "CUSF", "CNSF", "FTS5", "BM25", "Claude", "FastAPI", "GCP", "cross-references"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/regulation-agent-rag.webp"
 heroAlt: "Linked articles from two bodies of regulation are selected as evidence for a response connected to its sources."
 heroCaption: "Retrieval gathers articles and cross-references before producing a response the reader can check."

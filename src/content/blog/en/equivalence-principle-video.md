@@ -1,7 +1,8 @@
 ---
-title: "How I made an explainer video with a coding agent and a synthetic voice"
-description: "The equivalence principle explains how the amount each person pays for insurance is calculated, and it is usually taught with formulas. This two-minute video explains it with images and narration, and it was made without recording audio or using a video editor: the animation is written in code with Remotion, the voice was generated with ElevenLabs from the script, and a coding agent wrote most of the program. The workflow makes it possible to produce visual explainers in a few hours and correct them easily."
+title: "Equivalence Principle Explained: How Insurance Premiums Are Calculated"
+description: "The equivalence principle sets the premium so that what the insurer expects to collect equals what it expects to pay in claims. This two-minute video (narrated in Spanish) explains it with images, and I made it with a coding agent: Remotion for the animation and an ElevenLabs synthetic voice."
 date: "2026-09-28"
+lastModified: "2026-10-03"
 category: "actuaria-para-todos"
 lang: "en"
 shape: "case-study"

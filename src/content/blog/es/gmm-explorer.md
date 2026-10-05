@@ -1,6 +1,6 @@
 ---
-title: "GMM Explorer: Tres Niveles de Hospitalización para Tarificar lo que la Industria Trata como un Solo Riesgo"
-description: "Cómo clasificar 5.1M de siniestros de Gastos Médicos Mayores en tres niveles de hospitalización cambia la forma de tarificar un riesgo que la industria trata como uno solo. Un proyecto de equipo en la UNAM que se convirtió en un sistema de tarificación completo."
+title: "Cómo se tarifica un seguro de Gastos Médicos Mayores: 3 niveles con datos CNSF"
+description: "Los Gastos Médicos Mayores (GMM) se pueden tarificar separando 5.1M de siniestros de la CNSF en tres niveles de hospitalización en lugar de un costo promedio único. 9,409 diagnósticos se clasifican en esos niveles, con frecuencias y severidades por edad y sexo y un tarificador interactivo. Empezó como proyecto de equipo en la UNAM."
 date: "2026-03-21"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/gmm-explorer"
   live: "https://gmm.gonor.me/contexto"
 tags: ["GMM", "tarificación", "CNSF", "hospitalización", "Claude AI", "frecuencia-severidad", "credibilidad", "LISF", "Next.js", "Python"]
-lastModified: "2026-09-28"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/gmm-explorer.webp"
 heroAlt: "Los siniestros médicos se separan en tres tipos de atención, cada uno con medidas de frecuencia y costo."
 heroCaption: "Separar los tipos de atención permite estimar frecuencia y severidad para cada grupo, sin ocultarlas en un solo promedio."

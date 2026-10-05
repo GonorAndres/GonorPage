@@ -1,6 +1,6 @@
 ---
-title: "Auto Insurance Claims Platform: three questions every insurer needs to answer"
-description: "In Mexico, roughly 70% of vehicles circulate without insurance. For the insurers covering the rest, the business boils down to three questions: how much to charge, how much to reserve, and where the fraud is. This platform builds a dashboard that answers all three with data calibrated to the Mexican market, separating frequency from severity for pricing, estimating what remains unpaid with two complementary methods, and flagging anomalous claims before they reach adjustment."
+title: "Auto Insurance Claims Dashboard: Pricing, Reserving and Fraud in Mexico"
+description: "An auto insurer needs to answer three questions: how much to charge, how much to reserve and where the fraud is. This dashboard answers all three for the Mexican market, where roughly 70% of vehicles are uninsured: a frequency-severity GLM for pricing, IBNR reserves from two complementary methods and anomaly flags on claims before adjustment, on a synthetic portfolio calibrated with public CONDUSEF and AMIS data."
 date: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/CarteraSeguroAutos"
   live: "https://cartera-autos-451451662791.us-central1.run.app"
 tags: ["R", "Shiny", "GLM", "IBNR", "Monte Carlo", "bslib", "CONDUSEF", "AMIS", "fraud", "auto"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/cartera-autos.webp"
 heroAlt: "One set of auto claims feeds a premium decomposition, a reserve triangle, and anomaly review."
 heroCaption: "The same claims experience helps price coverage, estimate unpaid losses, and prioritize cases for review."

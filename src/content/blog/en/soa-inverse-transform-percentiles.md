@@ -1,12 +1,12 @@
 ---
-title: "Transforming a Random Variable Doesn't Move the Probability: The Inverse Function Trick"
-description: "When an insurance policy modifies the payment based on the loss, what you have is a transformed random variable. Finding its percentiles doesn't require deriving a new distribution from scratch — it only requires inverting the transformation and using the CDF you already have."
+title: "How to Find Percentiles of a Transformed Random Variable (SOA Exam P)"
+description: "To find a percentile of a transformed random variable, such as an insurer's payment after a deductible, invert the transformation and use the CDF you already have instead of deriving a new distribution. The post builds this from the ordinary deductible, the way SOA Exam P tends to ask it."
 date: "2026-03-05"
 category: "fundamentos-actuariales"
 lang: "en"
 shape: "study-guide"
 tags: ["transformations", "percentiles", "exam-P", "SOA", "insurance", "CDF"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/soa-inverse-transform-percentiles.webp"
 heroAlt: "The same ordered dots appear on two scales; the transformation compresses values while preserving the group below the percentile."
 heroCaption: "An increasing transformation changes the percentile value while preserving the set of scenarios below it."

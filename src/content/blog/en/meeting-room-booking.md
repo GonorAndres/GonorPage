@@ -1,6 +1,6 @@
 ---
-title: "A project on Cloudflare: the room-booking app that started on a whiteboard"
-description: "Web platform tools and coding agents make possible something that used to take a whole team: a small group having a tool built to its own measure. This one belongs to a cowork that ran its two meeting rooms on a physical whiteboard, where finding out whether one was free meant walking over to it. Moving that information to the phone with Cloudflare Pages and a D1 database was the easy part; the rest was designing asynchronous coordination, which is how nearly everyone works now."
+title: "Build a Room Booking App on Cloudflare Pages and D1"
+description: "A small team can have a room-booking app built to its own measure with Cloudflare Pages, a D1 database and a coding agent. This one replaced a cowork's physical whiteboard for its two meeting rooms, where checking availability meant walking over to read it, and put that information on the phone."
 date: "2026-09-05"
 category: "herramientas"
 lang: "en"
@@ -11,7 +11,7 @@ ficha:
   año: "2026"
   stack: "Cloudflare Pages · Pages Functions · D1 (SQLite) · Resend · PostHog · Plain HTML/CSS/JS"
   estado: "Deployed, not yet in use"
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/meeting-room-booking.webp"
 heroAlt: "Several phones share one booking grid for two rooms, with a released interval and its change record."
 heroCaption: "A shared schedule makes occupancy and changes visible without requiring everyone to stand at the whiteboard."

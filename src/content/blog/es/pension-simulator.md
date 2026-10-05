@@ -1,6 +1,6 @@
 ---
-title: "Simulador de Pensión IMSS: Ley 73, Ley 97 y Fondo Bienestar en una Sola Herramienta"
-description: "La mayoría de los trabajadores mexicanos no sabe bajo qué régimen de pensión cotiza ni cuánto recibirá al retiro, y la información oficial no simplifica la comparación entre Ley 73, Ley 97 y Fondo Bienestar. Este simulador implementa las tres fórmulas con datos actualizados (UMA, tablas CONSAR, mortalidad EMSSA 2009) y permite explorar escenarios con análisis de sensibilidad interactivo. El resultado es una estimación educativa que muestra qué controlas y qué no."
+title: "Cómo se calcula la pensión IMSS: Ley 73 vs Ley 97 vs Fondo Bienestar"
+description: "La pensión IMSS se calcula con una fórmula distinta según el régimen: Ley 73, Ley 97 (AFORE) o Fondo Bienestar. Este simulador implementa las tres con datos vigentes (UMA, tablas CONSAR, mortalidad EMSSA 2009) y, con análisis de sensibilidad interactivo, da una estimación educativa que muestra qué controla el trabajador y qué no."
 date: "2026-03-16"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +15,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/seguridad-social/tree/main/fondo_bienestar"
   live: "https://simulador-pension-d3qj5vwxtq-uc.a.run.app/"
 tags: ["R", "Shiny", "IMSS", "AFORE", "Pensiones", "Ley 73", "Ley 97", "Fondo Bienestar", "seguridad social", "CONSAR"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/pension-simulator.webp"
 heroAlt: "Dos recorridos convierten una historia laboral en pagos de pensión; el de ahorro individual incluye un complemento condicionado."
 heroCaption: "El régimen define cómo se calcula la pensión; en el ahorro individual, el complemento depende de cumplir condiciones."

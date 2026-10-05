@@ -1,6 +1,6 @@
 ---
-title: "Risk Analyst: 13 Quantitative Risk Analysis Projects"
-description: "Financial risk models lose credibility when they exist only as formulas in a PDF. These 13 modules implement them in typed Python with automated tests: from portfolio VaR and Monte Carlo simulation to copulas, EVT, deep hedging, and graph neural networks for systemic contagion. Each module pairs LaTeX theory with reproducible results on public market data."
+title: "Quantitative Risk Analysis in Python: 13 Projects (VaR, Monte Carlo, Copulas, EVT)"
+description: "Quantitative risk models become credible when implemented in typed Python with automated tests instead of left as formulas in a PDF. Thirteen modules cover portfolio VaR, Monte Carlo simulation, copulas, EVT, deep hedging and graph neural networks for systemic contagion, each pairing LaTeX theory with reproducible results on public market data."
 date: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "en"
@@ -13,7 +13,7 @@ ficha:
   estado: "Finalizado"
   repositorio: "https://github.com/GonorAndres/risk-analyst"
 tags: ["Python", "Financial Risk", "VaR", "Monte Carlo", "Machine Learning", "Deep Hedging", "Copulas", "EVT"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/risk-analyst.webp"
 heroAlt: "Observed samples and modeled distributions meet on a comparison plate that keeps mismatches visible."
 heroCaption: "A risk measure becomes useful when its estimates are checked against observed losses."

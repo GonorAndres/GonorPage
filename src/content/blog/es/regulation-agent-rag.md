@@ -1,6 +1,6 @@
 ---
-title: "Asistente de Regulación Actuarial: por qué RAG es el enfoque correcto para LISF y CUSF"
-description: "Interpretar la LISF y la CUSF exige navegar entre artículos que se referencian mutuamente entre leyes, y un Ctrl+F no distingue el artículo que define reservas técnicas del que las menciona de paso. La IA permite absorber todo ese volumen sin perder un solo detalle. Este agente usa RAG para indexar cada artículo de forma individual con un grafo de referencias cruzadas, eliminando las alucinaciones de citas y permitiendo que el modelo razone solo sobre texto real de la ley. El resultado es un asistente que amplifica la memoria del actuario sin sustituir su criterio."
+title: "Buscar en la LISF y la CUSF con IA: asistente RAG para actuarios"
+description: "Un asistente RAG permite buscar en la LISF y la CUSF porque sus artículos se referencian entre leyes y un Ctrl+F no distingue el artículo que define reservas técnicas del que las menciona de paso. El agente indexa cada artículo con un grafo de referencias cruzadas, elimina las alucinaciones de citas y hace que el modelo razone solo sobre el texto real de la ley, amplificando la memoria del actuario sin sustituir su criterio."
 date: "2026-03-22"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -18,7 +18,7 @@ ficha:
     - { label: "Explorador LISF/CUSF", url: "https://lisf.gonor.me/explorer" }
     - { label: "Versión open-source (HuggingFace)", url: "https://huggingface.co/spaces/GonorAndres/lisf-agent" }
 tags: ["RAG", "LISF", "CUSF", "CNSF", "FTS5", "BM25", "Claude", "FastAPI", "GCP", "referencias-cruzadas"]
-lastModified: "2026-09-12"
+lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/regulation-agent-rag.webp"
 heroAlt: "Artículos vinculados entre dos conjuntos normativos se seleccionan como evidencia para una respuesta conectada con sus fuentes."
 heroCaption: "La recuperación reúne artículos y referencias cruzadas antes de elaborar una respuesta que el lector pueda contrastar."
