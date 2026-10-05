@@ -15,8 +15,8 @@ ficha:
 tags: ["pricing", "GLM", "XGBoost", "LightGBM", "SHAP", "freMTPL2", "actuarial", "frequency-severity", "Optuna", "MLflow", "fairness"]
 lastModified: "2026-10-03"
 heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
-heroAlt: "The same policy data follows linear and tree-based models to compare predictions and feature contributions."
-heroCaption: "Comparing pricing models requires considering predictive performance alongside an explanation of each result."
+heroAlt: "Motor policies take two paths: a row of multiplicative factors and a grove of decision trees; both end at nearly identical price tags."
+heroCaption: "Two routes to the same price: the factor formula and decision trees, compared on the same policies."
 ---
 
 Mexico is the only OECD country without mandatory federal auto liability insurance. Roughly 30% of vehicles carry any coverage at all. The remaining 70% represents 35 million uninsured cars on the road; a market failure that cuts two ways. Accident victims have no recourse. Insurers price conservatively to compensate for the adverse selection they face. And the methods used by most Mexican carriers remain traditional: manual rating tables with a handful of variables, actuarial judgment weighted over algorithmic precision, limited use of predictive modeling techniques that have already reshaped European and North American insurance.

@@ -15,9 +15,9 @@ ficha:
   live: "https://ml-insurance.gonor.me"
 tags: ["tarificación", "GLM", "XGBoost", "SHAP", "fairness", "freMTPL2", "actuaría", "Cloud Run"]
 lastModified: "2026-10-03"
-heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
-heroAlt: "Los datos de pólizas de autos recorren un modelo lineal y otro de árboles para comparar sus predicciones de riesgo."
-heroCaption: "Un modelo de tarificación necesita evidencia predictiva y una explicación que se pueda auditar."
+heroImage: "/blog-illustrations/insurance-pricing-lab.webp"
+heroAlt: "Unos controles arman una póliza de auto que alimenta dos instrumentos: una fórmula abierta de pesos a la vista y una caja con árboles cuya lupa muestra qué movió la predicción; detrás, la nota técnica."
+heroCaption: "La fórmula se ve completa; el modelo necesita una lupa para explicarse, y ambos se defienden en una nota técnica."
 relatedPosts: ["actuarial-ml-pricing", "sima", "gmm-explorer"]
 ---
 

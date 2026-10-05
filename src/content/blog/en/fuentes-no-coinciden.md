@@ -13,6 +13,9 @@ ficha:
   datos: "Fictional example; no figures come from a client"
   estado: "Method case study"
 relatedPosts: ["data-engineering-platform", "teaching-apis"]
+heroImage: "/blog-illustrations/fuentes-no-coinciden.webp"
+heroAlt: "A column of conversions attributed to an ad is matched by threads to boxes of confirmed orders; a few conversions sit apart, with no order."
+heroCaption: "The ad platform and the sales record count different things; reconciliation shows where they meet."
 ---
 
 A campaign may report twenty conversions while the commercial system records fifteen sales. That difference alone does not prove either source is broken. Each observes a different moment and answers a different question: the platform estimates the actions it can credit to itself; the business records what happened in the sale.

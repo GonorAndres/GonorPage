@@ -13,6 +13,9 @@ ficha:
   datos: "Ejemplo ficticio; ninguna cifra corresponde a un cliente"
   estado: "Caso metodológico"
 relatedPosts: ["data-engineering-platform", "teaching-apis"]
+heroImage: "/blog-illustrations/fuentes-no-coinciden.webp"
+heroAlt: "Una columna de conversiones atribuidas a un anuncio se empareja con hilos contra cajas de pedidos confirmados; algunas conversiones quedan aparte, sin pedido."
+heroCaption: "La plataforma y el registro de ventas cuentan cosas distintas; la conciliación muestra dónde se encuentran."
 ---
 
 Una campaña puede informar veinte conversiones mientras el sistema comercial registra quince ventas. La diferencia no prueba por sí sola que una de las fuentes esté rota. Cada una observa un momento distinto y responde una pregunta distinta: la plataforma calcula qué acciones puede atribuirse; el negocio registra lo que realmente ocurrió en la venta.

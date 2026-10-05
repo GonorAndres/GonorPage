@@ -13,6 +13,9 @@ ficha:
   datos: "Fictional scenario; no figures come from a client"
   estado: "Method case study"
 relatedPosts: ["analytics-dashboards", "fuentes-no-coinciden"]
+heroImage: "/blog-illustrations/tablero-corte-comun.webp"
+heroAlt: "Three data ribbons (ads and spend, sales, web sessions) arrive with different clocks; one vertical line cuts all of them, and the chart, where the shortest ends."
+heroCaption: "The dashboard compares only up to the hour every source has complete."
 ---
 
 A dashboard can look current while comparing data that arrived at different times. If advertising is complete through 3 p.m., sales through 1 p.m., and web traffic through 2 p.m., a return metric at 3 p.m. mixes three clocks. Spend seems to rise without matching sales. That may be a real problem, or merely a difference in when the data arrived.

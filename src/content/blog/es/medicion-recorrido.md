@@ -13,6 +13,9 @@ ficha:
   datos: "Recorrido y cifras ficticios; ninguna persona o cliente real"
   estado: "Caso metodológico"
 relatedPosts: ["fuentes-no-coinciden", "analytics-dashboards"]
+heroImage: "/blog-illustrations/medicion-recorrido.webp"
+heroAlt: "Un anuncio de producto en el teléfono lleva a una página con formulario y a una ficha en el CRM; etiquetas de seguimiento verificadas cuelgan del recorrido, salvo la última, todavía vacía."
+heroCaption: "Antes de optimizar, cada paso del recorrido necesita su propia evidencia."
 ---
 
 Una campaña genera clics, pero el equipo no sabe cuántos visitantes llegaron al formulario, cuántos lo enviaron y cuántos terminaron como prospectos útiles. Sin esa cadena, una caída del embudo puede ser un problema de experiencia de usuario o de medición. Cambiar el sitio antes de distinguirlos puede gastar esfuerzo en el lugar equivocado.

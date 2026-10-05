@@ -13,6 +13,9 @@ ficha:
   datos: "Fictional journey and figures; no real person or client"
   estado: "Method case study"
 relatedPosts: ["fuentes-no-coinciden", "analytics-dashboards"]
+heroImage: "/blog-illustrations/medicion-recorrido.webp"
+heroAlt: "A product ad on a phone leads to a landing page with a form and to a CRM record; verified tracking tags hang along the path, except the last one, still empty."
+heroCaption: "Before optimizing, each step of the journey needs its own evidence."
 ---
 
 A campaign produces clicks, but the team cannot tell how many visitors reached the form, how many submitted it, and how many became useful prospects. Without that chain, a funnel decline might be a user-experience problem or a measurement problem. Changing the site before distinguishing them can send effort to the wrong place.

@@ -13,6 +13,9 @@ ficha:
   datos: "Escenario ficticio; ninguna cifra corresponde a un cliente"
   estado: "Caso metodológico"
 relatedPosts: ["analytics-dashboards", "fuentes-no-coinciden"]
+heroImage: "/blog-illustrations/tablero-corte-comun.webp"
+heroAlt: "Tres bandas de datos (anuncios y gasto, ventas, sesiones web) llegan con relojes distintos; una línea vertical corta todas, y la gráfica, donde termina la más corta."
+heroCaption: "El tablero compara solo hasta la hora que todas las fuentes tienen completa."
 ---
 
 Un tablero puede verse actualizado y, al mismo tiempo, comparar datos que no llegaron juntos. Si la publicidad ya tiene información hasta las 15:00, las ventas hasta las 13:00 y el tráfico web hasta las 14:00, el retorno calculado a las 15:00 mezcla tres relojes. El gasto parece crecer sin ventas que lo acompañen. Puede ser un problema real, pero también puede ser sólo una diferencia en la llegada de los datos.

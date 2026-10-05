@@ -15,9 +15,9 @@ ficha:
   live: "https://ml-insurance.gonor.me"
 tags: ["insurance pricing", "GLM", "XGBoost", "SHAP", "fairness", "freMTPL2", "actuarial", "Cloud Run"]
 lastModified: "2026-10-03"
-heroImage: "/blog-illustrations/actuarial-ml-pricing.webp"
-heroAlt: "The same motor-policy data follows a linear model and a tree-based model so their risk predictions can be compared."
-heroCaption: "A pricing model needs both predictive evidence and an explanation that can be audited."
+heroImage: "/blog-illustrations/insurance-pricing-lab.webp"
+heroAlt: "Controls build a car policy that feeds two instruments: an open formula with every weight visible and a box of trees whose lens shows what moved the prediction; behind them, the technical note."
+heroCaption: "The formula is visible in full; the model needs a lens to explain itself, and both must be defended in a technical note."
 relatedPosts: ["actuarial-ml-pricing", "sima", "gmm-explorer"]
 ---
 
