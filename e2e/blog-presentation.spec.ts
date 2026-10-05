@@ -114,9 +114,9 @@ for (const locale of locales) {
       const heroBox = await hero.boundingBox();
       const titleBox = await page.getByRole('heading', { level: 1 }).boundingBox();
       const summaryBox = await page.locator('main article section.lede').boundingBox();
-      // Answer-first: the summary sits between the title and the hero.
-      expect(summaryBox!.y).toBeGreaterThan(titleBox!.y + titleBox!.height);
-      expect(heroBox!.y).toBeGreaterThan(summaryBox!.y + summaryBox!.height);
+      // Image first: the hero sits between the title and the summary.
+      expect(heroBox!.y).toBeGreaterThan(titleBox!.y + titleBox!.height);
+      expect(summaryBox!.y).toBeGreaterThan(heroBox!.y + heroBox!.height);
       const summary = page.locator('main article section.lede');
       await expect(summary).toHaveAttribute('aria-label', locale.lang === 'es' ? 'Resumen' : 'Summary');
       await expect(summary.locator('h2')).toHaveCount(0);
