@@ -10,7 +10,7 @@ export interface Project {
   localizedUrl?: Partial<Record<Lang, string>>; // optional live URL for a specific portfolio language
   urls?: Array<{ label: Record<Lang, string>; url: string }>; // optional: when present, "Ver en vivo" opens a dropdown with multiple live URLs
   repo?: string;         // GitHub repo URL — only set when url points to a live deployment
-  platform: 'GitHub' | 'Drive' | 'Vercel' | 'Colab' | 'GCP' | 'HuggingFace' | 'Firebase' | 'Cloudflare';
+  platform: 'GitHub' | 'Drive' | 'Vercel' | 'Colab' | 'GCP' | 'HuggingFace' | 'Firebase' | 'Cloudflare' | 'Twilio';
   category: ProjectCategory;
   tags: Record<Lang, string[]>;
   variant: 'standard' | 'tall' | 'wide';
@@ -26,6 +26,35 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+
+  // live: https://ai-caller.gonor.me/talk
+  // repo: https://github.com/GonorAndres/call-screener (private)
+  // source: original work; answers only from knowledge/profile.md (public CV + gonor.me facts)
+  {
+    slug: 'voice-agent',
+    title: {
+      es: 'Agente de voz: una IA que contesta por ti',
+      en: 'Voice agent: an AI that answers for you',
+    },
+    description: {
+      es: 'Cuando no alcanzas a contestar tu iPhone o tu Pixel, un asistente de voz con IA puede atender por ti, con el tono y la información que tú elijas, y mandarte un mensaje con quién llamó y para qué. Se arma en un par de horas con piezas existentes. Aquí responde preguntas sobre mi trabajo: presiona el botón y pregúntale en español o inglés.',
+      en: "When you can't get to your iPhone or Pixel, an AI voice assistant can answer for you, with the tone and information you choose, and text you who called and why. It comes together in a couple of hours from existing pieces. Here it answers questions about my work: press the button and ask it something in Spanish or English.",
+    },
+    url: 'https://ai-caller.gonor.me/talk',
+    platform: 'Twilio',
+    category: 'data-science',
+    tags: {
+      es: ['Agente de voz', 'OpenAI Realtime', 'Twilio', 'WebRTC', 'Node.js'],
+      en: ['Voice agent', 'OpenAI Realtime', 'Twilio', 'WebRTC', 'Node.js'],
+    },
+    variant: 'standard',
+    screenshot: '/screenshots/voice-agent.webp',
+    relatedTo: ['lisf-agent', 'proust-attention'],
+    blogSlug: 'voice-agent',
+    tier: 2,
+    creation_date: '2026-10-04',
+    last_modification_date: '2026-10-04',
+  },
   // live: https://code-video.gonor.me
   // source: original portfolio; editable scenes, rendering workflow, and independent product concepts
   {
@@ -715,6 +744,7 @@ export const projects: Project[] = [
       en: ['Python', 'GLM', 'XGBoost', 'SHAP', 'Fairness', 'FastAPI'],
     },
     variant: 'wide',
+    screenshot: '/screenshots/actuarial-ml-pricing.webp',
     relatedTo: ['sima', 'data-analyst-portfolio', 'credit-risk', 'insurance-pricing-lab'],
     blogSlug: 'actuarial-ml-pricing',
     tier: 2,
@@ -745,6 +775,7 @@ export const projects: Project[] = [
       en: ['GLM', 'XGBoost', 'SHAP', 'FastAPI', 'Cloud Run', 'Cloudflare'],
     },
     variant: 'standard',
+    screenshot: '/screenshots/insurance-pricing-lab.webp',
     relatedTo: ['insurance-pricing-ml', 'sima', 'gmm-explorer'],
     blogSlug: 'insurance-pricing-lab',
     tier: 2,
@@ -774,6 +805,7 @@ export const projects: Project[] = [
       en: ['Rust', 'WASM', 'Data Structures', 'PostgreSQL'],
     },
     variant: 'standard',
+    screenshot: '/screenshots/b-trees-optimization.webp',
     relatedTo: ['data-analyst-portfolio'],
     blogSlug: 'b-trees-optimization',
     tier: 3,
@@ -951,6 +983,7 @@ export const projects: Project[] = [
       en: ['Julia', 'Lee-Carter', 'Buhlmann-Straub', 'LISF', 'Microfinance', 'INEGI'],
     },
     variant: 'standard',
+    screenshot: '/screenshots/micro-insurance.webp',
     relatedTo: ['sima', 'pension-simulator', 'lisf-agent', 'actuarial-suite', 'michoacan'],
     tier: 3,
     status: 'in-development',
