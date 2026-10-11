@@ -251,7 +251,7 @@ Neither plan has been executed yet as of 2026-07-12 (no Excel-consolidation/Powe
 The `/artifacts/` route (formerly `/notes/` — renamed 2026-04-19) houses both PDF entries and interactive HTML artifacts. All entries live in `src/data/notes.ts`; HTML artifacts also have `type: 'artifact'` and a folder under `public/artifacts/<folder>/index.html`.
 
 - **Pattern contract**: `ARTIFACTS.md` (repo root) — folder convention, required universal back-pill snippet, `?lang=` auto-detect logic, per-artifact checklist. Read this before adding a new HTML artifact.
-- **Legacy URLs**: `/notes/*` paths still resolve via redirect pages declared in `astro.config.mjs`.
+- **Legacy URLs**: `/notes/*` paths answer with a real 301 to `/artifacts/*` from `public/_redirects` on Cloudflare; the meta-refresh pages declared in `astro.config.mjs` remain as a fallback for local preview.
 
 ### Current HTML artifacts and their sandbox sources
 
