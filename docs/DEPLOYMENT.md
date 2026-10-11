@@ -214,8 +214,23 @@ Expected behaviour, which is what to check after any change to DNS, rules or
 | `https://gonor.me/does-not-exist/` | 404 |
 | `https://gonorpage.pages.dev/x/` | 301 to `https://gonor.me/x/` |
 | `https://gonorpage-dev.pages.dev/` | 200 with `x-robots-tag: noindex, nofollow` |
-| `https://gonorandres.github.io/GonorPage/x/` | lands on `https://gonor.me/x/` (served by the `GonorAndres.github.io` redirect repo) |
+| `https://gonorandres.github.io/GonorPage/x/` | 301 to `http://gonor.me/x/`, then 301 to `https://gonor.me/x/` (see below) |
 | `https://gonor.me/ingest/...` | answered by the PostHog proxy Worker, not a Pages 404 |
+
+### GitHub Pages is kept as a redirector
+
+GitHub Pages stays enabled on `GonorAndres/GonorPage` with the custom domain
+`gonor.me`, although DNS no longer points at GitHub and nothing deploys there
+any more. Its only job is the old project-site URL: GitHub answers
+`gonorandres.github.io/GonorPage/*` with a real 301 to the custom domain,
+preserving the path. A 301 is what passes search ranking from old links, which
+a JavaScript or meta-refresh redirect does not do reliably. Its certificate
+status will keep showing an error; that is expected and harmless, since no
+visitor reaches GitHub's servers for `gonor.me`.
+
+Do not remove the custom domain or disable Pages on that repo, or those links
+404. The hop to `https` is a second redirect, because GitHub can no longer
+enforce HTTPS for a domain it does not serve.
 
 ## Analytics in dev
 
@@ -238,6 +253,30 @@ secrets, for the production build.
    rules stop working.
 4. If the last deployment is bad, roll back to the previous deployment from the
    dashboard. That needs no build.
+
+### Roll back production to GitHub Pages
+
+Only if Cloudflare Pages itself is the problem. GitHub Pages is still enabled
+with the custom domain, so this works as long as that stays true. It serves
+GitHub's **last build from before 2026-10-11**, though, because nothing deploys
+there any more, so treat it as an emergency fallback, not a second production.
+
+1. In the gonor.me zone, delete `CNAME gonor.me → gonorpage.pages.dev` and
+   create four proxied A records: `185.199.108.153`, `185.199.109.153`,
+   `185.199.110.153`, `185.199.111.153`.
+2. Set SSL/TLS mode to **Full**, not strict: GitHub's certificate for gonor.me
+   is expired and cannot renew behind the proxy.
+3. The redirect rules, the Bulk Redirect and the `/ingest` Worker route keep
+   working unchanged.
+
+To return, do the reverse and set **Full (strict)** again.
+
+### Periodic check
+
+`curl -sI https://gonorandres.github.io/GonorPage/ | grep -i location` must
+still point at `gonor.me`. If GitHub ever drops the custom domain from the
+repo, those old links 404 until the custom domain is restored, or the
+`GonorAndres.github.io` redirect repo is published as a fallback.
 
 ### Search Console after any hosting change
 
