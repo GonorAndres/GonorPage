@@ -10,10 +10,10 @@ Full detail in [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md). Read it before doing 
 
 | Environment | Branch | Host | URL |
 |---|---|---|---|
-| Production | `main` | GitHub Pages | https://gonor.me |
-| Development | `dev` | Cloudflare Pages | https://gonorpage-dev.pages.dev |
+| Production | `main` | Cloudflare Pages (`gonorpage`, deployed by GitHub Actions) | https://gonor.me |
+| Development | `dev` | Cloudflare Pages (`gonorpage-dev`, Git integration) | https://gonorpage-dev.pages.dev |
 
-Cloudflare builds only `dev` (`preview_deployment_setting: "none"`). No other
+The `gonorpage-dev` project builds only `dev` (`preview_deployment_setting: "none"`). No other
 branch, including `main` or any `feature/*` branch, produces a build, a URL, or
 a dashboard row.
 
@@ -27,8 +27,8 @@ The flow is `push -> dev -> PR -> main`. There is exactly one pull request in th
 - "Deploy" means: push the work to `dev`, verify it on the dev URL, then open `dev` -> `main` and let the user merge it.
 - The dev URL is public to anyone holding the link. Never push anything to `dev` that must stay private.
 - The only exception is if the user explicitly says "push to main" in that specific message.
-- Cloudflare Pages builds dev through its GitHub App, so there are no Cloudflare secrets in this repo and nothing to configure in Actions. Its build settings live in the Cloudflare dashboard and are mirrored in `docs/DEPLOYMENT.md`; if they change, update that file in the same PR.
-- `public/_headers` noindexes everything Cloudflare serves. It is inert on GitHub Pages. Do not "fix" it, and do not move production to Cloudflare without reworking it first.
+- Production deploys from `.github/workflows/deploy.yml` (build, SEO guard, Playwright gate, `wrangler pages deploy` to `gonorpage`, smoke test) using a Pages-only `CLOUDFLARE_API_TOKEN` secret. Dev is built by Cloudflare's GitHub App; its build settings live in the Cloudflare dashboard and are mirrored in `docs/DEPLOYMENT.md`; if they change, update that file in the same PR.
+- Production and dev serve the same build, so indexing is controlled by hostname: `public/_headers` noindexes only `*.pages.dev` hosts. Never put `X-Robots-Tag` under a path-only rule like `/*`; it would deindex gonor.me (`scripts/check-seo-output.mjs` fails the deploy if you do). Never add `_worker.js` or `functions/`: they disable `_headers` and `_redirects`. Details in `docs/DEPLOYMENT.md` → SEO safeguards.
 - Old dev deployments accumulate in the Cloudflare dashboard as history; delete stale ones per `docs/DEPLOYMENT.md` if it gets cluttered.
 
 ## Session Start Checklist
@@ -339,7 +339,7 @@ Place images in `public/screenshots/`. Captions are optional but recommended. Th
 
 - Framework: Astro 5 + Tailwind + React islands + MDX
 - Content Layer: config at `src/content.config.ts` with explicit `glob()` loader; posts use `post.id` (format: `es/slug` or `en/slug`) not `post.slug`; render via `import { render } from 'astro:content'` then `render(post)`
-- Deployment: GitHub Pages (GonorAndres.github.io)
+- Deployment: Cloudflare Pages via GitHub Actions (repo `GonorAndres/GonorPage`; the local folder name `GonorAndres.github.io` is historical)
 - Project platforms: GitHub, Drive, Vercel, Colab, GCP, HuggingFace, Firebase
 - i18n: ES (default, no prefix) / EN (/en/)
 - Blog categories: actuaria-para-todos, fundamentos-actuariales, proyectos-y-analisis, herramientas, mercado-mexicano

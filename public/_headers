@@ -1,14 +1,23 @@
 # Cloudflare Pages header rules.
 #
-# This file is only interpreted by Cloudflare Pages, which in this repo hosts
-# ONLY the dev and preview environments (gonorpage-dev.pages.dev). Production
-# runs on GitHub Pages, which serves this file as a plain static asset and
-# ignores its contents. That asymmetry is deliberate: a blanket noindex here
-# keeps every dev/preview deployment out of search results without needing an
-# environment variable, a build flag, or a conditional in astro.config.mjs.
+# Both environments are Cloudflare Pages projects built from this repo:
+# production `gonorpage` (served at gonor.me) and development `gonorpage-dev`.
+# One file serves both, so the noindex rules below are scoped by HOST, never by
+# path: they match only the auto-generated *.pages.dev hostnames (including
+# <hash>.<project>.pages.dev previews), and never gonor.me.
 #
-# If production ever moves to Cloudflare Pages, this file MUST be reworked
-# first, or gonor.me will be deindexed. See docs/DEPLOYMENT.md.
+# NEVER add an X-Robots-Tag under a path-only rule such as `/*`. It would apply
+# to gonor.me and deindex the whole site. deploy.yml fails the build if any
+# X-Robots-Tag appears under a rule that does not start with https://.
+# See docs/DEPLOYMENT.md.
 
-/*
+https://:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+
+# Astro emits content-hashed filenames under /_astro/, so they never change in
+# place and can be cached for a year.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects. Rules here win over static files with the same path.
+#
+# Legacy /notes/* URLs moved to /artifacts/* in the 2026-04 rename. astro.config.mjs
+# also emits meta-refresh pages for them (used by `astro dev`/`astro preview`), but
+# on Cloudflare these rules answer first with a real 301, which is what search
+# engines need to transfer the old URLs.
+/notes          /artifacts/     301
+/notes/         /artifacts/     301
+/en/notes       /en/artifacts/  301
+/en/notes/      /en/artifacts/  301
+/notes/*        /artifacts/:splat     301
+/en/notes/*     /en/artifacts/:splat  301
