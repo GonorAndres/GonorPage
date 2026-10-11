@@ -110,3 +110,6 @@ cv/**/kayum*
 cv/**/stefanini*
 cv/**/ds_stats_latam*
 cv/**/reinsurance_lh*
+
+# Local `wrangler pages dev` state
+.wrangler/

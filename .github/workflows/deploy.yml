@@ -1,4 +1,9 @@
-name: Deploy to GitHub Pages
+name: Deploy to Cloudflare Pages
+
+# Production: every push to `main` builds the site, runs the deploy gate and
+# the SEO guard, and uploads dist/ to the Cloudflare Pages project `gonorpage`,
+# which serves https://gonor.me. Nothing is published if any step fails.
+# See docs/DEPLOYMENT.md.
 
 on:
   push:
@@ -7,15 +12,13 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: production-deploy
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +35,9 @@ jobs:
         env:
           PUBLIC_POSTHOG_KEY: ${{ secrets.PUBLIC_POSTHOG_KEY }}
 
+      - name: SEO guard
+        run: node scripts/check-seo-output.mjs dist
+
       - name: Install Playwright (chromium only)
         run: npx playwright install --with-deps chromium
 
@@ -44,18 +50,31 @@ jobs:
       - name: Run deploy gate tests
         run: npx playwright test --config=playwright.ci.config.ts
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
         with:
-          path: dist/
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=gonorpage --branch=main --commit-dirty=true
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Smoke test the deployment
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          set -u
+          fail() { echo "::error::$1"; exit 1; }
+          # Wait for the new deployment to answer.
+          for i in $(seq 1 12); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "$DEPLOY_URL/") && [ "$code" = 200 ] && break
+            sleep 5
+          done
+          [ "$code" = 200 ] || fail "$DEPLOY_URL/ returned $code"
+          code=$(curl -s -o /dev/null -w '%{http_code}' "$DEPLOY_URL/does-not-exist/")
+          [ "$code" = 404 ] || fail "unknown path returned $code, expected 404 (SPA fallback means 404.html is missing)"
+          curl -sI "$DEPLOY_URL/" | grep -qi '^x-robots-tag: noindex' || fail "pages.dev deployment is not noindexed"
+          # gonor.me must never carry a robots header.
+          if curl -sI https://gonor.me/ | grep -qi '^x-robots-tag'; then fail "gonor.me sends X-Robots-Tag"; fi
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://gonor.me/)
+          [ "$code" = 200 ] || fail "https://gonor.me/ returned $code"
+          echo "Smoke test passed for $DEPLOY_URL and gonor.me"

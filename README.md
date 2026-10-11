@@ -10,10 +10,10 @@ Built with Astro 5, Tailwind and React islands. Static output.
 
 | Environment | Branch | Host | URL |
 |---|---|---|---|
-| Production | `main` | GitHub Pages | https://gonor.me |
+| Production | `main` | Cloudflare Pages (`gonorpage`, deployed by GitHub Actions) | https://gonor.me |
 | Development | `dev` | Cloudflare Pages | https://gonorpage-dev.pages.dev |
 
-Cloudflare builds only `dev`; no other branch produces a preview. Push straight
+The dev project builds only `dev`; no other branch produces a preview. Push straight
 to `dev` and Cloudflare rebuilds it automatically. The only pull request in
 this model is `dev` → `main`, and it is the only way into production: direct
 pushes to `main` are blocked by a repository ruleset, and a CI check rejects
@@ -34,7 +34,7 @@ npm run build        # static build into dist/
 npm run preview      # serve dist/ locally
 ```
 
-Analytics are disabled on localhost and on Cloudflare; they run only in
+Analytics are disabled on localhost and on the dev site; they run only in
 production.
 
 ## Repository structure
@@ -52,11 +52,12 @@ public/
   docs/           PDFs offered for download
   screenshots/    project thumbnails and gallery images
   artifacts/      self-contained interactive HTML artifacts
-  _headers        Cloudflare-only: keeps dev out of search indexes
+  _headers        noindexes *.pages.dev hosts only; gonor.me stays indexable
+  _redirects      301s for legacy /notes/* URLs
 docs/             deployment, planning and reference documents
-scripts/          OG image and thumbnail generation
+scripts/          OG image and thumbnail generation; check-seo-output.mjs (pre-deploy SEO guard)
 .github/workflows/
-  deploy.yml      production build, test gate and GitHub Pages publish
+  deploy.yml      production build, SEO guard, test gate, Cloudflare Pages deploy
   guard-main.yml  enforces dev as the only source branch for main
 ```
 

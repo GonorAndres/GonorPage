@@ -71,7 +71,7 @@ export default defineConfig({
   // Local-only: lets `astro dev`/`astro preview` be reached through the exe.dev
   // HTTPS proxy (https://<vm>.exe.xyz:<port>/). Vite rejects unknown Host
   // headers otherwise. Astro feeds this to both servers, so it must live here
-  // and not under `vite.preview`. No effect on the GitHub Pages or Cloudflare builds.
+  // and not under `vite.preview`. No effect on the Cloudflare Pages builds.
   server: {
     allowedHosts: ['.exe.xyz'],
   },
