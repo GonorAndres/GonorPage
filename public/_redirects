@@ -10,3 +10,16 @@
 /en/notes/      /en/artifacts/  301
 /notes/*        /artifacts/:splat     301
 /en/notes/*     /en/artifacts/:splat  301
+
+# Conventional sitemap path. The integration emits sitemap-index.xml.
+/sitemap.xml    /sitemap-index.xml    301
+
+# Retired /proyectos/<slug> URLs (Search Console 404s).
+/proyectos/flight-analytics      /blog/flight-analytics-pg-bq/      301
+/proyectos/flight-analytics/     /blog/flight-analytics-pg-bq/      301
+/proyectos/b-tree-explorer       /blog/b-trees-optimization/        301
+/proyectos/b-tree-explorer/      /blog/b-trees-optimization/        301
+/en/proyectos/flight-analytics   /en/blog/flight-analytics-pg-bq/   301
+/en/proyectos/flight-analytics/  /en/blog/flight-analytics-pg-bq/   301
+/en/proyectos/b-tree-explorer    /en/blog/b-trees-optimization/     301
+/en/proyectos/b-tree-explorer/   /en/blog/b-trees-optimization/     301

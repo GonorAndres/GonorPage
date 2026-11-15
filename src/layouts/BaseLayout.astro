@@ -42,8 +42,8 @@ const {
 } = Astro.props;
 
 const description = Astro.props.description ?? (lang === 'en'
-  ? 'UNAM actuary building production actuarial tools: GMM pricing with CNSF data, reserve valuation under LISF, AI agents over Mexican regulation, and data platforms on GCP.'
-  : 'Actuario UNAM. Construyo herramientas actuariales en producción: tarificación GMM con datos CNSF, valuación de reservas bajo LISF, agentes de IA sobre regulación mexicana y plataformas de datos en GCP.');
+  ? 'UNAM actuary and data scientist. Actuarial tools, insurance regulation and data platforms, documented on this site.'
+  : 'Actuario y científico de datos por la UNAM. Herramientas actuariales, regulación de seguros y plataformas de datos, documentadas en este sitio.');
 
 const skipLabel = lang === 'en' ? 'Skip to content' : 'Saltar al contenido';
 ---
@@ -54,7 +54,9 @@ const skipLabel = lang === 'en' ? 'Skip to content' : 'Saltar al contenido';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#E8E0D7" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>

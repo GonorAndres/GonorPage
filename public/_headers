@@ -21,3 +21,8 @@ https://:version.:project.pages.dev/*
 # place and can be cached for a year.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# 180 days. No includeSubDomains and no preload. This is the header Pages
+# sends; the Cloudflare zone HSTS toggle is a separate dashboard setting.
+/*
+  Strict-Transport-Security: max-age=15552000

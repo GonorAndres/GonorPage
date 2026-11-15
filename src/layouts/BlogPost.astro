@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import type { Lang } from '../i18n';
 import { categoryLabels, type Category } from '../data/categories';
+import { metaDescription, metaTitle } from '../lib/seo';
 import 'katex/dist/katex.min.css';
 
 export type PostShape = 'blog' | 'case-study' | 'narrative' | 'study-guide';
@@ -41,6 +42,8 @@ interface Props {
   heroCaption?: string;
   heroAlt?: string;
   relatedPosts: RelatedPost[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 const {
@@ -58,6 +61,8 @@ const {
   heroCaption,
   heroAlt,
   relatedPosts,
+  seoTitle,
+  seoDescription,
 } = Astro.props;
 
 const dateFmt = new Intl.DateTimeFormat(lang === 'es' ? 'es-MX' : 'en-US', {
@@ -128,14 +133,13 @@ if (shape === 'case-study' && ficha) {
 }
 
 const prose = shape;
-const metaDescription = description.length <= 160
-  ? description
-  : `${description.slice(0, 157).replace(/\s+\S*$/, '')}…`;
+const documentTitle = seoTitle ?? metaTitle(title);
+const documentDescription = metaDescription(seoDescription ?? description);
 ---
 
 <BaseLayout
-  title={`${title} | AGO Blog`}
-  description={metaDescription}
+  title={documentTitle}
+  description={documentDescription}
   structuredDescription={description}
   contentTitle={title}
   articleSchema="BlogPosting"

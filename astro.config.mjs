@@ -7,8 +7,31 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { readFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { remarkInternalLinks } from './src/lib/remark-internal-links.mjs';
 
 const SITE = 'https://gonor.me';
+
+// Paths that 301 somewhere else, or that have no page. They must not appear
+// as a sitemap <loc> or as an hreflang target.
+const SITEMAP_SKIP = /^\/(?:en\/)?(?:notes|proyectos)(?:\/|$)/;
+const MISSING_EN_PAGES = new Set([
+  '/en/artifacts/greedy-node/',
+  '/en/artifacts/yuminari-bow/',
+]);
+// One HTML file serves both languages (the toggle does not change the URL).
+const BILINGUAL_ARTIFACTS = new Set([
+  '/artifacts/greedy-node/',
+  '/artifacts/yuminari-bow/',
+]);
+
+function shouldSkipSitemap(url) {
+  try {
+    const path = new URL(url).pathname;
+    return SITEMAP_SKIP.test(path) || MISSING_EN_PAGES.has(path);
+  } catch {
+    return false;
+  }
+}
 
 // Last commit date of the repo, used as <lastmod> for pages that are not blog
 // posts (home, about, blog index, artifacts). Falls back to build time.
@@ -46,22 +69,30 @@ export default defineConfig({
         locales: { es: 'es', en: 'en' },
       },
       // Static HTML artifacts live under public/ and are not Astro pages, so
-      // the integration cannot discover them on its own.
+      // the integration cannot discover them on its own. Do not add an /en/
+      // copy: those URLs 404. Both languages are the same document.
       customPages: [
         `${SITE}/artifacts/greedy-node/`,
         `${SITE}/artifacts/yuminari-bow/`,
       ],
+      filter: (page) => !shouldSkipSitemap(page),
       serialize(item) {
         const pathname = new URL(item.url).pathname;
-        // Legacy /notes/* redirect pages are noindex; keep them out.
-        if (/^\/(en\/)?notes\//.test(pathname)) return undefined;
+        if (shouldSkipSitemap(item.url)) return undefined;
         item.lastmod = blogLastmod(pathname) ?? REPO_LASTMOD;
-        // x-default: point search engines at the Spanish (default locale) URL.
+        if (BILINGUAL_ARTIFACTS.has(pathname)) {
+          // hreflang only to this URL. /en/artifacts/<folder>/ and ?lang=en
+          // are not separate pages.
+          item.links = ['es', 'en', 'x-default'].map((lang) => ({ url: item.url, lang }));
+          return item;
+        }
         if (item.links?.length) {
+          item.links = item.links.filter((link) => !shouldSkipSitemap(link.url));
           const es = item.links.find((l) => l.lang === 'es');
           if (es && !item.links.some((l) => l.lang === 'x-default')) {
             item.links.push({ url: es.url, lang: 'x-default' });
           }
+          if (item.links.length < 2) delete item.links;
         }
         return item;
       },
@@ -76,7 +107,7 @@ export default defineConfig({
     allowedHosts: ['.exe.xyz'],
   },
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkInternalLinks, remarkMath],
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       theme: 'github-light',
@@ -97,5 +128,10 @@ export default defineConfig({
     '/en/notes/': '/en/artifacts/',
     '/en/notes/[slug]': '/en/artifacts/[slug]',
     '/en/notes/categoria/[cat]': '/en/artifacts/categoria/[cat]',
+    // Old project paths Google still requests. Final URLs are the blog posts.
+    '/proyectos/flight-analytics': '/blog/flight-analytics-pg-bq/',
+    '/proyectos/b-tree-explorer': '/blog/b-trees-optimization/',
+    '/en/proyectos/flight-analytics': '/en/blog/flight-analytics-pg-bq/',
+    '/en/proyectos/b-tree-explorer': '/en/blog/b-trees-optimization/',
   },
 });

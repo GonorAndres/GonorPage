@@ -39,6 +39,10 @@ const blog = defineCollection({
     heroCaption: z.string().optional(),
     heroAlt: z.string().optional(),
     relatedPosts: z.array(z.string()).optional(),
+    // Document <title> and meta description. The visible H1 and lede stay on
+    // `title` and `description`.
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
   }),
 });
 

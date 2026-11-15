@@ -3,9 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import OrganicBlob from '../../components/decorations/OrganicBlob.astro';
 import Squiggle from '../../components/decorations/Squiggle.astro';
 
+import { aboutMeta } from '../../lib/page-meta';
+
 const lang = 'en';
-const title = 'About · Andrés González Ortega';
-const description = 'I am an actuary from UNAM and a performance marketing data specialist at Levely in Mexico City. I work on measurement and conversion analysis for growth (business growth guided by data) and go-to-market (GTM) decisions, and I build projects in insurance, data and artificial intelligence.';
+const title = aboutMeta.en.title;
+const description = aboutMeta.en.description;
 
 const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';

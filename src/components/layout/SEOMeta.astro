@@ -62,6 +62,9 @@ if (lang === 'en') {
 }
 const esHref = new URL(esPath, siteUrl).href;
 const enHref = new URL(enPath, siteUrl).href;
+// These two artifacts are one bilingual file. /en/artifacts/<folder>/ 404s,
+// and ?lang=en is the same document, not a second page.
+const enPageExists = esPath !== '/artifacts/greedy-node/' && esPath !== '/artifacts/yuminari-bow/';
 
 const person = {
   '@id': `${siteUrl}/about/#person`,
@@ -149,7 +152,7 @@ const jsonLd = {
 {!noindex && (
   <>
     <link rel="alternate" hreflang="es" href={esHref} />
-    <link rel="alternate" hreflang="en" href={enHref} />
+    {enPageExists && <link rel="alternate" hreflang="en" href={enHref} />}
     <link rel="alternate" hreflang="x-default" href={esHref} />
   </>
 )}

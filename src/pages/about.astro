@@ -3,9 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import OrganicBlob from '../components/decorations/OrganicBlob.astro';
 import Squiggle from '../components/decorations/Squiggle.astro';
 
+import { aboutMeta } from '../lib/page-meta';
+
 const lang = 'es';
-const title = 'Sobre mí · Andrés González Ortega';
-const description = 'Soy actuario por la UNAM y especialista en datos de performance marketing en Levely, en Ciudad de México. Trabajo en medición y análisis de conversión para growth (crecimiento del negocio basado en datos) y decisiones de go-to-market (GTM), y desarrollo proyectos de seguros, datos e inteligencia artificial.';
+const title = aboutMeta.es.title;
+const description = aboutMeta.es.description;
 
 const email = 'gonorandres@ciencias.unam.mx';
 const github = 'https://github.com/GonorAndres';
