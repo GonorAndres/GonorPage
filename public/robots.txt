@@ -1,3 +1,9 @@
+# This file is what the repository ships, and gonor.me currently serves it.
+# Cloudflare's managed robots.txt (AI Crawl Control content signals) replaces
+# the file for a hostname when that setting is on. Leave it off for gonor.me
+# or the Sitemap line below will not be what crawlers see. /sitemap.xml 301s
+# to the index; advertise the final URL here.
+
 User-agent: *
 Allow: /
 

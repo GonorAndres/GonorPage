@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import NotesSearch from '../../components/ui/NotesSearch';
 import { t } from '../../i18n';
 import { getNotes, noteCategories, noteCategoryLabels } from '../../data/notes';
+import { artifactIndexMeta } from '../../lib/page-meta';
 
 const allNotes = getNotes('es');
 
@@ -42,8 +43,8 @@ const labels = {
 ---
 
 <BaseLayout
-  title="Artefactos | Actuaria, Finanzas, Estadistica"
-  description={t('es', 'notes.subtitle')}
+  title={artifactIndexMeta.es.title}
+  description={artifactIndexMeta.es.description}
   lang="es"
 >
   <section class="py-10 sm:py-16 px-4 sm:px-6">

@@ -9,10 +9,14 @@ interface Props {
 const { lang } = Astro.props;
 const targetLang = lang === 'es' ? 'en' : 'es';
 
-// Build the target URL by toggling the /en/ prefix
+// Build the target URL by toggling the /en/ prefix.
+// The 404 page is built as /404/, so a prefix would point at /en/404/, which does not exist.
 const currentPath = Astro.url.pathname;
+const isNotFoundPage = currentPath === '/404' || currentPath === '/404/' || currentPath === '/404.html';
 let targetPath: string;
-if (lang === 'es') {
+if (isNotFoundPage) {
+  targetPath = lang === 'es' ? '/en/' : '/';
+} else if (lang === 'es') {
   targetPath = `/en${currentPath}`;
 } else {
   targetPath = currentPath.replace(/^\/en/, '') || '/';

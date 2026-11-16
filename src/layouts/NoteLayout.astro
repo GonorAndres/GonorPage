@@ -5,6 +5,7 @@ import { t, useTranslatedPath } from '../i18n';
 import CategoryBadge from '../components/ui/CategoryBadge.astro';
 import Squiggle from '../components/decorations/Squiggle.astro';
 import { getNoteBySlug, noteCategoryLabels, type NoteCategory } from '../data/notes';
+import { metaDescription, metaTitle } from '../lib/seo';
 
 interface Props {
   slug: string;
@@ -48,6 +49,13 @@ const relatedNotes = note.relatedNotes
   ?.map((relSlug) => getNoteBySlug(relSlug, lang))
   .filter((n): n is NonNullable<typeof n> => n !== undefined) ?? [];
 
+const twin = getNoteBySlug(slug, lang === 'es' ? 'en' : 'es');
+const titleForMeta = twin && twin.title === note.title
+  ? `${note.title} (${lang.toUpperCase()})`
+  : note.title;
+const documentTitle = metaTitle(titleForMeta);
+const documentDescription = metaDescription(note.description);
+
 const driveLink = note.urls.find((link) => link.url.includes('drive.google.com/file/d/'));
 const driveFileMatch = driveLink?.url.match(/drive\.google\.com\/file\/d\/([^/]+)/) ?? null;
 const previewUrl = driveFileMatch
@@ -58,8 +66,8 @@ const openPreviewLabel = lang === 'es' ? 'Abrir en Google Drive' : 'Open in Goog
 ---
 
 <BaseLayout
-  title={`${note.title} | ${t(lang, 'notes.title')}`}
-  description={note.description}
+  title={documentTitle}
+  description={documentDescription}
   lang={lang}
   ogType="article"
   contentTitle={note.title}
