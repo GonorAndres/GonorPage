@@ -84,6 +84,7 @@ function writeExpanded(expanded: boolean) {
 // Category accent colors — one clear color per category, used for the top bar and badges
 const categoryAccent: Record<ProjectCategory, string> = {
   'actuarial':    '#C17654', // terracotta
+  'ai-engineering': '#6B5B95', // muted plum
   'data-science': '#7A8B6F', // sage
   'data-engineering': '#5B7B9A', // steel blue
   'quant-finance':'#D4A574', // amber
@@ -93,6 +94,7 @@ const categoryAccent: Record<ProjectCategory, string> = {
 
 const categoryBadge: Record<ProjectCategory, string> = {
   'actuarial':    'bg-[#C17654]/15 text-[#C17654]',
+  'ai-engineering': 'bg-[#6B5B95]/15 text-[#6B5B95]',
   'data-science': 'bg-[#7A8B6F]/15 text-[#7A8B6F]',
   'data-engineering': 'bg-[#5B7B9A]/15 text-[#5B7B9A]',
   'quant-finance':'bg-[#D4A574]/25 text-[#8a5e1a]',
@@ -102,6 +104,7 @@ const categoryBadge: Record<ProjectCategory, string> = {
 
 const placeholderGradients: Record<ProjectCategory, string> = {
   'actuarial':    'from-[#C17654]/15 via-[#D4A574]/8 to-transparent',
+  'ai-engineering': 'from-[#6B5B95]/15 via-[#6B5B95]/8 to-transparent',
   'data-science': 'from-[#7A8B6F]/15 via-[#7A8B6F]/8 to-transparent',
   'data-engineering': 'from-[#5B7B9A]/15 via-[#5B7B9A]/8 to-transparent',
   'quant-finance':'from-[#D4A574]/20 via-[#D4A574]/8 to-transparent',
@@ -111,6 +114,7 @@ const placeholderGradients: Record<ProjectCategory, string> = {
 
 const categoryIconPaths: Record<ProjectCategory, string> = {
   'actuarial':    'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+  'ai-engineering': 'M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5',
   'data-science': 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
   'data-engineering': 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01',
   'quant-finance':'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
@@ -670,7 +674,7 @@ function ListRow({ project, labels }: { project: ProjectData; labels: Props['lab
 type SortMode = 'tier' | 'newest' | 'oldest' | 'updated';
 type FilterCat = ProjectCategory | 'all';
 
-const CATEGORY_ORDER: ProjectCategory[] = ['actuarial', 'data-science', 'data-engineering', 'quant-finance', 'applied-math', 'performance-marketing'];
+const CATEGORY_ORDER: ProjectCategory[] = ['actuarial', 'ai-engineering', 'data-science', 'data-engineering', 'quant-finance', 'applied-math', 'performance-marketing'];
 
 export default function ProjectsGrid({ projects, labels }: Props) {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');

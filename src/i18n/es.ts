@@ -39,6 +39,7 @@ export default {
   'projects.viewLive': 'ver en vivo',
   'projects.viewGallery': 'Ver galería',
   'projects.actuarial': 'Actuarial',
+  'projects.ai-engineering': 'Ingeniería de IA',
   'projects.data-science': 'Ciencia de Datos',
   'projects.quant-finance': 'Finanzas Cuantitativas',
   'projects.data-engineering': 'Ingeniería de Datos',

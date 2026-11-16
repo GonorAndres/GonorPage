@@ -1,6 +1,6 @@
 import type { Lang } from '../i18n';
 
-export type ProjectCategory = 'actuarial' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math' | 'performance-marketing';
+export type ProjectCategory = 'actuarial' | 'ai-engineering' | 'data-science' | 'data-engineering' | 'quant-finance' | 'applied-math' | 'performance-marketing';
 
 export interface Project {
   slug: string;
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     },
     url: 'https://ai-caller.gonor.me/talk',
     platform: 'Twilio',
-    category: 'data-science',
+    category: 'ai-engineering',
     tags: {
       es: ['Agente de voz', 'OpenAI Realtime', 'Twilio', 'WebRTC', 'Node.js'],
       en: ['Voice agent', 'OpenAI Realtime', 'Twilio', 'WebRTC', 'Node.js'],
@@ -350,7 +350,7 @@ export const projects: Project[] = [
     ],
     repo: 'https://github.com/GonorAndres/regulation-actuarial-agent',
     platform: 'GCP',
-    category: 'actuarial',
+    category: 'ai-engineering',
     tags: {
       es: ['Claude SDK', 'FastAPI', 'LISF', 'CUSF', 'Python', 'GCP'],
       en: ['Claude SDK', 'FastAPI', 'LISF', 'CUSF', 'Python', 'GCP'],
@@ -682,7 +682,7 @@ export const projects: Project[] = [
     url: 'https://huggingface.co/spaces/GonorAndres/proust-attention',
     repo: 'https://github.com/GonorAndres/proust-attention',
     platform: 'HuggingFace',
-    category: 'data-science',
+    category: 'ai-engineering',
     tags: {
       es: ['PyTorch', 'Transformers', 'NLP', 'Deep Learning'],
       en: ['PyTorch', 'Transformers', 'NLP', 'Deep Learning'],
