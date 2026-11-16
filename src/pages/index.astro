@@ -8,9 +8,10 @@ import Contact from '../components/sections/Contact.astro';
 import NotesTeaser from '../components/sections/NotesTeaser.astro';
 import Squiggle from '../components/decorations/Squiggle.astro';
 import VoiceAgentBanner from '../components/sections/VoiceAgentBanner.astro';
+import { homeMeta } from '../lib/page-meta';
 ---
 
-<BaseLayout title="Andrés González Ortega — Actuario y Científico de Datos | UNAM" lang="es">
+<BaseLayout title={homeMeta.es.title} description={homeMeta.es.description} lang="es">
   <Hero lang="es" />
   <VoiceAgentBanner lang="es" />
   <Squiggle class="w-full h-6" color="#7A8B6F" />

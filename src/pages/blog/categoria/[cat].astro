@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BlogSearch from '../../../components/ui/BlogSearch';
 import { t } from '../../../i18n';
 import { categories, categoryLabels, type Category } from '../../../data/categories';
+import { blogCategoryMeta } from '../../../lib/page-meta';
 
 export async function getStaticPaths() {
   return categories.map((cat) => ({ params: { cat } }));
@@ -53,7 +54,7 @@ const labels = {
 };
 ---
 
-<BaseLayout title={`${categoryLabels['es'][activeCat]} | Blog`} lang="es">
+<BaseLayout title={blogCategoryMeta.es[activeCat].title} description={blogCategoryMeta.es[activeCat].description} lang="es">
   <section class="py-8 sm:py-14 px-4 sm:px-6">
     <div class="max-w-[1020px] mx-auto">
       <div

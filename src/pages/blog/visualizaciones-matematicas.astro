@@ -3,9 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MathVisualizationHub from '../../components/interactive/MathVisualizationHub.jsx';
 import OrganicBlob from '../../components/decorations/OrganicBlob.astro';
 import Squiggle from '../../components/decorations/Squiggle.astro';
+import { mathVizMeta } from '../../lib/page-meta';
 ---
 
-<BaseLayout title="Visualizaciones Matemáticas | Andrés González Ortega" lang="es">
+<BaseLayout title={mathVizMeta.es.title} description={mathVizMeta.es.description} lang="es">
   <section class="relative overflow-hidden py-10 sm:py-16 px-4 sm:px-6 min-h-screen">
     <OrganicBlob variant={2} color="#D4A574" class="w-[400px] h-[400px] -top-16 -right-20 opacity-20" />
     <OrganicBlob variant={4} color="#7A8B6F" class="w-[300px] h-[300px] bottom-0 -left-16 opacity-15" />

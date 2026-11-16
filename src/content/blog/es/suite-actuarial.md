@@ -1,6 +1,8 @@
 ---
 title: "Librería actuarial open-source para México: suite_actuarial (EMSSA-09, LISF)"
 description: "suite_actuarial es una librería Python de código abierto para el trabajo actuarial mexicano, con ocho dominios (vida, daños, salud, pensiones, reservas, reaseguro, regulatorio y configuración), la EMSSA-09, circulares CNSF y artículos SAT integrados desde el diseño. Se instala con pip, se despliega con Docker y expone 28 endpoints REST junto con un dashboard bilingüe en Next.js; no existía una librería de código abierto pensada para la regulación mexicana."
+seoTitle: "Plataforma actuarial: software abierto para México"
+seoDescription: "Plataforma actuarial de código abierto para México. Este software actuarial calcula primas, reservas y capital con la LISF, la CUSF y la EMSSA-09."
 date: "2026-03-19"
 category: "proyectos-y-analisis"
 lang: "es"
@@ -15,7 +17,7 @@ ficha:
   repositorio: "https://github.com/GonorAndres/suite-actuarial"
   live: "https://suite.gonor.me"
 tags: ["Python", "Pydantic", "LISF", "CUSF", "CNSF", "RCS", "Reservas", "Chain Ladder", "Reaseguro", "Next.js", "EMSSA-09", "SAT", "FastAPI", "GMM", "IMSS"]
-lastModified: "2026-10-03"
+lastModified: "2026-11-15"
 heroImage: "/blog-illustrations/suite-actuarial.webp"
 heroAlt: "Un núcleo modular de cálculo actuarial conecta la misma lógica con una biblioteca, una interfaz de servicio y un tablero."
 heroCaption: "Una base común de cálculos y parámetros permite reutilizar la lógica actuarial desde distintas interfaces."
